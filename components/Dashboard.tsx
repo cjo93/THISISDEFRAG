@@ -16,8 +16,12 @@ export const Dashboard: React.FC<DashboardProps> = ({ unitA, unitB, manual }) =>
   const [isPlaying, setIsPlaying] = useState<string | null>(null);
 
   useEffect(() => {
-    setAlerts(getFrictionForecast(unitA));
-    const interval = setInterval(() => setAlerts(getFrictionForecast(unitA)), 15000);
+    const fetchAlerts = async () => {
+      const forecast = await getFrictionForecast(unitA);
+      setAlerts(forecast);
+    };
+    fetchAlerts();
+    const interval = setInterval(fetchAlerts, 15000);
     return () => clearInterval(interval);
   }, [unitA]);
 
@@ -83,7 +87,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ unitA, unitB, manual }) =>
                     }`}>{alert.level}</span>
                     <span className="text-[8px] font-mono text-zinc-800 uppercase tracking-widest">TS: {new Date().toLocaleTimeString()}</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white uppercase tracking-tighter mb-2">>> {alert.alert}</h4>
+                  <h4 className="text-lg font-bold text-white uppercase tracking-tighter mb-2">{'>> '}{alert.alert}</h4>
                   <p className="text-[11px] text-zinc-500 font-mono uppercase leading-relaxed tracking-tighter">{alert.desc}</p>
                 </div>
               ))}

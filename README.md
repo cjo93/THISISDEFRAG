@@ -21,7 +21,7 @@ The application follows a strictly linear topology designed to reduce emotional 
 ## 2. CORE MODULES
 
 ### 2.1 THE CODE SCRAPER (CORE ENGINE)
-Input coordinates are processed via `defragEngine.ts`. The engine utilizes **Proprietary Ephemeris Hashing** to map manufacture coordinates to one of two primary hardware profiles:
+Input coordinates are processed via `defragEngine.ts`. The engine fetches **real planetary ephemeris data from JPL/NASA HORIZONS** to calculate natal aspects and map manufacture coordinates to hardware profiles:
 - **THE DOER (Kinetic Generator):** High-voltage units that run on motion. Systems overheat when idle.
 - **THE GUIDE (Projector):** Observation-based units. Systems shut down in high-noise environments.
 
@@ -80,7 +80,7 @@ DEFRAG is a pure frontend build. It can be deployed to any static hosting provid
 ---
 
 ## 6. DIAGNOSTIC LOG
-- **Encryption:** AES-256-GCM (Simulated/Visual).
+- **Planetary Data:** JPL/NASA HORIZONS API (production-grade ephemeris).
 - **Latency:** Optimized for real-time TTS deployment.
 - **Safety:** "The friction isn't personal. It's just unmanaged hardware."
 

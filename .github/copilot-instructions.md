@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-DEFRAG is a React/TypeScript web app that generates satirical "relationship operating manuals" by reframing human personality traits as mechanical/industrial specifications. It uses Gemini AI to produce content and TTS audio.
+DEFRAG is a production-grade React/TypeScript web app that generates "relationship operating manuals" by mapping human behavioral patterns to mechanical/industrial specifications. It uses **real planetary ephemeris data** (JPL/NASA HORIZONS) for natal calculations and Gemini AI for content generation + TTS.
 
-**Core metaphor**: Humans are machines with "source code" (birth data → zodiac-derived personality types). The UI mimics industrial control panels, terminals, and technical documentation.
+**Core architecture**: Birth coordinates are processed through actual astronomical APIs to derive personality profiles. The UI presents this data through an industrial control panel aesthetic.
 
 ## Architecture
 
@@ -26,7 +26,7 @@ App.tsx                    # Main router + state (profiles, active units, view s
 
 ### Data Flow
 1. User inputs "coordinates" (name, birth date/time, location) for two "units"
-2. `defragEngine.calculateMechanics()` uses **Proprietary Ephemeris Hashing** to derive hardware profile deterministically (no AI call)
+2. `defragEngine.calculateMechanics()` fetches **real planetary positions from JPL/NASA HORIZONS** to derive hardware profile
 3. `geminiService.generateManualPreview()` calls Gemini to generate relationship manual
 4. Results stored in React state + localStorage (`defrag_profiles`)
 

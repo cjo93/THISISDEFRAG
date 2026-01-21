@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { generateManualPreview } from '../services/geminiService';
-import { calculateMechanics } from '../services/defragEngine';
+import { calculateMechanics, calculateMechanicsSync } from '../services/defragEngine';
 import { ManualPreview, UnitData } from '../types';
 
 interface GeneratorProps {
@@ -14,17 +14,17 @@ const Terminal: React.FC<{ unitA: UnitData; unitB: UnitData }> = ({ unitA, unitB
   
   const terminalLogs = [
     ">> INITIALIZING DEFRAG COMPILER v2.0...",
-    ">> CONNECTING TO UNIVERSAL BACKEND... [CONNECTED]",
-    `>> SCRAPING PLANETARY GEOMETRY (EPOCH ${new Date().getFullYear()}) ...`,
+    ">> CONNECTING TO JPL/NASA HORIZONS... [UPLINK ESTABLISHED]",
+    `>> FETCHING EPHEMERIS DATA (EPOCH ${new Date().getFullYear()}) ...`,
     `>> TRIANGULATING COORDINATES: ${unitA.location} ...`,
-    ">> PARSING HEXAGRAM BINARY CODE...",
-    ">> DECODING GENETIC DRIVERS...",
+    ">> PARSING ECLIPTIC LONGITUDE...",
+    ">> CALCULATING NATAL ASPECTS...",
     `>> TARGET: "${unitB.name}"`,
-    "   [+] SOURCE CODE: FOUND.",
-    "   [+] DRIVE TYPE: KINETIC ENGINE DETECTED.",
-    "   [+] OPERATING FREQUENCY: HIGH VOLTAGE.",
+    "   [+] SUN POSITION: ACQUIRED.",
+    "   [+] MARS POSITION: ACQUIRED.",
+    "   [+] HARDWARE PROFILE: COMPILED.",
     ">> COMPARING OPERATING SYSTEMS...",
-    "[!] CRITICAL ERROR: HARDWARE INCOMPATIBILITY DETECTED.",
+    "[!] HARDWARE DIFFERENTIAL DETECTED.",
     ">> GENERATING PATCH SCRIPTS...",
     ">> COMPILING USER MANUAL...",
     ">> DONE."
@@ -81,20 +81,28 @@ export const ManualGenerator: React.FC<GeneratorProps> = ({ onUnlock }) => {
     setError('');
     setStage('scanning');
 
-    await new Promise(r => setTimeout(r, 3000));
-
-    const finalA = calculateMechanics(unitA);
-    const finalB = calculateMechanics(unitB);
-    setUnitA(finalA);
-    setUnitB(finalB);
+    try {
+      // Fetch real planetary positions from JPL HORIZONS
+      const [finalA, finalB] = await Promise.all([
+        calculateMechanics(unitA),
+        calculateMechanics(unitB)
+      ]);
+      setUnitA(finalA);
+      setUnitB(finalB);
     
-    const mismatch = finalA.fuel !== finalB.fuel 
-      ? `CRITICAL MISMATCH: ${finalA.fuel} vs ${finalB.fuel}. Hardware friction exceeds safety limits.`
-      : `NOMINAL SYNC: Dual ${finalA.fuel} drives. High risk of mirroring and kernel panic.`;
+      const mismatch = finalA.fuel !== finalB.fuel 
+        ? `CRITICAL MISMATCH: ${finalA.fuel} vs ${finalB.fuel}. Hardware friction exceeds safety limits.`
+        : `NOMINAL SYNC: Dual ${finalA.fuel} drives. High risk of mirroring and kernel panic.`;
 
-    setPreview({ mismatch });
-    setLoading(false);
-    setStage('upsell');
+      setPreview({ mismatch });
+      setStage('upsell');
+    } catch (err) {
+      console.error('[DEFRAG] Scan error:', err);
+      setError('HORIZONS_UPLINK_FAILURE: EPHEMERIS DATA UNAVAILABLE.');
+      setStage('input');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleUnlock = async () => {
