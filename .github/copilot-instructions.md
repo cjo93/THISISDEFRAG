@@ -26,9 +26,12 @@ App.tsx                    # Main router + state (profiles, active units, view s
 
 ### Data Flow
 1. User inputs "coordinates" (name, birth date/time, location) for two "units"
-2. `defragEngine.calculateMechanics()` derives personality type deterministically (no AI call)
+2. `defragEngine.calculateMechanics()` uses **Proprietary Ephemeris Hashing** to derive hardware profile deterministically (no AI call)
 3. `geminiService.generateManualPreview()` calls Gemini to generate relationship manual
 4. Results stored in React state + localStorage (`defrag_profiles`)
+
+### Deployment
+Pure frontend build—deploy to any static host (Firebase, Vercel, Netlify). No server required.
 
 ## Key Patterns
 
@@ -62,7 +65,7 @@ npm run build        # Production build
 npm run preview      # Preview production build
 ```
 
-**Required**: Set `GEMINI_API_KEY` in `.env.local` before running.
+**Required**: Set `API_KEY` in `.env.local` before running (this is the exact variable name the code expects).
 
 ## Conventions
 
