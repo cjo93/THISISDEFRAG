@@ -106,23 +106,24 @@ export default function Landing() {
             Understand why they react that way—and what actually helps.
           </p>
 
-          {/* CTA */}
-          <Link
-            to="/start"
-            className="group inline-flex items-center gap-5"
-          >
-            <span className="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-orange-500 flex items-center justify-center group-hover:scale-110 group-hover:bg-orange-400 transition-all duration-500 ease-out shadow-lg shadow-orange-500/25">
-              <svg className="w-5 h-5 sm:w-6 sm:h-6 text-black translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-            <span className="text-lg sm:text-xl text-white/80 group-hover:text-white transition-colors duration-300">
-              Finally understand them
-            </span>
-          </Link>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              to="/start"
+              className="h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.15em] font-bold hover:bg-orange-400 transition-all duration-300 rounded-lg shadow-lg shadow-orange-500/25"
+            >
+              GET YOUR MANUAL
+            </Link>
+            <Link
+              to="/signin"
+              className="h-14 px-10 flex items-center justify-center border border-white/20 text-white/70 text-sm tracking-[0.15em] font-medium hover:border-white/40 hover:text-white transition-all duration-300 rounded-lg"
+            >
+              LOG IN
+            </Link>
+          </div>
 
           <p className="text-sm text-white/40 mt-10 tracking-[0.15em]">
-            FREE TO START
+            FREE TO START · NO CREDIT CARD REQUIRED
           </p>
         </div>
 
