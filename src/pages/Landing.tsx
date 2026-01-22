@@ -107,23 +107,23 @@ export default function Landing() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
             <Link
               to="/start"
-              className="h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.15em] font-bold hover:bg-orange-400 transition-all duration-300 rounded-lg shadow-lg shadow-orange-500/25"
+              className="w-full sm:w-auto h-14 sm:h-16 px-10 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-sm sm:text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-xl shadow-lg shadow-orange-500/25"
             >
               GET YOUR MANUAL
             </Link>
             <Link
               to="/signin"
-              className="h-14 px-10 flex items-center justify-center border border-white/20 text-white/70 text-sm tracking-[0.15em] font-medium hover:border-white/40 hover:text-white transition-all duration-300 rounded-lg"
+              className="w-full sm:w-auto h-14 sm:h-16 px-10 sm:px-12 flex items-center justify-center border border-white/20 text-white/70 text-sm sm:text-base tracking-[0.12em] font-medium hover:border-white/40 hover:text-white active:scale-[0.98] transition-all duration-300 rounded-xl backdrop-blur-sm"
             >
               LOG IN
             </Link>
           </div>
 
-          <p className="text-sm text-white/40 mt-10 tracking-[0.15em]">
-            FREE TO START · NO CREDIT CARD REQUIRED
+          <p className="text-xs sm:text-sm text-white/40 mt-10 sm:mt-12 tracking-[0.15em]">
+            FREE TO START
           </p>
         </div>
 
