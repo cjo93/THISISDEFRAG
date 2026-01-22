@@ -5,8 +5,8 @@ export default function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Enter Two People',
-      desc: 'Birth date, time, and place for you and someone you want to understand.',
+      title: 'Enter Birth Data',
+      desc: 'Birth date, time, and place for you (and optionally a partner).',
     },
     {
       num: '02',
@@ -68,15 +68,50 @@ export default function HowItWorks() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6">
-            The <span className="text-orange-500">Process</span>
+            <span className="text-orange-500">Me</span> before <span className="text-white">We</span>.
           </h1>
 
           <p className="text-xl text-white/50 mb-16 max-w-2xl">
-            From birth data to actionable relationship insights in under 2 minutes.
+            You can't debug a connection if you don't know your own source code.
+            DEFRAG works for individuals just as well as pairs.
           </p>
 
-          {/* Steps */}
+          <div className="grid md:grid-cols-2 gap-12 mb-20">
+            {/* Pathway 1: Self Discovery */}
+            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-orange-500/[0.02] transition-colors group">
+              <div className="text-xs tracking-[0.2em] text-orange-500 uppercase mb-4 font-bold">PATH 01: SELF-DISCOVERY</div>
+              <h3 className="text-2xl font-medium text-white mb-4">Decode Yourself</h3>
+              <p className="text-white/60 leading-relaxed mb-6">
+                Enter just your own birth data to get a "User Manual for YOU."
+                Understand your own triggers, your decision-making hardware, and why you react the way you do.
+              </p>
+              <ul className="space-y-3 text-sm text-white/50">
+                <li className="flex gap-2"><span>•</span> <span>Your core emotional needs</span></li>
+                <li className="flex gap-2"><span>•</span> <span>Your automatic defense scripts</span></li>
+                <li className="flex gap-2"><span>•</span> <span>Your optimal decision strategy</span></li>
+              </ul>
+            </div>
+
+            {/* Pathway 2: Relationship */}
+            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-orange-500/[0.02] transition-colors group">
+              <div className="text-xs tracking-[0.2em] text-orange-500 uppercase mb-4 font-bold">PATH 02: RELATIONSHIP</div>
+              <h3 className="text-2xl font-medium text-white mb-4">Decode the Dynamic</h3>
+              <p className="text-white/60 leading-relaxed mb-6">
+                Add a second person partner, friend, parent to generate a "Combat Manual" for the relationship.
+                See exactly where your systems clash and how to bridge the gap.
+              </p>
+              <ul className="space-y-3 text-sm text-white/50">
+                <li className="flex gap-2"><span>•</span> <span>The 5 invisible layers of friction</span></li>
+                <li className="flex gap-2"><span>•</span> <span>Specific conflict resolution scripts</span></li>
+                <li className="flex gap-2"><span>•</span> <span>Why you trigger each other</span></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* The Process Steps */}
           <div className="space-y-12 mb-20">
+            <h2 className="text-3xl font-light text-white mb-10">The Process</h2>
+
             {steps.map((step, i) => (
               <div key={step.num} className="relative">
                 {/* Connecting line */}

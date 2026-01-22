@@ -1,27 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEFRAG | User Manuals for Your People</title>
-    <meta name="description" content="Generate a brutally honest relationship manual for your people. Using NASA data and clinical psychology, DEFRAG maps the 5 invisible layers of friction in ANY relationship.">
-    <meta name="keywords" content="relationship manual, personality guide, birth chart, human operating system, defrag, astrology not horoscope, bowen family systems, attachment style calculator">
+    <meta name="description"
+        content="Generate a brutally honest relationship manual for your people. Using NASA data and clinical psychology, DEFRAG maps the 5 invisible layers of friction in ANY relationship.">
+    <meta name="keywords"
+        content="relationship manual, personality guide, birth chart, human operating system, defrag, astrology not horoscope, bowen family systems, attachment style calculator">
     <meta name="author" content="DEFRAG">
-    
+
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://defrag.app/">
     <meta property="og:title" content="DEFRAG | The User Manual for Your Person">
-    <meta property="og:description" content="Stop guessing. Get a precision-engineered guide to how they actually operate. Grounded in NASA data & clinical psychology.">
+    <meta property="og:description"
+        content="Stop guessing. Get a precision-engineered guide to how they actually operate. Grounded in NASA data & clinical psychology.">
     <meta property="og:image" content="https://defrag.app/og-image.png">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://defrag.app/">
     <meta name="twitter:title" content="DEFRAG | The User Manual for Your Person">
-    <meta name="twitter:description" content="Stop guessing. Get a precision-engineered guide to how they actually operate. Grounded in NASA data & clinical psychology.">
-    
+    <meta name="twitter:description"
+        content="Stop guessing. Get a precision-engineered guide to how they actually operate. Grounded in NASA data & clinical psychology.">
+
     <!-- Structured Data (Product) -->
     <script type="application/ld+json">
     {
@@ -38,14 +42,18 @@
       "description": "Generates personalized relationship manuals based on astronomical data and psychological frameworks."
     }
     </script>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700;800&family=Inter:wght@400;700;900&display=swap"
+        rel="stylesheet">
     <style>
         body {
             background-color: #050505;
@@ -53,16 +61,20 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
         }
+
         .font-mono {
             font-family: 'JetBrains Mono', monospace;
         }
-        
+
         /* CRT Scanlines Overlay */
         body::before {
             content: " ";
             display: block;
             position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
             z-index: 100;
             background-size: 100% 4px, 3px 100%;
@@ -73,8 +85,10 @@
         body::after {
             content: "";
             position: fixed;
-            top: -100%; left: -100%;
-            width: 300%; height: 300%;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
             background: url('https://grainy-gradients.vercel.app/noise.svg');
             opacity: 0.03;
             pointer-events: none;
@@ -83,24 +97,55 @@
         }
 
         @keyframes noise {
-            0% { transform: translate(0, 0); }
-            10% { transform: translate(-1%, -1%); }
-            20% { transform: translate(-2%, 1%); }
-            30% { transform: translate(1%, -2%); }
-            40% { transform: translate(-1%, 2%); }
-            50% { transform: translate(-2%, 1%); }
-            100% { transform: translate(1%, 0); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            10% {
+                transform: translate(-1%, -1%);
+            }
+
+            20% {
+                transform: translate(-2%, 1%);
+            }
+
+            30% {
+                transform: translate(1%, -2%);
+            }
+
+            40% {
+                transform: translate(-1%, 2%);
+            }
+
+            50% {
+                transform: translate(-2%, 1%);
+            }
+
+            100% {
+                transform: translate(1%, 0);
+            }
         }
 
         .noise-text {
             animation: jitter 0.2s infinite;
         }
-        
+
         @keyframes jitter {
-            0% { transform: translate(0,0); }
-            33% { transform: translate(-0.3px, 0.3px); }
-            66% { transform: translate(0.3px, -0.3px); }
-            100% { transform: translate(0,0); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(-0.3px, 0.3px);
+            }
+
+            66% {
+                transform: translate(0.3px, -0.3px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
         }
 
         .defrag-glow {
@@ -110,12 +155,15 @@
         ::-webkit-scrollbar {
             width: 3px;
         }
+
         ::-webkit-scrollbar-track {
             background: #000;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #222;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #ea580c;
         }
@@ -126,10 +174,12 @@
             color: white;
         }
     </style>
-<link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css">
 </head>
+
 <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

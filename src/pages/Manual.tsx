@@ -1,16 +1,18 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { generateManualPreview } from '../services/geminiService';
 import { calculateMechanics } from '../services/defragEngine';
 import { UnitData, ManualPreview } from '../types';
 import ShareCard from '../components/ui/ShareCard';
+import Header from '../components/Header';
 
 const LOADING_PHASES = [
   { message: 'Verifying access...' },
   { message: 'Fetching planetary ephemeris...' },
-  { message: 'Calculating orbital mechanics...' },
+  { message: 'Charting relational dynamics...' },
   { message: 'Mapping behavioral patterns...' },
-  { message: 'Generating relationship manual...' },
+  { message: 'Creating your guide...' },
 ];
 
 export default function Manual() {
@@ -23,6 +25,14 @@ export default function Manual() {
   const [unitB, setUnitB] = useState<UnitData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('specs');
+
+  const sections = [
+    { id: 'specs', label: 'PROFILE' },
+    { id: 'procedures', label: 'INTERACTION' },
+    { id: 'troubleshooting', label: 'FRICTION' },
+    { id: 'maintenance', label: 'CARE' },
+    { id: 'share', label: 'SHARE' },
+  ];
 
   // Animate through loading phases
   useEffect(() => {
@@ -176,14 +186,6 @@ export default function Manual() {
     );
   }
 
-  const sections = [
-    { id: 'specs', label: 'SPECIFICATIONS' },
-    { id: 'procedures', label: 'PROCEDURES' },
-    { id: 'troubleshooting', label: 'TROUBLESHOOTING' },
-    { id: 'maintenance', label: 'MAINTENANCE' },
-    { id: 'share', label: 'SHARE' },
-  ];
-
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Background */}
@@ -193,23 +195,7 @@ export default function Manual() {
       </div>
 
       {/* Top bar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
-              D
-            </div>
-            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
-          </Link>
-
-          <Link
-            to="/start"
-            className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center border border-white/15 text-white/70 text-xs tracking-[0.15em] rounded-lg hover:border-orange-500/50 hover:text-orange-400 transition"
-          >
-            + NEW
-          </Link>
-        </nav>
-      </header>
+      <Header />
 
       {/* Main */}
       <main className="relative z-10 px-6 pt-8 pb-20">
@@ -246,7 +232,7 @@ export default function Manual() {
             <div className="space-y-8">
               {/* Specifications */}
               {activeSection === 'specs' && (
-                <Section title="UNIT SPECIFICATIONS" subtitle="Core operating parameters for each individual">
+                <Section title="01 PROFILE" subtitle="Core nature and dynamics">
                   <div className="grid md:grid-cols-2 gap-6">
                     <UnitCard unit={unitA} isFirst />
                     <UnitCard unit={unitB} isFirst={false} />
@@ -256,7 +242,7 @@ export default function Manual() {
 
               {/* Operating Procedures */}
               {activeSection === 'procedures' && (
-                <Section title="OPERATING PROCEDURES" subtitle="Recommended interaction protocols">
+                <Section title="02 INTERACTION GUIDE" subtitle="Recommended ways to connect">
                   <div className="space-y-4">
                     {manual.operatingProcedures.map((proc, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
@@ -277,22 +263,22 @@ export default function Manual() {
 
               {/* Troubleshooting */}
               {activeSection === 'troubleshooting' && (
-                <Section title="TROUBLESHOOTING" subtitle="Common issues and resolution protocols">
+                <Section title="03 FRICTION POINTS" subtitle="Common issues and how to resolve them">
                   <div className="space-y-4">
                     {manual.troubleshooting.map((item, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 overflow-hidden">
                         <div className="flex items-start gap-4 mb-4 pb-4 border-b border-white/5">
                           <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 text-[10px] font-bold shrink-0">
-                            ERR
+                            issue
                           </div>
                           <div>
-                            <div className="text-xs tracking-[0.15em] text-red-400/80 mb-1">SYMPTOM</div>
+                            <div className="text-xs tracking-[0.15em] text-red-400/80 mb-1">WHAT HAPPENS</div>
                             <p className="text-sm text-white/80">{item.symptom}</p>
                           </div>
                         </div>
                         <div className="flex items-start gap-4 pl-12">
                           <div>
-                            <div className="text-xs tracking-[0.15em] text-green-400/80 mb-1">RESOLUTION</div>
+                            <div className="text-xs tracking-[0.15em] text-green-400/80 mb-1">WHAT HELPS</div>
                             <p className="text-sm text-white/60 leading-relaxed">{item.resolution}</p>
                           </div>
                         </div>
@@ -304,7 +290,7 @@ export default function Manual() {
 
               {/* Maintenance Schedule */}
               {activeSection === 'maintenance' && (
-                <Section title="MAINTENANCE SCHEDULE" subtitle="Recommended relationship maintenance intervals">
+                <Section title="04 CARE PRACTICES" subtitle="Regular habits to keep the connection healthy">
                   <div className="grid sm:grid-cols-2 gap-4">
                     {manual.maintenanceSchedule.map((item, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
@@ -322,7 +308,7 @@ export default function Manual() {
 
               {/* Share Card */}
               {activeSection === 'share' && unitA && (
-                <Section title="SHARE PROTOCOL" subtitle="Publish your operating manual">
+                <Section title="05 SHARE PROTOCOL" subtitle="Publish your operating manual">
                   <div className="py-8">
                     <ShareCard
                       name={unitA.name}
@@ -366,10 +352,10 @@ function UnitCard({ unit, isFirst }: { unit: UnitData | null; isFirst: boolean }
         </div>
       </div>
       <div className="space-y-3">
-        <SpecRow label="Model" value={unit.model} highlight />
-        <SpecRow label="Core Processor" value={unit.coreProcessor} />
-        <SpecRow label="Operating Mode" value={unit.operatingMode} />
-        <SpecRow label="Energy Type" value={unit.energyType} />
+        <SpecRow label="Archetype" value={unit.model} highlight />
+        <SpecRow label="Processing Style" value={unit.coreProcessor} />
+        <SpecRow label="Default Mode" value={unit.operatingMode} />
+        <SpecRow label="Energy Style" value={unit.energyType} />
       </div>
     </div>
   );

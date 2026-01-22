@@ -1,17 +1,17 @@
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 // Pain-point language that triggers instant recognition
 // Expanded to encompass broader relational dynamics
 const ROTATING_WORDS = [
-  "the one who shuts down",
-  "the one who overreacts",
-  "the one who needs space",
-  "the one who analyzes everything",
-  "the one who avoids conflict",
-  "the one who feels unheard",
-  "the one who needs reassurance",
+  "the partner who shuts you out",
+  "the parent you can never please",
+  "the teenager who became a stranger",
   "the one you walk on eggshells around",
+  "the ex you still can't explain",
+  "the person you're afraid to lose",
 ];
 
 export default function Landing() {
@@ -44,30 +44,7 @@ export default function Landing() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/20">
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
-              D
-            </div>
-            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
-          </Link>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <Link
-              to="/signin"
-              className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition-colors"
-            >
-              LOG IN
-            </Link>
-            <Link
-              to="/start"
-              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
-            >
-              START
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* HERO */}
       <section
@@ -143,14 +120,27 @@ export default function Landing() {
             <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
               The Friction
             </span>
-            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-8">
+            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-12">
               Why does it feel like you're speaking different languages?
             </h2>
-            <p className="text-[clamp(1.15rem,2.5vw,1.5rem)] font-light leading-[1.7] text-white/60">
-              You try to connect. They pull away. You ask for clarity. They get defensive.<br />
-              It's not that you're incompatible. It's that you're operating on different <em className="text-white/80 not-italic">source code</em>.<br />
-              <span className="block mt-4 text-white/50">Without a manual, every error feels personal.</span>
-            </p>
+
+            <div className="space-y-8 text-[clamp(1.15rem,2.5vw,1.5rem)] font-light leading-[1.7] text-white/60">
+              <p className="pl-0 border-l border-white/10 pl-6">
+                You try to connect. <span className="text-white">They pull away.</span>
+              </p>
+              <p className="pl-8 sm:pl-12 border-l border-white/10 pl-6">
+                You ask for clarity. <span className="text-white">They get defensive.</span>
+              </p>
+              <p className="pl-16 sm:pl-24 border-l border-white/10 pl-6">
+                It's not that you're incompatible.<br />
+                It's that you're running on different <em className="text-white not-italic">operating systems</em>.
+              </p>
+            </div>
+
+            <div className="mt-12 pl-0 sm:pl-36">
+              <span className="block text-white/40 text-sm tracking-widest uppercase mb-2">The Result</span>
+              <p className="text-xl text-white">Without a manual, every error feels personal.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +287,7 @@ export default function Landing() {
 
                   {!isActive && (
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/10">
-                      <span className="text-orange-400 text-xs tracking-widest font-mono bg-black/80 px-3 py-1 rounded border border-orange-500/30">READ MORE</span>
+                      <span className="text-orange-400 text-xs tracking-widest font-mono bg-black/80 px-3 py-1 rounded-none border-b border-orange-500/30">READ MORE</span>
                     </div>
                   )}
                 </div>
@@ -421,20 +411,20 @@ export default function Landing() {
 
             {/* FAMILY SYSTEMS */}
             <div className="p-6 sm:p-8 border border-white/10 bg-white/[0.02] rounded-xl">
-              <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-4">Full System</div>
-              <div className="text-3xl sm:text-4xl font-light text-white mb-2">$9<span className="text-lg text-white/50">/mo</span></div>
-              <p className="text-sm text-white/50 mb-8">Ongoing access + family mapping</p>
+              <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-4">You + Your People</div>
+              <div className="text-3xl sm:text-4xl font-light text-white mb-2">$29</div>
+              <p className="text-sm text-white/50 mb-8">One 1:1 Manual + Family System Login</p>
               <ul className="space-y-3 text-sm text-white/60 mb-8">
                 <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Everything in Complete Manual</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Bowen family systems analysis</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Unlimited relationship manuals</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Monthly pattern updates</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Account login for future access</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Add family members later</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Compare multiple charts</li>
               </ul>
               <Link
                 to="/start"
                 className="block w-full h-12 flex items-center justify-center border border-white/20 text-white/70 text-xs tracking-[0.15em] font-medium hover:border-orange-500/50 hover:text-orange-400 transition rounded-lg"
               >
-                COMING SOON
+                SELECT OPTION
               </Link>
             </div>
 

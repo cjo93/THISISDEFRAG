@@ -122,14 +122,14 @@ export default function Checkout() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="h-px w-6 bg-orange-500/50" />
-              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">FINAL STEP</span>
+              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">SYSTEM READY</span>
               <span className="h-px w-6 bg-orange-500/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-5">
-              Ready to generate
+              Decrypting Relationship Dynamics
             </h1>
             <p className="text-lg text-white/50">
-              One payment. Instant access. Keep forever.
+              Your manual is compiled. Unlock full access to the source code.
             </p>
           </div>
 

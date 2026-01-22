@@ -115,17 +115,17 @@ export default function Start() {
             <div className="inline-flex items-center gap-2 mb-4">
               <span className="h-px w-8 bg-orange-500/50" />
               <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">
-                {step === 'you' ? 'STEP 1' : 'STEP 2'}
+                {step === 'you' ? 'STEP 01' : 'STEP 02'}
               </span>
               <span className="h-px w-8 bg-orange-500/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-4">
-              {step === 'you' ? 'About You' : 'About Them'}
+              {step === 'you' ? 'Initialize Profile' : 'Target Profile'}
             </h1>
             <p className="text-base text-white/60 max-w-sm mx-auto leading-relaxed">
               {step === 'you'
-                ? 'We\'ll use this to create your personalized manual.'
-                : 'The person you want to understand better.'}
+                ? 'Begin by establishing your operating baseline.'
+                : 'Input the parameters for the person you want to decode.'}
             </p>
           </div>
 
