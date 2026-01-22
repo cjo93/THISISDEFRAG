@@ -88,9 +88,9 @@ export default function Privacy() {
                 <div className="flex justify-between items-start border-b border-white/5 pb-4">
                   <div>
                     <div className="text-white">Email Address</div>
-                    <div className="text-sm text-white/50">For account access</div>
+                    <div className="text-sm text-white/50">For manual delivery and recovery</div>
                   </div>
-                  <div className="text-xs text-white/40 bg-white/5 px-2 py-1 rounded">Optional</div>
+                  <div className="text-xs text-orange-400 bg-orange-500/10 px-2 py-1 rounded">Required</div>
                 </div>
                 <div className="flex justify-between items-start">
                   <div>

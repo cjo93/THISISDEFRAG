@@ -98,7 +98,12 @@ export default function Checkout() {
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/50">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="text-sm tracking-[0.4em] font-medium text-white/90">DEFRAG</Link>
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="h-9 w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-lg group-hover:scale-105 transition-transform">
+              D
+            </div>
+            <span className="tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
+          </Link>
           <Link to="/start" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition flex items-center gap-2">
             <span>←</span> EDIT DETAILS
           </Link>
