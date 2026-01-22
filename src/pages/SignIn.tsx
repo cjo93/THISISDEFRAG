@@ -159,7 +159,7 @@ export default function SignIn() {
           <div className="mt-6 text-center">
             <p className="text-white/30 text-xs">
               Need help?{' '}
-              <a href="mailto:chadowen93@gmail.com" className="text-white/50 hover:text-white transition-colors">
+              <a href="mailto:info@defrag.app" className="text-white/50 hover:text-white transition-colors">
                 Contact support
               </a>
             </p>

@@ -239,7 +239,7 @@ function generateResendManualEmail(request: ResendManualRequest): string {
     </p>
     
     <p style="color: #52525b; font-size: 12px; margin-top: 15px; line-height: 1.6;">
-      Can't find your manual? Contact <a href="mailto:chadowen93@gmail.com" style="color: #ea580c;">chadowen93@gmail.com</a> with your order details.
+      Can't find your manual? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a> with your order details.
     </p>
   `);
 }
@@ -366,7 +366,7 @@ function generatePurchaseEmail(unitA: UnitData, unitB: UnitData, manualUrl: stri
     </p>
     
     <p style="color: #52525b; font-size: 12px; margin-top: 15px;">
-      Need help? Contact <a href="mailto:chadowen93@gmail.com" style="color: #ea580c;">chadowen93@gmail.com</a>
+      Need help? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a>
     </p>
   `);
 }

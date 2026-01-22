@@ -372,10 +372,10 @@ export default function Landing() {
               © 2026 DEFRAG. All rights reserved.
             </span>
             <a 
-              href="mailto:chadowen93@gmail.com" 
+              href="mailto:info@defrag.app" 
               className="text-sm text-white/40 hover:text-orange-400 transition"
             >
-              chadowen93@gmail.com
+              info@defrag.app
             </a>
           </div>
         </div>
