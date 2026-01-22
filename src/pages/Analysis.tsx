@@ -63,15 +63,39 @@ export default function Analysis() {
     return (
         <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 selection:bg-orange-500/20">
 
-            {/* Intricate Mandala in background */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
-                <svg width="400" height="400" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="0.5" className="animate-[spin_60s_linear_infinite]">
-                    {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map(deg => (
-                        <g key={deg} transform={`rotate(${deg} 50 50)`}>
-                            <path d="M50 0 C60 20 40 40 50 50 C60 40 40 20 50 0" />
-                            <circle cx="50" cy="20" r="15" />
-                        </g>
+            {/* Geometric Mandala in background */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
+                <svg width="600" height="600" viewBox="0 0 100 100" className="w-full h-full max-w-[600px] animate-[spin_120s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.5">
+                    <circle cx="50" cy="50" r="45" strokeOpacity="0.1" />
+                    <circle cx="50" cy="50" r="1" fill="currentColor" />
+
+                    {/* Master Geometric Structure */}
+                    {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => (
+                        <circle
+                            key={deg}
+                            cx={50 + 25 * Math.cos((deg * Math.PI) / 180)}
+                            cy={50 + 25 * Math.sin((deg * Math.PI) / 180)}
+                            r="25"
+                            strokeOpacity="0.2"
+                        />
                     ))}
+
+                    {[0, 60, 120, 180, 240, 300].map((deg) => (
+                        <line
+                            key={deg}
+                            x1="50" y1="50"
+                            x2={50 + 45 * Math.cos((deg * Math.PI) / 180)}
+                            y2={50 + 45 * Math.sin((deg * Math.PI) / 180)}
+                            opacity="0.1"
+                            strokeDasharray="1 1"
+                        />
+                    ))}
+
+                    <path
+                        d="M50 15 L80.3 32.5 L80.3 67.5 L50 85 L19.7 67.5 L19.7 32.5 Z"
+                        strokeOpacity="0.3"
+                        strokeWidth="1"
+                    />
                 </svg>
             </div>
 
@@ -120,10 +144,10 @@ export default function Analysis() {
                 {/* Technical Footer */}
                 <div className="mt-16 pt-8 border-t border-white/5 space-y-2">
                     <p className="text-[9px] text-white/20 font-mono tracking-widest text-center uppercase">
-                        Data Sovereignty Enabled // AES-256 Encryption
+                        Protocol: Bowen System Dynamics // Symmetric Encryption
                     </p>
                     <p className="text-[9px] text-white/10 font-mono tracking-widest text-center uppercase">
-                        JPL TLE SEQUENCE: ACTIVE
+                        Ephemeris Integration: Active // Node Mapping: Complete
                     </p>
                 </div>
 

@@ -53,8 +53,22 @@ export default function ShareCard({ name, archetype, oneLiner }: ShareCardProps)
 
                 {/* Content */}
                 <div className="relative z-10 p-8 flex flex-col items-center text-center">
-                    <div className="w-12 h-12 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-xl mb-6 shadow-lg shadow-orange-500/20">
-                        D
+                    {/* Master Mandala Logo */}
+                    <div className="relative w-16 h-16 flex items-center justify-center mb-6">
+                        <svg viewBox="0 0 100 100" className="w-full h-full text-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.2">
+                            <circle cx="50" cy="50" r="40" strokeOpacity="0.15" />
+                            <circle cx="50" cy="50" r="2" fill="currentColor" />
+                            {[0, 60, 120, 180, 240, 300].map((deg) => (
+                                <circle
+                                    key={deg}
+                                    cx={50 + 20 * Math.cos((deg * Math.PI) / 180)}
+                                    cy={50 + 20 * Math.sin((deg * Math.PI) / 180)}
+                                    r="20"
+                                    strokeOpacity="0.5"
+                                />
+                            ))}
+                            <path d="M50 30 L67.32 40 L67.32 60 L50 70 L32.68 60 L32.68 40 Z" strokeOpacity="0.8" strokeWidth="1" />
+                        </svg>
                     </div>
 
                     <h3 className="text-xs tracking-[0.2em] text-white/40 uppercase mb-2">OPERATING MANUAL FOR</h3>

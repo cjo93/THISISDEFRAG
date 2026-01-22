@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
 
 // Owner emails that bypass payment
 const OWNER_EMAILS = ['info@defrag.app', 'chadowen93@gmail.com'];
@@ -80,28 +81,7 @@ export default function Start() {
         <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
-      {/* Top bar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
-              D
-            </div>
-            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
-          </Link>
-
-          {/* Progress indicator */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <div className={`h-2 w-8 sm:h-2.5 sm:w-10 rounded-full transition-all duration-500 ${step === 'you' ? 'bg-orange-500' : 'bg-orange-500/40'}`} />
-              <div className={`h-2 w-8 sm:h-2.5 sm:w-10 rounded-full transition-all duration-500 ${step === 'them' ? 'bg-orange-500' : 'bg-white/10'}`} />
-            </div>
-            <span className="text-xs tracking-[0.2em] text-white/40 ml-2 hidden sm:block">
-              {step === 'you' ? '1/2' : '2/2'}
-            </span>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       {/* Main */}
       <main className="relative z-10 flex items-center justify-center px-6 pt-8 pb-20">
@@ -118,7 +98,7 @@ export default function Start() {
               <span className="h-px w-8 bg-orange-500/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-4">
-              {step === 'you' ? 'Initialize Profile' : 'Target Profile'}
+              {step === 'you' ? 'Initialize Profile' : 'Partner Profile'}
             </h1>
             <p className="text-base text-white/60 max-w-sm mx-auto leading-relaxed">
               {step === 'you'
@@ -135,11 +115,11 @@ export default function Start() {
               {/* Email field - only on step 1 */}
               {step === 'you' && (
                 <div className="space-y-2">
-                  <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2">
-                    EMAIL
+                  <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2 uppercase">
+                    Email
                     {isOwner && (
-                      <span className="text-[10px] tracking-normal text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded">
-                        OWNER ACCESS
+                      <span className="text-[9px] tracking-wider text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 font-mono">
+                        DEV MODE • BYPASS ENABLED
                       </span>
                     )}
                   </label>
@@ -151,6 +131,11 @@ export default function Start() {
                     placeholder="your@email.com"
                     className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
                   />
+                  {isOwner && (
+                    <p className="text-[10px] text-orange-400/60 font-mono mt-1">
+                      Secure dev access • Full system with payment bypass
+                    </p>
+                  )}
                 </div>
               )}
 

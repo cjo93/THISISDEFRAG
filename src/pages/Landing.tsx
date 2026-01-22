@@ -5,12 +5,12 @@ import Header from '../components/Header';
 
 // Pain-point language that triggers instant recognition
 const ROTATING_WORDS = [
-  "the partner who shuts you out",
-  "the parent you can never please",
-  "the teenager who became a stranger",
-  "the one you walk on eggshells around",
-  "the ex you still can't explain",
-  "the person you're afraid to lose",
+  "you",
+  "your partner",
+  "your parents",
+  "your family",
+  "your coworkers",
+  "your children",
 ];
 
 export default function Landing() {
@@ -71,7 +71,7 @@ export default function Landing() {
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
           <h1 className="mb-8 sm:mb-12">
             <span className="block text-white/50 text-xs sm:text-sm tracking-[0.25em] font-mono uppercase mb-6 sm:mb-8 font-medium">
-              The Instruction Manual For
+              The User Manual For
             </span>
             <span
               className={`
@@ -82,11 +82,14 @@ export default function Landing() {
             >
               {ROTATING_WORDS[wordIndex]}
             </span>
+            <span className="block text-white font-light text-2xl sm:text-3xl md:text-4xl mt-4 tracking-tight">
+              & your people.
+            </span>
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-white/70 font-light max-w-3xl mx-auto mb-12 sm:mb-16 leading-relaxed px-4">
-            Decode their behavior. De-escalate conflict. Connect deeply.<br className="hidden sm:block" />
-            <span className="text-white/40 text-sm sm:text-base mt-4 block font-normal tracking-wide">Built on NASA JPL Data & clinical psychology.</span>
+            Understand the patterns. Stay calm when things get tense.<br className="hidden sm:block" />
+            <span className="text-white/40 text-sm sm:text-base mt-4 block font-normal tracking-wide">Based on real astrology and family systems therapy.</span>
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 w-full max-w-lg mx-auto">
@@ -160,17 +163,17 @@ export default function Landing() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1">
               <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
-                The Architecture
+                How It Works
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] mb-10 text-white">
-                We map the<br />
-                <span className="text-orange-500 font-normal">5 Invisible Layers</span><br />
-                of their nature.
+                We look at<br />
+                <span className="text-orange-500 font-normal">who people really are</span><br />
+                underneath the stress.
               </h2>
               <div className="space-y-6 text-lg sm:text-xl text-white/60 leading-relaxed max-w-xl">
-                <p>Most advice focuses on behaviors (Layer 4). But behaviors are just symptoms.</p>
-                <p>DEFRAG digs deeper—to the core nature of how they process emotion, handle stress, and perceive safety.</p>
-                <p className="text-white/90 font-medium pl-4 border-l-2 border-orange-500/20">When you understand the root, you stop fighting the symptoms.</p>
+                <p>Most relationship advice focuses on what people do. We focus on why they do it.</p>
+                <p>DEFRAG looks at how each person handles anxiety, stays connected under pressure, and shows up when things get hard.</p>
+                <p className="text-white/90 font-medium pl-4 border-l-2 border-orange-500/20">When you understand the person, the behavior starts to make sense.</p>
               </div>
             </div>
 
@@ -233,20 +236,20 @@ export default function Landing() {
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12">
           <div className="mb-16 md:mb-20">
             <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
-              Your Manual
+              The Manual
             </span>
             <h2 className="text-3xl sm:text-5xl font-light text-white mb-6 leading-tight">
-              Everything you need to finally reach them.
+              The user manual for you and your people.
             </h2>
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase">// Select a module to explore</p>
+            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase">// Here's what you get</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { num: "01", title: "Operating Logic", short: "Why they operate the way they do.", desc: "Decode their internal processing. Do they need specific instructions or open space? Do they process internally or externally?" },
-              { num: "02", title: "Trigger Map", short: "The exact words that cause shutdown.", desc: "A specific map of what triggers their defense mechanisms. Learn the exact phrases that cause them to withdraw or attack." },
-              { num: "03", title: "Safety Protocols", short: "How to make them feel safe.", desc: "Security is different for everyone. Discover the specific conditions that allow their system to drop its defenses and connect." },
-              { num: "04", title: "Recovery Scripts", short: "What to say when it breaks.", desc: "Don't improvise during a crash. Use pre-calculated repair scripts designed for their specific architecture." },
+              { num: "01", title: "Who They Are", short: "Understanding their core personality.", desc: "Learn how they handle stress, what makes them feel safe, and how they naturally show up in relationships." },
+              { num: "02", title: "Patterns Under Stress", short: "What happens when things get tense.", desc: "See the cycles that play out when anxiety is high. Learn to spot when distance or pursuit patterns are starting." },
+              { num: "03", title: "How to Stay Grounded", short: "What helps when emotions run high.", desc: "Practical ways to stay calm, connected, and clear-headed when the other person is stressed or pulling away." },
+              { num: "04", title: "Keeping It Healthy", short: "Simple practices for your relationship.", desc: "Regular habits that help both of you stay connected and reduce the chronic stress that builds up over time." },
             ].map((item, index) => {
               const isActive = activeManualItem === index;
               return (
@@ -276,16 +279,16 @@ export default function Landing() {
 
             <div>
               <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
-                Product Preview
+                What You Get
               </span>
               <h2 className="text-3xl sm:text-5xl font-light text-white mb-8 leading-tight">
-                What's inside your<br /><span className="text-orange-500 font-normal">DEFRAG Manual?</span>
+                Your personalized<br /><span className="text-orange-500 font-normal">relationship guide.</span>
               </h2>
               <ul className="space-y-6">
                 {[
-                  { title: "THE OPERATING LOGIC", text: "A 15-page breakdown of their internal architecture." },
-                  { title: "INTERVENTION SCRIPTS", text: "Word-for-word resets for when communication breaks." },
-                  { title: "TRIGGER TOPOGRAPHY", text: "A precise map of the words/actions that cause crashes." }
+                  { title: "WHO THEY ARE", text: "A clear picture of their core personality and how they handle stress." },
+                  { title: "WHAT HAPPENS WHEN THINGS GET HARD", text: "The patterns that show up when anxiety is high and what you can do about it." },
+                  { title: "HOW TO STAY CONNECTED", text: "Practical ways to stay calm and grounded, even when they're pulling away or pushing back." }
                 ].map((item, i) => (
                   <li key={i} className="flex gap-4 group">
                     <span className="text-orange-500/40 font-mono text-xs pt-1">0{i + 1}</span>
@@ -321,9 +324,9 @@ export default function Landing() {
                   </div>
                   {/* Floating callout */}
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-900/90 backdrop-blur-md border border-orange-500/50 p-6 rounded-lg w-64 shadow-2xl transition-transform group-hover/page:scale-105">
-                    <p className="text-white/90 text-xs leading-relaxed font-mono">
-                      <span className="text-orange-500 font-bold block mb-2 uppercase tracking-widest">Protocol Delta</span>
-                      "When target pulls away, use script 12b to stabilize the connection instead of pushing for clarity."
+                    <p className="text-white/90 text-[10px] leading-relaxed font-mono">
+                      <span className="text-orange-500 font-bold block mb-2 uppercase tracking-widest">Self-Differentiation</span>
+                      "When anxiety rises in the emotional system, focus on regulating your own response rather than reacting to their withdrawal."
                     </p>
                   </div>
                 </div>
@@ -345,39 +348,39 @@ export default function Landing() {
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
             <div className="p-8 border border-white/10 bg-black/40 rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Insight</div>
+              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Look</div>
               <div className="text-4xl font-light text-white mb-2">Free</div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Snapshot analysis</p>
+              <p className="text-sm text-white/50 mb-8 font-mono">Basic personality snapshot</p>
               <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Core compatibility</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Trigger patterns</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Basic compatibility</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Core personality traits</li>
               </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Start Free</Link>
+              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Try It</Link>
             </div>
 
             <div className="p-8 border border-orange-500 bg-orange-500/[0.05] rounded-2xl relative flex flex-col scale-[1.05] shadow-[0_0_50px_rgba(249,115,22,0.1)]">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-orange-500 text-black text-[10px] tracking-[0.2em] font-bold rounded-full uppercase">Most Popular</div>
-              <div className="text-[10px] tracking-[0.3em] text-orange-500 uppercase mb-4 font-mono">Complete Manual</div>
+              <div className="text-[10px] tracking-[0.3em] text-orange-500 uppercase mb-4 font-mono">Full Manual</div>
               <div className="text-4xl font-light text-white mb-2">$19</div>
-              <p className="text-sm text-orange-500/60 mb-8 font-mono">Full operating system</p>
+              <p className="text-sm text-orange-500/60 mb-8 font-mono">The user manual for you & your people</p>
               <ul className="space-y-4 text-sm text-white/80 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Full Logic Breakdown</li>
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Complete Trigger Map</li>
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Recovery Scripts</li>
+                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Who they really are</li>
+                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Patterns under stress</li>
+                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● How to stay grounded</li>
               </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center bg-orange-500 text-black text-xs tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20">Get Manual</Link>
+              <Link to="/start" className="w-full h-12 flex items-center justify-center bg-orange-500 text-black text-xs tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20">Get Your Manual</Link>
             </div>
 
             <div className="p-8 border border-white/10 bg-black/40 rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">System Access</div>
+              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">For Teams</div>
               <div className="text-4xl font-light text-white mb-2">$29</div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Multi-profile account</p>
+              <p className="text-sm text-white/50 mb-8 font-mono">Multiple people</p>
               <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Everything in Manual</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Add family members</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Comparative charts</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Everything in Full Manual</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Family members & coworkers</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Compare dynamics</li>
               </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Select</Link>
+              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Upgrade</Link>
             </div>
           </div>
         </div>

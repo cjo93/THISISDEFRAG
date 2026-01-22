@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
+import Header from '../components/Header';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '');
 
@@ -94,27 +95,14 @@ export default function Checkout() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-orange-500/[0.08] rounded-full blur-[150px]" />
       </div>
 
-      {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
-              D
-            </div>
-            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
-          </Link>
-          <Link to="/start" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition flex items-center gap-2">
-            <span>BACK</span> EDIT
-          </Link>
-        </nav>
-      </header>
+      <Header />
 
       <main className="relative z-10 pt-32 pb-20 px-6">
         <div className="max-w-xl mx-auto">
 
           {wasCancelled && (
             <div className="mb-8 p-4 border border-orange-500/30 bg-orange-500/10 rounded-xl text-center backdrop-blur">
-              <p className="text-sm text-orange-300">Payment cancelled. Ready when you are.</p>
+              <p className="text-sm text-orange-300">Analysis preserved. Ready to initialize when you are.</p>
             </div>
           )}
 
@@ -122,20 +110,20 @@ export default function Checkout() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="h-px w-6 bg-orange-500/50" />
-              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">SYSTEM READY</span>
+              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">ANALYSIS COMPLETE</span>
               <span className="h-px w-6 bg-orange-500/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-5">
-              Decrypting Relationship Dynamics
+              Mapping Behavioral Architecture
             </h1>
             <p className="text-lg text-white/50">
-              Your manual is compiled. Unlock full access to the source code.
+              The source code for this dynamic has been mapped. Unlock the full operating manual.
             </p>
           </div>
 
           {/* Units Summary Card */}
           <div className="border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-2xl shadow-black/50">
-            <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-5">Your Manual</div>
+            <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-5">System Units</div>
 
             <div className="flex items-center justify-between gap-4">
               {/* Unit A */}
@@ -145,7 +133,7 @@ export default function Checkout() {
                 </div>
                 <div>
                   <div className="font-medium text-white">{unitA.name}</div>
-                  <div className="text-xs text-white/40">{unitA.birthDate}</div>
+                  <div className="text-xs text-white/40">OPERATOR</div>
                 </div>
               </div>
 
@@ -163,7 +151,7 @@ export default function Checkout() {
               <div className="flex items-center gap-3 flex-1 justify-end">
                 <div className="text-right">
                   <div className="font-medium text-white">{unitB.name}</div>
-                  <div className="text-xs text-white/40">{unitB.birthDate}</div>
+                  <div className="text-xs text-white/40">SUBJECT</div>
                 </div>
                 <div className="h-12 w-12 rounded-xl bg-white/10 flex items-center justify-center text-white/80 font-bold text-lg border border-white/10">
                   {unitB.name.charAt(0).toUpperCase()}
@@ -175,16 +163,16 @@ export default function Checkout() {
           {/* Price Card */}
           <div className="border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-sm rounded-2xl p-6 mb-6">
             <div className="flex items-baseline justify-between mb-4">
-              <span className="text-white/70">DEFRAG Relationship Manual</span>
+              <span className="text-white/70">Complete Operating Manual</span>
               <span className="text-3xl font-light">$19</span>
             </div>
             <div className="h-px bg-white/10 my-4" />
             <ul className="space-y-2.5">
               {[
-                'Operating logic for both individuals',
-                'Complete trigger map & responses',
-                'Personalized de-escalation scripts',
-                'Instant PDF + web access',
+                'Full system architecture & default modes',
+                'Relational interaction cycles mapping',
+                'Advanced self-regulation protocols',
+                'Instant secure cloud access',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-white/60">
                   <span className="text-orange-500 text-xs mt-1 font-mono">+</span>
@@ -209,11 +197,11 @@ export default function Checkout() {
             {isLoading ? (
               <>
                 <span className="h-5 w-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                PROCESSING...
+                INITIALIZING...
               </>
             ) : (
               <>
-                <span>PAY $19</span>
+                <span>UNLOCK FOR $19</span>
                 <span className="text-black/40">-</span>
                 <span>GET MANUAL</span>
               </>

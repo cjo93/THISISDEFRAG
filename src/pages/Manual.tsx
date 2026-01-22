@@ -27,10 +27,10 @@ export default function Manual() {
   const [activeSection, setActiveSection] = useState<string>('specs');
 
   const sections = [
-    { id: 'specs', label: 'PROFILE' },
-    { id: 'procedures', label: 'INTERACTION' },
-    { id: 'troubleshooting', label: 'FRICTION' },
-    { id: 'maintenance', label: 'CARE' },
+    { id: 'specs', label: 'ABOUT THEM' },
+    { id: 'procedures', label: 'HOW TO CONNECT' },
+    { id: 'troubleshooting', label: 'WHEN THINGS GO SIDEWAYS' },
+    { id: 'maintenance', label: 'STAYING HEALTHY' },
     { id: 'share', label: 'SHARE' },
   ];
 
@@ -137,17 +137,28 @@ export default function Manual() {
       <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
         {/* Background pulse */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-96 h-96 rounded-full bg-orange-500/10 blur-[100px] animate-pulse" />
+          <div className="w-full h-full max-w-2xl bg-orange-500/[0.02] rounded-full blur-[120px] animate-pulse" />
         </div>
 
-        <div className="text-center relative z-10">
-          {/* Animated rings */}
-          <div className="relative w-24 h-24 mx-auto mb-8">
-            <div className="absolute inset-0 rounded-full border border-orange-500/20 animate-[ping_2s_ease-in-out_infinite]" />
-            <div className="absolute inset-2 rounded-full border border-orange-500/30 animate-[ping_2s_ease-in-out_infinite_0.3s]" />
-            <div className="absolute inset-4 rounded-full border border-orange-500/40 animate-[ping_2s_ease-in-out_infinite_0.6s]" />
-            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-orange-500">
-              LOAD
+        <div className="text-center relative z-10 w-full max-w-sm px-6">
+          {/* Geometric Mandala Logo */}
+          <div className="relative w-32 h-32 mx-auto mb-12 flex items-center justify-center">
+            <svg viewBox="0 0 100 100" className="w-full h-full text-orange-500 drop-shadow-[0_0_20px_rgba(249,115,22,0.4)] animate-[spin_20s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.8">
+              <circle cx="50" cy="50" r="45" strokeOpacity="0.1" />
+              <circle cx="50" cy="50" r="1.5" fill="currentColor" />
+              {[0, 60, 120, 180, 240, 300].map((deg) => (
+                <circle
+                  key={deg}
+                  cx={50 + 22.5 * Math.cos((deg * Math.PI) / 180)}
+                  cy={50 + 22.5 * Math.sin((deg * Math.PI) / 180)}
+                  r="22.5"
+                  strokeOpacity="0.4"
+                />
+              ))}
+              <path d="M50 20 L76 35 L76 65 L50 80 L24 65 L24 35 Z" strokeOpacity="0.6" strokeWidth="1" />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase">
+              DEFRAG
             </div>
           </div>
 
@@ -232,7 +243,7 @@ export default function Manual() {
             <div className="space-y-8">
               {/* Specifications */}
               {activeSection === 'specs' && (
-                <Section title="01 PROFILE" subtitle="Core nature and dynamics">
+                <Section title="WHO THEY ARE" subtitle="Core personality and how they tend to show up">
                   <div className="grid md:grid-cols-2 gap-6">
                     <UnitCard unit={unitA} isFirst />
                     <UnitCard unit={unitB} isFirst={false} />
@@ -242,7 +253,7 @@ export default function Manual() {
 
               {/* Operating Procedures */}
               {activeSection === 'procedures' && (
-                <Section title="02 INTERACTION GUIDE" subtitle="Recommended ways to connect">
+                <Section title="HOW TO CONNECT" subtitle="Practical ways to stay grounded with each other">
                   <div className="space-y-4">
                     {manual.operatingProcedures.map((proc, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
@@ -263,7 +274,7 @@ export default function Manual() {
 
               {/* Troubleshooting */}
               {activeSection === 'troubleshooting' && (
-                <Section title="03 FRICTION POINTS" subtitle="Common issues and how to resolve them">
+                <Section title="WHEN THINGS GET TENSE" subtitle="Common patterns and what helps">
                   <div className="space-y-4">
                     {manual.troubleshooting.map((item, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 overflow-hidden">
@@ -290,7 +301,7 @@ export default function Manual() {
 
               {/* Maintenance Schedule */}
               {activeSection === 'maintenance' && (
-                <Section title="04 CARE PRACTICES" subtitle="Regular habits to keep the connection healthy">
+                <Section title="KEEPING THINGS HEALTHY" subtitle="Simple practices to stay connected and reduce stress">
                   <div className="grid sm:grid-cols-2 gap-4">
                     {manual.maintenanceSchedule.map((item, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
@@ -308,7 +319,7 @@ export default function Manual() {
 
               {/* Share Card */}
               {activeSection === 'share' && unitA && (
-                <Section title="05 SHARE PROTOCOL" subtitle="Publish your operating manual">
+                <Section title="SHARE YOUR RESULTS" subtitle="Post a summary card to social media">
                   <div className="py-8">
                     <ShareCard
                       name={unitA.name}

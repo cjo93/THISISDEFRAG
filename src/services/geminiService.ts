@@ -37,23 +37,40 @@ export const generateManualPreview = async (unitA: UnitData, unitB: UnitData): P
 
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
-    contents: `Compile a "Relationship Operating Manual" by analyzing the underlying behavioral architecture of these two units.
-    
-UNIT A (OPERATOR): Name: ${unitA.name}, OS_TYPE: ${unitA.model}, Core: ${unitA.sun_sign}, Drive: ${unitA.mars_sign}
-UNIT B (SUBJECT): Name: ${unitB.name}, OS_TYPE: ${unitB.model}, Core: ${unitB.sun_sign}, Drive: ${unitB.mars_sign}
+    contents: `You're creating a relationship guide based on Bowen Family Systems Theory. Write in simple, conversational language—like you're talking to a friend who wants to understand their relationship better.
 
-You are a System Architect writing a practical relationship guide based on technical behavioral mapping. 
-IMPORTANT: Direct all guidance toward communication protocols and behavioral dynamics. Avoid clinical medical diagnosis or therapeutic claims.
+PERSON A: ${unitA.name} (${unitA.model}, Sun in ${unitA.sun_sign}, Mars in ${unitA.mars_sign})
+PERSON B: ${unitB.name} (${unitB.model}, Sun in ${unitB.sun_sign}, Mars in ${unitB.mars_sign})
 
-TONE: Clear, technical, slightly industrial but insightful. Use terms like "optimization", "logic conflict", "resonance", "latency", and "protocol".
+Use Bowen Family Systems Theory to understand their patterns:
+- How they each handle anxiety and stress
+- Their level of self-differentiation (staying calm and clear while staying connected)
+- Patterns of distance and pursuit when things get tense
+- How they might triangle in others when conflict arises
 
-STRUCTURE REQUIRED (JSON):
-1. specifications: A technical summary of how these two specific behavioral architectures interact (e.g. "Low latency communication with high reactive feedback").
-2. operatingProcedures: Array of {title, description} - 3 specific communication protocols for Unit A when engaging Unit B's specific OS.
-3. troubleshooting: Array of {symptom, resolution} - 3 common logic conflicts and the technical reset steps to resolve them.
-4. maintenanceSchedule: Array of {frequency, task} - 3 preventative maintenance tasks to ensure system stability.
+IMPORTANT:
+- Use everyday language. No jargon, no "protocols," no technical terms.
+- Don't diagnose or prescribe therapy.
+- Focus on observable patterns in how people relate to each other.
+- Be warm, insightful, and practical.
 
-Response must be valid JSON.`,
+Give me a JSON response with:
+
+1. "specifications": A simple summary of how these two people tend to interact (2-3 sentences in plain English)
+
+2. "operatingProcedures": An array of 3 objects, each with:
+   - "title": A simple, clear title
+   - "description": Practical advice for ${unitA.name} on how to stay grounded and connected with ${unitB.name}. Keep it conversational.
+
+3. "troubleshooting": An array of 3 objects, each with:
+   - "symptom": A common thing that happens when they're stressed
+   - "resolution": What ${unitA.name} can do to stay calm and help things settle down. Use everyday language.
+
+4. "maintenanceSchedule": An array of 3 objects, each with:
+   - "frequency": How often (like "Daily" or "Weekly")
+   - "task": A simple practice to keep their relationship healthy and reduce chronic stress.
+
+Keep everything warm, practical, and in plain English.`,
     config: {
       responseMimeType: "application/json",
       responseSchema: {
