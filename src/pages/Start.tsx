@@ -82,7 +82,7 @@ export default function Start() {
           style={{ transform: step === 'them' ? 'translate(50px, -50px)' : 'translate(0, 0)' }}
         />
         {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
+        <div className="absolute inset-0 opacity-[0.015] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
       {/* Top bar */}
