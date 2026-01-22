@@ -125,7 +125,7 @@ export default function Start() {
             <p className="text-base text-white/60 max-w-sm mx-auto leading-relaxed">
               {step === 'you'
                 ? 'We\'ll use this to create your personalized manual.'
-                : 'The person you want to understand better.'}}
+                : 'The person you want to understand better.'}
             </p>
           </div>
 
