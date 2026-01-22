@@ -205,7 +205,20 @@ export default function Start() {
                 </div>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              {/* TOS Agreement */}
+              <div className="flex items-start gap-3 pt-2">
+                <input
+                  type="checkbox"
+                  required
+                  id="tos"
+                  className="mt-1 w-4 h-4 rounded border-white/20 bg-black text-orange-500 focus:ring-orange-500/50 transition-all cursor-pointer"
+                />
+                <label htmlFor="tos" className="text-xs leading-relaxed text-white/40 cursor-pointer select-none">
+                  I agree to the <Link to="/terms" className="text-orange-500/80 hover:text-orange-400 underline decoration-orange-500/20">Terms of Service</Link> and <Link to="/privacy" className="text-orange-500/80 hover:text-orange-400 underline decoration-orange-500/20">Privacy Policy</Link>. This tool provides technical behavioral mapping, not medical or clinical diagnosis.
+                </label>
+              </div>
+
+              <div className="flex gap-3 pt-2">
                 {step === 'them' && (
                   <button
                     type="button"

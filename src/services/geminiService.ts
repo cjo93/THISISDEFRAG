@@ -37,20 +37,21 @@ export const generateManualPreview = async (unitA: UnitData, unitB: UnitData): P
 
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
-    contents: `Compile a "Relationship Operating Manual" by analyzing the underlying source code of these two units.
+    contents: `Compile a "Relationship Operating Manual" by analyzing the underlying behavioral architecture of these two units.
     
-UNIT A (OPERATOR): Name: ${unitA.name}, Model: ${unitA.model}, Sun: ${unitA.sun_sign}, Mars: ${unitA.mars_sign}
-UNIT B (SUBJECT): Name: ${unitB.name}, Model: ${unitB.model}, Sun: ${unitB.sun_sign}, Mars: ${unitB.mars_sign}
+UNIT A (OPERATOR): Name: ${unitA.name}, OS_TYPE: ${unitA.model}, Core: ${unitA.sun_sign}, Drive: ${unitA.mars_sign}
+UNIT B (SUBJECT): Name: ${unitB.name}, OS_TYPE: ${unitB.model}, Core: ${unitB.sun_sign}, Drive: ${unitB.mars_sign}
 
-You are a System Architect writing a practical relationship guide. Strip away mysticism - focus on practical patterns.
+You are a System Architect writing a practical relationship guide based on technical behavioral mapping. 
+IMPORTANT: Direct all guidance toward communication protocols and behavioral dynamics. Avoid clinical medical diagnosis or therapeutic claims.
 
-TONE: Clear, direct, slightly industrial but warm. Use terms like "patterns", "triggers", "protocols", "maintenance".
+TONE: Clear, technical, slightly industrial but insightful. Use terms like "optimization", "logic conflict", "resonance", "latency", and "protocol".
 
 STRUCTURE REQUIRED (JSON):
-1. specifications: A brief overview of how these two people's patterns interact
-2. operatingProcedures: Array of {title, description} - 3 practical tips for Unit A when engaging with Unit B
-3. troubleshooting: Array of {symptom, resolution} - 3 common friction points and how to resolve them
-4. maintenanceSchedule: Array of {frequency, task} - 3 regular practices to keep the relationship healthy
+1. specifications: A technical summary of how these two specific behavioral architectures interact (e.g. "Low latency communication with high reactive feedback").
+2. operatingProcedures: Array of {title, description} - 3 specific communication protocols for Unit A when engaging Unit B's specific OS.
+3. troubleshooting: Array of {symptom, resolution} - 3 common logic conflicts and the technical reset steps to resolve them.
+4. maintenanceSchedule: Array of {frequency, task} - 3 preventative maintenance tasks to ensure system stability.
 
 Response must be valid JSON.`,
     config: {
