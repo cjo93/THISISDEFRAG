@@ -289,15 +289,31 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="py-10 border-t border-white/10">
-        <div className="max-w-[1600px] mx-auto px-8 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-sm tracking-[0.2em] text-white/40">
-            © 2026 DEFRAG
-          </span>
-          <div className="flex gap-8 text-sm tracking-[0.15em] text-white/40">
-            <Link to="/about" className="hover:text-white/70 transition">About</Link>
-            <Link to="/how-it-works" className="hover:text-white/70 transition">How It Works</Link>
-            <Link to="/privacy" className="hover:text-white/70 transition">Privacy</Link>
+      <footer className="py-12 border-t border-white/10">
+        <div className="max-w-[1600px] mx-auto px-8 sm:px-12">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-8 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black">
+                D
+              </div>
+              <span className="tracking-[0.25em] text-sm font-medium text-white/70">DEFRAG</span>
+            </div>
+            <div className="flex gap-8 text-sm tracking-[0.15em] text-white/50">
+              <Link to="/about" className="hover:text-white transition">About</Link>
+              <Link to="/how-it-works" className="hover:text-white transition">How It Works</Link>
+              <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
+            </div>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5">
+            <span className="text-sm text-white/30">
+              © 2026 DEFRAG. All rights reserved.
+            </span>
+            <a 
+              href="mailto:info@defrag.app" 
+              className="text-sm text-white/40 hover:text-orange-400 transition"
+            >
+              info@defrag.app
+            </a>
           </div>
         </div>
       </footer>

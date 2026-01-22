@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Landing from './pages/Landing';
-import Login from './pages/Login';
 import Start from './pages/Start';
 import Checkout from './pages/Checkout';
 import Manual from './pages/Manual';
@@ -12,7 +11,6 @@ export default function AppRouter() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/login" element={<Login />} />
       <Route path="/start" element={<Start />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/manual" element={<Manual />} />

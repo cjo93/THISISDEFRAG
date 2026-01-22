@@ -4,26 +4,31 @@ import { Link } from 'react-router-dom';
 export default function Privacy() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div className="absolute -top-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.06] bg-orange-500" />
+        <div className="absolute inset-0 opacity-[0.02] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:50px_50px]" />
+      </div>
 
       {/* Nav */}
-      <header className="relative z-10">
-        <nav className="mx-auto max-w-6xl px-6 py-5 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-lg">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/5">
+        <nav className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="h-9 w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-lg group-hover:scale-105 transition-transform">
               D
             </div>
-            <span className="tracking-[0.25em] text-sm font-semibold">DEFRAG</span>
+            <span className="tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8 text-[11px] tracking-[0.2em] text-white/60">
+          <div className="hidden md:flex items-center gap-8 text-xs tracking-[0.15em] text-white/50">
             <Link to="/about" className="hover:text-white transition">ABOUT</Link>
             <Link to="/how-it-works" className="hover:text-white transition">HOW IT WORKS</Link>
-            <Link to="/privacy" className="text-white">PRIVACY</Link>
+            <Link to="/privacy" className="text-white font-medium">PRIVACY</Link>
           </div>
 
           <Link
-            to="/login"
-            className="h-10 px-5 flex items-center justify-center border border-orange-500/60 text-orange-200 text-[11px] tracking-[0.2em] hover:bg-orange-500/10 transition rounded"
+            to="/start"
+            className="h-10 px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
           >
             GET STARTED
           </Link>
@@ -31,10 +36,14 @@ export default function Privacy() {
       </header>
 
       {/* Content */}
-      <main className="relative z-10 px-6 py-16">
+      <main className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-3xl">
-          <div className="text-[11px] tracking-[0.4em] text-orange-400/80 mb-4">PRIVACY & TERMS</div>
-          <h1 className="text-4xl sm:text-5xl font-black leading-tight mb-8">
+          <div className="inline-flex items-center gap-2 mb-6">
+            <span className="h-px w-8 bg-orange-500/50" />
+            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">PRIVACY & TERMS</span>
+            <span className="h-px w-8 bg-orange-500/50" />
+          </div>
+          <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-10">
             Your <span className="text-orange-500">Data</span>
           </h1>
 
@@ -161,15 +170,18 @@ export default function Privacy() {
             </div>
 
             {/* Contact */}
-            <div>
-              <h2 className="text-xl font-bold text-white mb-4">Questions?</h2>
-              <p>
-                If you have questions about your data or want to request deletion, 
-                contact us at{' '}
-                <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300">
-                  privacy@defrag.app
-                </a>
+            <div className="rounded-2xl border border-orange-500/20 bg-orange-500/[0.03] p-8">
+              <h2 className="text-xl font-medium text-white mb-4">Questions?</h2>
+              <p className="text-base text-white/60 mb-6">
+                If you have questions about your data or want to request deletion, contact us:
               </p>
+              <a 
+                href="mailto:info@defrag.app" 
+                className="inline-flex items-center gap-3 text-orange-400 hover:text-orange-300 transition text-lg font-medium"
+              >
+                <span className="h-10 w-10 rounded-lg bg-orange-500/20 flex items-center justify-center">✉</span>
+                info@defrag.app
+              </a>
             </div>
 
             <div className="text-sm text-white/40 pt-4">
@@ -177,16 +189,16 @@ export default function Privacy() {
             </div>
           </div>
 
-          <div className="mt-12 flex gap-4">
+          <div className="mt-12 flex flex-wrap gap-4">
             <Link
-              to="/login"
-              className="h-12 px-6 flex items-center justify-center bg-orange-500 text-black font-semibold tracking-[0.15em] text-xs hover:bg-orange-400 transition rounded"
+              to="/start"
+              className="h-14 px-8 flex items-center justify-center bg-white text-black font-semibold tracking-[0.12em] text-sm hover:bg-orange-500 hover:text-white transition rounded-lg shadow-lg shadow-white/10"
             >
-              GET STARTED
+              GET STARTED →
             </Link>
             <Link
               to="/"
-              className="h-12 px-6 flex items-center justify-center border border-white/20 text-white/70 tracking-[0.15em] text-xs hover:border-white/40 hover:text-white transition rounded"
+              className="h-14 px-8 flex items-center justify-center border border-white/15 text-white/70 tracking-[0.12em] text-sm hover:border-white/30 hover:text-white transition rounded-lg"
             >
               BACK HOME
             </Link>
@@ -195,13 +207,13 @@ export default function Privacy() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-white/5 mt-12">
-        <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-xs text-white/50">© 2026 DEFRAG. All rights reserved.</div>
-          <div className="flex gap-6 text-xs text-white/50">
-            <Link to="/about" className="hover:text-white transition">About</Link>
-            <Link to="/how-it-works" className="hover:text-white transition">How It Works</Link>
-            <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
+      <footer className="relative z-10 py-10 border-t border-white/5 mt-12">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span className="text-sm text-white/30">© 2026 DEFRAG</span>
+          <div className="flex gap-6 text-sm text-white/30">
+            <Link to="/about" className="hover:text-white/60 transition">About</Link>
+            <Link to="/how-it-works" className="hover:text-white/60 transition">How It Works</Link>
+            <Link to="/privacy" className="hover:text-white/60 transition">Privacy</Link>
           </div>
         </div>
       </footer>
