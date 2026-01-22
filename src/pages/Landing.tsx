@@ -63,15 +63,15 @@ export default function Landing() {
         </div>
         <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
 
-        <div className="relative z-10 text-center px-8 max-w-5xl">
+        <div className="relative z-10 text-center px-6 sm:px-8 max-w-5xl mx-auto pt-10 sm:pt-0">
 
-          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-light leading-[1.05] tracking-[-0.02em] mb-8">
-            <span className="block text-white/60 text-[clamp(0.85rem,2vw,1.1rem)] tracking-[0.4em] uppercase mb-8 font-medium">
+          <h1 className="text-[clamp(3rem,9vw,6rem)] font-light leading-[1] tracking-[-0.02em] mb-8 sm:mb-10">
+            <span className="block text-white/60 text-[clamp(0.9rem,2.5vw,1.1rem)] tracking-[0.3em] uppercase mb-6 sm:mb-8 font-medium">
               The Instruction Manual For
             </span>
             <span
               className={`
-                block text-orange-500 font-normal min-h-[1.1em]
+                block text-orange-500 font-normal min-h-[1.1em] px-2
                 transition-all duration-300 ease-out
                 ${isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-3 blur-sm'}
               `}
@@ -80,29 +80,29 @@ export default function Landing() {
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/70 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-            Stop guessing. Decode their behavior, de-escalate conflict, and connect deeply.<br className="hidden sm:block" />
-            <span className="text-white/50 text-base mt-2 block">Grounded in NASA data & clinical psychology.</span>
+          <p className="text-lg sm:text-2xl text-white/80 font-light max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed px-4">
+            Decode their behavior. De-escalate conflict. Connect deeply.<br className="hidden sm:block" />
+            <span className="text-white/50 text-base mt-3 block">Grounded in NASA data & clinical psychology.</span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 px-4">
             <Link
               to="/start"
-              className="w-full sm:w-auto h-14 sm:h-16 px-10 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-sm sm:text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-xl shadow-lg shadow-orange-500/25"
+              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.3)]"
             >
               GENERATE MANUAL
             </Link>
             <Link
               to="/signin"
-              className="w-full sm:w-auto h-14 sm:h-16 px-10 sm:px-12 flex items-center justify-center border border-white/20 text-white/70 text-sm sm:text-base tracking-[0.12em] font-medium hover:border-white/40 hover:text-white active:scale-[0.98] transition-all duration-300 rounded-xl backdrop-blur-sm"
+              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center border border-white/20 text-white/80 text-base tracking-[0.12em] font-medium hover:border-white/40 hover:text-white active:scale-[0.98] transition-all duration-300 rounded-xl backdrop-blur-sm"
             >
               LOG IN
             </Link>
           </div>
 
-          <p className="text-xs sm:text-sm text-white/40 mt-10 sm:mt-12 tracking-[0.15em]">
-            INSTANT ANALYSIS - NO WAITING
+          <p className="text-xs sm:text-sm text-white/40 mt-10 sm:mt-12 tracking-[0.15em] uppercase">
+            Instant Analysis • No Waiting
           </p>
         </div>
 
@@ -124,22 +124,22 @@ export default function Landing() {
               Why does it feel like you're speaking different languages?
             </h2>
 
-            <div className="space-y-8 text-[clamp(1.15rem,2.5vw,1.5rem)] font-light leading-[1.7] text-white/60">
-              <p className="pl-0 border-l border-white/10 pl-6">
-                You try to connect. <span className="text-white">They pull away.</span>
+            <div className="space-y-10 text-[clamp(1.25rem,3vw,1.75rem)] font-light leading-[1.6] text-white/70">
+              <p className="pl-6 border-l-2 border-white/10">
+                You try to connect. <span className="text-white block sm:inline mt-1 sm:mt-0">They pull away.</span>
               </p>
-              <p className="pl-8 sm:pl-12 border-l border-white/10 pl-6">
-                You ask for clarity. <span className="text-white">They get defensive.</span>
+              <p className="pl-6 border-l-2 border-white/10">
+                You ask for clarity. <span className="text-white block sm:inline mt-1 sm:mt-0">They get defensive.</span>
               </p>
-              <p className="pl-16 sm:pl-24 border-l border-white/10 pl-6">
+              <p className="pl-6 border-l-2 border-white/10">
                 It's not that you're incompatible.<br />
-                It's that you're running on different <em className="text-white not-italic">operating systems</em>.
+                It's that you're running on different <em className="text-white not-italic border-b border-orange-500/30 pb-0.5">operating systems</em>.
               </p>
             </div>
 
-            <div className="mt-12 pl-0 sm:pl-36">
-              <span className="block text-white/40 text-sm tracking-widest uppercase mb-2">The Result</span>
-              <p className="text-xl text-white">Without a manual, every error feels personal.</p>
+            <div className="mt-16 sm:pl-10">
+              <span className="block text-orange-500 text-xs tracking-widest uppercase mb-3 font-medium">The Result</span>
+              <p className="text-2xl sm:text-3xl text-white font-light">Without a manual, every error feels personal.</p>
             </div>
           </div>
         </div>
@@ -155,16 +155,16 @@ export default function Landing() {
               <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
                 The Architecture
               </span>
-              <h2 className="text-[clamp(1.6rem,3.5vw,3rem)] font-light leading-[1.25] mb-8 text-white">
+              <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-light leading-[1.1] mb-8 text-white">
                 We map the<br />
-                <span className="text-orange-400">5 Invisible Layers</span><br />
-                of their operating system.
+                <span className="text-orange-400 font-normal">5 Invisible Layers</span><br />
+                of their internal nature.
               </h2>
               <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md mb-6">
                 Most advice focuses on behaviors (Layer 4). But behaviors are just symptoms.
               </p>
               <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md mb-6">
-                DEFRAG digs deeper—to the core mechanics of how they process emotion, handle stress, and perceive safety.
+                DEFRAG digs deeper—to the core nature of how they process emotion, handle stress, and perceive safety.
               </p>
               <p className="text-lg sm:text-xl text-white/90 font-medium leading-relaxed max-w-md">
                 When you understand the root, you stop fighting the symptoms.
@@ -173,33 +173,33 @@ export default function Landing() {
 
             {/* Diagram */}
             <div className="relative order-1 lg:order-2 flex justify-center">
-              <div className="aspect-square w-full max-w-[400px] relative">
+              <div className="aspect-square w-full max-w-[500px] relative">
                 {/* Outer glow */}
                 <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-orange-500/5 to-transparent" />
 
                 {/* Layer 5 - Triggers */}
-                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-2">
-                  <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase bg-black px-2 -mt-3">5. Triggers</span>
+                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4">
+                  <span className="text-xs tracking-[0.25em] text-white/40 uppercase bg-black px-3 -mt-3.5">5. Triggers</span>
                 </div>
 
                 {/* Layer 4 - Behaviors */}
-                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-2">
-                  <span className="text-[10px] tracking-[0.2em] text-white/50 uppercase bg-black px-2 -mt-3">4. Behaviors</span>
+                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-4">
+                  <span className="text-xs tracking-[0.25em] text-white/60 uppercase bg-black px-3 -mt-3.5">4. Behaviors</span>
                 </div>
 
                 {/* Layer 3 - Needs */}
-                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-2">
-                  <span className="text-[10px] tracking-[0.2em] text-orange-400/60 uppercase bg-black px-2 -mt-3">3. Needs</span>
+                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-4">
+                  <span className="text-xs tracking-[0.25em] text-orange-400/80 uppercase bg-black px-3 -mt-3.5">3. Needs</span>
                 </div>
 
                 {/* Layer 2 - Fears */}
-                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-2">
-                  <span className="text-[10px] tracking-[0.2em] text-orange-400/80 uppercase bg-black px-2 -mt-3">2. Fears</span>
+                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-4">
+                  <span className="text-xs tracking-[0.25em] text-orange-400 uppercase bg-black px-3 -mt-3.5">2. Fears</span>
                 </div>
 
                 {/* Layer 1 - Core */}
-                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_30px_rgba(249,115,22,0.4)]">
-                  <span className="text-black text-xs font-bold tracking-widest uppercase">1. Core</span>
+                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_50px_rgba(249,115,22,0.4)]">
+                  <span className="text-black text-sm font-bold tracking-widest uppercase">1. Core</span>
                 </div>
 
                 {/* Crosshairs */}
@@ -234,7 +234,7 @@ export default function Landing() {
                 num: "01",
                 title: "Operating Logic",
                 short: "Why they operate the way they do.",
-                desc: "Decode their internal processing. Do they need specific instructions or open space? Do they process internally or externally? Understand the hardware so you can stop fighting the software."
+                desc: "Decode their internal processing. Do they need specific instructions or open space? Do they process internally or externally? Understand the nature so you can stop fighting the design."
               },
               {
                 num: "02",

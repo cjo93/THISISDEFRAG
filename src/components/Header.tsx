@@ -21,7 +21,7 @@ export default function Header() {
     }, [location]);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
+        <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
                 <Link to={targetLink} className="flex items-center gap-2 sm:gap-3 group">
                     <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden relative">
@@ -46,13 +46,13 @@ export default function Header() {
                         to="/signin"
                         className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition-colors"
                     >
-                        LOG IN
+                        MEMBER LOGIN
                     </Link>
                     <Link
                         to="/start"
                         className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
                     >
-                        START
+                        CREATE MANUAL
                     </Link>
                 </div>
             </div>
