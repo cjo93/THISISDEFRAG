@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Pain-point language that triggers instant recognition
 const ROTATING_WORDS = [
-  "your partner",
-  "your mother", 
-  "your father",
-  "your boss",
-  "your kid",
-  "your ex",
-  "yourself",
+  "the one who shuts down",
+  "the one who never listens",
+  "the one you can't reach",
+  "the one who pulls away",
+  "the one who overreacts",
+  "the one you walk on eggshells around",
 ];
 
 export default function Landing() {
@@ -23,7 +23,7 @@ export default function Landing() {
         setWordIndex((i) => (i + 1) % ROTATING_WORDS.length);
         setIsVisible(true);
       }, 300);
-    }, 2200);
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 
@@ -78,14 +78,14 @@ export default function Landing() {
 
         <div className="relative z-10 text-center px-8 max-w-5xl">
           
-          <h1 className="text-[clamp(2.5rem,8vw,6rem)] font-light leading-[1.05] tracking-[-0.02em] mb-10">
+          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-light leading-[1.05] tracking-[-0.02em] mb-10">
             <span className="block text-white/60 text-[clamp(0.85rem,2vw,1.1rem)] tracking-[0.4em] uppercase mb-8 font-medium">
               Finally
             </span>
             The user manual for<br />
             <span 
               className={`
-                inline-block min-w-[280px] sm:min-w-[380px] text-orange-500 font-normal
+                inline-block min-w-[280px] sm:min-w-[500px] text-orange-500 font-normal
                 transition-all duration-300 ease-out
                 ${isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-3 blur-sm'}
               `}
@@ -109,11 +109,16 @@ export default function Landing() {
               </svg>
             </span>
             <span className="text-lg sm:text-xl text-white/80 group-hover:text-white transition-colors duration-300">
-              Get your manual
+              Finally understand them →
             </span>
           </Link>
 
-          <p className="text-sm text-white/50 mt-10 tracking-[0.15em]">
+          {/* Micro-validation */}
+          <p className="text-sm text-white/40 mt-8 italic">
+            (You're 2 minutes away from the answer you've been looking for)
+          </p>
+
+          <p className="text-sm text-white/50 mt-4 tracking-[0.15em]">
             $19 · 2 MINUTES · INSTANT DELIVERY
           </p>
         </div>
@@ -132,12 +137,13 @@ export default function Landing() {
             <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
               The Problem
             </span>
-            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-6">
+            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-8">
               People don't come with instructions.
             </h2>
-            <p className="text-[clamp(1.15rem,2.5vw,1.6rem)] font-light leading-[1.6] text-white/60">
-              So we guess. We project. We repeat the same fights.<br />
-              We wonder why they can't just <em className="text-white/80 not-italic">see it our way</em>.
+            <p className="text-[clamp(1.15rem,2.5vw,1.5rem)] font-light leading-[1.7] text-white/60">
+              We try everything. We stay patient. We compromise. We apologize.<br />
+              We don't understand why it's <em className="text-white/80 not-italic">never enough</em>.<br />
+              <span className="block mt-4 text-white/50">And somehow... we're the problem.</span>
             </p>
           </div>
         </div>
@@ -154,17 +160,24 @@ export default function Landing() {
                 The Shift
               </span>
               <h2 className="text-[clamp(1.6rem,3.5vw,3rem)] font-light leading-[1.25] mb-8 text-white">
-                What if you could see<br />
-                <span className="text-orange-400">the operating system</span><br />
-                underneath?
+                What if everything they do<br />
+                <span className="text-orange-400">makes perfect sense</span>...<br />
+                once you understand them?
               </h2>
-              <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md">
-                DEFRAG maps invisible patterns—stress responses inherited across generations, attachment styles formed in childhood, the exact conditions that trigger shutdown.
+              <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md mb-6">
+                DEFRAG reveals why they do what they do. Their core fears. What actually reaches them. The invisible architecture that explains everything.
+              </p>
+              <p className="text-lg sm:text-xl text-white/90 font-medium leading-relaxed max-w-md">
+                And suddenly... you're not angry anymore. You're compassionate.
               </p>
             </div>
 
             {/* Diagram */}
             <div className="relative">
+              {/* Context line above diagram */}
+              <p className="text-center text-sm text-white/50 mb-6 tracking-wide">
+                The 5 invisible layers that explain everything about them.
+              </p>
               <div className="aspect-square max-w-sm lg:max-w-md mx-auto relative">
                 {/* Rings */}
                 <div className="absolute inset-0 rounded-full border border-white/10 animate-[spin_60s_linear_infinite]" />
@@ -206,7 +219,7 @@ export default function Landing() {
               Your Manual
             </span>
             <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light text-white">
-              Everything you need to navigate them.
+              Everything you need to finally reach them.
             </h2>
           </div>
 
@@ -215,31 +228,40 @@ export default function Landing() {
               { 
                 num: "01",
                 title: "Operating Logic", 
-                desc: "How they process stress and protect themselves." 
+                desc: "Why they shut down (not because of you). How they actually operate under stress. What they're really protecting.",
+                icons: "😤 → 💡"
               },
               { 
                 num: "02",
                 title: "Trigger Map", 
-                desc: "Words, tones, and situations that activate defenses." 
+                desc: "The exact phrases that trigger them. And more importantly—the words that disarm them instantly.",
+                icons: "💥 → 🤝"
               },
               { 
                 num: "03",
                 title: "What They Need", 
-                desc: "Not what they say. What lands. What creates safety." 
+                desc: "Not what they say they want. The conditions that make them feel genuinely safe with you. When they finally open up.",
+                icons: "🚪 → ❤️"
               },
               { 
                 num: "04",
                 title: "Scripts That Work", 
-                desc: "Exact phrases for de-escalation and repair." 
+                desc: "What to say when everything's broken. How to turn conflict into closeness. The exact words that rebuild trust.",
+                icons: "😶 → 🗣️"
               },
             ].map((item) => (
               <div 
                 key={item.num} 
                 className="group p-6 sm:p-8 border border-white/10 hover:border-orange-500/30 bg-white/[0.02] hover:bg-orange-500/[0.04] transition-all duration-500"
               >
-                <span className="text-xs tracking-[0.3em] text-orange-500 font-mono block mb-6">
-                  {item.num}
-                </span>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs tracking-[0.3em] text-orange-500 font-mono">
+                    {item.num}
+                  </span>
+                  <span className="text-sm opacity-60 group-hover:opacity-100 transition-opacity">
+                    {item.icons}
+                  </span>
+                </div>
                 <h3 className="text-base sm:text-lg font-medium mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
                   {item.title}
                 </h3>
@@ -267,31 +289,48 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* WHAT HAPPENS NEXT */}
+      <section className="py-24 sm:py-32 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-500/[0.02] to-transparent" />
+        <div className="max-w-3xl mx-auto px-8 sm:px-12 text-center relative">
+          <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 font-medium">
+            The Moment After You Read It
+          </span>
+          <div className="space-y-6 text-lg sm:text-xl text-white/70 leading-relaxed">
+            <p>You'll finally understand <span className="text-white">why they react that way</span>.</p>
+            <p>You'll know exactly <span className="text-white">what to say when things break</span>.</p>
+            <p>You'll stop <span className="text-white">taking it personally</span>.</p>
+            <p className="text-white/90 font-medium pt-4">And for the first time, you'll actually know how to reach them.</p>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="py-32 sm:py-48 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500/[0.05] to-transparent" />
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12 text-center relative">
           
-          <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-light leading-[1.1] mb-6 text-white">
-            Stop guessing.
+          <h2 className="text-[clamp(1.8rem,5vw,4rem)] font-light leading-[1.15] mb-4 text-white">
+            Stop guessing. Stop blaming yourself.
           </h2>
           <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.1] mb-12 text-orange-500">
             Start understanding.
           </h2>
           
-          <p className="text-lg sm:text-xl text-white/60 mb-14 max-w-md mx-auto">
-            Two people. Two minutes. One manual.
+          <p className="text-lg sm:text-xl text-white/60 mb-6 max-w-lg mx-auto">
+            Two people. Two minutes. One moment of<br />
+            <span className="text-white italic">"OH, that's why they do that."</span>
           </p>
 
           <Link
             to="/start"
             className="inline-flex h-14 sm:h-16 px-10 sm:px-14 items-center justify-center bg-white text-black text-sm sm:text-base tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/10"
           >
-            GET YOUR MANUAL — $19
+            UNDERSTAND THEM FINALLY — $19
           </Link>
 
-          <p className="text-sm text-white/50 mt-8 tracking-[0.2em]">
-            INSTANT DELIVERY · 30-DAY GUARANTEE · SECURE CHECKOUT
+          <p className="text-sm text-white/50 mt-10 tracking-[0.15em]">
+            ✓ Instant Delivery · ✓ 30-Day "It Changed Everything" Guarantee · ✓ Secure Checkout
           </p>
         </div>
       </section>
@@ -317,10 +356,10 @@ export default function Landing() {
               © 2026 DEFRAG. All rights reserved.
             </span>
             <a 
-              href="mailto:info@defrag.app" 
+              href="mailto:chadowen93@gmail.com" 
               className="text-sm text-white/40 hover:text-orange-400 transition"
             >
-              info@defrag.app
+              chadowen93@gmail.com
             </a>
           </div>
         </div>
