@@ -24,21 +24,30 @@ export default function Header() {
         <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
                 <Link to={targetLink} className="flex items-center gap-2 group">
-                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-orange-500 overflow-visible transition-transform duration-700 ease-in-out group-hover:rotate-90">
-                        {/* True Mandala Identity */}
-                        <svg width="40" height="40" viewBox="0 0 100 100" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            {/* Center */}
-                            <circle cx="50" cy="50" r="4" fill="currentColor" />
-                            {/* Inner Petals */}
-                            <path d="M50 25 Q55 35 65 40 Q55 50 50 65 Q45 50 35 40 Q45 35 50 25 Z" />
-                            <path d="M75 50 Q65 55 60 65 Q50 55 35 50 Q50 45 60 35 Q65 45 75 50 Z" transform="rotate(45 50 50)" />
-                            {/* Middle Ring */}
-                            <circle cx="50" cy="50" r="28" strokeOpacity="0.5" strokeDasharray="2 2" />
-                            {/* Outer Petals / Rays */}
-                            <path d="M50 10 L50 20 M50 80 L50 90 M90 50 L80 50 M20 50 L10 50" strokeOpacity="0.8" />
-                            <path d="M78 22 L71 29 M29 71 L22 78 M78 78 L71 71 M29 29 L22 22" strokeOpacity="0.8" />
-                            {/* Outer Circle */}
-                            <circle cx="50" cy="50" r="42" strokeOpacity="0.3" />
+                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-orange-500 overflow-visible transition-transform duration-[2000ms] ease-in-out group-hover:rotate-[180deg]">
+                        {/* True Petal Mandala Identity */}
+                        <svg width="40" height="40" viewBox="0 0 100 100" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
+                            {/* Center Dot */}
+                            <circle cx="50" cy="50" r="2" fill="currentColor" />
+
+                            {/* Inner Flower (8 petals) */}
+                            <path d="M50 20 Q55 35 60 50 Q65 65 50 80 Q35 65 40 50 Q45 35 50 20" stroke="currentColor" fill="none" />
+                            <path d="M80 50 Q65 55 50 60 Q35 65 20 50 Q35 35 50 40 Q65 45 80 50" stroke="currentColor" fill="none" />
+                            <path d="M71 29 Q60 40 50 50 Q40 60 29 71" stroke="currentColor" fill="none" />
+                            <path d="M29 29 Q40 40 50 50 Q60 60 71 71" stroke="currentColor" fill="none" />
+
+                            {/* Middle Detailed Ring */}
+                            <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 2" />
+
+                            {/* Outer Decorative Petals */}
+                            <path d="M50 10 C60 10 70 20 70 30 C70 40 60 50 50 50" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M50 50 C40 50 30 40 30 30 C30 20 40 10 50 10" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M50 90 C60 90 70 80 70 70 C70 60 60 50 50 50" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M50 50 C40 50 30 60 30 70 C30 80 40 90 50 90" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M90 50 C90 60 80 70 70 70 C60 70 50 60 50 50" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M50 50 C50 40 60 30 70 30 C80 30 90 40 90 50" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M10 50 C10 60 20 70 30 70 C40 70 50 60 50 50" stroke="currentColor" strokeOpacity="0.6" />
+                            <path d="M50 50 C50 40 40 30 30 30 C20 30 10 40 10 50" stroke="currentColor" strokeOpacity="0.6" />
                         </svg>
                     </div>
                     <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90 group-hover:text-white transition-colors">DEFRAG</span>
