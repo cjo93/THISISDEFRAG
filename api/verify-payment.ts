@@ -426,7 +426,7 @@ async function sendConfirmationEmail(to: string, unitA: UnitData, unitB: UnitDat
               </div>
               <a href="https://defrag.app" style="color: #52525b; font-size: 11px; text-decoration: none;">defrag.app</a>
               <div style="color: #27272a; font-size: 9px; margin-top: 15px;">
-                Questions? Contact info@defrag.app
+                Questions? Contact chadowen93@gmail.com
               </div>
             </td>
           </tr>

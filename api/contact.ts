@@ -42,7 +42,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Send notification to support
     const internalResult = await resend.emails.send({
       from: 'DEFRAG <noreply@defrag.app>',
-      to: ['info@defrag.app'],
+      to: ['chadowen93@gmail.com'],
       replyTo: email,
       subject: `DEFRAG SUPPORT // ${subject}`,
       html: generateInternalEmail({ name, email, subject, message, orderRef }),

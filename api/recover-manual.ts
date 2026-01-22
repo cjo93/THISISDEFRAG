@@ -113,7 +113,7 @@ function generateRecoveryEmail(email: string): string {
               <table cellpadding="0" cellspacing="0" style="margin-top: 30px;">
                 <tr>
                   <td style="background-color: #ea580c; padding: 15px 30px;">
-                    <a href="mailto:info@defrag.app?subject=Manual%20Recovery%20Request&body=Email:%20${encodeURIComponent(email)}%0A%0APurchase%20date:%20%0AUnit%20names:%20%0APayment%20last%204:%20" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
+                    <a href="mailto:chadowen93@gmail.com?subject=Manual%20Recovery%20Request&body=Email:%20${encodeURIComponent(email)}%0A%0APurchase%20date:%20%0AUnit%20names:%20%0APayment%20last%204:%20" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
                       CONTACT SUPPORT →
                     </a>
                   </td>

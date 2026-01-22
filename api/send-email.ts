@@ -82,7 +82,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (!supportRequest) return res.status(400).json({ error: 'Missing support request' });
         subject = `DEFRAG SUPPORT // ${supportRequest.subject}`;
         html = generateSupportInternalEmail(supportRequest);
-        recipients = ['info@defrag.app']; // Internal notification
+        recipients = ['chadowen93@gmail.com']; // Internal notification
         replyTo = supportRequest.email;
         break;
       
@@ -239,7 +239,7 @@ function generateResendManualEmail(request: ResendManualRequest): string {
     </p>
     
     <p style="color: #52525b; font-size: 12px; margin-top: 15px; line-height: 1.6;">
-      Can't find your manual? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a> with your order details.
+      Can't find your manual? Contact <a href="mailto:chadowen93@gmail.com" style="color: #ea580c;">chadowen93@gmail.com</a> with your order details.
     </p>
   `);
 }
@@ -281,7 +281,7 @@ function generateSupportConfirmationEmail(request: SupportRequest): string {
   `);
 }
 
-// SUPPORT INTERNAL EMAIL (to info@defrag.app)
+// SUPPORT INTERNAL EMAIL (to chadowen93@gmail.com)
 function generateSupportInternalEmail(request: SupportRequest): string {
   return emailWrapper(`
     <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
@@ -366,7 +366,7 @@ function generatePurchaseEmail(unitA: UnitData, unitB: UnitData, manualUrl: stri
     </p>
     
     <p style="color: #52525b; font-size: 12px; margin-top: 15px;">
-      Need help? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a>
+      Need help? Contact <a href="mailto:chadowen93@gmail.com" style="color: #ea580c;">chadowen93@gmail.com</a>
     </p>
   `);
 }
