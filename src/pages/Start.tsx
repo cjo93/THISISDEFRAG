@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-// Owner emails that bypass payment
-const OWNER_EMAILS = ['info@defrag.app', 'chadowen93@gmail.com'];
+// Dev credentials
+const DEV_EMAIL = 'info@defrag.app';
+const DEV_PASSWORD = 'frags';
 
 interface BirthData {
   name: string;
@@ -10,6 +11,7 @@ interface BirthData {
   birthTime: string;
   birthPlace: string;
   email?: string;
+  password?: string;
 }
 
 export default function Start() {
@@ -44,7 +46,8 @@ export default function Start() {
     setCurrentData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const isOwner = OWNER_EMAILS.includes(userData.email?.toLowerCase().trim() || '');
+  const isDev = userData.email?.toLowerCase().trim() === DEV_EMAIL && userData.password === DEV_PASSWORD;
+  const showDevField = userData.email?.toLowerCase().trim() === DEV_EMAIL;
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,8 +58,8 @@ export default function Start() {
       localStorage.setItem('defrag_unitA', JSON.stringify(userData));
       localStorage.setItem('defrag_unitB', JSON.stringify(partnerData));
       
-      // Owner bypass - skip payment
-      if (isOwner) {
+      // Dev bypass - skip payment
+      if (isDev) {
         localStorage.setItem('defrag_payment_verified', 'true');
         localStorage.setItem('defrag_owner_bypass', 'true');
         navigate('/manual');
@@ -136,24 +139,38 @@ export default function Start() {
             <form onSubmit={handleNext} className="space-y-6">
               {/* Email field - only on step 1 */}
               {step === 'you' && (
-                <div className="space-y-2">
-                  <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2">
-                    EMAIL
-                    {isOwner && (
-                      <span className="text-[10px] tracking-normal text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded">
-                        ✓ OWNER ACCESS
-                      </span>
-                    )}
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={userData.email || ''}
-                    onChange={(e) => setUserData(prev => ({ ...prev, email: e.target.value }))}
-                    placeholder="your@email.com"
-                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
-                  />
-                </div>
+                <>
+                  <div className="space-y-2">
+                    <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2">
+                      EMAIL
+                      {isDev && (
+                        <span className="text-[10px] tracking-normal text-green-400 bg-green-500/10 px-2 py-0.5 rounded">
+                          ✓ DEV ACCESS
+                        </span>
+                      )}
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={userData.email || ''}
+                      onChange={(e) => setUserData(prev => ({ ...prev, email: e.target.value }))}
+                      placeholder="your@email.com"
+                      className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                    />
+                  </div>
+                  {showDevField && (
+                    <div className="space-y-2">
+                      <label className="text-xs tracking-[0.25em] text-white/50">PASSWORD</label>
+                      <input
+                        type="password"
+                        value={userData.password || ''}
+                        onChange={(e) => setUserData(prev => ({ ...prev, password: e.target.value }))}
+                        placeholder="Dev password"
+                        className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                      />
+                    </div>
+                  )}
+                </>
               )}
 
               <div className="space-y-2">
@@ -221,7 +238,7 @@ export default function Start() {
                   type="submit"
                   className="flex-1 h-14 bg-white text-black font-semibold tracking-[0.12em] text-sm rounded-lg hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-white/10 hover:shadow-orange-500/20"
                 >
-                  {step === 'you' ? 'CONTINUE →' : isOwner ? 'GENERATE (FREE)' : 'CHECKOUT →'}
+                  {step === 'you' ? 'CONTINUE' : isDev ? 'GENERATE (DEV)' : 'CHECKOUT'}
                 </button>
               </div>
             </form>
