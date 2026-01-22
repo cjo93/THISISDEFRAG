@@ -43,12 +43,20 @@ export default function Landing() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/50">
         <div className="max-w-[1800px] mx-auto px-8 sm:px-12 h-20 flex items-center justify-between">
           <span className="text-[15px] tracking-[0.5em] font-medium text-white">DEFRAG</span>
-          <Link
-            to="/start"
-            className="text-[13px] tracking-[0.3em] text-white/70 hover:text-orange-400 transition-colors duration-300"
-          >
-            GET STARTED →
-          </Link>
+          <div className="flex items-center gap-8">
+            <Link
+              to="/signin"
+              className="text-[13px] tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
+            >
+              SIGN IN
+            </Link>
+            <Link
+              to="/start"
+              className="text-[13px] tracking-[0.3em] text-white/70 hover:text-orange-400 transition-colors duration-300"
+            >
+              GET STARTED →
+            </Link>
+          </div>
         </div>
       </nav>
 
