@@ -175,36 +175,55 @@ export default function Landing() {
             {/* Diagram */}
             <div className="relative">
               {/* Context line above diagram */}
-              <p className="text-center text-sm text-white/50 mb-6 tracking-wide">
-                The 5 invisible layers that explain everything about them.
+              <p className="text-center text-xs tracking-[0.3em] text-white/40 uppercase mb-8">
+                The 5 Invisible Layers
               </p>
               <div className="aspect-square max-w-sm lg:max-w-md mx-auto relative">
-                {/* Rings */}
-                <div className="absolute inset-0 rounded-full border border-white/10 animate-[spin_60s_linear_infinite]" />
-                <div className="absolute inset-[8%] rounded-full border border-white/15 animate-[spin_45s_linear_infinite_reverse]" />
-                <div className="absolute inset-[16%] rounded-full border border-orange-500/25" />
-                <div className="absolute inset-[24%] rounded-full border border-orange-500/40 bg-orange-500/[0.05]" />
-                <div className="absolute inset-[32%] rounded-full border border-orange-500/30" />
+                {/* Outer glow */}
+                <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-orange-500/5 to-transparent" />
+                
+                {/* Layer 5 - Triggers (outermost) */}
+                <div className="absolute inset-0 rounded-full border border-white/10">
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-white/40 uppercase">Triggers</span>
+                </div>
+                
+                {/* Layer 4 - Behaviors */}
+                <div className="absolute inset-[10%] rounded-full border border-white/15">
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-white/50 uppercase">Behaviors</span>
+                </div>
+                
+                {/* Layer 3 - Needs */}
+                <div className="absolute inset-[20%] rounded-full border border-orange-500/20">
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-orange-400/60 uppercase">Needs</span>
+                </div>
+                
+                {/* Layer 2 - Fears */}
+                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 bg-orange-500/[0.03]">
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-orange-400/70 uppercase">Fears</span>
+                </div>
+                
+                {/* Layer 1 - Core (innermost) */}
+                <div className="absolute inset-[40%] rounded-full border border-orange-500/50 bg-orange-500/[0.08]" />
                 
                 {/* Center */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <div className="text-4xl sm:text-5xl font-light text-orange-500">◎</div>
-                    <div className="text-xs tracking-[0.3em] text-white/50 uppercase mt-2 font-medium">Core</div>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30">
+                      <span className="text-black text-lg sm:text-xl font-medium">1</span>
+                    </div>
+                    <div className="text-[10px] tracking-[0.3em] text-orange-400 uppercase mt-3 font-medium">Core Identity</div>
                   </div>
                 </div>
 
-                {/* Labels */}
-                <div className="absolute top-[5%] left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] text-white/50 uppercase font-medium">Triggers</div>
-                <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 text-xs tracking-[0.2em] text-white/50 uppercase font-medium">Responses</div>
-                <div className="absolute left-[3%] top-1/2 -translate-y-1/2 text-xs tracking-[0.2em] text-white/50 uppercase font-medium [writing-mode:vertical-lr] rotate-180">Needs</div>
-                <div className="absolute right-[3%] top-1/2 -translate-y-1/2 text-xs tracking-[0.2em] text-white/50 uppercase font-medium [writing-mode:vertical-lr]">Fears</div>
-                
-                {/* Dots on rings */}
-                <div className="absolute top-[16%] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-orange-500/80" />
-                <div className="absolute bottom-[24%] right-[18%] w-1.5 h-1.5 rounded-full bg-white/50" />
-                <div className="absolute top-[35%] left-[12%] w-1.5 h-1.5 rounded-full bg-white/40" />
+                {/* Subtle connection lines */}
+                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent" />
               </div>
+              
+              {/* Layer description */}
+              <p className="text-center text-sm text-white/40 mt-8 max-w-xs mx-auto leading-relaxed">
+                Every reaction starts at the core. We map all five layers so you finally understand why.
+              </p>
             </div>
           </div>
         </div>
@@ -228,38 +247,31 @@ export default function Landing() {
               { 
                 num: "01",
                 title: "Operating Logic", 
-                desc: "Why they shut down (not because of you). How they actually operate under stress. What they're really protecting.",
-                icons: "😤 → 💡"
+                desc: "Why they shut down (not because of you). How they actually operate under stress. What they're really protecting."
               },
               { 
                 num: "02",
                 title: "Trigger Map", 
-                desc: "The exact phrases that trigger them. And more importantly—the words that disarm them instantly.",
-                icons: "💥 → 🤝"
+                desc: "The exact phrases that trigger them. And more importantly—the words that disarm them instantly."
               },
               { 
                 num: "03",
                 title: "What They Need", 
-                desc: "Not what they say they want. The conditions that make them feel genuinely safe with you. When they finally open up.",
-                icons: "🚪 → ❤️"
+                desc: "Not what they say they want. The conditions that make them feel genuinely safe with you. When they finally open up."
               },
               { 
                 num: "04",
                 title: "Scripts That Work", 
-                desc: "What to say when everything's broken. How to turn conflict into closeness. The exact words that rebuild trust.",
-                icons: "😶 → 🗣️"
+                desc: "What to say when everything's broken. How to turn conflict into closeness. The exact words that rebuild trust."
               },
             ].map((item) => (
               <div 
                 key={item.num} 
                 className="group p-6 sm:p-8 border border-white/10 hover:border-orange-500/30 bg-white/[0.02] hover:bg-orange-500/[0.04] transition-all duration-500"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-xs tracking-[0.3em] text-orange-500 font-mono">
+                <div className="mb-6">
+                  <span className="text-2xl font-light text-orange-500/80 group-hover:text-orange-400 transition-colors">
                     {item.num}
-                  </span>
-                  <span className="text-sm opacity-60 group-hover:opacity-100 transition-opacity">
-                    {item.icons}
                   </span>
                 </div>
                 <h3 className="text-base sm:text-lg font-medium mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
@@ -329,9 +341,13 @@ export default function Landing() {
             UNDERSTAND THEM FINALLY — $19
           </Link>
 
-          <p className="text-sm text-white/50 mt-10 tracking-[0.15em]">
-            ✓ Instant Delivery · ✓ 30-Day "It Changed Everything" Guarantee · ✓ Secure Checkout
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/50 mt-10 tracking-[0.1em]">
+            <span>Instant Delivery</span>
+            <span className="text-white/20">|</span>
+            <span>30-Day Guarantee</span>
+            <span className="text-white/20">|</span>
+            <span>Secure Checkout</span>
+          </div>
         </div>
       </section>
 
