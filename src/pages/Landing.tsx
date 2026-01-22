@@ -175,23 +175,51 @@ export default function Landing() {
             </div>
 
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
-              <div className="aspect-square w-full max-w-[450px] relative shrink-0">
+              <div className="aspect-square w-full max-w-[450px] relative shrink-0 group/diagram">
+                {/* Outer glow */}
                 <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-orange-500/5 to-transparent animate-pulse duration-[5000ms]" />
-                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4 transition-all hover:border-white/30 hover:bg-white/[0.02]">
-                  <span className="text-[10px] tracking-[0.25em] text-white/40 uppercase bg-black px-3 -mt-2">5. Triggers</span>
+
+                {/* Layer 5 - Triggers */}
+                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/40 hover:bg-orange-500/[0.02] peer/l5 group">
+                  <span className="text-[10px] tracking-[0.25em] text-white/40 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">5. Triggers</span>
+                  <div className="absolute inset-x-0 -bottom-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">EXTERNAL ENVIRONMENTAL STRESSORS</p>
+                  </div>
                 </div>
-                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-4 transition-all hover:border-white/40 hover:bg-white/[0.02]">
-                  <span className="text-[10px] tracking-[0.25em] text-white/60 uppercase bg-black px-3 -mt-2">4. Behaviors</span>
+
+                {/* Layer 4 - Behaviors */}
+                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/50 hover:bg-orange-500/[0.03] group">
+                  <span className="text-[10px] tracking-[0.25em] text-white/60 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">4. Behaviors</span>
+                  <div className="absolute inset-x-0 -bottom-10 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">REACTIVE ACTION PATTERNS</p>
+                  </div>
                 </div>
-                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-4 transition-all hover:border-orange-500/50 hover:bg-orange-500/5">
-                  <span className="text-[10px] tracking-[0.25em] text-orange-400/80 uppercase bg-black px-3 -mt-2">3. Needs</span>
+
+                {/* Layer 3 - Needs */}
+                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/60 hover:bg-orange-500/[0.05] group">
+                  <span className="text-[10px] tracking-[0.25em] text-orange-400/80 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">3. Needs</span>
+                  <div className="absolute inset-x-0 -bottom-8 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">ESSENTIAL SAFETY REQUIREMENTS</p>
+                  </div>
                 </div>
-                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-4 transition-all hover:bg-orange-500/10">
+
+                {/* Layer 2 - Fears */}
+                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/80 hover:bg-orange-500/[0.08] group">
                   <span className="text-[10px] tracking-[0.25em] text-orange-400 uppercase bg-black px-3 -mt-2">2. Fears</span>
+                  <div className="absolute inset-x-0 -bottom-6 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">PRIMAL INSTINCTUAL DEFENSES</p>
+                  </div>
                 </div>
-                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_60px_rgba(249,115,22,0.3)] hover:scale-105 transition-transform duration-500">
+
+                {/* Layer 1 - Core */}
+                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_60px_rgba(249,115,22,0.3)] hover:scale-105 transition-transform duration-500 group">
                   <span className="text-black text-xs sm:text-sm font-bold tracking-widest uppercase">1. Core</span>
+                  <div className="absolute inset-x-0 -bottom-4 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">INNATE COGNITIVE ARCHITECTURE</p>
+                  </div>
                 </div>
+
+                {/* Crosshairs */}
                 <div className="absolute top-0 bottom-0 left-1/2 w-px bg-white/5 -z-10" />
                 <div className="absolute left-0 right-0 top-1/2 h-px bg-white/5 -z-10" />
               </div>
@@ -236,6 +264,72 @@ export default function Landing() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT'S INSIDE SECTION */}
+      <section className="h-screen w-full snap-start flex items-center py-20 relative overflow-hidden border-t border-white/5 bg-black">
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-orange-500/[0.03] to-transparent pointer-events-none" />
+        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            <div>
+              <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
+                Product Preview
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-light text-white mb-8 leading-tight">
+                What's inside your<br /><span className="text-orange-500 font-normal">DEFRAG Manual?</span>
+              </h2>
+              <ul className="space-y-6">
+                {[
+                  { title: "THE OPERATING LOGIC", text: "A 15-page breakdown of their internal architecture." },
+                  { title: "INTERVENTION SCRIPTS", text: "Word-for-word resets for when communication breaks." },
+                  { title: "TRIGGER TOPOGRAPHY", text: "A precise map of the words/actions that cause crashes." }
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4 group">
+                    <span className="text-orange-500/40 font-mono text-xs pt-1">0{i + 1}</span>
+                    <div>
+                      <h4 className="text-white text-sm font-bold tracking-widest mb-1 group-hover:text-orange-400 transition-colors uppercase">{item.title}</h4>
+                      <p className="text-white/40 text-sm">{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative">
+              {/* Blurred "Pages" stack for premium feel */}
+              <div className="relative aspect-[4/3] w-full max-w-lg mx-auto">
+                <div className="absolute top-0 right-0 w-[80%] h-full bg-zinc-900 border border-white/10 rounded-lg shadow-2xl rotate-2 translate-x-4 translate-y-4 blur-[2px] opacity-20" />
+                <div className="absolute top-0 right-0 w-[80%] h-full bg-zinc-900 border border-white/10 rounded-lg shadow-2xl -rotate-1 translate-x-2 translate-y-2 opacity-40 blur-[1px]" />
+                <div className="absolute top-0 right-0 w-[80%] h-full bg-black border border-orange-500/20 rounded-lg shadow-[0_0_50px_rgba(249,115,22,0.1)] p-8 overflow-hidden group/page">
+                  {/* Decorative "content" */}
+                  <div className="space-y-4 opacity-40 select-none">
+                    <div className="h-2 w-1/2 bg-orange-500/50 rounded" />
+                    <div className="space-y-2">
+                      <div className="h-1 w-full bg-white/20 rounded" />
+                      <div className="h-1 w-[90%] bg-white/20 rounded" />
+                      <div className="h-1 w-[95%] bg-white/20 rounded" />
+                    </div>
+                    <div className="pt-4 border-t border-white/5">
+                      <div className="h-2 w-1/3 bg-white/30 rounded mb-2" />
+                      <div className="h-40 w-full bg-white/[0.02] border border-white/10 rounded-lg flex items-center justify-center">
+                        <span className="text-[10px] text-white/20 font-mono uppercase tracking-[0.3em]">Analysis Node 042</span>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Floating callout */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-900/90 backdrop-blur-md border border-orange-500/50 p-6 rounded-lg w-64 shadow-2xl transition-transform group-hover/page:scale-105">
+                    <p className="text-white/90 text-xs leading-relaxed font-mono">
+                      <span className="text-orange-500 font-bold block mb-2 uppercase tracking-widest">Protocol Delta</span>
+                      "When target pulls away, use script 12b to stabilize the connection instead of pushing for clarity."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

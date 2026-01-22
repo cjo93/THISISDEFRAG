@@ -55,14 +55,12 @@ export default function Start() {
       localStorage.setItem('defrag_unitA', JSON.stringify(userData));
       localStorage.setItem('defrag_unitB', JSON.stringify(partnerData));
 
-      // Owner bypass - skip payment
+      // ALWAYS go to analysis first for the premium "processing" feel
       if (isOwner) {
         localStorage.setItem('defrag_payment_verified', 'true');
         localStorage.setItem('defrag_owner_bypass', 'true');
-        navigate('/manual');
-      } else {
-        navigate('/checkout');
       }
+      navigate('/analysis');
     }
   };
 
