@@ -65,14 +65,14 @@ export default function Landing() {
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-12 sm:pt-0">
 
-          <h1 className="mb-10 sm:mb-12">
-            <span className="block text-white/60 text-xs sm:text-sm tracking-[0.3em] font-mono uppercase mb-6 sm:mb-8">
+          <h1 className="mb-8 sm:mb-10">
+            <span className="block text-white/60 text-xs sm:text-sm tracking-[0.3em] font-mono uppercase mb-6 sm:mb-8 text-center">
               The Instruction Manual For
             </span>
             <span
               className={`
-                block text-orange-500 font-normal text-5xl sm:text-7xl md:text-8xl tracking-tight leading-none
-                transition-all duration-300 ease-out min-h-[1.1em] px-2
+                block text-orange-500 font-normal text-4xl sm:text-6xl md:text-7xl tracking-tight leading-tight min-h-[1.2em] px-2
+                transition-all duration-300 ease-out
                 ${isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'}
               `}
             >
@@ -80,28 +80,28 @@ export default function Landing() {
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/80 font-light max-w-2xl mx-auto mb-12 leading-relaxed px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto mb-12 leading-relaxed px-4">
             Decode their behavior. De-escalate conflict. Connect deeply.<br className="hidden sm:block" />
-            <span className="text-white/50 text-base mt-4 block font-normal">Grounded in NASA data & clinical psychology.</span>
+            <span className="text-white/50 text-sm sm:text-base mt-4 block font-normal tracking-wide">Grounded in NASA data & clinical psychology.</span>
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Standardized */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 w-full">
             <Link
               to="/start"
-              className="w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-sm sm:text-base tracking-widest font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.3)]"
+              className="w-full sm:w-auto h-14 px-8 flex items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.3)]"
             >
               GENERATE MANUAL
             </Link>
             <Link
               to="/signin"
-              className="w-full sm:w-auto h-14 sm:h-16 px-8 sm:px-12 flex items-center justify-center border border-white/20 text-white/60 text-sm sm:text-base tracking-widest font-medium hover:border-white/50 hover:text-white transition-all duration-200 rounded-lg backdrop-blur-sm"
+              className="w-full sm:w-auto h-14 px-8 flex items-center justify-center border border-white/20 text-white/70 text-sm tracking-widest font-medium hover:border-white/50 hover:text-white transition-all duration-200 rounded-lg backdrop-blur-sm"
             >
               LOG IN
             </Link>
           </div>
 
-          <div className="mt-16 flex items-center justify-center gap-2 text-[10px] sm:text-xs text-white/30 tracking-[0.2em] font-mono uppercase">
+          <div className="mt-12 flex items-center justify-center gap-4 text-[10px] sm:text-xs text-white/30 tracking-[0.2em] font-mono uppercase">
             <span>Instant Analysis</span>
             <span className="text-orange-500/50">•</span>
             <span>Secure & Private</span>
@@ -122,26 +122,26 @@ export default function Landing() {
             <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
               The Friction
             </span>
-            <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 leading-tight">
               Why does it feel like you're speaking different languages?
             </h2>
 
-            <div className="space-y-12 text-xl sm:text-2xl font-light leading-relaxed text-white/70">
+            <div className="space-y-8 text-lg sm:text-xl md:text-2xl font-light leading-relaxed text-white/70">
               <p className="pl-6 border-l border-white/10">
-                You try to connect. <span className="text-white block mt-2 sm:mt-0 sm:inline">They pull away.</span>
+                You try to connect. <span className="text-white block mt-1 sm:inline">They pull away.</span>
               </p>
               <p className="pl-6 border-l border-white/10">
-                You ask for clarity. <span className="text-white block mt-2 sm:mt-0 sm:inline">They get defensive.</span>
+                You ask for clarity. <span className="text-white block mt-1 sm:inline">They get defensive.</span>
               </p>
               <p className="pl-6 border-l border-white/10">
                 It's not that you're incompatible.<br />
-                It's that you're running on different <span className="text-white border-b border-orange-500/50 pb-1">operating systems</span>.
+                It's that you're running on different <span className="text-white border-b border-orange-500/50 pb-0.5">operating systems</span>.
               </p>
             </div>
 
-            <div className="mt-20 pl-6 sm:pl-12 border-l border-orange-500/50">
-              <span className="block text-orange-400 text-xs font-mono tracking-widest uppercase mb-3">The Result</span>
-              <p className="text-2xl sm:text-3xl text-white font-normal">Without a manual, every error feels personal.</p>
+            <div className="mt-16 pl-6 sm:pl-12 border-l border-orange-500/50">
+              <span className="block text-orange-400 text-xs font-mono tracking-widest uppercase mb-2">The Result</span>
+              <p className="text-xl sm:text-2xl text-white font-normal">Without a manual, every error feels personal.</p>
             </div>
           </div>
         </div>
