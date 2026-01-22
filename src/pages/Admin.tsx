@@ -4,18 +4,37 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function Admin() {
     const navigate = useNavigate();
     const [stats, setStats] = useState({
-        activeUsers: 142,
-        totalSessions: 893,
-        manualsGenerated: 456,
-        revenue: 13224
+        activeUsers: 0,
+        totalSessions: 0,
+        manualsGenerated: 0,
+        revenue: 0
     });
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Basic auth check
         const isOwner = localStorage.getItem('defrag_owner_bypass');
         if (!isOwner) {
             navigate('/signin');
+            return;
         }
+
+        // Fetch real stats
+        const fetchStats = async () => {
+            try {
+                const response = await fetch('/api/admin-stats');
+                if (response.ok) {
+                    const data = await response.json();
+                    setStats(data);
+                }
+            } catch (error) {
+                console.error('Failed to fetch stats:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchStats();
     }, [navigate]);
 
     return (
