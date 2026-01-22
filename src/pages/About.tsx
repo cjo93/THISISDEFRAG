@@ -41,23 +41,23 @@ export default function About() {
             <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">ABOUT</span>
             <span className="h-px w-8 bg-orange-500/50" />
           </div>
-          
+
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-10">
             What is <span className="text-orange-500">DEFRAG</span>?
           </h1>
 
           <div className="space-y-10 text-white/70 leading-relaxed">
             <p className="text-xl sm:text-2xl text-white/60 font-light leading-relaxed">
-              DEFRAG creates personalized relationship guides—practical manuals that explain 
+              DEFRAG creates personalized relationship guides practical manuals that explain
               how two people interact under pressure and what helps reduce friction.
             </p>
 
             <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
               <h2 className="text-xl font-medium text-white mb-4">The Problem</h2>
               <p className="text-base leading-relaxed">
-                Most relationship friction isn't about big issues—it's about small, recurring 
-                patterns that nobody fully understands. The same argument happens again. 
-                Someone feels dismissed without knowing why. Timing feels off but you can't 
+                Most relationship friction isn't about big issues it's about small, recurring
+                patterns that nobody fully understands. The same argument happens again.
+                Someone feels dismissed without knowing why. Timing feels off but you can't
                 explain it.
               </p>
             </div>
@@ -65,8 +65,8 @@ export default function About() {
             <div className="rounded-2xl border border-orange-500/20 bg-orange-500/[0.03] p-8">
               <h2 className="text-xl font-medium text-white mb-4">The Solution</h2>
               <p className="text-base leading-relaxed">
-                DEFRAG maps these patterns using birth data and ancient timing systems—astrology, 
-                Human Design, the I-Ching. Not as mysticism, but as pattern-recognition frameworks 
+                DEFRAG maps these patterns using birth data and ancient timing systems astrology,
+                Human Design, the I-Ching. Not as mysticism, but as pattern-recognition frameworks
                 that have tracked human behavior for thousands of years.
               </p>
             </div>
@@ -90,14 +90,14 @@ export default function About() {
 
             <blockquote className="border-l-2 border-orange-500 pl-8 py-4">
               <p className="text-xl font-light text-white/50 italic">
-                "Human behavior isn't random. It follows patterns. DEFRAG makes those 
+                "Human behavior isn't random. It follows patterns. DEFRAG makes those
                 patterns visible and actionable."
               </p>
             </blockquote>
 
             <div>
               <h2 className="text-2xl font-medium text-white mb-6">What DEFRAG is NOT</h2>
-              
+
               <ul className="space-y-4">
                 {[
                   { label: 'Fortune telling', desc: 'We don\'t predict the future. We identify patterns.' },
@@ -105,10 +105,10 @@ export default function About() {
                   { label: 'Relationship judgment', desc: 'There are no "good" or "bad" combinations. Only different patterns.' },
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <span className="text-red-400/60 mt-1">✕</span>
+                    <span className="text-red-400/60 mt-1">NO</span>
                     <div>
                       <span className="font-medium text-white">{item.label}</span>
-                      <span className="text-white/50"> — {item.desc}</span>
+                      <span className="text-white/50"> - {item.desc}</span>
                     </div>
                   </li>
                 ))}
@@ -118,8 +118,8 @@ export default function About() {
             <div className="pt-8 border-t border-white/10">
               <h2 className="text-2xl font-medium text-white mb-4">The Science</h2>
               <p className="text-base leading-relaxed mb-6">
-                DEFRAG uses real astronomical data from NASA's JPL HORIZONS system—the same ephemeris 
-                data used for actual space missions. We combine this with pattern systems (Western astrology, 
+                DEFRAG uses real astronomical data from NASA's JPL HORIZONS system the same ephemeris
+                data used for actual space missions. We combine this with pattern systems (Western astrology,
                 Human Design, I-Ching gates) and modern AI to generate insights.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -138,7 +138,7 @@ export default function About() {
               to="/start"
               className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition shadow-lg shadow-white/10"
             >
-              GET YOUR MANUAL →
+              GET YOUR MANUAL
             </Link>
           </div>
         </div>

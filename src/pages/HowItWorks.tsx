@@ -11,7 +11,7 @@ export default function HowItWorks() {
     {
       num: '02',
       title: 'We Analyze the Patterns',
-      desc: 'Real planetary data from NASA reveals how you each operate—and where friction happens.',
+      desc: 'Real planetary data from NASA reveals how you each operate and where friction happens.',
     },
     {
       num: '03',
@@ -66,11 +66,11 @@ export default function HowItWorks() {
             <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">HOW IT WORKS</span>
             <span className="h-px w-8 bg-orange-500/50" />
           </div>
-          
+
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6">
             The <span className="text-orange-500">Process</span>
           </h1>
-          
+
           <p className="text-xl text-white/50 mb-16 max-w-2xl">
             From birth data to actionable relationship insights in under 2 minutes.
           </p>
@@ -83,7 +83,7 @@ export default function HowItWorks() {
                 {i < steps.length - 1 && (
                   <div className="absolute left-6 top-14 bottom-0 w-px bg-gradient-to-b from-orange-500/30 to-transparent hidden sm:block" />
                 )}
-                
+
                 <div className="flex gap-6 sm:gap-8">
                   {/* Number */}
                   <div className="shrink-0">
@@ -91,7 +91,7 @@ export default function HowItWorks() {
                       {step.num}
                     </div>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="flex-1">
                     <h2 className="text-2xl font-medium text-white mb-2">{step.title}</h2>
@@ -106,10 +106,10 @@ export default function HowItWorks() {
           <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8 mb-12">
             <h2 className="text-2xl font-medium text-white mb-4">The Pattern Systems</h2>
             <p className="text-base text-white/60 mb-8 max-w-2xl">
-              DEFRAG draws from established frameworks—not as belief systems, 
+              DEFRAG draws from established frameworks not as belief systems,
               but as pattern-recognition tools refined over thousands of years.
             </p>
-            
+
             <div className="grid sm:grid-cols-2 gap-3">
               {systems.map((system) => (
                 <div key={system.name} className="flex items-center gap-3 p-4 rounded-lg bg-white/[0.02] border border-white/5">
@@ -136,7 +136,7 @@ export default function HowItWorks() {
               to="/start"
               className="h-14 px-8 flex items-center justify-center bg-white text-black font-semibold tracking-[0.12em] text-sm hover:bg-orange-500 hover:text-white transition rounded-lg shadow-lg shadow-white/10"
             >
-              CREATE YOUR MANUAL →
+              CREATE YOUR MANUAL
             </Link>
             <Link
               to="/privacy"
@@ -151,7 +151,7 @@ export default function HowItWorks() {
       {/* Footer */}
       <footer className="relative z-10 py-10 border-t border-white/5 mt-12">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-sm text-white/30">© 2026 DEFRAG</span>
+          <span className="text-sm text-white/30">2026 DEFRAG</span>
           <div className="flex gap-6 text-sm text-white/30">
             <Link to="/about" className="hover:text-white/60 transition">About</Link>
             <Link to="/how-it-works" className="hover:text-white/60 transition">How It Works</Link>

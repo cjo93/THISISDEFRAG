@@ -14,7 +14,7 @@ const getApiBase = () => {
 
 export const generateManualPreview = async (unitA: UnitData, unitB: UnitData): Promise<ManualPreview> => {
   const apiBase = getApiBase();
-  
+
   // Production: call serverless endpoint
   if (apiBase !== null) {
     const response = await fetch(`${apiBase}/api/generate-manual`, {
@@ -34,7 +34,7 @@ export const generateManualPreview = async (unitA: UnitData, unitB: UnitData): P
   // Local dev fallback
   const { GoogleGenAI, Type } = await import('@google/genai');
   const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
-  
+
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
     contents: `Compile a "Relationship Operating Manual" by analyzing the underlying source code of these two units.
@@ -103,7 +103,7 @@ Response must be valid JSON.`,
 
 export const playProxyVoice = async (text: string) => {
   const apiBase = getApiBase();
-  
+
   let base64Audio: string | undefined;
 
   if (apiBase !== null) {
@@ -123,7 +123,7 @@ export const playProxyVoice = async (text: string) => {
   } else {
     const { GoogleGenAI, Modality } = await import('@google/genai');
     const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
-    
+
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash-preview-tts",
       contents: [{ parts: [{ text: `Say this in a neutral, calm voice: ${text}` }] }],
@@ -148,7 +148,7 @@ export const playProxyVoice = async (text: string) => {
     for (let i = 0; i < audioData.length; i++) {
       view[i] = audioData.charCodeAt(i);
     }
-    
+
     const dataInt16 = new Int16Array(view.buffer);
     const buffer = audioContext.createBuffer(1, dataInt16.length, 24000);
     const channelData = buffer.getChannelData(0);

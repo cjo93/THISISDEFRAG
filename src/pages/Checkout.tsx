@@ -34,7 +34,7 @@ export default function Checkout() {
     // Load saved unit data
     const savedA = localStorage.getItem('defrag_unitA');
     const savedB = localStorage.getItem('defrag_unitB');
-    
+
     if (savedA && savedB) {
       setUnitA(JSON.parse(savedA));
       setUnitB(JSON.parse(savedB));
@@ -46,7 +46,7 @@ export default function Checkout() {
 
   const handleCheckout = async () => {
     if (!unitA || !unitB) return;
-    
+
     setIsLoading(true);
     setError('');
 
@@ -104,14 +104,14 @@ export default function Checkout() {
             <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
           <Link to="/start" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition flex items-center gap-2">
-            <span>←</span> EDIT
+            <span>BACK</span> EDIT
           </Link>
         </nav>
       </header>
 
       <main className="relative z-10 pt-32 pb-20 px-6">
         <div className="max-w-xl mx-auto">
-          
+
           {wasCancelled && (
             <div className="mb-8 p-4 border border-orange-500/30 bg-orange-500/10 rounded-xl text-center backdrop-blur">
               <p className="text-sm text-orange-300">Payment cancelled. Ready when you are.</p>
@@ -136,7 +136,7 @@ export default function Checkout() {
           {/* Units Summary Card */}
           <div className="border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-sm rounded-2xl p-6 mb-6 shadow-2xl shadow-black/50">
             <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-5">Your Manual</div>
-            
+
             <div className="flex items-center justify-between gap-4">
               {/* Unit A */}
               <div className="flex items-center gap-3 flex-1">
@@ -152,7 +152,7 @@ export default function Checkout() {
               {/* Connection visual */}
               <div className="flex items-center gap-1 px-4">
                 {[0, 1, 2, 3].map(i => (
-                  <div 
+                  <div
                     key={i}
                     className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === pulseIndex ? 'bg-orange-500 scale-125' : 'bg-white/20'}`}
                   />
@@ -187,7 +187,7 @@ export default function Checkout() {
                 'Instant PDF + web access',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-white/60">
-                  <span className="text-orange-500 text-xs mt-1">✓</span>
+                  <span className="text-orange-500 text-xs mt-1 font-mono">+</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -214,7 +214,7 @@ export default function Checkout() {
             ) : (
               <>
                 <span>PAY $19</span>
-                <span className="text-black/40">→</span>
+                <span className="text-black/40">-</span>
                 <span>GET MANUAL</span>
               </>
             )}
@@ -227,7 +227,7 @@ export default function Checkout() {
           {/* Trust badges */}
           <div className="mt-12 pt-8 border-t border-white/5 flex items-center justify-center gap-6 text-xs text-white/30 tracking-wide">
             <span className="flex items-center gap-2">
-              <span>🔒</span> SSL ENCRYPTED
+              <span className="font-mono">[SECURE]</span> SSL ENCRYPTED
             </span>
             <span className="text-white/10">·</span>
             <span>STRIPE SECURE</span>

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-// Dev credentials
-const DEV_EMAIL = 'info@defrag.app';
-const DEV_PASSWORD = 'frags';
+// Owner emails that bypass payment
+const OWNER_EMAILS = ['info@defrag.app', 'chadowen93@gmail.com'];
 
 interface BirthData {
   name: string;
@@ -11,7 +10,6 @@ interface BirthData {
   birthTime: string;
   birthPlace: string;
   email?: string;
-  password?: string;
 }
 
 export default function Start() {
@@ -46,8 +44,7 @@ export default function Start() {
     setCurrentData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const isDev = userData.email?.toLowerCase().trim() === DEV_EMAIL && userData.password === DEV_PASSWORD;
-  const showDevField = userData.email?.toLowerCase().trim() === DEV_EMAIL;
+  const isOwner = OWNER_EMAILS.includes(userData.email?.toLowerCase().trim() || '');
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,9 +54,9 @@ export default function Start() {
       // Save data
       localStorage.setItem('defrag_unitA', JSON.stringify(userData));
       localStorage.setItem('defrag_unitB', JSON.stringify(partnerData));
-      
-      // Dev bypass - skip payment
-      if (isDev) {
+
+      // Owner bypass - skip payment
+      if (isOwner) {
         localStorage.setItem('defrag_payment_verified', 'true');
         localStorage.setItem('defrag_owner_bypass', 'true');
         navigate('/manual');
@@ -73,14 +70,16 @@ export default function Start() {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
+        <div
           className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.12] bg-orange-500 transition-all duration-1000"
           style={{ transform: step === 'them' ? 'translate(-100px, 100px)' : 'translate(0, 0)' }}
         />
-        <div 
+        <div
           className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.06] bg-orange-400 transition-all duration-1000"
           style={{ transform: step === 'them' ? 'translate(50px, -50px)' : 'translate(0, 0)' }}
         />
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
       {/* Top bar */}
@@ -110,7 +109,7 @@ export default function Start() {
       <main className="relative z-10 flex items-center justify-center px-6 pt-8 pb-20">
         <div className="w-full max-w-lg">
           {/* Header with animation */}
-          <div 
+          <div
             className={`text-center mb-10 transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
           >
             <div className="inline-flex items-center gap-2 mb-4">
@@ -131,44 +130,30 @@ export default function Start() {
           </div>
 
           {/* Form Card */}
-          <div 
+          <div
             className={`rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-sm p-8 shadow-2xl shadow-black/50 transition-all duration-300 ${isAnimating ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'}`}
           >
             <form onSubmit={handleNext} className="space-y-6">
               {/* Email field - only on step 1 */}
               {step === 'you' && (
-                <>
-                  <div className="space-y-2">
-                    <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2">
-                      EMAIL
-                      {isDev && (
-                        <span className="text-[10px] tracking-normal text-green-400 bg-green-500/10 px-2 py-0.5 rounded">
-                          ✓ DEV ACCESS
-                        </span>
-                      )}
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={userData.email || ''}
-                      onChange={(e) => setUserData(prev => ({ ...prev, email: e.target.value }))}
-                      placeholder="your@email.com"
-                      className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
-                    />
-                  </div>
-                  {showDevField && (
-                    <div className="space-y-2">
-                      <label className="text-xs tracking-[0.25em] text-white/50">PASSWORD</label>
-                      <input
-                        type="password"
-                        value={userData.password || ''}
-                        onChange={(e) => setUserData(prev => ({ ...prev, password: e.target.value }))}
-                        placeholder="Dev password"
-                        className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
-                      />
-                    </div>
-                  )}
-                </>
+                <div className="space-y-2">
+                  <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2">
+                    EMAIL
+                    {isOwner && (
+                      <span className="text-[10px] tracking-normal text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded">
+                        OWNER ACCESS
+                      </span>
+                    )}
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={userData.email || ''}
+                    onChange={(e) => setUserData(prev => ({ ...prev, email: e.target.value }))}
+                    placeholder="your@email.com"
+                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                  />
+                </div>
               )}
 
               <div className="space-y-2">
@@ -229,14 +214,14 @@ export default function Start() {
                     onClick={() => setStep('you')}
                     className="flex-1 h-14 border border-white/15 text-white/70 tracking-[0.15em] text-sm rounded-lg hover:border-white/30 hover:text-white hover:bg-white/[0.02] transition-all"
                   >
-                    ← BACK
+                    BACK
                   </button>
                 )}
                 <button
                   type="submit"
                   className="flex-1 h-14 bg-white text-black font-semibold tracking-[0.12em] text-sm rounded-lg hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-white/10 hover:shadow-orange-500/20"
                 >
-                  {step === 'you' ? 'CONTINUE' : isDev ? 'GENERATE (DEV)' : 'CHECKOUT'}
+                  {step === 'you' ? 'CONTINUE' : isOwner ? 'GENERATE (FREE)' : 'CHECKOUT'}
                 </button>
               </div>
             </form>

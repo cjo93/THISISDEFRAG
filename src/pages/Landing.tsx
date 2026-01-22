@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Pain-point language that triggers instant recognition
+// Expanded to encompass broader relational dynamics
 const ROTATING_WORDS = [
   "the one who shuts down",
-  "the one who never listens",
-  "the one you can't reach",
-  "the one who pulls away",
   "the one who overreacts",
+  "the one who needs space",
+  "the one who analyzes everything",
+  "the one who avoids conflict",
+  "the one who feels unheard",
+  "the one who needs reassurance",
   "the one you walk on eggshells around",
 ];
 
@@ -15,6 +18,7 @@ export default function Landing() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [scrollY, setScrollY] = useState(0);
+  const [activeManualItem, setActiveManualItem] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +42,7 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/20">
-      
+
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
@@ -66,13 +70,13 @@ export default function Landing() {
       </nav>
 
       {/* HERO */}
-      <section 
+      <section
         className="h-screen flex items-center justify-center relative overflow-hidden"
         style={{ opacity: heroOpacity }}
       >
         {/* Animated gradient */}
         <div className="absolute inset-0">
-          <div 
+          <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vmax] h-[120vmax]"
             style={{
               background: 'radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(249,115,22,0.04) 30%, transparent 60%)',
@@ -80,17 +84,17 @@ export default function Landing() {
             }}
           />
         </div>
+        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
 
         <div className="relative z-10 text-center px-8 max-w-5xl">
-          
-          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-light leading-[1.05] tracking-[-0.02em] mb-10">
+
+          <h1 className="text-[clamp(2.5rem,8vw,5.5rem)] font-light leading-[1.05] tracking-[-0.02em] mb-8">
             <span className="block text-white/60 text-[clamp(0.85rem,2vw,1.1rem)] tracking-[0.4em] uppercase mb-8 font-medium">
-              Finally
+              The Instruction Manual For
             </span>
-            The user manual for<br />
-            <span 
+            <span
               className={`
-                inline-block min-w-[280px] sm:min-w-[500px] text-orange-500 font-normal
+                block text-orange-500 font-normal min-h-[1.1em]
                 transition-all duration-300 ease-out
                 ${isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-3 blur-sm'}
               `}
@@ -99,8 +103,9 @@ export default function Landing() {
             </span>
           </h1>
 
-          <p className="text-xl sm:text-2xl text-white/70 font-light max-w-xl mx-auto mb-14 leading-relaxed">
-            Understand why they react that way—and what actually helps.
+          <p className="text-xl sm:text-2xl text-white/70 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+            Stop guessing. Decode their behavior, de-escalate conflict, and connect deeply.<br className="hidden sm:block" />
+            <span className="text-white/50 text-base mt-2 block">Grounded in NASA data & clinical psychology.</span>
           </p>
 
           {/* CTA Buttons */}
@@ -109,7 +114,7 @@ export default function Landing() {
               to="/start"
               className="w-full sm:w-auto h-14 sm:h-16 px-10 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-sm sm:text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-xl shadow-lg shadow-orange-500/25"
             >
-              GET YOUR MANUAL
+              GENERATE MANUAL
             </Link>
             <Link
               to="/signin"
@@ -120,7 +125,7 @@ export default function Landing() {
           </div>
 
           <p className="text-xs sm:text-sm text-white/40 mt-10 sm:mt-12 tracking-[0.15em]">
-            FREE TO START
+            INSTANT ANALYSIS - NO WAITING
           </p>
         </div>
 
@@ -136,153 +141,168 @@ export default function Landing() {
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12 relative">
           <div className="max-w-4xl">
             <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
-              The Problem
+              The Friction
             </span>
             <h2 className="text-[clamp(1.75rem,4.5vw,3.5rem)] font-light leading-[1.25] text-white mb-8">
-              People don't come with instructions.
+              Why does it feel like you're speaking different languages?
             </h2>
             <p className="text-[clamp(1.15rem,2.5vw,1.5rem)] font-light leading-[1.7] text-white/60">
-              We try everything. We stay patient. We compromise. We apologize.<br />
-              We don't understand why it's <em className="text-white/80 not-italic">never enough</em>.<br />
-              <span className="block mt-4 text-white/50">And somehow... we're the problem.</span>
+              You try to connect. They pull away. You ask for clarity. They get defensive.<br />
+              It's not that you're incompatible. It's that you're operating on different <em className="text-white/80 not-italic">source code</em>.<br />
+              <span className="block mt-4 text-white/50">Without a manual, every error feels personal.</span>
             </p>
           </div>
         </div>
       </section>
 
-      {/* THE SHIFT */}
+      {/* THE SHIFT (5 Invisible Layers) */}
       <section className="py-28 sm:py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.03] to-transparent" />
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12 relative">
-          <div className="grid lg:grid-cols-[1fr,1.1fr] gap-16 lg:gap-24 items-center">
-            
-            <div>
+          <div className="grid lg:grid-cols-[1fr,1fr] gap-16 lg:gap-24 items-center">
+
+            <div className="order-2 lg:order-1">
               <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
-                The Shift
+                The Architecture
               </span>
               <h2 className="text-[clamp(1.6rem,3.5vw,3rem)] font-light leading-[1.25] mb-8 text-white">
-                What if everything they do<br />
-                <span className="text-orange-400">makes perfect sense</span>...<br />
-                once you understand them?
+                We map the<br />
+                <span className="text-orange-400">5 Invisible Layers</span><br />
+                of their operating system.
               </h2>
               <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md mb-6">
-                DEFRAG reveals why they do what they do. Their core fears. What actually reaches them. The invisible architecture that explains everything.
+                Most advice focuses on behaviors (Layer 4). But behaviors are just symptoms.
+              </p>
+              <p className="text-lg sm:text-xl text-white/70 leading-relaxed max-w-md mb-6">
+                DEFRAG digs deeper—to the core mechanics of how they process emotion, handle stress, and perceive safety.
               </p>
               <p className="text-lg sm:text-xl text-white/90 font-medium leading-relaxed max-w-md">
-                And suddenly... you're not angry anymore. You're compassionate.
+                When you understand the root, you stop fighting the symptoms.
               </p>
             </div>
 
             {/* Diagram */}
-            <div className="relative">
-              {/* Context line above diagram */}
-              <p className="text-center text-xs tracking-[0.3em] text-white/40 uppercase mb-8">
-                The 5 Invisible Layers
-              </p>
-              <div className="aspect-square max-w-sm lg:max-w-md mx-auto relative">
+            <div className="relative order-1 lg:order-2 flex justify-center">
+              <div className="aspect-square w-full max-w-[400px] relative">
                 {/* Outer glow */}
                 <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-orange-500/5 to-transparent" />
-                
-                {/* Layer 5 - Triggers (outermost) */}
-                <div className="absolute inset-0 rounded-full border border-white/10">
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-white/40 uppercase">Triggers</span>
-                </div>
-                
-                {/* Layer 4 - Behaviors */}
-                <div className="absolute inset-[10%] rounded-full border border-white/15">
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-white/50 uppercase">Behaviors</span>
-                </div>
-                
-                {/* Layer 3 - Needs */}
-                <div className="absolute inset-[20%] rounded-full border border-orange-500/20">
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-orange-400/60 uppercase">Needs</span>
-                </div>
-                
-                {/* Layer 2 - Fears */}
-                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 bg-orange-500/[0.03]">
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-black text-[10px] tracking-[0.25em] text-orange-400/70 uppercase">Fears</span>
-                </div>
-                
-                {/* Layer 1 - Core (innermost) */}
-                <div className="absolute inset-[40%] rounded-full border border-orange-500/50 bg-orange-500/[0.08]" />
-                
-                {/* Center */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/30">
-                      <span className="text-black text-lg sm:text-xl font-medium">1</span>
-                    </div>
-                    <div className="text-[10px] tracking-[0.3em] text-orange-400 uppercase mt-3 font-medium">Core Identity</div>
-                  </div>
+
+                {/* Layer 5 - Triggers */}
+                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-2">
+                  <span className="text-[10px] tracking-[0.2em] text-white/30 uppercase bg-black px-2 -mt-3">5. Triggers</span>
                 </div>
 
-                {/* Subtle connection lines */}
-                <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-                <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+                {/* Layer 4 - Behaviors */}
+                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-2">
+                  <span className="text-[10px] tracking-[0.2em] text-white/50 uppercase bg-black px-2 -mt-3">4. Behaviors</span>
+                </div>
+
+                {/* Layer 3 - Needs */}
+                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-2">
+                  <span className="text-[10px] tracking-[0.2em] text-orange-400/60 uppercase bg-black px-2 -mt-3">3. Needs</span>
+                </div>
+
+                {/* Layer 2 - Fears */}
+                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-2">
+                  <span className="text-[10px] tracking-[0.2em] text-orange-400/80 uppercase bg-black px-2 -mt-3">2. Fears</span>
+                </div>
+
+                {/* Layer 1 - Core */}
+                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                  <span className="text-black text-xs font-bold tracking-widest uppercase">1. Core</span>
+                </div>
+
+                {/* Crosshairs */}
+                <div className="absolute top-0 bottom-0 left-1/2 w-px bg-white/5 -z-10" />
+                <div className="absolute left-0 right-0 top-1/2 h-px bg-white/5 -z-10" />
               </div>
-              
-              {/* Layer description */}
-              <p className="text-center text-sm text-white/40 mt-8 max-w-xs mx-auto leading-relaxed">
-                Every reaction starts at the core. We map all five layers so you finally understand why.
-              </p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* WHAT YOU GET */}
+      {/* WHAT YOU GET (Interactive) */}
       <section className="py-28 sm:py-40">
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12">
-          
+
           <div className="mb-16">
             <span className="inline-block text-xs tracking-[0.4em] text-orange-400 uppercase mb-10 border-l-2 border-orange-500 pl-4 font-medium">
               Your Manual
             </span>
-            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light text-white">
+            <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-light text-white mb-6">
               Everything you need to finally reach them.
             </h2>
+            <p className="text-white/50 text-sm tracking-wide">
+              TAP EACH MODULE TO EXPLORE
+            </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { 
+              {
                 num: "01",
-                title: "Operating Logic", 
-                desc: "Why they shut down (not because of you). How they actually operate under stress. What they're really protecting."
+                title: "Operating Logic",
+                short: "Why they operate the way they do.",
+                desc: "Decode their internal processing. Do they need specific instructions or open space? Do they process internally or externally? Understand the hardware so you can stop fighting the software."
               },
-              { 
+              {
                 num: "02",
-                title: "Trigger Map", 
-                desc: "The exact phrases that trigger them. And more importantly—the words that disarm them instantly."
+                title: "Trigger Map",
+                short: "The exact words that cause shutdown.",
+                desc: "A specific map of what triggers their defense mechanisms. Learn the exact phrases that cause them to withdraw or attack, and the alternative words that land safely."
               },
-              { 
+              {
                 num: "03",
-                title: "What They Need", 
-                desc: "Not what they say they want. The conditions that make them feel genuinely safe with you. When they finally open up."
+                title: "Safety Protocols",
+                short: "How to make them feel safe.",
+                desc: "Security is different for everyone. Some need consistency, others need freedom. Discover the specific conditions that allow their system to drop its defenses and connect."
               },
-              { 
+              {
                 num: "04",
-                title: "Scripts That Work", 
-                desc: "What to say when everything's broken. How to turn conflict into closeness. The exact words that rebuild trust."
+                title: "Recovery Scripts",
+                short: "What to say when it breaks.",
+                desc: "Don't improvise during a crash. Use pre-calculated repair scripts designed for their specific architecture. Learn exactly how to reset the connection after a conflict."
               },
-            ].map((item) => (
-              <div 
-                key={item.num} 
-                className="group p-6 sm:p-8 border border-white/10 hover:border-orange-500/30 bg-white/[0.02] hover:bg-orange-500/[0.04] transition-all duration-500"
-              >
-                <div className="mb-6">
-                  <span className="text-2xl font-light text-orange-500/80 group-hover:text-orange-400 transition-colors">
-                    {item.num}
-                  </span>
+            ].map((item, index) => {
+              const isActive = activeManualItem === index;
+              return (
+                <div
+                  key={item.num}
+                  onClick={() => setActiveManualItem(isActive ? null : index)}
+                  className={`
+                    relative p-6 sm:p-8 rounded-xl cursor-pointer transition-all duration-500 overflow-hidden
+                    ${isActive
+                      ? 'bg-orange-500 border-orange-500 text-black'
+                      : 'bg-white/[0.02] border border-white/10 hover:border-orange-500/30 hover:bg-orange-500/[0.04]'
+                    }
+                  `}
+                >
+                  <div className="mb-6 flex justify-between items-start">
+                    <span className={`text-2xl font-light transition-colors ${isActive ? 'text-black/40' : 'text-orange-500/80'}`}>
+                      {item.num}
+                    </span>
+                    <span className={`text-lg transition-transform duration-300 ${isActive ? 'rotate-45 text-black' : 'text-white/20'}`}>
+                      +
+                    </span>
+                  </div>
+
+                  <h3 className={`text-lg font-medium mb-3 transition-colors ${isActive ? 'text-black' : 'text-white'}`}>
+                    {item.title}
+                  </h3>
+
+                  <p className={`text-sm leading-relaxed transition-colors ${isActive ? 'text-black/80' : 'text-white/60'}`}>
+                    {isActive ? item.desc : item.short}
+                  </p>
+
+                  {!isActive && (
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity bg-black/10">
+                      <span className="text-orange-400 text-xs tracking-widest font-mono bg-black/80 px-3 py-1 rounded border border-orange-500/30">READ MORE</span>
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-base sm:text-lg font-medium mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-sm sm:text-base text-white/60 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -290,15 +310,15 @@ export default function Landing() {
       {/* BUILT ON */}
       <section className="py-24 sm:py-32 border-y border-white/10">
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12">
-          
+
           {/* Clinical Psychology Highlight */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-orange-500/30 bg-orange-500/10 mb-6">
-              <span className="text-orange-400 text-lg">★</span>
+              <span className="text-orange-400 text-lg font-bold font-mono">DATA</span>
               <span className="text-sm tracking-[0.15em] text-orange-300 font-medium">GROUNDED IN CLINICAL PSYCHOLOGY</span>
             </div>
             <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
-              Every insight is guided by established therapeutic frameworks—not generic horoscopes.
+              Every insight is guided by established therapeutic frameworks not generic horoscopes.
               We use birth data as a <span className="text-white/90">pattern-mapping tool</span>, not fortune telling.
             </p>
           </div>
@@ -346,7 +366,7 @@ export default function Landing() {
       <section className="py-32 sm:py-48 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500/[0.05] to-transparent" />
         <div className="max-w-[1200px] mx-auto px-6 sm:px-12 relative">
-          
+
           <div className="text-center mb-16">
             <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] font-light leading-[1.15] mb-4 text-white">
               Stop guessing. Start understanding.
@@ -358,16 +378,16 @@ export default function Landing() {
 
           {/* Pricing Cards */}
           <div className="grid sm:grid-cols-3 gap-6 sm:gap-4">
-            
+
             {/* FREE */}
             <div className="p-6 sm:p-8 border border-white/10 bg-white/[0.02] rounded-xl">
               <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-4">Quick Insight</div>
               <div className="text-3xl sm:text-4xl font-light text-white mb-2">Free</div>
               <p className="text-sm text-white/50 mb-8">A snapshot of your dynamic</p>
               <ul className="space-y-3 text-sm text-white/60 mb-8">
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Core compatibility overview</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Basic trigger patterns</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> One communication tip</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Core compatibility overview</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Basic trigger patterns</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> One communication tip</li>
               </ul>
               <Link
                 to="/start"
@@ -386,10 +406,10 @@ export default function Landing() {
               <div className="text-3xl sm:text-4xl font-light text-white mb-2">$19</div>
               <p className="text-sm text-white/50 mb-8">One-time purchase, emailed to you</p>
               <ul className="space-y-3 text-sm text-white/70 mb-8">
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Full operating logic breakdown</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Complete trigger map</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Scripts for difficult moments</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> PDF manual delivered by email</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Full operating logic breakdown</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Complete trigger map</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Scripts for difficult moments</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> PDF manual delivered by email</li>
               </ul>
               <Link
                 to="/start"
@@ -405,10 +425,10 @@ export default function Landing() {
               <div className="text-3xl sm:text-4xl font-light text-white mb-2">$9<span className="text-lg text-white/50">/mo</span></div>
               <p className="text-sm text-white/50 mb-8">Ongoing access + family mapping</p>
               <ul className="space-y-3 text-sm text-white/60 mb-8">
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Everything in Complete Manual</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Bowen family systems analysis</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Unlimited relationship manuals</li>
-                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Monthly pattern updates</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Everything in Complete Manual</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Bowen family systems analysis</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Unlimited relationship manuals</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400 font-mono">+</span> Monthly pattern updates</li>
               </ul>
               <Link
                 to="/start"
@@ -441,15 +461,16 @@ export default function Landing() {
             <div className="flex gap-8 text-sm tracking-[0.15em] text-white/50">
               <Link to="/about" className="hover:text-white transition">About</Link>
               <Link to="/how-it-works" className="hover:text-white transition">How It Works</Link>
+              <Link to="/terms" className="hover:text-white transition">Terms</Link>
               <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5">
             <span className="text-sm text-white/30">
-              © 2026 DEFRAG. All rights reserved.
+              2026 DEFRAG. All rights reserved.
             </span>
-            <a 
-              href="mailto:info@defrag.app" 
+            <a
+              href="mailto:info@defrag.app"
               className="text-sm text-white/40 hover:text-orange-400 transition"
             >
               info@defrag.app

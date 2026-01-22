@@ -41,7 +41,7 @@ export interface ManualPreview {
 }
 
 export interface FrictionAlert {
-  level: '🔴 CRITICAL' | '🟠 SIGNAL LAG' | '🟢 NOMINAL' | '🟡 LOW VOLTAGE';
+  level: 'CRITICAL' | 'SIGNAL_LAG' | 'NOMINAL' | 'LOW_VOLTAGE';
   alert: string;
   desc: string;
 }

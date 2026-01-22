@@ -8,7 +8,7 @@ export default function SignIn() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email.trim()) {
       setStatus('error');
       setMessage('Please enter your email address.');
@@ -45,6 +45,7 @@ export default function SignIn() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
         <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
+        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
       {/* Top bar */}
@@ -68,7 +69,7 @@ export default function SignIn() {
       {/* Main Content */}
       <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-6">
         <div className="w-full max-w-md">
-          
+
           {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-3xl sm:text-4xl font-light text-white mb-4 tracking-tight">
@@ -81,7 +82,7 @@ export default function SignIn() {
 
           {/* Form Card */}
           <div className="bg-zinc-950/80 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-            
+
             {status === 'success' ? (
               <div className="text-center py-6">
                 <div className="h-16 w-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
@@ -98,7 +99,7 @@ export default function SignIn() {
                   }}
                   className="text-orange-400 hover:text-orange-300 text-sm tracking-wide transition-colors"
                 >
-                  ← Try a different email
+                  BACK Try a different email
                 </button>
               </div>
             ) : (

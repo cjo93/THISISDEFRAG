@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import { generateManualPreview } from '../services/geminiService';
 import { calculateMechanics } from '../services/defragEngine';
 import { UnitData, ManualPreview } from '../types';
+import ShareCard from '../components/ui/ShareCard';
 
 const LOADING_PHASES = [
-  { message: 'Verifying access...', icon: '🔐' },
-  { message: 'Fetching planetary ephemeris...', icon: '🌍' },
-  { message: 'Calculating orbital mechanics...', icon: '⚙️' },
-  { message: 'Mapping behavioral patterns...', icon: '🧠' },
-  { message: 'Generating relationship manual...', icon: '📋' },
+  { message: 'Verifying access...' },
+  { message: 'Fetching planetary ephemeris...' },
+  { message: 'Calculating orbital mechanics...' },
+  { message: 'Mapping behavioral patterns...' },
+  { message: 'Generating relationship manual...' },
 ];
 
 export default function Manual() {
@@ -35,15 +36,15 @@ export default function Manual() {
     const verifyAndGenerate = async () => {
       try {
         const sessionId = searchParams.get('session_id');
-        
+
         // Check for owner bypass or stored payment
         const ownerBypass = localStorage.getItem('defrag_owner_bypass');
         const storedPayment = localStorage.getItem('defrag_payment_verified');
-        
+
         if (!sessionId && !storedPayment && !ownerBypass) {
           const storedA = localStorage.getItem('defrag_unitA');
           const storedB = localStorage.getItem('defrag_unitB');
-          
+
           if (storedA && storedB) {
             navigate('/checkout');
           } else {
@@ -128,30 +129,30 @@ export default function Manual() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-96 h-96 rounded-full bg-orange-500/10 blur-[100px] animate-pulse" />
         </div>
-        
+
         <div className="text-center relative z-10">
           {/* Animated rings */}
           <div className="relative w-24 h-24 mx-auto mb-8">
             <div className="absolute inset-0 rounded-full border border-orange-500/20 animate-[ping_2s_ease-in-out_infinite]" />
             <div className="absolute inset-2 rounded-full border border-orange-500/30 animate-[ping_2s_ease-in-out_infinite_0.3s]" />
             <div className="absolute inset-4 rounded-full border border-orange-500/40 animate-[ping_2s_ease-in-out_infinite_0.6s]" />
-            <div className="absolute inset-0 flex items-center justify-center text-3xl">
-              {currentPhase.icon}
+            <div className="absolute inset-0 flex items-center justify-center text-xs font-mono text-orange-500">
+              LOAD
             </div>
           </div>
-          
+
           <p className="text-base text-white/70 tracking-[0.15em] mb-2">
             {currentPhase.message.toUpperCase()}
           </p>
-          
+
           {/* Progress bar */}
           <div className="w-48 h-1 bg-white/10 rounded-full mx-auto overflow-hidden">
-            <div 
+            <div
               className="h-full bg-orange-500 transition-all duration-500 ease-out"
               style={{ width: `${((loadingPhase + 1) / LOADING_PHASES.length) * 100}%` }}
             />
           </div>
-          
+
           <p className="mt-4 text-xs text-white/30">This may take a moment</p>
         </div>
       </div>
@@ -162,7 +163,7 @@ export default function Manual() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center max-w-md px-6">
-          <div className="text-5xl mb-6">⚠️</div>
+          <div className="text-5xl mb-6 text-red-500 font-mono">ERR</div>
           <p className="text-lg text-red-400 mb-6">{error}</p>
           <Link
             to="/start"
@@ -176,10 +177,11 @@ export default function Manual() {
   }
 
   const sections = [
-    { id: 'specs', label: 'SPECIFICATIONS', icon: '◎' },
-    { id: 'procedures', label: 'PROCEDURES', icon: '⚡' },
-    { id: 'troubleshooting', label: 'TROUBLESHOOTING', icon: '🔧' },
-    { id: 'maintenance', label: 'MAINTENANCE', icon: '📅' },
+    { id: 'specs', label: 'SPECIFICATIONS' },
+    { id: 'procedures', label: 'PROCEDURES' },
+    { id: 'troubleshooting', label: 'TROUBLESHOOTING' },
+    { id: 'maintenance', label: 'MAINTENANCE' },
+    { id: 'share', label: 'SHARE' },
   ];
 
   return (
@@ -230,13 +232,11 @@ export default function Manual() {
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-5 py-2.5 text-xs tracking-[0.15em] rounded-lg transition-all ${
-                  activeSection === section.id
-                    ? 'bg-orange-500 text-black font-semibold'
-                    : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/70'
-                }`}
+                className={`px-5 py-2.5 text-xs tracking-[0.15em] rounded-lg transition-all ${activeSection === section.id
+                  ? 'bg-orange-500 text-black font-semibold'
+                  : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/70'
+                  }`}
               >
-                <span className="mr-2">{section.icon}</span>
                 {section.label}
               </button>
             ))}
@@ -282,8 +282,8 @@ export default function Manual() {
                     {manual.troubleshooting.map((item, i) => (
                       <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 overflow-hidden">
                         <div className="flex items-start gap-4 mb-4 pb-4 border-b border-white/5">
-                          <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 text-xs shrink-0">
-                            ⚠
+                          <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 text-[10px] font-bold shrink-0">
+                            ERR
                           </div>
                           <div>
                             <div className="text-xs tracking-[0.15em] text-red-400/80 mb-1">SYMPTOM</div>
@@ -316,6 +316,19 @@ export default function Manual() {
                         <p className="text-sm text-white/70 group-hover:text-white/90 transition">{item.task}</p>
                       </div>
                     ))}
+                  </div>
+                </Section>
+              )}
+
+              {/* Share Card */}
+              {activeSection === 'share' && unitA && (
+                <Section title="SHARE PROTOCOL" subtitle="Publish your operating manual">
+                  <div className="py-8">
+                    <ShareCard
+                      name={unitA.name}
+                      archetype={unitA.model || 'Generator'}
+                      oneLiner={unitA.operatingMode || 'Operating correctly.'}
+                    />
                   </div>
                 </Section>
               )}
