@@ -23,23 +23,19 @@ export default function Header() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-                <Link to={targetLink} className="flex items-center gap-2 sm:gap-3 group">
-                    <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden relative">
-                        <div className="absolute inset-0 bg-orange-500" />
-                        {/* Simple Mandala (Petal) SVG */}
-                        <svg width="24" height="24" viewBox="0 0 100 100" className="relative w-5 h-5 sm:w-6 sm:h-6 text-black animate-[spin_10s_linear_infinite]">
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(0 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(45 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(90 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(135 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(180 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(225 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(270 50 50)" fill="currentColor" opacity="0.8" />
-                            <path d="M50 50 L50 10 C60 10 70 20 70 30 C70 40 60 50 50 50 Z" transform="rotate(315 50 50)" fill="currentColor" opacity="0.8" />
-                            <circle cx="50" cy="50" r="10" fill="currentColor" />
+                <Link to={targetLink} className="flex items-center gap-2 group">
+                    <div className="relative w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-orange-500 overflow-visible">
+                        {/* New Geometric Identity - No Box */}
+                        <svg width="32" height="32" viewBox="0 0 100 100" className="w-full h-full animate-[spin_20s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="2">
+                            {/* Outer ring */}
+                            <circle cx="50" cy="50" r="45" opacity="0.2" strokeDasharray="4 4" />
+                            {/* Inner geometric structure */}
+                            <path d="M50 10 L85 85 L15 85 Z" opacity="0.8" />
+                            <circle cx="50" cy="50" r="15" fill="currentColor" className="text-orange-500" />
+                            <path d="M50 5 L95 95 H5 Z" opacity="0.3" transform="rotate(180 50 50)" />
                         </svg>
                     </div>
-                    <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
+                    <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90 group-hover:text-white transition-colors">DEFRAG</span>
                 </Link>
                 <div className="flex items-center gap-4 sm:gap-6">
                     <Link
