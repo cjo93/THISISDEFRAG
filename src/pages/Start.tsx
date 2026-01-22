@@ -124,8 +124,8 @@ export default function Start() {
             </h1>
             <p className="text-base text-white/60 max-w-sm mx-auto leading-relaxed">
               {step === 'you'
-                ? 'Enter your coordinates to begin calibration.'
-                : 'Now enter the coordinates for your subject unit.'}
+                ? 'We\'ll use this to create your personalized manual.'
+                : 'The person you want to understand better.'}}
             </p>
           </div>
 
@@ -229,7 +229,7 @@ export default function Start() {
 
           {/* Footer note */}
           <p className="mt-8 text-center text-sm text-white/40">
-            🔒 Your data is encrypted and never shared.
+            Your data is encrypted and never shared.
           </p>
 
           {/* Visual flourish */}

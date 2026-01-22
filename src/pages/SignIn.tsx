@@ -73,10 +73,10 @@ export default function SignIn() {
           {/* Header */}
           <div className="text-center mb-10">
             <h1 className="text-3xl sm:text-4xl font-light text-white mb-4 tracking-tight">
-              Access Your Manual
+              Welcome Back
             </h1>
             <p className="text-white/50 text-lg">
-              Enter the email used at purchase
+              Enter your email to access your manual
             </p>
           </div>
 
@@ -138,7 +138,7 @@ export default function SignIn() {
                       Sending...
                     </span>
                   ) : (
-                    'Send Recovery Link'
+                    'Send Access Link'
                   )}
                 </button>
               </form>
