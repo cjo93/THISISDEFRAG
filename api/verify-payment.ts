@@ -57,6 +57,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 }
 
 async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualUrl: string) {
+  const unitAName = unitA?.name?.toUpperCase() || 'UNIT_A';
+  const unitBName = unitB?.name?.toUpperCase() || 'UNIT_B';
+  
   const html = `
 <!DOCTYPE html>
 <html>
@@ -70,7 +73,7 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
       <td align="center" style="padding: 40px 20px;">
         <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px; width: 100%;">
           
-          <!-- Header with glow effect -->
+          <!-- Header -->
           <tr>
             <td style="padding: 30px 0; text-align: center; border-bottom: 1px solid #222;">
               <div style="font-size: 32px; font-weight: 900; letter-spacing: 8px; color: #ea580c;">
@@ -102,8 +105,8 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
                 Your manual is ready
               </h1>
               <p style="color: #71717a; font-size: 14px; line-height: 1.7; margin: 0;">
-                The relationship operating manual has been generated<br>
-                and is ready for immediate deployment.
+                The relationship operating manual for <span style="color: #ea580c;">${unitAName}</span> × <span style="color: #ea580c;">${unitBName}</span><br>
+                has been compiled and is ready for deployment.
               </p>
             </td>
           </tr>
@@ -113,16 +116,100 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
             <td style="padding: 0 20px 30px 20px;">
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td width="48%" style="background: linear-gradient(135deg, #18181b 0%, #0a0a0a 100%); border: 1px solid #27272a; padding: 20px; vertical-align: top;">
-                    <div style="color: #ea580c; font-size: 9px; letter-spacing: 3px; margin-bottom: 8px; font-weight: bold;">UNIT_A</div>
-                    <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 4px;">${unitA?.name?.toUpperCase() || 'UNKNOWN'}</div>
+                  <td width="48%" style="background: #0a0a0a; border: 1px solid #27272a; padding: 20px; vertical-align: top;">
+                    <div style="color: #ea580c; font-size: 9px; letter-spacing: 3px; margin-bottom: 8px; font-weight: bold;">UNIT_A // OPERATOR</div>
+                    <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 4px;">${unitAName}</div>
                     <div style="color: #52525b; font-size: 11px;">${unitA?.birthDate || '—'}</div>
+                    <div style="color: #3f3f46; font-size: 10px; margin-top: 8px;">${unitA?.sun_sign || ''} ${unitA?.mars_sign ? '/ ' + unitA.mars_sign : ''}</div>
                   </td>
                   <td width="4%"></td>
-                  <td width="48%" style="background: linear-gradient(135deg, #18181b 0%, #0a0a0a 100%); border: 1px solid #27272a; padding: 20px; vertical-align: top;">
-                    <div style="color: #ea580c; font-size: 9px; letter-spacing: 3px; margin-bottom: 8px; font-weight: bold;">UNIT_B</div>
-                    <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 4px;">${unitB?.name?.toUpperCase() || 'UNKNOWN'}</div>
+                  <td width="48%" style="background: #0a0a0a; border: 1px solid #27272a; padding: 20px; vertical-align: top;">
+                    <div style="color: #ea580c; font-size: 9px; letter-spacing: 3px; margin-bottom: 8px; font-weight: bold;">UNIT_B // SUBJECT</div>
+                    <div style="color: #ffffff; font-size: 18px; font-weight: 600; margin-bottom: 4px;">${unitBName}</div>
                     <div style="color: #52525b; font-size: 11px;">${unitB?.birthDate || '—'}</div>
+                    <div style="color: #3f3f46; font-size: 10px; margin-top: 8px;">${unitB?.sun_sign || ''} ${unitB?.mars_sign ? '/ ' + unitB.mars_sign : ''}</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Manual Preview Section -->
+          <tr>
+            <td style="padding: 0 20px 30px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="background: #0a0a0a; border: 1px solid #27272a;">
+                <!-- Preview Header -->
+                <tr>
+                  <td style="padding: 20px 20px 15px 20px; border-bottom: 1px solid #1a1a1a;">
+                    <div style="color: #ea580c; font-size: 9px; letter-spacing: 3px; font-weight: bold;">MANUAL PREVIEW</div>
+                  </td>
+                </tr>
+                
+                <!-- Section 01 -->
+                <tr>
+                  <td style="padding: 20px;">
+                    <div style="color: #ea580c; font-size: 10px; letter-spacing: 2px; margin-bottom: 10px;">01 // SYSTEM SPECIFICATIONS</div>
+                    <div style="color: #a1a1aa; font-size: 13px; line-height: 1.6;">
+                      Your manual contains a detailed analysis of how ${unitAName} and ${unitBName}'s behavioral patterns interact. Core processing differences, energy signatures, and communication protocols have been mapped.
+                    </div>
+                  </td>
+                </tr>
+                
+                <!-- Section 02 -->
+                <tr>
+                  <td style="padding: 0 20px 20px 20px; border-top: 1px solid #1a1a1a;">
+                    <div style="color: #ea580c; font-size: 10px; letter-spacing: 2px; margin: 20px 0 10px 0;">02 // OPERATING PROCEDURES</div>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding: 10px 0; border-bottom: 1px solid #111;">
+                          <div style="color: #fff; font-size: 12px; font-weight: 600;">→ Engagement Protocol</div>
+                          <div style="color: #71717a; font-size: 11px; margin-top: 4px;">Specific approaches for initiating meaningful exchanges</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0; border-bottom: 1px solid #111;">
+                          <div style="color: #fff; font-size: 12px; font-weight: 600;">→ Response Timing</div>
+                          <div style="color: #71717a; font-size: 11px; margin-top: 4px;">Optimal intervals for input and feedback cycles</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 10px 0;">
+                          <div style="color: #fff; font-size: 12px; font-weight: 600;">→ Support Modes</div>
+                          <div style="color: #71717a; font-size: 11px; margin-top: 4px;">How to provide effective assistance during system stress</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- Section 03 -->
+                <tr>
+                  <td style="padding: 0 20px 20px 20px; border-top: 1px solid #1a1a1a;">
+                    <div style="color: #ea580c; font-size: 10px; letter-spacing: 2px; margin: 20px 0 10px 0;">03 // TROUBLESHOOTING</div>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td style="padding: 8px 12px; background: #111; margin-bottom: 8px; display: block;">
+                          <div style="color: #fbbf24; font-size: 11px;">⚠ SYMPTOM:</div>
+                          <div style="color: #a1a1aa; font-size: 11px; margin-top: 2px;">Unexpected silence or withdrawal</div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 8px 12px; background: #0f1f0f;">
+                          <div style="color: #4ade80; font-size: 11px;">✓ RESOLUTION:</div>
+                          <div style="color: #a1a1aa; font-size: 11px; margin-top: 2px;">Identified cause and specific re-engagement protocol</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                
+                <!-- Section 04 -->
+                <tr>
+                  <td style="padding: 0 20px 20px 20px; border-top: 1px solid #1a1a1a;">
+                    <div style="color: #ea580c; font-size: 10px; letter-spacing: 2px; margin: 20px 0 10px 0;">04 // MAINTENANCE SCHEDULE</div>
+                    <div style="color: #71717a; font-size: 11px; line-height: 1.6;">
+                      Regular check-ins, connection rituals, and preventive maintenance tasks to keep your system running optimally.
+                    </div>
                   </td>
                 </tr>
               </table>
@@ -134,49 +221,44 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
             <td style="padding: 0 20px 40px 20px; text-align: center;">
               <table cellpadding="0" cellspacing="0" style="margin: 0 auto;">
                 <tr>
-                  <td style="background-color: #ea580c; padding: 18px 50px; border-radius: 0;">
+                  <td style="background-color: #ea580c; padding: 18px 50px;">
                     <a href="${manualUrl}" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 3px; font-weight: bold; display: block;">
-                      ACCESS MANUAL →
+                      READ FULL MANUAL →
                     </a>
                   </td>
                 </tr>
               </table>
               <p style="color: #3f3f46; font-size: 11px; margin-top: 20px; letter-spacing: 1px;">
-                BOOKMARK THIS LINK FOR FUTURE REFERENCE
+                INCLUDES AUDIO NARRATION + FULL SPECIFICATIONS
               </p>
             </td>
           </tr>
           
-          <!-- Divider -->
+          <!-- What's Included -->
           <tr>
-            <td style="padding: 0 30px;">
-              <div style="border-top: 1px solid #222;"></div>
-            </td>
-          </tr>
-          
-          <!-- Manual Preview -->
-          <tr>
-            <td style="padding: 30px;">
-              <div style="color: #52525b; font-size: 10px; letter-spacing: 2px; margin-bottom: 15px;">MANUAL CONTENTS</div>
-              <table width="100%" cellpadding="0" cellspacing="0">
+            <td style="padding: 0 20px 30px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="border: 1px solid #27272a;">
                 <tr>
-                  <td style="color: #71717a; font-size: 12px; padding: 8px 0; border-bottom: 1px solid #1a1a1a;">
-                    <span style="color: #ea580c; margin-right: 10px;">01</span> SYSTEM SPECIFICATIONS
+                  <td style="padding: 15px 20px; border-bottom: 1px solid #1a1a1a;">
+                    <div style="color: #52525b; font-size: 10px; letter-spacing: 2px;">YOUR MANUAL INCLUDES</div>
                   </td>
                 </tr>
                 <tr>
-                  <td style="color: #71717a; font-size: 12px; padding: 8px 0; border-bottom: 1px solid #1a1a1a;">
-                    <span style="color: #ea580c; margin-right: 10px;">02</span> OPERATING PROCEDURES
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #71717a; font-size: 12px; padding: 8px 0; border-bottom: 1px solid #1a1a1a;">
-                    <span style="color: #ea580c; margin-right: 10px;">03</span> TROUBLESHOOTING GUIDE
-                  </td>
-                </tr>
-                <tr>
-                  <td style="color: #71717a; font-size: 12px; padding: 8px 0;">
-                    <span style="color: #ea580c; margin-right: 10px;">04</span> MAINTENANCE SCHEDULE
+                  <td style="padding: 15px 20px;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Personality Analysis</td>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Communication Guide</td>
+                      </tr>
+                      <tr>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Conflict Resolution</td>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Maintenance Rituals</td>
+                      </tr>
+                      <tr>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Audio Narration</td>
+                        <td width="50%" style="color: #71717a; font-size: 11px; padding: 4px 0;">✓ Unlimited Access</td>
+                      </tr>
+                    </table>
                   </td>
                 </tr>
               </table>
@@ -191,13 +273,17 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
               </div>
               <a href="https://defrag.app" style="color: #52525b; font-size: 11px; text-decoration: none;">defrag.app</a>
               <div style="color: #27272a; font-size: 9px; margin-top: 15px;">
-                Questions? Reply to this email or contact info@defrag.app
+                Questions? Contact info@defrag.app
               </div>
             </td>
           </tr>
           
         </table>
       </td>
+    </tr>
+  </table>
+</body>
+</html>`.trim();
     </tr>
   </table>
 </body>
