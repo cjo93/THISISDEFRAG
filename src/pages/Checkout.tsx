@@ -222,7 +222,7 @@ export default function Checkout() {
           </button>
 
           <p className="mt-6 text-center text-sm text-white/40">
-            Secure payment via Stripe · 30-day money-back guarantee
+            Secure payment via Stripe
           </p>
 
           {/* Trust badges */}

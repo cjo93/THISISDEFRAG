@@ -290,16 +290,40 @@ export default function Landing() {
       </section>
 
       {/* BUILT ON */}
-      <section className="py-20 sm:py-28 border-y border-white/10">
+      <section className="py-24 sm:py-32 border-y border-white/10">
         <div className="max-w-[1600px] mx-auto px-8 sm:px-12">
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm tracking-[0.1em] text-white/50">
-            <span>Bowen Family Systems</span>
+          
+          {/* Clinical Psychology Highlight */}
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-orange-500/30 bg-orange-500/10 mb-6">
+              <span className="text-orange-400 text-lg">★</span>
+              <span className="text-sm tracking-[0.15em] text-orange-300 font-medium">GROUNDED IN CLINICAL PSYCHOLOGY</span>
+            </div>
+            <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+              Every insight is guided by established therapeutic frameworks—not generic horoscopes.
+              We use birth data as a <span className="text-white/90">pattern-mapping tool</span>, not fortune telling.
+            </p>
+          </div>
+
+          {/* Frameworks */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm tracking-[0.1em] text-white/50 mb-10">
+            <span className="text-orange-400">Bowen Family Systems</span>
             <span className="text-white/30">◦</span>
-            <span>Attachment Theory</span>
+            <span className="text-orange-400">Attachment Theory</span>
             <span className="text-white/30">◦</span>
             <span>NASA JPL Ephemeris</span>
             <span className="text-white/30">◦</span>
             <span>Human Design</span>
+          </div>
+
+          {/* No-BS Astrology Differentiator */}
+          <div className="text-center pt-8 border-t border-white/5">
+            <p className="text-xs tracking-[0.2em] text-white/40 uppercase">
+              Not your typical astrology. No vague predictions. No "mercury retrograde" excuses.
+            </p>
+            <p className="text-sm text-white/60 mt-2">
+              Just <span className="text-white">actionable relationship intelligence</span> you can use today.
+            </p>
           </div>
         </div>
       </section>
@@ -400,8 +424,6 @@ export default function Landing() {
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/40 mt-12 tracking-[0.1em]">
             <span>Instant Delivery</span>
-            <span className="text-white/20">|</span>
-            <span>30-Day Guarantee</span>
             <span className="text-white/20">|</span>
             <span>Secure Checkout</span>
           </div>
