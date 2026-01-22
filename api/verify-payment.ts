@@ -284,10 +284,6 @@ async function sendConfirmationEmail(to: string, unitA: any, unitB: any, manualU
   </table>
 </body>
 </html>`.trim();
-    </tr>
-  </table>
-</body>
-</html>`.trim();
 
   await resend.emails.send({
     from: 'DEFRAG <noreply@defrag.app>',
