@@ -118,13 +118,8 @@ export default function Landing() {
             </span>
           </Link>
 
-          {/* Micro-validation */}
-          <p className="text-sm text-white/40 mt-8 italic">
-            (You're 2 minutes away from the answer you've been looking for)
-          </p>
-
-          <p className="text-sm text-white/50 mt-4 tracking-[0.15em]">
-            $19 · 2 MINUTES · INSTANT DELIVERY
+          <p className="text-sm text-white/40 mt-10 tracking-[0.15em]">
+            $19 · INSTANT DELIVERY
           </p>
         </div>
 
