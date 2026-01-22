@@ -45,7 +45,6 @@ export default function SignIn() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
         <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
-        <div className="absolute inset-0 opacity-[0.015] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
       {/* Top bar */}

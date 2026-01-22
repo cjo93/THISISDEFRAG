@@ -39,9 +39,6 @@ export default function Landing() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/20">
       
-      {/* Subtle grid overlay - consistent with other pages */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.015] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:50px_50px]" />
-      
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">

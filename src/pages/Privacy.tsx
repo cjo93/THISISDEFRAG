@@ -7,7 +7,6 @@ export default function Privacy() {
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute -top-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.06] bg-orange-500" />
-        <div className="absolute inset-0 opacity-[0.015] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:50px_50px]" />
       </div>
 
       {/* Nav */}

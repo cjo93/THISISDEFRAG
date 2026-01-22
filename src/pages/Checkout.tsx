@@ -92,7 +92,6 @@ export default function Checkout() {
       {/* Background effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-orange-500/[0.08] rounded-full blur-[150px]" />
-        <div className="absolute inset-0 opacity-[0.015] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:50px_50px]" />
       </div>
 
       {/* Nav */}
