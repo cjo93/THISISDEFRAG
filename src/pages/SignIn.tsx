@@ -50,18 +50,18 @@ export default function SignIn() {
 
       {/* Top bar */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <nav className="mx-auto max-w-6xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+        <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
             <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
-            <div className="tracking-[0.2em] sm:tracking-[0.3em] text-sm font-medium text-white/90">DEFRAG</div>
+            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
           <Link
             to="/start"
-            className="text-xs tracking-[0.15em] sm:tracking-[0.2em] text-white/50 hover:text-orange-400 transition-colors duration-300"
+            className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
           >
-            NEW MANUAL
+            START
           </Link>
         </nav>
       </header>

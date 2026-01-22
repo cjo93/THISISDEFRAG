@@ -40,24 +40,24 @@ export default function Landing() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/20">
       
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 border-b border-white/5 safe-top">
-        <div className="max-w-[1800px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
-            <span className="text-sm sm:text-[15px] tracking-[0.3em] sm:tracking-[0.5em] font-medium text-white">DEFRAG</span>
+            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
-          <div className="flex items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-4 sm:gap-6">
             <Link
               to="/signin"
-              className="text-xs sm:text-[13px] tracking-[0.2em] sm:tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
+              className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition-colors"
             >
               LOG IN
             </Link>
             <Link
               to="/start"
-              className="text-xs sm:text-[13px] tracking-[0.2em] sm:tracking-[0.3em] text-white/70 hover:text-orange-400 transition-colors duration-300"
+              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
             >
               START
             </Link>
