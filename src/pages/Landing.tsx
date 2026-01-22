@@ -61,7 +61,7 @@ export default function Landing() {
             }}
           />
         </div>
-        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
+        {/* Clean background - removed grid pattern */}
 
         <div className="relative z-10 text-center px-6 sm:px-8 max-w-5xl mx-auto pt-10 sm:pt-0">
 
@@ -89,13 +89,13 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 px-4">
             <Link
               to="/start"
-              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-xl shadow-[0_0_20px_rgba(249,115,22,0.3)]"
+              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center bg-orange-500 text-black text-base tracking-[0.12em] font-bold hover:bg-orange-400 active:scale-[0.98] transition-all duration-300 rounded-lg shadow-[0_0_20px_rgba(249,115,22,0.3)]"
             >
               GENERATE MANUAL
             </Link>
             <Link
               to="/signin"
-              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center border border-white/20 text-white/80 text-base tracking-[0.12em] font-medium hover:border-white/40 hover:text-white active:scale-[0.98] transition-all duration-300 rounded-xl backdrop-blur-sm"
+              className="w-full sm:w-auto h-16 sm:h-16 px-8 sm:px-12 flex items-center justify-center border border-white/20 text-white/80 text-base tracking-[0.12em] font-medium hover:border-white/40 hover:text-white active:scale-[0.98] transition-all duration-300 rounded-lg backdrop-blur-sm"
             >
               LOG IN
             </Link>
