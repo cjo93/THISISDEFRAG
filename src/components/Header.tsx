@@ -23,47 +23,45 @@ export default function Header() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-                <Link to={targetLink} className="flex items-center gap-2 group">
-                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-orange-500 overflow-visible transition-transform duration-[2000ms] ease-in-out group-hover:rotate-[180deg]">
-                        {/* True Petal Mandala Identity */}
-                        <svg width="40" height="40" viewBox="0 0 100 100" className="w-full h-full" fill="none" stroke="currentColor" strokeWidth="1">
-                            {/* Center Dot */}
-                            <circle cx="50" cy="50" r="2" fill="currentColor" />
-
-                            {/* Inner Flower (8 petals) */}
-                            <path d="M50 20 Q55 35 60 50 Q65 65 50 80 Q35 65 40 50 Q45 35 50 20" stroke="currentColor" fill="none" />
-                            <path d="M80 50 Q65 55 50 60 Q35 65 20 50 Q35 35 50 40 Q65 45 80 50" stroke="currentColor" fill="none" />
-                            <path d="M71 29 Q60 40 50 50 Q40 60 29 71" stroke="currentColor" fill="none" />
-                            <path d="M29 29 Q40 40 50 50 Q60 60 71 71" stroke="currentColor" fill="none" />
-
-                            {/* Middle Detailed Ring */}
-                            <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 2" />
-
-                            {/* Outer Decorative Petals */}
-                            <path d="M50 10 C60 10 70 20 70 30 C70 40 60 50 50 50" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M50 50 C40 50 30 40 30 30 C30 20 40 10 50 10" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M50 90 C60 90 70 80 70 70 C70 60 60 50 50 50" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M50 50 C40 50 30 60 30 70 C30 80 40 90 50 90" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M90 50 C90 60 80 70 70 70 C60 70 50 60 50 50" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M50 50 C50 40 60 30 70 30 C80 30 90 40 90 50" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M10 50 C10 60 20 70 30 70 C40 70 50 60 50 50" stroke="currentColor" strokeOpacity="0.6" />
-                            <path d="M50 50 C50 40 40 30 30 30 C20 30 10 40 10 50" stroke="currentColor" strokeOpacity="0.6" />
+                <Link to={targetLink} className="flex items-center gap-3 group">
+                    <div className="relative w-10 h-10 flex items-center justify-center text-orange-500 overflow-visible transition-all duration-[3000ms] ease-in-out group-hover:rotate-[360deg] group-hover:scale-110">
+                        {/* Intricate Sacred Geometry Petal Mandala */}
+                        <svg width="44" height="44" viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.2">
+                            {/* Recursive Petal Layers */}
+                            {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+                                <g key={deg} transform={`rotate(${deg} 50 50)`}>
+                                    <path d="M50 50 C50 35 40 25 50 10 C60 25 50 35 50 50" opacity="0.9" />
+                                    <path d="M50 45 C55 38 52 32 50 25 C48 32 45 38 50 45" opacity="0.4" strokeWidth="0.8" />
+                                </g>
+                            ))}
+                            {[22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5].map((deg) => (
+                                <path
+                                    key={deg}
+                                    d="M50 50 L50 35"
+                                    transform={`rotate(${deg} 50 50)`}
+                                    opacity="0.3"
+                                    strokeDasharray="1 1"
+                                />
+                            ))}
+                            {/* Central Sacred Geometry */}
+                            <circle cx="50" cy="50" r="4" fill="currentColor" />
+                            <circle cx="50" cy="50" r="10" opacity="0.2" strokeWidth="0.5" />
                         </svg>
                     </div>
-                    <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90 group-hover:text-white transition-colors">DEFRAG</span>
+                    <span className="tracking-[0.3em] text-sm font-bold text-white group-hover:text-orange-500 transition-colors uppercase">Defrag</span>
                 </Link>
                 <div className="flex items-center gap-4 sm:gap-6">
                     <Link
                         to="/signin"
-                        className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition-colors"
+                        className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition-colors uppercase"
                     >
-                        MEMBER LOGIN
+                        Member Login
                     </Link>
                     <Link
                         to="/start"
-                        className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
+                        className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-bold hover:bg-orange-500 hover:text-white transition rounded-lg uppercase"
                     >
-                        CREATE MANUAL
+                        Create Manual
                     </Link>
                 </div>
             </div>
