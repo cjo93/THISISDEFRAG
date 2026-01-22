@@ -11,27 +11,26 @@ export default function About() {
       </div>
 
       {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/70 border-b border-white/5">
-        <nav className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="h-9 w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-lg group-hover:scale-105 transition-transform">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
+        <nav className="mx-auto max-w-6xl px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
-            <span className="tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
+            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8 text-xs tracking-[0.15em] text-white/50">
-            <Link to="/about" className="text-white font-medium">ABOUT</Link>
-            <Link to="/how-it-works" className="hover:text-white transition">HOW IT WORKS</Link>
-            <Link to="/privacy" className="hover:text-white transition">PRIVACY</Link>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <Link to="/signin" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition">
+              LOG IN
+            </Link>
+            <Link
+              to="/start"
+              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
+            >
+              START
+            </Link>
           </div>
-
-          <Link
-            to="/start"
-            className="h-10 px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
-          >
-            GET STARTED
-          </Link>
         </nav>
       </header>
 

@@ -96,16 +96,16 @@ export default function Checkout() {
       </div>
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/50">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="h-9 w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-lg group-hover:scale-105 transition-transform">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 backdrop-blur-md bg-black/80 safe-top">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
-            <span className="tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
+            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
           </Link>
-          <Link to="/start" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition flex items-center gap-2">
-            <span>←</span> EDIT DETAILS
+          <Link to="/start" className="text-xs tracking-[0.1em] sm:tracking-[0.15em] text-white/50 hover:text-white transition flex items-center gap-1 sm:gap-2">
+            <span>←</span> EDIT
           </Link>
         </div>
       </nav>

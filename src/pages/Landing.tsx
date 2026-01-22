@@ -40,21 +40,26 @@ export default function Landing() {
     <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-orange-500/20">
       
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/50">
-        <div className="max-w-[1800px] mx-auto px-8 sm:px-12 h-20 flex items-center justify-between">
-          <span className="text-[15px] tracking-[0.5em] font-medium text-white">DEFRAG</span>
-          <div className="flex items-center gap-8">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/80 border-b border-white/5 safe-top">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2 sm:gap-3">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg">
+              D
+            </div>
+            <span className="text-sm sm:text-[15px] tracking-[0.3em] sm:tracking-[0.5em] font-medium text-white">DEFRAG</span>
+          </Link>
+          <div className="flex items-center gap-4 sm:gap-8">
             <Link
               to="/signin"
-              className="text-[13px] tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
+              className="text-xs sm:text-[13px] tracking-[0.2em] sm:tracking-[0.3em] text-white/50 hover:text-white transition-colors duration-300"
             >
-              SIGN IN
+              LOG IN
             </Link>
             <Link
               to="/start"
-              className="text-[13px] tracking-[0.3em] text-white/70 hover:text-orange-400 transition-colors duration-300"
+              className="text-xs sm:text-[13px] tracking-[0.2em] sm:tracking-[0.3em] text-white/70 hover:text-orange-400 transition-colors duration-300"
             >
-              GET STARTED →
+              START
             </Link>
           </div>
         </div>
@@ -109,7 +114,7 @@ export default function Landing() {
               </svg>
             </span>
             <span className="text-lg sm:text-xl text-white/80 group-hover:text-white transition-colors duration-300">
-              Finally understand them →
+              Finally understand them
             </span>
           </Link>
 
