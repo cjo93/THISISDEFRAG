@@ -119,7 +119,7 @@ export default function Landing() {
           </Link>
 
           <p className="text-sm text-white/40 mt-10 tracking-[0.15em]">
-            $19 · INSTANT DELIVERY
+            FREE TO START
           </p>
         </div>
 
@@ -317,31 +317,85 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* PRICING */}
       <section className="py-32 sm:py-48 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-orange-500/[0.05] to-transparent" />
-        <div className="max-w-[1600px] mx-auto px-8 sm:px-12 text-center relative">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-12 relative">
           
-          <h2 className="text-[clamp(1.8rem,5vw,4rem)] font-light leading-[1.15] mb-4 text-white">
-            Stop guessing. Stop blaming yourself.
-          </h2>
-          <h2 className="text-[clamp(2rem,5.5vw,4.5rem)] font-medium leading-[1.1] mb-12 text-orange-500">
-            Start understanding.
-          </h2>
-          
-          <p className="text-lg sm:text-xl text-white/60 mb-6 max-w-lg mx-auto">
-            Two people. Two minutes. One moment of<br />
-            <span className="text-white italic">"OH, that's why they do that."</span>
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-[clamp(1.8rem,5vw,3.5rem)] font-light leading-[1.15] mb-4 text-white">
+              Stop guessing. Start understanding.
+            </h2>
+            <p className="text-lg text-white/50 max-w-xl mx-auto">
+              Choose the depth that fits your needs.
+            </p>
+          </div>
 
-          <Link
-            to="/start"
-            className="inline-flex h-14 sm:h-16 px-10 sm:px-14 items-center justify-center bg-white text-black text-sm sm:text-base tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/10"
-          >
-            UNDERSTAND THEM FINALLY — $19
-          </Link>
+          {/* Pricing Cards */}
+          <div className="grid sm:grid-cols-3 gap-6 sm:gap-4">
+            
+            {/* FREE */}
+            <div className="p-6 sm:p-8 border border-white/10 bg-white/[0.02] rounded-xl">
+              <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-4">Quick Insight</div>
+              <div className="text-3xl sm:text-4xl font-light text-white mb-2">Free</div>
+              <p className="text-sm text-white/50 mb-8">A snapshot of your dynamic</p>
+              <ul className="space-y-3 text-sm text-white/60 mb-8">
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Core compatibility overview</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Basic trigger patterns</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> One communication tip</li>
+              </ul>
+              <Link
+                to="/start"
+                className="block w-full h-12 flex items-center justify-center border border-white/20 text-white/70 text-xs tracking-[0.15em] font-medium hover:border-orange-500/50 hover:text-orange-400 transition rounded-lg"
+              >
+                GET FREE INSIGHT
+              </Link>
+            </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/50 mt-10 tracking-[0.1em]">
+            {/* DEEP MANUAL - Highlighted */}
+            <div className="p-6 sm:p-8 border-2 border-orange-500/50 bg-orange-500/[0.05] rounded-xl relative">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-500 text-black text-xs tracking-[0.2em] font-bold rounded-full">
+                MOST POPULAR
+              </div>
+              <div className="text-xs tracking-[0.3em] text-orange-400 uppercase mb-4">Complete Manual</div>
+              <div className="text-3xl sm:text-4xl font-light text-white mb-2">$19</div>
+              <p className="text-sm text-white/50 mb-8">One-time purchase, emailed to you</p>
+              <ul className="space-y-3 text-sm text-white/70 mb-8">
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Full operating logic breakdown</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Complete trigger map</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Scripts for difficult moments</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> PDF manual delivered by email</li>
+              </ul>
+              <Link
+                to="/start"
+                className="block w-full h-12 flex items-center justify-center bg-orange-500 text-black text-xs tracking-[0.15em] font-bold hover:bg-orange-400 transition rounded-lg"
+              >
+                GET YOUR MANUAL
+              </Link>
+            </div>
+
+            {/* FAMILY SYSTEMS */}
+            <div className="p-6 sm:p-8 border border-white/10 bg-white/[0.02] rounded-xl">
+              <div className="text-xs tracking-[0.3em] text-white/40 uppercase mb-4">Full System</div>
+              <div className="text-3xl sm:text-4xl font-light text-white mb-2">$9<span className="text-lg text-white/50">/mo</span></div>
+              <p className="text-sm text-white/50 mb-8">Ongoing access + family mapping</p>
+              <ul className="space-y-3 text-sm text-white/60 mb-8">
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Everything in Complete Manual</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Bowen family systems analysis</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Unlimited relationship manuals</li>
+                <li className="flex items-start gap-3"><span className="text-orange-400">+</span> Monthly pattern updates</li>
+              </ul>
+              <Link
+                to="/start"
+                className="block w-full h-12 flex items-center justify-center border border-white/20 text-white/70 text-xs tracking-[0.15em] font-medium hover:border-orange-500/50 hover:text-orange-400 transition rounded-lg"
+              >
+                COMING SOON
+              </Link>
+            </div>
+
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/40 mt-12 tracking-[0.1em]">
             <span>Instant Delivery</span>
             <span className="text-white/20">|</span>
             <span>30-Day Guarantee</span>
