@@ -64,72 +64,88 @@ function generateRecoveryEmail(email: string): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if mso]>
+  <style type="text/css">
+    body, table, td { font-family: Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
 </head>
-<body style="margin: 0; padding: 0; background-color: #050505; font-family: 'Courier New', monospace;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #050505; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; background-color: #0a0a0a; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0a; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px;">
+        <table width="560" cellpadding="0" cellspacing="0" style="max-width: 560px; background-color: #141414; border-radius: 12px; overflow: hidden;">
+          <!-- Header -->
           <tr>
-            <td style="padding: 20px 0; border-bottom: 1px solid #333;">
-              <span style="color: #ea580c; font-size: 24px; font-weight: bold; letter-spacing: 4px;">DEFRAG</span>
+            <td style="padding: 32px 40px 24px 40px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <span style="color: #ea580c; font-size: 28px; font-weight: 700; letter-spacing: 3px;">DEFRAG</span>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
+          
+          <!-- Main Content -->
           <tr>
-            <td style="padding: 40px 0;">
-              <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-                // MANUAL RECOVERY REQUEST
+            <td style="padding: 40px;">
+              <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+                Recover Your Manual
               </h1>
               
-              <p style="color: #a1a1aa; font-size: 14px; line-height: 1.8; margin: 0 0 25px 0;">
-                You've requested to recover access to your relationship operating manual.
+              <p style="color: #a1a1aa; font-size: 16px; line-height: 1.7; margin: 0 0 32px 0;">
+                You requested to recover access to your relationship operating manual. Here's how to find it:
               </p>
               
-              <div style="background-color: #111; border: 1px solid #333; padding: 20px; margin: 25px 0;">
-                <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">RECOVERY OPTIONS</span>
-                
-                <p style="color: #a1a1aa; font-size: 13px; line-height: 1.8; margin: 15px 0;">
-                  <strong style="color: #fff;">1. CHECK YOUR EMAIL</strong><br>
-                  Search for "DEFRAG" in your inbox. Your original purchase confirmation 
-                  contains the link to access your manual.
+              <!-- Step 1 -->
+              <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 20px; margin-bottom: 16px;">
+                <p style="color: #ffffff; font-size: 15px; font-weight: 600; margin: 0 0 8px 0;">1. Check Your Inbox</p>
+                <p style="color: #a1a1aa; font-size: 15px; line-height: 1.6; margin: 0;">
+                  Search for "DEFRAG" in your email. Your original confirmation contains the access link.
                 </p>
-                
-                <p style="color: #a1a1aa; font-size: 13px; line-height: 1.8; margin: 15px 0;">
-                  <strong style="color: #fff;">2. CHECK SPAM/PROMOTIONS</strong><br>
-                  Sometimes emails get filtered. Check your spam folder or promotions tab.
-                </p>
-                
-                <p style="color: #a1a1aa; font-size: 13px; line-height: 1.8; margin: 15px 0;">
-                  <strong style="color: #fff;">3. CONTACT SUPPORT</strong><br>
-                  Still can't find it? Reply to this email with:
-                </p>
-                <ul style="color: #a1a1aa; font-size: 13px; line-height: 1.8; margin: 10px 0 0 20px;">
-                  <li>Your approximate purchase date</li>
-                  <li>Names of both units in your manual</li>
-                  <li>Payment method used (last 4 digits if card)</li>
-                </ul>
               </div>
               
-              <table cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+              <!-- Step 2 -->
+              <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 20px; margin-bottom: 16px;">
+                <p style="color: #ffffff; font-size: 15px; font-weight: 600; margin: 0 0 8px 0;">2. Check Spam/Promotions</p>
+                <p style="color: #a1a1aa; font-size: 15px; line-height: 1.6; margin: 0;">
+                  Sometimes emails get filtered. Check your spam folder or promotions tab.
+                </p>
+              </div>
+              
+              <!-- Step 3 -->
+              <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 20px; margin-bottom: 32px;">
+                <p style="color: #ffffff; font-size: 15px; font-weight: 600; margin: 0 0 8px 0;">3. Contact Support</p>
+                <p style="color: #a1a1aa; font-size: 15px; line-height: 1.6; margin: 0;">
+                  Still can't find it? Reach out with your purchase date and the names entered.
+                </p>
+              </div>
+              
+              <!-- CTA Button -->
+              <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
-                  <td style="background-color: #ea580c; padding: 15px 30px;">
-                    <a href="mailto:info@defrag.app?subject=Manual%20Recovery%20Request&body=Email:%20${encodeURIComponent(email)}%0A%0APurchase%20date:%20%0AUnit%20names:%20%0APayment%20last%204:%20" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
-                      CONTACT SUPPORT →
+                  <td align="center">
+                    <a href="mailto:info@defrag.app?subject=Manual%20Recovery%20Request&body=Email:%20${encodeURIComponent(email)}%0A%0APurchase%20date:%20%0ANames%20entered:%20" style="display: inline-block; background-color: #ea580c; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 8px;">
+                      Contact Support
                     </a>
                   </td>
                 </tr>
               </table>
               
-              <p style="color: #52525b; font-size: 12px; margin-top: 30px; line-height: 1.6;">
+              <p style="color: #71717a; font-size: 14px; margin-top: 32px; line-height: 1.6; text-align: center;">
                 Didn't request this? You can safely ignore this email.
               </p>
             </td>
           </tr>
+          
+          <!-- Footer -->
           <tr>
-            <td style="padding: 20px 0; border-top: 1px solid #333;">
-              <p style="color: #52525b; font-size: 10px; margin: 0; letter-spacing: 1px;">
-                DEFRAG // USER MANUALS FOR YOUR PEOPLE<br>
-                <a href="https://defrag.app" style="color: #52525b;">defrag.app</a>
+            <td style="padding: 24px 40px; border-top: 1px solid rgba(255,255,255,0.08); background-color: rgba(0,0,0,0.2);">
+              <p style="color: #52525b; font-size: 13px; margin: 0; text-align: center;">
+                DEFRAG · User Manuals for Your People<br>
+                <a href="https://defrag.app" style="color: #71717a; text-decoration: none;">defrag.app</a>
               </p>
             </td>
           </tr>

@@ -82,7 +82,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         if (!supportRequest) return res.status(400).json({ error: 'Missing support request' });
         subject = `DEFRAG SUPPORT // ${supportRequest.subject}`;
         html = generateSupportInternalEmail(supportRequest);
-        recipients = ['chadowen93@gmail.com']; // Internal notification
+        recipients = ['info@defrag.app']; // Internal notification
         replyTo = supportRequest.email;
         break;
       
@@ -122,32 +122,37 @@ function emailWrapper(content: string): string {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DEFRAG</title>
+  <!--[if mso]>
+  <style type="text/css">
+    body, table, td { font-family: Arial, sans-serif !important; }
+  </style>
+  <![endif]-->
 </head>
-<body style="margin: 0; padding: 0; background-color: #050505; font-family: 'Courier New', monospace;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #050505; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; background-color: #0a0a0a; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0a; padding: 40px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="max-width: 600px;">
+        <table width="560" cellpadding="0" cellspacing="0" style="max-width: 560px; background-color: #141414; border-radius: 12px; overflow: hidden;">
           <!-- Header -->
           <tr>
-            <td style="padding: 20px 0; border-bottom: 1px solid #333;">
-              <span style="color: #ea580c; font-size: 24px; font-weight: bold; letter-spacing: 4px;">DEFRAG</span>
+            <td style="padding: 32px 40px 24px 40px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+              <span style="color: #ea580c; font-size: 28px; font-weight: 700; letter-spacing: 3px;">DEFRAG</span>
             </td>
           </tr>
           
           <!-- Main Content -->
           <tr>
-            <td style="padding: 40px 0;">
+            <td style="padding: 40px;">
               ${content}
             </td>
           </tr>
           
           <!-- Footer -->
           <tr>
-            <td style="padding: 20px 0; border-top: 1px solid #333;">
-              <p style="color: #52525b; font-size: 10px; margin: 0; letter-spacing: 1px;">
-                DEFRAG // USER MANUALS FOR YOUR PEOPLE<br>
-                <a href="https://defrag.app" style="color: #52525b;">defrag.app</a>
+            <td style="padding: 24px 40px; border-top: 1px solid rgba(255,255,255,0.08); background-color: rgba(0,0,0,0.2);">
+              <p style="color: #52525b; font-size: 13px; margin: 0; text-align: center;">
+                DEFRAG · User Manuals for Your People<br>
+                <a href="https://defrag.app" style="color: #71717a; text-decoration: none;">defrag.app</a>
               </p>
             </td>
           </tr>
@@ -162,44 +167,35 @@ function emailWrapper(content: string): string {
 
 // WELCOME EMAIL
 function generateWelcomeEmail(name?: string): string {
-  const greeting = name ? `UNIT ${name.toUpperCase()}` : 'OPERATOR';
+  const greeting = name ? name : 'there';
   return emailWrapper(`
-    <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-      // SYSTEM INITIALIZATION
+    <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+      Welcome to DEFRAG
     </h1>
     
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.8; margin: 0 0 25px 0;">
-      WELCOME, ${greeting}.
+    <p style="color: #a1a1aa; font-size: 16px; line-height: 1.7; margin: 0 0 24px 0;">
+      Hi ${greeting}, you're in! DEFRAG creates relationship operating manuals—practical guides that help you understand and connect with the people who matter most.
     </p>
     
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.8; margin: 0 0 25px 0;">
-      You've entered the DEFRAG system—a diagnostic framework for human relationships.
-      Your coordinates have been logged. The next step: input your unit specifications 
-      to generate your personalized relationship operating manual.
-    </p>
-    
-    <div style="background-color: #111; border: 1px solid #333; padding: 20px; margin: 25px 0;">
-      <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">WHAT HAPPENS NEXT</span>
-      <ul style="color: #a1a1aa; font-size: 13px; line-height: 2; margin: 15px 0 0 0; padding-left: 20px;">
-        <li>Enter birth coordinates for both units</li>
-        <li>System processes planetary alignment data</li>
-        <li>AI generates your custom relationship manual</li>
-        <li>Receive troubleshooting protocols, maintenance schedules, and operating procedures</li>
-      </ul>
+    <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 24px; margin: 24px 0;">
+      <p style="color: #ffffff; font-size: 15px; font-weight: 600; margin: 0 0 16px 0;">Here's how it works:</p>
+      <p style="color: #a1a1aa; font-size: 15px; line-height: 1.7; margin: 0 0 12px 0;">1. Enter basic info for two people</p>
+      <p style="color: #a1a1aa; font-size: 15px; line-height: 1.7; margin: 0 0 12px 0;">2. We analyze the patterns and dynamics</p>
+      <p style="color: #a1a1aa; font-size: 15px; line-height: 1.7; margin: 0;">3. Get your personalized manual with insights and scripts</p>
     </div>
     
-    <table cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+    <table cellpadding="0" cellspacing="0" width="100%" style="margin-top: 32px;">
       <tr>
-        <td style="background-color: #ea580c; padding: 15px 30px;">
-          <a href="https://defrag.app/start" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
-            BEGIN CALIBRATION →
+        <td align="center">
+          <a href="https://defrag.app/start" style="display: inline-block; background-color: #ea580c; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 8px;">
+            Create Your Manual
           </a>
         </td>
       </tr>
     </table>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 30px; line-height: 1.6;">
-      Questions? Reply to this email or visit <a href="https://defrag.app/how-it-works" style="color: #ea580c;">defrag.app/how-it-works</a>
+    <p style="color: #71717a; font-size: 14px; margin-top: 32px; line-height: 1.6; text-align: center;">
+      Questions? Reply to this email or visit <a href="https://defrag.app/how-it-works" style="color: #ea580c; text-decoration: none;">defrag.app/how-it-works</a>
     </p>
   `);
 }
@@ -207,39 +203,39 @@ function generateWelcomeEmail(name?: string): string {
 // RESEND MANUAL EMAIL (Forgot Password equivalent)
 function generateResendManualEmail(request: ResendManualRequest): string {
   const unitNames = request.unitA && request.unitB 
-    ? `${request.unitA.name.toUpperCase()} × ${request.unitB.name.toUpperCase()}`
-    : 'YOUR UNITS';
+    ? `${request.unitA.name} & ${request.unitB.name}`
+    : 'Your Manual';
   
   return emailWrapper(`
-    <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-      // MANUAL RECOVERY
+    <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+      Here's Your Manual
     </h1>
     
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.8; margin: 0 0 25px 0;">
-      You requested access to your relationship operating manual.
+    <p style="color: #a1a1aa; font-size: 16px; line-height: 1.7; margin: 0 0 24px 0;">
+      You requested access to your relationship operating manual. Click below to view it.
     </p>
     
-    <div style="background-color: #111; border: 1px solid #333; padding: 20px; margin: 25px 0;">
-      <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">MANUAL IDENTIFIED</span>
-      <p style="color: #fff; font-size: 16px; margin: 10px 0 0 0; letter-spacing: 1px;">${unitNames}</p>
+    <div style="background-color: rgba(234, 88, 12, 0.1); border: 1px solid rgba(234, 88, 12, 0.3); border-radius: 8px; padding: 20px; margin: 24px 0;">
+      <p style="color: #ea580c; font-size: 13px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 1px;">Manual</p>
+      <p style="color: #ffffff; font-size: 18px; font-weight: 500; margin: 0;">${unitNames}</p>
     </div>
     
-    <table cellpadding="0" cellspacing="0" style="margin-top: 30px;">
+    <table cellpadding="0" cellspacing="0" width="100%" style="margin-top: 32px;">
       <tr>
-        <td style="background-color: #ea580c; padding: 15px 30px;">
-          <a href="${request.manualUrl}" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
-            ACCESS MANUAL →
+        <td align="center">
+          <a href="${request.manualUrl}" style="display: inline-block; background-color: #ea580c; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 8px;">
+            Access Manual
           </a>
         </td>
       </tr>
     </table>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 30px; line-height: 1.6;">
+    <p style="color: #71717a; font-size: 14px; margin-top: 32px; line-height: 1.6; text-align: center;">
       Didn't request this? You can safely ignore this email.
     </p>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 15px; line-height: 1.6;">
-      Can't find your manual? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a> with your order details.
+    <p style="color: #71717a; font-size: 14px; margin-top: 12px; line-height: 1.6; text-align: center;">
+      Need help? Contact <a href="mailto:info@defrag.app" style="color: #ea580c; text-decoration: none;">info@defrag.app</a>
     </p>
   `);
 }
@@ -247,78 +243,78 @@ function generateResendManualEmail(request: ResendManualRequest): string {
 // SUPPORT CONFIRMATION EMAIL (to user)
 function generateSupportConfirmationEmail(request: SupportRequest): string {
   return emailWrapper(`
-    <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-      // SUPPORT REQUEST LOGGED
+    <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+      We Got Your Message
     </h1>
     
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.8; margin: 0 0 25px 0;">
-      We've received your transmission and will respond within 24 hours.
+    <p style="color: #a1a1aa; font-size: 16px; line-height: 1.7; margin: 0 0 24px 0;">
+      Thanks for reaching out. We'll get back to you within 24 hours.
     </p>
     
-    <div style="background-color: #111; border: 1px solid #333; padding: 20px; margin: 25px 0;">
-      <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">YOUR REQUEST</span>
-      <table style="margin-top: 15px; width: 100%;">
+    <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 24px; margin: 24px 0;">
+      <p style="color: #ea580c; font-size: 13px; font-weight: 600; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 1px;">Your Request</p>
+      <table style="width: 100%;">
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 5px 0; width: 100px;">SUBJECT:</td>
-          <td style="color: #fff; font-size: 13px; padding: 5px 0;">${request.subject}</td>
+          <td style="color: #71717a; font-size: 14px; padding: 6px 0; width: 80px; vertical-align: top;">Subject:</td>
+          <td style="color: #ffffff; font-size: 14px; padding: 6px 0;">${request.subject}</td>
         </tr>
         ${request.orderRef ? `
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 5px 0;">ORDER REF:</td>
-          <td style="color: #fff; font-size: 13px; padding: 5px 0;">${request.orderRef}</td>
+          <td style="color: #71717a; font-size: 14px; padding: 6px 0; vertical-align: top;">Order:</td>
+          <td style="color: #ffffff; font-size: 14px; padding: 6px 0;">${request.orderRef}</td>
         </tr>
         ` : ''}
       </table>
-      <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #333;">
-        <span style="color: #52525b; font-size: 12px;">MESSAGE:</span>
-        <p style="color: #a1a1aa; font-size: 13px; margin: 10px 0 0 0; line-height: 1.6; white-space: pre-wrap;">${request.message}</p>
+      <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
+        <p style="color: #71717a; font-size: 14px; margin: 0 0 8px 0;">Message:</p>
+        <p style="color: #a1a1aa; font-size: 14px; margin: 0; line-height: 1.6; white-space: pre-wrap;">${request.message}</p>
       </div>
     </div>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 30px; line-height: 1.6;">
-      Reply to this email to add more information to your request.
+    <p style="color: #71717a; font-size: 14px; margin-top: 24px; line-height: 1.6; text-align: center;">
+      Reply to this email to add more information.
     </p>
   `);
 }
 
-// SUPPORT INTERNAL EMAIL (to chadowen93@gmail.com)
+// SUPPORT INTERNAL EMAIL (to info@defrag.app)
 function generateSupportInternalEmail(request: SupportRequest): string {
   return emailWrapper(`
-    <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-      // NEW SUPPORT REQUEST
+    <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+      New Support Request
     </h1>
     
-    <div style="background-color: #111; border: 1px solid #ea580c; padding: 20px; margin: 25px 0;">
+    <div style="background-color: rgba(234, 88, 12, 0.1); border: 1px solid rgba(234, 88, 12, 0.3); border-radius: 8px; padding: 24px; margin: 24px 0;">
       <table style="width: 100%;">
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 8px 0; width: 100px;">FROM:</td>
-          <td style="color: #fff; font-size: 13px; padding: 8px 0;">${request.name}</td>
+          <td style="color: #71717a; font-size: 14px; padding: 8px 0; width: 80px; vertical-align: top;">From:</td>
+          <td style="color: #ffffff; font-size: 14px; padding: 8px 0;">${request.name}</td>
         </tr>
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 8px 0;">EMAIL:</td>
-          <td style="color: #ea580c; font-size: 13px; padding: 8px 0;">
-            <a href="mailto:${request.email}" style="color: #ea580c;">${request.email}</a>
+          <td style="color: #71717a; font-size: 14px; padding: 8px 0; vertical-align: top;">Email:</td>
+          <td style="color: #ea580c; font-size: 14px; padding: 8px 0;">
+            <a href="mailto:${request.email}" style="color: #ea580c; text-decoration: none;">${request.email}</a>
           </td>
         </tr>
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 8px 0;">SUBJECT:</td>
-          <td style="color: #fff; font-size: 13px; padding: 8px 0;">${request.subject}</td>
+          <td style="color: #71717a; font-size: 14px; padding: 8px 0; vertical-align: top;">Subject:</td>
+          <td style="color: #ffffff; font-size: 14px; padding: 8px 0;">${request.subject}</td>
         </tr>
         ${request.orderRef ? `
         <tr>
-          <td style="color: #52525b; font-size: 12px; padding: 8px 0;">ORDER REF:</td>
-          <td style="color: #fff; font-size: 13px; padding: 8px 0;">${request.orderRef}</td>
+          <td style="color: #71717a; font-size: 14px; padding: 8px 0; vertical-align: top;">Order:</td>
+          <td style="color: #ffffff; font-size: 14px; padding: 8px 0;">${request.orderRef}</td>
         </tr>
         ` : ''}
       </table>
     </div>
     
-    <div style="background-color: #0a0a0a; border: 1px solid #333; padding: 20px; margin: 25px 0;">
-      <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">MESSAGE</span>
-      <p style="color: #a1a1aa; font-size: 14px; margin: 15px 0 0 0; line-height: 1.8; white-space: pre-wrap;">${request.message}</p>
+    <div style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 24px; margin: 24px 0;">
+      <p style="color: #ea580c; font-size: 13px; font-weight: 600; margin: 0 0 12px 0; text-transform: uppercase; letter-spacing: 1px;">Message</p>
+      <p style="color: #a1a1aa; font-size: 15px; margin: 0; line-height: 1.7; white-space: pre-wrap;">${request.message}</p>
     </div>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 20px;">
+    <p style="color: #71717a; font-size: 14px; margin-top: 24px; text-align: center;">
       Reply directly to respond to the user.
     </p>
   `);
@@ -327,46 +323,46 @@ function generateSupportInternalEmail(request: SupportRequest): string {
 // PURCHASE CONFIRMATION EMAIL
 function generatePurchaseEmail(unitA: UnitData, unitB: UnitData, manualUrl: string): string {
   return emailWrapper(`
-    <h1 style="color: #ffffff; font-size: 18px; margin: 0 0 20px 0; letter-spacing: 2px;">
-      // MANUAL COMPILATION COMPLETE
+    <h1 style="color: #ffffff; font-size: 24px; font-weight: 600; margin: 0 0 16px 0; line-height: 1.3;">
+      Your Manual is Ready
     </h1>
     
-    <p style="color: #a1a1aa; font-size: 14px; line-height: 1.6; margin: 0 0 30px 0;">
-      Your relationship operating manual has been generated and is ready for review.
+    <p style="color: #a1a1aa; font-size: 16px; line-height: 1.7; margin: 0 0 32px 0;">
+      Your personalized relationship operating manual has been generated and is ready to view.
     </p>
     
     <!-- Unit Cards -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 30px;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 32px;">
       <tr>
-        <td style="padding: 15px; background-color: #111; border: 1px solid #333;">
-          <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">UNIT_A</span>
-          <p style="color: #fff; font-size: 16px; margin: 5px 0 0 0;">${unitA?.name || 'Unknown'}</p>
+        <td style="padding: 16px; background-color: rgba(255,255,255,0.03); border-radius: 8px;">
+          <p style="color: #71717a; font-size: 12px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 1px;">Person 1</p>
+          <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 0;">${unitA?.name || 'Unknown'}</p>
         </td>
-        <td width="20"></td>
-        <td style="padding: 15px; background-color: #111; border: 1px solid #333;">
-          <span style="color: #ea580c; font-size: 10px; letter-spacing: 2px;">UNIT_B</span>
-          <p style="color: #fff; font-size: 16px; margin: 5px 0 0 0;">${unitB?.name || 'Unknown'}</p>
+        <td width="16"></td>
+        <td style="padding: 16px; background-color: rgba(255,255,255,0.03); border-radius: 8px;">
+          <p style="color: #71717a; font-size: 12px; font-weight: 600; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 1px;">Person 2</p>
+          <p style="color: #ffffff; font-size: 16px; font-weight: 500; margin: 0;">${unitB?.name || 'Unknown'}</p>
         </td>
       </tr>
     </table>
     
     <!-- CTA Button -->
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" width="100%">
       <tr>
-        <td style="background-color: #ea580c; padding: 15px 30px;">
-          <a href="${manualUrl}" style="color: #ffffff; text-decoration: none; font-size: 14px; letter-spacing: 2px; font-weight: bold;">
-            ACCESS MANUAL →
+        <td align="center">
+          <a href="${manualUrl}" style="display: inline-block; background-color: #ea580c; color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 600; padding: 16px 32px; border-radius: 8px;">
+            View Your Manual
           </a>
         </td>
       </tr>
     </table>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 30px;">
-      This link will remain active. Bookmark it for future reference.
+    <p style="color: #71717a; font-size: 14px; margin-top: 32px; line-height: 1.6; text-align: center;">
+      This link will remain active. Bookmark it for easy access.
     </p>
     
-    <p style="color: #52525b; font-size: 12px; margin-top: 15px;">
-      Need help? Contact <a href="mailto:info@defrag.app" style="color: #ea580c;">info@defrag.app</a>
+    <p style="color: #71717a; font-size: 14px; margin-top: 12px; line-height: 1.6; text-align: center;">
+      Need help? Contact <a href="mailto:info@defrag.app" style="color: #ea580c; text-decoration: none;">info@defrag.app</a>
     </p>
   `);
 }
