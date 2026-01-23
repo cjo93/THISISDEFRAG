@@ -50,7 +50,7 @@ export default function Landing() {
   const heroScale = 1 + scrollY * 0.0002;
 
   return (
-    <div id="landing-container" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-orange-500/20">
+    <div id="landing-container" data-version="1.1.1" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-orange-500/20">
 
       {/* Nav */}
       <Header />
