@@ -1,217 +1,271 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 export default function Privacy() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute -top-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.06] bg-orange-500" />
-        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
+        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
       </div>
 
-      {/* Nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
-        <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
-              D
-            </div>
-            <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
-          </Link>
-
-          <div className="flex items-center gap-4 sm:gap-6">
-            <Link to="/signin" className="text-xs tracking-[0.15em] text-white/50 hover:text-white transition">
-              LOG IN
-            </Link>
-            <Link
-              to="/start"
-              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
-            >
-              START
-            </Link>
-          </div>
-        </nav>
-      </header>
+      <Header />
 
       {/* Content */}
       <main className="relative z-10 px-6 py-20">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           <div className="inline-flex items-center gap-2 mb-6">
             <span className="h-px w-8 bg-orange-500/50" />
-            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">PRIVACY & TERMS</span>
+            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">PRIVACY POLICY</span>
             <span className="h-px w-8 bg-orange-500/50" />
           </div>
-          <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-10">
-            Your <span className="text-orange-500">Data</span>
+
+          <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6 text-white">
+            Privacy Policy
           </h1>
 
-          <div className="space-y-8 text-white/80 leading-relaxed">
+          <p className="text-sm text-white/40 mb-12">Last Updated: January 23, 2026</p>
 
-            {/* Key Points */}
-            <div className="rounded-xl border border-green-500/20 bg-green-500/5 p-6">
-              <h2 className="text-white font-semibold mb-4 flex items-center gap-2">
-                <span className="text-green-400 font-mono">[OK]</span> The Short Version
-              </h2>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-green-400 mt-1 font-mono">+</span>
-                  <span>Your birth data is used only to generate your manual</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-400 mt-1 font-mono">+</span>
-                  <span>We don't sell your information to third parties</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-400 mt-1 font-mono">+</span>
-                  <span>Manuals are stored locally on your device by default</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-green-400 mt-1 font-mono">+</span>
-                  <span>You can delete your data at any time</span>
-                </li>
+          <div className="space-y-12 text-white/70 leading-relaxed">
+
+            {/* Introduction */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">1. Introduction</h2>
+              <p className="mb-4">
+                DEFRAG ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our relationship analysis service at defrag.app.
+              </p>
+              <p>
+                By using DEFRAG, you agree to the collection and use of information in accordance with this policy.
+              </p>
+            </section>
+
+            {/* Information We Collect */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">2. Information We Collect</h2>
+
+              <h3 className="text-xl font-medium text-white/90 mb-3 mt-6">2.1 Personal Information</h3>
+              <p className="mb-4">We collect the following personal information that you voluntarily provide:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Email address</strong> - For account creation and manual delivery</li>
+                <li><strong>Name</strong> - For personalization of your manual</li>
+                <li><strong>Birth data</strong> - Date, time, and place of birth for astrological calculations</li>
+                <li><strong>Relationship data</strong> - Birth information for people you analyze</li>
               </ul>
-            </div>
 
-            {/* Data Collection */}
-            <div>
-              <h2 className="text-xl font-bold text-white mb-4">What We Collect</h2>
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-6 space-y-4">
-                <div className="flex justify-between items-start border-b border-white/5 pb-4">
-                  <div>
-                    <div className="text-white">Birth Data</div>
-                    <div className="text-sm text-white/50">Date, time, location</div>
-                  </div>
-                  <div className="text-xs text-orange-400 bg-orange-500/10 px-2 py-1 rounded">Required</div>
-                </div>
-                <div className="flex justify-between items-start border-b border-white/5 pb-4">
-                  <div>
-                    <div className="text-white">Email Address</div>
-                    <div className="text-sm text-white/50">For manual delivery and recovery</div>
-                  </div>
-                  <div className="text-xs text-orange-400 bg-orange-500/10 px-2 py-1 rounded">Required</div>
-                </div>
-                <div className="flex justify-between items-start">
-                  <div>
-                    <div className="text-white">Generated Manuals</div>
-                    <div className="text-sm text-white/50">Stored locally unless you opt into cloud sync</div>
-                  </div>
-                  <div className="text-xs text-white/40 bg-white/5 px-2 py-1 rounded">Local</div>
-                </div>
-              </div>
-            </div>
+              <h3 className="text-xl font-medium text-white/90 mb-3 mt-6">2.2 Payment Information</h3>
+              <p className="mb-4">
+                Payment processing is handled by Stripe. We do not store your credit card information. Stripe's privacy policy governs the use of your payment information.
+              </p>
 
-            {/* How We Use It */}
-            <div>
-              <h2 className="text-xl font-bold text-white mb-4">How We Use It</h2>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="text-orange-500">-</span>
-                  <span>Calculate planetary positions from birth data</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-orange-500">-</span>
-                  <span>Generate personalized relationship manuals</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-orange-500">-</span>
-                  <span>Provide real-time friction forecasts based on transits</span>
-                </li>
+              <h3 className="text-xl font-medium text-white/90 mb-3 mt-6">2.3 Usage Data</h3>
+              <p className="mb-4">We automatically collect certain information when you use our service:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Browser type and version</li>
+                <li>Pages visited and time spent</li>
+                <li>Device information (type, operating system)</li>
+                <li>IP address (anonymized)</li>
               </ul>
-            </div>
+            </section>
 
-            {/* Important Disclaimers */}
-            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
-              <h2 className="text-white font-semibold mb-4">Important Disclaimers</h2>
+            {/* How We Use Your Information */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">3. How We Use Your Information</h2>
+              <p className="mb-4">We use your information for the following purposes:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Service Delivery</strong> - Generate personalized relationship manuals</li>
+                <li><strong>Account Management</strong> - Create and maintain your account</li>
+                <li><strong>Communication</strong> - Send you your manual and important updates</li>
+                <li><strong>Payment Processing</strong> - Process transactions via Stripe</li>
+                <li><strong>Improvement</strong> - Analyze usage to improve our service</li>
+                <li><strong>Legal Compliance</strong> - Comply with legal obligations</li>
+              </ul>
+            </section>
 
-              <div className="space-y-4 text-sm">
-                <p>
-                  <strong className="text-white">This is not therapy.</strong> DEFRAG is an informational
-                  and educational tool. It does not provide medical advice, mental health treatment,
-                  or professional counseling.
-                </p>
+            {/* Data Security */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">4. Data Security</h2>
+              <p className="mb-4">
+                We implement industry-standard security measures to protect your personal information:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Encryption</strong> - All data is encrypted in transit (SSL/TLS) and at rest</li>
+                <li><strong>Firebase Security</strong> - Data stored in Google Cloud Firestore with strict access rules</li>
+                <li><strong>Authentication</strong> - Secure email-based authentication (magic links)</li>
+                <li><strong>Access Controls</strong> - Limited employee access to personal data</li>
+                <li><strong>Regular Audits</strong> - Periodic security reviews and updates</li>
+              </ul>
+              <p className="mt-4 text-white/50 text-sm">
+                However, no method of transmission over the Internet is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.
+              </p>
+            </section>
 
-                <p>
-                  <strong className="text-white">This is not a diagnosis.</strong> The patterns described
-                  are tendencies, not deterministic outcomes. People are complex and can always change.
-                </p>
+            {/* Data Sharing */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">5. Data Sharing and Disclosure</h2>
+              <p className="mb-4">We do NOT sell your personal information. We may share your data only in these circumstances:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Service Providers</strong> - Third-party services that help us operate (Firebase, Stripe, Resend)</li>
+                <li><strong>Legal Requirements</strong> - When required by law or to protect our rights</li>
+                <li><strong>Business Transfers</strong> - In the event of a merger or acquisition</li>
+                <li><strong>With Your Consent</strong> - When you explicitly authorize sharing</li>
+              </ul>
+            </section>
 
-                <p>
-                  <strong className="text-white">If you're in danger.</strong> If a relationship involves
-                  fear, control, manipulation, or physical harm, the safest step is to leave and seek
-                  professional support. Contact the National Domestic Violence Hotline: 1-800-799-7233.
-                </p>
-              </div>
-            </div>
+            {/* Your Rights */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">6. Your Privacy Rights</h2>
+              <p className="mb-4">You have the following rights regarding your personal data:</p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Access</strong> - Request a copy of your personal data</li>
+                <li><strong>Correction</strong> - Update or correct inaccurate information</li>
+                <li><strong>Deletion</strong> - Request deletion of your account and data</li>
+                <li><strong>Portability</strong> - Export your data in a machine-readable format</li>
+                <li><strong>Opt-Out</strong> - Unsubscribe from marketing communications</li>
+                <li><strong>Restriction</strong> - Limit how we process your data</li>
+              </ul>
+              <p className="mt-4">
+                To exercise these rights, contact us at <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300 underline">privacy@defrag.app</a>
+              </p>
+            </section>
 
-            {/* Third Parties */}
-            <div>
-              <h2 className="text-xl font-bold text-white mb-4">Third-Party Services</h2>
-              <p className="mb-4">We use the following external services:</p>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <div className="text-white font-medium mb-1">NASA JPL HORIZONS</div>
-                  <div className="text-sm text-white/50">Planetary position calculations</div>
-                </div>
-                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <div className="text-white font-medium mb-1">Google Gemini</div>
-                  <div className="text-sm text-white/50">Manual text generation</div>
-                </div>
-                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <div className="text-white font-medium mb-1">Vercel</div>
-                  <div className="text-sm text-white/50">Website hosting</div>
-                </div>
-                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-4">
-                  <div className="text-white font-medium mb-1">Stripe</div>
-                  <div className="text-sm text-white/50">Payment processing (Pro tier)</div>
-                </div>
-              </div>
-            </div>
+            {/* Data Retention */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">7. Data Retention</h2>
+              <p className="mb-4">
+                We retain your personal information for as long as necessary to provide our services and comply with legal obligations:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Active Accounts</strong> - Data retained while your account is active</li>
+                <li><strong>Deleted Accounts</strong> - Data deleted within 30 days of account deletion</li>
+                <li><strong>Legal Requirements</strong> - Some data may be retained longer for legal compliance</li>
+                <li><strong>Anonymized Data</strong> - Aggregated, anonymized data may be retained indefinitely</li>
+              </ul>
+            </section>
+
+            {/* Cookies */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">8. Cookies and Tracking</h2>
+              <p className="mb-4">
+                We use minimal cookies and tracking technologies:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Essential Cookies</strong> - Required for authentication and core functionality</li>
+                <li><strong>Analytics</strong> - Privacy-focused analytics (no personal data collected)</li>
+                <li><strong>No Third-Party Ads</strong> - We do not use advertising cookies</li>
+              </ul>
+              <p className="mt-4">
+                You can control cookies through your browser settings, but disabling essential cookies may affect functionality.
+              </p>
+            </section>
+
+            {/* Children's Privacy */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">9. Children's Privacy</h2>
+              <p>
+                DEFRAG is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately at <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300 underline">privacy@defrag.app</a>.
+              </p>
+            </section>
+
+            {/* International Users */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">10. International Data Transfers</h2>
+              <p className="mb-4">
+                Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Data stored in Google Cloud (Firebase) with global infrastructure</li>
+                <li>Compliance with GDPR for EU users</li>
+                <li>Standard contractual clauses for international transfers</li>
+              </ul>
+            </section>
+
+            {/* GDPR Compliance */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">11. GDPR Compliance (EU Users)</h2>
+              <p className="mb-4">
+                If you are in the European Economic Area (EEA), you have additional rights under GDPR:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Right to be informed about data processing</li>
+                <li>Right to access your personal data</li>
+                <li>Right to rectification of inaccurate data</li>
+                <li>Right to erasure ("right to be forgotten")</li>
+                <li>Right to restrict processing</li>
+                <li>Right to data portability</li>
+                <li>Right to object to processing</li>
+                <li>Rights related to automated decision-making</li>
+              </ul>
+              <p className="mt-4">
+                Our legal basis for processing your data is your consent and contractual necessity.
+              </p>
+            </section>
+
+            {/* CCPA Compliance */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">12. CCPA Compliance (California Users)</h2>
+              <p className="mb-4">
+                If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA):
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>Right to know what personal information is collected</li>
+                <li>Right to know if personal information is sold or disclosed</li>
+                <li>Right to opt-out of the sale of personal information (we do not sell data)</li>
+                <li>Right to deletion of personal information</li>
+                <li>Right to non-discrimination for exercising CCPA rights</li>
+              </ul>
+            </section>
+
+            {/* Changes to Policy */}
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">13. Changes to This Privacy Policy</h2>
+              <p>
+                We may update this Privacy Policy from time to time. We will notify you of any changes by:
+              </p>
+              <ul className="list-disc list-inside space-y-2 ml-4 mt-4">
+                <li>Posting the new Privacy Policy on this page</li>
+                <li>Updating the "Last Updated" date</li>
+                <li>Sending an email notification for material changes</li>
+              </ul>
+              <p className="mt-4">
+                Your continued use of DEFRAG after changes constitutes acceptance of the updated policy.
+              </p>
+            </section>
 
             {/* Contact */}
-            <div className="rounded-2xl border border-orange-500/20 bg-orange-500/[0.03] p-8">
-              <h2 className="text-xl font-medium text-white mb-4">Questions?</h2>
-              <p className="text-base text-white/60 mb-6">
-                If you have questions about your data or want to request deletion, contact us:
+            <section>
+              <h2 className="text-2xl font-medium text-white mb-4">14. Contact Us</h2>
+              <p className="mb-4">
+                If you have questions about this Privacy Policy or our data practices, please contact us:
               </p>
-              <a
-                href="mailto:info@defrag.app"
-                className="inline-flex items-center gap-3 text-orange-400 hover:text-orange-300 transition text-lg font-medium"
-              >
-                <span className="h-10 w-10 rounded-lg bg-orange-500/20 flex items-center justify-center font-bold text-xs">@</span>
-                info@defrag.app
-              </a>
-            </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                <p className="mb-2"><strong className="text-white">Email:</strong> <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300">privacy@defrag.app</a></p>
+                <p className="mb-2"><strong className="text-white">Support:</strong> <a href="mailto:info@defrag.app" className="text-orange-400 hover:text-orange-300">info@defrag.app</a></p>
+                <p><strong className="text-white">Website:</strong> <a href="https://defrag.app" className="text-orange-400 hover:text-orange-300">https://defrag.app</a></p>
+              </div>
+            </section>
 
-            <div className="text-sm text-white/40 pt-4">
-              Last updated: January 2026
-            </div>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-4">
-            <Link
-              to="/start"
-              className="h-14 px-8 flex items-center justify-center bg-white text-black font-semibold tracking-[0.12em] text-sm hover:bg-orange-500 hover:text-white transition rounded-lg shadow-lg shadow-white/10"
-            >
-              GET STARTED
-            </Link>
+          {/* CTA */}
+          <div className="mt-16 text-center">
             <Link
               to="/"
-              className="h-14 px-8 flex items-center justify-center border border-white/15 text-white/70 tracking-[0.12em] text-sm hover:border-white/30 hover:text-white transition rounded-lg"
+              className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition shadow-lg shadow-white/10"
             >
-              BACK HOME
+              BACK TO HOME
             </Link>
           </div>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 py-10 border-t border-white/5 mt-12">
+      <footer className="relative z-10 py-10 border-t border-white/5">
         <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span className="text-sm text-white/30">2026 DEFRAG</span>
+          <span className="text-sm text-white/30">© 2026 DEFRAG</span>
           <div className="flex gap-6 text-sm text-white/30">
             <Link to="/about" className="hover:text-white/60 transition">About</Link>
-            <Link to="/how-it-works" className="hover:text-white/60 transition">How It Works</Link>
+            <Link to="/terms" className="hover:text-white/60 transition">Terms</Link>
             <Link to="/privacy" className="hover:text-white/60 transition">Privacy</Link>
           </div>
         </div>
