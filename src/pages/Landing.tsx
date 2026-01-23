@@ -93,7 +93,7 @@ export default function Landing() {
                 className={`
                   relative inline-block
                   text-white font-light text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 
-                  tracking-tight leading-[1.1] pb-4
+                  tracking-tight leading-[1.1] pb-10
                   transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
                   ${isVisible ? 'opacity-100 scale-100 blur-0 translate-y-0' : 'opacity-0 scale-90 blur-xl translate-y-8'}
                 `}
