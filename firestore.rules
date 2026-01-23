@@ -1,0 +1,100 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ========================================
+    // HELPER FUNCTIONS
+    // ========================================
+    
+    // Check if user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Check if user owns the document
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Check if user is an admin/owner
+    function isOwner() {
+      return isAuthenticated() && 
+             (request.auth.token.email == 'info@defrag.app' || 
+              request.auth.token.email == 'chadowen93@gmail.com');
+    }
+    
+    // Check if user has paid
+    function hasPaid() {
+      return isAuthenticated() && 
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.paymentVerified == true;
+    }
+    
+    // ========================================
+    // USER PROFILES
+    // ========================================
+    
+    match /users/{userId} {
+      // Users can read their own profile
+      // Owners can read all profiles
+      allow read: if isOwner(userId) || isOwner();
+      
+      // Users can create/update their own profile
+      // Owners can create/update any profile
+      allow create, update: if isOwner(userId) || isOwner();
+      
+      // Only owners can delete profiles
+      allow delete: if isOwner();
+    }
+    
+    // ========================================
+    // RELATIONSHIP MANUALS
+    // ========================================
+    
+    match /manuals/{manualId} {
+      // Users can read manuals they created
+      // Owners can read all manuals
+      allow read: if isAuthenticated() && 
+                     (resource.data.createdBy == request.auth.uid || 
+                      isOwner());
+      
+      // Authenticated users with payment can create manuals
+      allow create: if isAuthenticated() && hasPaid();
+      
+      // Users can update/delete their own manuals
+      // Owners can update/delete any manual
+      allow update, delete: if isAuthenticated() && 
+                               (resource.data.createdBy == request.auth.uid || 
+                                isOwner());
+    }
+    
+    // ========================================
+    // ADMIN COLLECTIONS
+    // ========================================
+    
+    match /admin/{document=**} {
+      allow read, write: if isOwner();
+    }
+    
+    // ========================================
+    // ANALYTICS & LOGS (Read-only for owners)
+    // ========================================
+    
+    match /analytics/{document=**} {
+      allow read: if isOwner();
+      allow write: if false; // Writes handled server-side only
+    }
+    
+    match /logs/{document=**} {
+      allow read: if isOwner();
+      allow write: if false; // Writes handled server-side only
+    }
+    
+    // ========================================
+    // DENY ALL OTHER ACCESS
+    // ========================================
+    
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

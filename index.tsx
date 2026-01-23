@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import AppRouter from './src/AppRouter';
+import { AuthProvider } from './src/contexts/AuthContext';
 import './src/index.css';
 
 console.log('BOOT: Imports passed. Looking for root...');
@@ -56,8 +57,8 @@ if (!rootElement) {
 
 console.log('BOOT: Root found. Attempting mount...');
 
-class ErrorBoundary extends React.Component<any, any> {
-  constructor(props: any) {
+class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: any }> {
+  constructor(props: { children: React.ReactNode }) {
     super(props);
     this.state = { hasError: false, error: null };
   }
@@ -91,7 +92,9 @@ try {
     <React.StrictMode>
       <ErrorBoundary>
         <BrowserRouter>
-          <AppRouter />
+          <AuthProvider>
+            <AppRouter />
+          </AuthProvider>
         </BrowserRouter>
       </ErrorBoundary>
     </React.StrictMode>
@@ -100,3 +103,4 @@ try {
 } catch (err) {
   console.error('BOOT FAILURE: Render crashed', err);
 }
+

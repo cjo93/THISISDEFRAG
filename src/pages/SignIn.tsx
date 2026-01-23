@@ -22,41 +22,42 @@ export default function SignIn() {
 
     if (!email.trim()) {
       setStatus('error');
-      setMessage('Please enter your email or session ID.');
+      setMessage('Please enter your email address.');
       return;
     }
 
     setStatus('loading');
 
-    // MOCK "PUBLIC PERSISTENT LOGIN"
-    // In a real app, this would query a DB to find the session_id associated with the email.
-    // For this v1 architecture without a user DB, we will:
-    // 1. Check if it looks like a Session ID (starts with cs_test or cs_live) -> Redirect to Manual
-    // 2. If it's an email -> We'll assume for now (User Request) that we just grant access to the device
-    //    (simulating "Found it, you're logged in").
+    try {
+      const { sendSignInLinkToEmail } = await import('firebase/auth');
+      const { auth } = await import('../lib/firebase');
 
-    setTimeout(() => {
-      const normalizedEmail = email.toLowerCase().trim();
+      const actionCodeSettings = {
+        // URL you want to redirect back to after email link is clicked
+        url: `${window.location.origin}/signin/verify`,
+        handleCodeInApp: true,
+      };
 
-      // OWNER BYPASS
-      if (normalizedEmail === 'info@defrag.app' || normalizedEmail === 'chadowen93@gmail.com') {
-        localStorage.setItem('defrag_owner_bypass', 'true');
-        window.location.href = '/admin';
-        return;
-      }
+      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
 
-      // Logic for "Public Persistent Storage"
-      localStorage.setItem('defrag_payment_verified', 'true');
+      // Save the email locally so we can complete sign-in on the verify page
+      window.localStorage.setItem('emailForSignIn', email);
 
-      // If it looks like a session ID, we preserve it (specific Deep Link)
-      if (email.startsWith('cs_')) {
-        localStorage.setItem('defrag_session_id', email);
-        window.location.href = `/manual?session_id=${email}`;
+      setStatus('success');
+      setMessage(`We've sent a sign-in link to ${email}. Check your inbox and click the link to continue.`);
+
+    } catch (error: any) {
+      console.error('Sign-in error:', error);
+      setStatus('error');
+
+      if (error.code === 'auth/invalid-email') {
+        setMessage('Please enter a valid email address.');
+      } else if (error.code === 'auth/missing-android-pkg-name') {
+        setMessage('Configuration error. Please contact support.');
       } else {
-        // Standard user login -> Dashboard
-        window.location.href = '/dashboard';
+        setMessage(error.message || 'Failed to send sign-in link. Please try again.');
       }
-    }, 1500);
+    }
   };
 
   return (
