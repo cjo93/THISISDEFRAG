@@ -2,35 +2,28 @@
   <defs>
     <style>
       .bg { fill: #000000; }
-      .ring { fill: none; stroke: #ea580c; stroke-width: 0.5; opacity: 0.6; }
+      .mandala-stroke { fill: none; stroke: #ea580c; stroke-width: 0.8; stroke-linecap: round; stroke-linejoin: round; }
+      .mandala-fill { fill: #ea580c; opacity: 0.15; }
       .core { fill: #ea580c; }
-      .pulse-ring { 
-        fill: none; 
-        stroke: #f97316; 
-        stroke-width: 1;
-        animation: pulse 3s ease-in-out infinite;
-      }
-      @keyframes pulse {
-        0%, 100% { 
-          opacity: 0.8;
-          transform: scale(1);
-        }
-        50% { 
-          opacity: 0.3;
-          transform: scale(1.05);
-        }
-      }
-      .rotate-ring {
-        animation: rotate 20s linear infinite;
+      .petal { fill: none; stroke: #f97316; stroke-width: 0.6; }
+      
+      .rotate-layer {
+        animation: rotate 30s linear infinite;
         transform-origin: 50px 50px;
       }
+      
+      .pulse-layer {
+        animation: pulse-glow 4s ease-in-out infinite;
+      }
+      
       @keyframes rotate {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
-      @media (prefers-color-scheme: dark) {
-        .ring { stroke: #f97316; }
-        .core { fill: #f97316; }
+      
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 0.4; }
       }
     </style>
   </defs>
@@ -38,29 +31,58 @@
   <!-- Background -->
   <circle class="bg" cx="50" cy="50" r="50" />
   
-  <!-- Animated concentric rings -->
-  <g class="rotate-ring">
-    <circle class="ring" cx="50" cy="50" r="45" />
-    <circle class="ring" cx="50" cy="50" r="35" style="opacity: 0.5;" />
-    <circle class="ring" cx="50" cy="50" r="25" style="opacity: 0.4;" />
-    <circle class="ring" cx="50" cy="50" r="15" style="opacity: 0.3;" />
+  <!-- Outer mandala ring with 8-fold symmetry -->
+  <g class="rotate-layer">
+    <!-- Outer petals (8 petals) -->
+    <g class="petal">
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(0 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(45 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(90 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(135 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(180 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(225 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(270 50 50)" />
+      <path d="M50 10 Q55 20 50 30 Q45 20 50 10" transform="rotate(315 50 50)" />
+    </g>
   </g>
   
-  <!-- Pulsing outer ring -->
-  <circle class="pulse-ring" cx="50" cy="50" r="42" />
+  <!-- Concentric circles -->
+  <circle class="mandala-stroke pulse-layer" cx="50" cy="50" r="42" />
+  <circle class="mandala-stroke" cx="50" cy="50" r="35" opacity="0.7" />
+  <circle class="mandala-stroke" cx="50" cy="50" r="28" opacity="0.6" />
+  <circle class="mandala-stroke" cx="50" cy="50" r="21" opacity="0.5" />
   
-  <!-- Geometric connector lines -->
-  <g opacity="0.3" stroke="#ea580c" stroke-width="0.5">
-    <line x1="50" y1="10" x2="50" y2="90" />
-    <line x1="10" y1="50" x2="90" y2="50" />
-    <line x1="20" y1="20" x2="80" y2="80" />
-    <line x1="80" y1="20" x2="20" y2="80" />
+  <!-- 12-fold star pattern -->
+  <g class="mandala-stroke" opacity="0.4">
+    <line x1="50" y1="15" x2="50" y2="85" />
+    <line x1="15" y1="50" x2="85" y2="50" />
+    <line x1="23" y1="23" x2="77" y2="77" />
+    <line x1="77" y1="23" x2="23" y2="77" />
+    <line x1="35" y1="15" x2="65" y2="85" />
+    <line x1="65" y1="15" x2="35" y2="85" />
+    <line x1="15" y1="35" x2="85" y2="65" />
+    <line x1="85" y1="35" x2="15" y2="65" />
   </g>
   
-  <!-- Inner hexagon -->
-  <path class="ring" d="M50 30 L65 40 L65 60 L50 70 L35 60 L35 40 Z" style="stroke-width: 1; opacity: 0.8;" />
+  <!-- Inner lotus petals (8-fold) -->
+  <g class="mandala-stroke" stroke-width="1">
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(45 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(90 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(135 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(180 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(225 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(270 50 50)" opacity="0.6" />
+    <path d="M50 30 L55 40 L50 45 L45 40 Z" transform="rotate(315 50 50)" opacity="0.6" />
+  </g>
   
-  <!-- Center core -->
-  <circle class="core" cx="50" cy="50" r="6" />
-  <circle class="pulse-ring" cx="50" cy="50" r="10" style="animation-delay: 1s;" />
+  <!-- Sacred geometry hexagon -->
+  <path class="mandala-stroke" d="M50 35 L60 42.5 L60 57.5 L50 65 L40 57.5 L40 42.5 Z" opacity="0.7" />
+  
+  <!-- Center core with pulsing glow -->
+  <circle class="core pulse-layer" cx="50" cy="50" r="8" />
+  <circle class="mandala-stroke pulse-layer" cx="50" cy="50" r="12" style="animation-delay: 1s;" />
+  
+  <!-- Center dot -->
+  <circle class="core" cx="50" cy="50" r="3" />
 </svg>
