@@ -117,6 +117,9 @@ export default function Start() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
+      {/* Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_200_200%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.65%22_numOctaves=%223%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
+
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div
@@ -159,7 +162,7 @@ export default function Start() {
 
           {/* Form Card */}
           <div
-            className={`rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-sm p-8 shadow-2xl shadow-black/50 transition-all duration-300 ${isAnimating ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'}`}
+            className={`glass-box rounded-2xl p-8 shadow-2xl shadow-black/50 transition-all duration-300 ${isAnimating ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'}`}
           >
             <form onSubmit={handleNext} className="space-y-6">
               {/* Email field - only on step 1 */}
