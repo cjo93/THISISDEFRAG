@@ -120,31 +120,37 @@ export default function Admin() {
                         </div>
 
                         {/* Charts Area Placeholder */}
-                        <div className="grid lg:grid-cols-3 gap-6">
-                            <div className="lg:col-span-2 glass-box border border-white/5 rounded-2xl p-8 min-h-[400px] flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.03] to-transparent pointer-events-none" />
-                                <span className="text-[10px] tracking-[0.3em] font-mono text-white/20 uppercase">Real-time Traffic Mapping</span>
-                                {/* Small visual chart lines */}
-                                <div className="absolute inset-x-12 bottom-12 h-32 flex items-end gap-2 opacity-20">
-                                    {[20, 45, 30, 60, 40, 75, 45, 90, 60, 50, 80, 55, 100].map((h, i) => (
-                                        <div key={i} className="flex-1 bg-orange-500 rounded-t-sm" style={{ height: `${h}%` }} />
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="space-y-6">
-                                <div className="glass-box border border-white/5 rounded-2xl p-8">
-                                    <h3 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-6 font-mono">Top Profiles</h3>
-                                    <ul className="space-y-4">
-                                        <ProfileRow name="Avoidants" count="124" />
-                                        <ProfileRow name="Anxious-Preoccupied" count="89" />
-                                        <ProfileRow name="Fearful-Avoidant" count="56" />
-                                        <ProfileRow name="Secure-Base" count="43" />
-                                    </ul>
-                                </div>
-                                <div className="bg-orange-500/5 border border-orange-500/20 rounded-2xl p-8">
-                                    <h3 className="text-xs tracking-[0.3em] text-orange-400 uppercase mb-2 font-mono">Sync Alert</h3>
-                                    <p className="text-sm text-white/60 leading-relaxed">NASA JPL Ephemeris sequence requires re-validation in 14 hours.</p>
-                                </div>
+                        {/* Real Data Area */}
+                        <div className="glass-box border border-white/5 rounded-2xl p-8 mb-12">
+                            <h3 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-6 font-mono">Recent Transactions (Live Stripe Data)</h3>
+                            <div className="space-y-2">
+                                {(stats as any).recentTransactions && (stats as any).recentTransactions.length > 0 ? (
+                                    (stats as any).recentTransactions.map((tx: any) => (
+                                        <div key={tx.id} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0 hover:bg-white/[0.02] -mx-4 px-4 transition-colors">
+                                            <div className="flex items-center gap-4">
+                                                <div className="h-8 w-8 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 font-mono text-xs">
+                                                    $
+                                                </div>
+                                                <div>
+                                                    <div className="text-white font-medium text-sm">{tx.email}</div>
+                                                    <div className="text-[10px] text-white/40 font-mono tracking-wider">{new Date(tx.date).toLocaleDateString()} • {new Date(tx.date).toLocaleTimeString()}</div>
+                                                </div>
+                                            </div>
+                                            <div className="text-right">
+                                                <div className="flex items-center justify-end gap-2 mb-1">
+                                                    <span className={`h-1.5 w-1.5 rounded-full ${tx.status === 'paid' ? 'bg-green-500' : 'bg-yellow-500'}`} />
+                                                    <span className="text-sm font-light text-white">${tx.amount.toFixed(2)}</span>
+                                                </div>
+                                                <div className="text-[10px] text-white/30 uppercase tracking-widest">{tx.status}</div>
+                                            </div>
+                                        </div>
+                                    ))
+                                ) : (
+                                    <div className="text-center py-12">
+                                        <div className="text-white/20 text-sm tracking-widest uppercase mb-1">No recent transactions</div>
+                                        <div className="text-white/10 text-xs">Data will appear here once live sales occur</div>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>

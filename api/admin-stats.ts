@@ -46,11 +46,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const uniqueEmails = new Set(successfulSessions.map(s => s.customer_details?.email).filter(Boolean));
         const activeUsers = uniqueEmails.size;
 
+        // 3. Get recent transactions
+        const recentTransactions = successfulSessions.slice(0, 10).map(s => ({
+            id: s.id,
+            email: s.customer_details?.email || 'Anonymous',
+            amount: (s.amount_total || 0) / 100,
+            date: new Date(s.created * 1000).toISOString(),
+            status: s.payment_status
+        }));
+
         const stats = {
             activeUsers,
             totalSessions: manualsGenerated, // Using sales as proxy for now
             manualsGenerated,
             revenue,
+            recentTransactions,
             lastUpdated: new Date().toISOString()
         };
 
