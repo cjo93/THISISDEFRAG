@@ -71,31 +71,16 @@ export default function Landing() {
             }}
           />
           {/* Accent glow rings */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmax] h-[80vmax] rounded-full border border-orange-500/3 animate-pulse" style={{ animationDuration: '4s' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vmax] h-[60vmax] rounded-full border border-orange-500/5 animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
+          {/* Accent glow rings - removed for cleaner look */}
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
           {/* Opening statement - smaller, builds anticipation */}
-          <div className="mb-6 sm:mb-10 opacity-0 animate-[fadeInUp_1.2s_0.2s_ease-out_forwards]">
-            <p className="text-white/40 text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase font-medium mb-2">
-              After all this time
-            </p>
-            <div className="w-16 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent mx-auto" />
-          </div>
+
 
           <h1 className="space-y-6 sm:space-y-10">
             {/* "FINALLY" - Massive impact word */}
-            <div className="opacity-0 animate-[fadeInUp_1s_0.6s_ease-out_forwards]">
-              <span className="block text-orange-500 font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-none drop-shadow-[0_0_40px_rgba(249,115,22,0.4)] mb-3 sm:mb-4">
-                FINALLY
-              </span>
-              <div className="flex items-center justify-center gap-2 sm:gap-3">
-                <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-orange-500/50" />
-                <span className="text-orange-500/60 text-[10px] sm:text-xs tracking-[0.4em] uppercase font-medium">It exists</span>
-                <div className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-orange-500/50" />
-              </div>
-            </div>
+
 
             {/* Main headline - Universal, emotional */}
             <div className="opacity-0 animate-[fadeInUp_1s_1s_ease-out_forwards] space-y-3 sm:space-y-5">

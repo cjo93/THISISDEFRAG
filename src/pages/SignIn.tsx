@@ -117,7 +117,7 @@ export default function SignIn() {
                     type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter email used at checkout"
+                    placeholder="Enter your email address"
                     className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all text-lg"
                     disabled={status === 'loading'}
                   />
