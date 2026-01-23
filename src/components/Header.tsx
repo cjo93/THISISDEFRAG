@@ -14,11 +14,15 @@ export default function Header() {
         if (isOwner) {
             setTargetLink('/admin');
         } else if (isVerified) {
-            setTargetLink('/manual');
+            setTargetLink('/dashboard');
         } else {
             setTargetLink('/');
         }
     }, [location]);
+
+    const isVerified = typeof window !== 'undefined' && localStorage.getItem('defrag_payment_verified');
+    const isOwner = typeof window !== 'undefined' && localStorage.getItem('defrag_owner_bypass');
+    const isLoggedIn = isVerified || isOwner;
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
@@ -53,13 +57,25 @@ export default function Header() {
                 </Link>
 
                 <div className="flex items-center gap-4 sm:gap-8">
-                    {location.pathname !== '/signin' && (
-                        <Link
-                            to="/signin"
-                            className="text-[10px] sm:text-xs tracking-[0.2em] text-white/50 hover:text-white transition-colors uppercase font-medium"
-                        >
-                            Log In
-                        </Link>
+                    {/* If logged in, show Dashboard link. Else show Login */}
+                    {isLoggedIn ? (
+                        location.pathname !== '/dashboard' && location.pathname !== '/admin' && (
+                            <Link
+                                to={isOwner ? "/admin" : "/dashboard"}
+                                className="text-[10px] sm:text-xs tracking-[0.2em] text-white/50 hover:text-white transition-colors uppercase font-medium"
+                            >
+                                Dashboard
+                            </Link>
+                        )
+                    ) : (
+                        location.pathname !== '/signin' && (
+                            <Link
+                                to="/signin"
+                                className="text-[10px] sm:text-xs tracking-[0.2em] text-white/50 hover:text-white transition-colors uppercase font-medium"
+                            >
+                                Log In
+                            </Link>
+                        )
                     )}
 
                     {location.pathname !== '/start' && (

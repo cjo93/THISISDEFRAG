@@ -48,14 +48,13 @@ export default function SignIn() {
       // Logic for "Public Persistent Storage"
       localStorage.setItem('defrag_payment_verified', 'true');
 
-      // If it looks like a session ID, we preserve it
+      // If it looks like a session ID, we preserve it (specific Deep Link)
       if (email.startsWith('cs_')) {
         localStorage.setItem('defrag_session_id', email);
         window.location.href = `/manual?session_id=${email}`;
       } else {
-        // Just a generic "You are logged in" state for email
-        // Redirect to manual (which will check local storage)
-        window.location.href = '/manual';
+        // Standard user login -> Dashboard
+        window.location.href = '/dashboard';
       }
     }, 1500);
   };
