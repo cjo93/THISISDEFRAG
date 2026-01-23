@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
@@ -6,6 +6,16 @@ export default function SignIn() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [message, setMessage] = useState('');
+
+  // Auto-fill owner email if requested
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prefillOwner = params.get('owner') === 'true';
+
+    if (prefillOwner) {
+      setEmail('info@defrag.app');
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

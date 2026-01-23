@@ -24,40 +24,43 @@ export default function Header() {
         <nav className="fixed top-0 left-0 right-0 z-[100] backdrop-blur-xl bg-black/90 border-b border-white/5 safe-top supports-[backdrop-filter]:bg-black/60">
             <div className="max-w-7xl mx-auto px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
                 <Link to={targetLink} className="flex items-center gap-3 group">
-                    <div className="relative w-10 h-10 flex items-center justify-center text-orange-500 overflow-visible transition-all duration-[3000ms] ease-in-out group-hover:rotate-[360deg] group-hover:scale-110">
-                        {/* Geometric Sacred Geometry Mandala */}
-                        <svg width="44" height="44" viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor" strokeWidth="1">
-                            <circle cx="50" cy="50" r="40" strokeOpacity="0.1" />
-                            <circle cx="50" cy="50" r="2" fill="currentColor" />
+                    <div className="relative w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center text-orange-500 overflow-visible">
+                        {/* Animated Concentric Rings Logo - matches favicon */}
+                        <svg width="44" height="44" viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor">
+                            {/* Animated rotating rings */}
+                            <g className="origin-center animate-[rotate-slow_20s_linear_infinite]" style={{ transformOrigin: '50px 50px' }}>
+                                <circle cx="50" cy="50" r="45" strokeWidth="0.5" opacity="0.6" />
+                                <circle cx="50" cy="50" r="35" strokeWidth="0.5" opacity="0.5" />
+                                <circle cx="50" cy="50" r="25" strokeWidth="0.5" opacity="0.4" />
+                                <circle cx="50" cy="50" r="15" strokeWidth="0.5" opacity="0.3" />
+                            </g>
 
-                            {/* Interlocking Geometric Circles */}
-                            {[0, 60, 120, 180, 240, 300].map((deg) => (
-                                <circle
-                                    key={deg}
-                                    cx={50 + 20 * Math.cos((deg * Math.PI) / 180)}
-                                    cy={50 + 20 * Math.sin((deg * Math.PI) / 180)}
-                                    r="20"
-                                    strokeOpacity="0.5"
-                                />
-                            ))}
+                            {/* Pulsing outer ring */}
+                            <circle
+                                cx="50" cy="50" r="42"
+                                strokeWidth="1"
+                                className="animate-[pulse-ring_3s_ease-in-out_infinite]"
+                                style={{ opacity: 0.8 }}
+                            />
 
-                            {/* Geometric Connector Lines */}
-                            {[30, 90, 150, 210, 270, 330].map((deg) => (
-                                <line
-                                    key={deg}
-                                    x1="50" y1="50"
-                                    x2={50 + 40 * Math.cos((deg * Math.PI) / 180)}
-                                    y2={50 + 40 * Math.sin((deg * Math.PI) / 180)}
-                                    opacity="0.3"
-                                    strokeDasharray="2 2"
-                                />
-                            ))}
+                            {/* Geometric connector lines */}
+                            <g opacity="0.3" strokeWidth="0.5">
+                                <line x1="50" y1="10" x2="50" y2="90" />
+                                <line x1="10" y1="50" x2="90" y2="50" />
+                                <line x1="20" y1="20" x2="80" y2="80" />
+                                <line x1="80" y1="20" x2="20" y2="80" />
+                            </g>
 
-                            {/* Inner Hexagon */}
-                            <path
-                                d="M50 30 L67.32 40 L67.32 60 L50 70 L32.68 60 L32.68 40 Z"
-                                strokeOpacity="0.8"
-                                strokeWidth="1.2"
+                            {/* Inner hexagon */}
+                            <path d="M50 30 L65 40 L65 60 L50 70 L35 60 L35 40 Z" strokeWidth="1" opacity="0.8" />
+
+                            {/* Center core */}
+                            <circle cx="50" cy="50" r="6" fill="currentColor" />
+                            <circle
+                                cx="50" cy="50" r="10"
+                                strokeWidth="1"
+                                className="animate-[pulse-ring_3s_ease-in-out_infinite]"
+                                style={{ animationDelay: '1s', opacity: 0.8 }}
                             />
                         </svg>
                     </div>

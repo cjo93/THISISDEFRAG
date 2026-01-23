@@ -4,15 +4,21 @@
   color-scheme: dark;
   --safe-area-top: env(safe-area-inset-top, 0px);
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --color-jet-black: #000000;
+  --color-mirror-black: #0a0a0a;
+  --color-defrag-orange: #ea580c;
+  --color-defrag-orange-glow: #f97316;
 }
 
-/* iOS Safari fixes */
+/* iOS Safari fixes - Enhanced for smooth experience */
 html {
   height: 100%;
   height: -webkit-fill-available;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
+  /* Prevent font scaling in landscape */
+  text-size-adjust: 100%;
 }
 
 body {
@@ -20,7 +26,7 @@ body {
   min-height: 100%;
   min-height: 100dvh;
   min-height: -webkit-fill-available;
-  background: #000000;
+  background: var(--color-jet-black);
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,7 +45,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.015;
+  opacity: 0.02;
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -88,6 +94,21 @@ input[type="time"] {
 * {
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Opaque glass/frosted text boxes - STARK BLACK THEME */
+.glass-box {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-box-opaque {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Fix backdrop blur on iOS Safari */
@@ -140,4 +161,100 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+/* REFINED HEADINGS - Elegant Impact */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 500;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+}
+
+/* Fade-in animation for tooltips and hero elements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in with upward motion for dramatic hero reveals */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for rings */
+@keyframes pulse-ring {
+
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+/* Rotate animation for diagrams */
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

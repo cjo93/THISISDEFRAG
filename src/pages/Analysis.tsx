@@ -101,13 +101,12 @@ export default function Analysis() {
 
             <div className="relative z-10 w-full max-w-sm">
 
-                {/* Terminal Header */}
                 <div className="mb-12 text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/5 mb-6">
                         <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
                         <span className="text-[10px] tracking-[0.3em] font-mono text-orange-400 uppercase">System Analysis in Progress</span>
                     </div>
-                    <h1 className="text-2xl font-light tracking-widest text-white/90 uppercase">DEFRAGGING...</h1>
+                    <h1 className="text-2xl font-light tracking-widest text-white/90 uppercase">Crafting Your Manual...</h1>
                 </div>
 
                 {/* Progress Bar Container */}

@@ -76,7 +76,7 @@ export default function HowItWorks() {
             DEFRAG works for individuals just as well as pairs.
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 mb-16 sm:mb-20">
             {/* Pathway 1: Self Discovery */}
             <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-orange-500/[0.02] transition-colors group">
               <div className="text-xs tracking-[0.2em] text-orange-500 uppercase mb-4 font-bold">PATH 01: SELF-DISCOVERY</div>

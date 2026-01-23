@@ -5,12 +5,14 @@ import Header from '../components/Header';
 
 // Pain-point language that triggers instant recognition
 const ROTATING_WORDS = [
-  "you",
   "your partner",
   "your parents",
-  "your family",
-  "your coworkers",
   "your children",
+  "your coworkers",
+  "your family",
+  "your friends",
+  "your team",
+  "yourself",
 ];
 
 export default function Landing() {
@@ -53,58 +55,143 @@ export default function Landing() {
       {/* Nav */}
       <Header />
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION - ELEVATED & DRAMATIC */}
       <section
-        className="h-screen w-full snap-start flex items-center justify-center relative overflow-hidden"
+        className="h-screen w-full snap-start flex items-center justify-center relative overflow-hidden bg-black"
         style={{ opacity: heroOpacity }}
       >
+        {/* Enhanced atmospheric background - STARK BLACK */}
         <div className="absolute inset-0 pointer-events-none">
+          {/* Main radial glow */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vmax] h-[120vmax]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax]"
             style={{
-              background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, rgba(249,115,22,0.03) 30%, transparent 60%)',
+              background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, rgba(249,115,22,0.06) 20%, rgba(249,115,22,0.015) 40%, transparent 70%)',
               transform: `translate(-50%, -50%) scale(${heroScale})`,
             }}
           />
+          {/* Accent glow rings */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vmax] h-[80vmax] rounded-full border border-orange-500/3 animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vmax] h-[60vmax] rounded-full border border-orange-500/5 animate-pulse" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-          <h1 className="mb-8 sm:mb-12">
-            <span className="block text-white/50 text-xs sm:text-sm tracking-[0.25em] font-mono uppercase mb-6 sm:mb-8 font-medium">
-              The User Manual For
-            </span>
-            <span
-              className={`
-                block text-orange-500 font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[1.1] min-h-[1.2em] px-2
-                transition-all duration-500 ease-out
-                ${isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-8 blur-md'}
-              `}
-            >
-              {ROTATING_WORDS[wordIndex]}
-            </span>
-            <span className="block text-white font-light text-2xl sm:text-3xl md:text-4xl mt-4 tracking-tight">
-              & your people.
-            </span>
+        <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
+          {/* Opening statement - smaller, builds anticipation */}
+          <div className="mb-6 sm:mb-10 opacity-0 animate-[fadeInUp_1.2s_0.2s_ease-out_forwards]">
+            <p className="text-white/40 text-xs sm:text-sm md:text-base tracking-[0.3em] uppercase font-medium mb-2">
+              After all this time
+            </p>
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent mx-auto" />
+          </div>
+
+          <h1 className="space-y-6 sm:space-y-10">
+            {/* "FINALLY" - Massive impact word */}
+            <div className="opacity-0 animate-[fadeInUp_1s_0.6s_ease-out_forwards]">
+              <span className="block text-orange-500 font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl tracking-tight leading-none drop-shadow-[0_0_40px_rgba(249,115,22,0.4)] mb-3 sm:mb-4">
+                FINALLY
+              </span>
+              <div className="flex items-center justify-center gap-2 sm:gap-3">
+                <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-orange-500/50" />
+                <span className="text-orange-500/60 text-[10px] sm:text-xs tracking-[0.4em] uppercase font-medium">It exists</span>
+                <div className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-orange-500/50" />
+              </div>
+            </div>
+
+            {/* Main headline - Universal, emotional */}
+            <div className="opacity-0 animate-[fadeInUp_1s_1s_ease-out_forwards] space-y-3 sm:space-y-5">
+              <p className="text-white/70 text-base sm:text-xl md:text-2xl tracking-[0.2em] uppercase font-light">
+                The User Manual For
+              </p>
+
+              {/* The rotating relationship word - HUGE */}
+              <div
+                className={`
+                  relative inline-block
+                  text-white font-light text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 
+                  tracking-tight leading-none
+                  transition-all duration-700 ease-out
+                  ${isVisible ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-sm'}
+                `}
+                style={{
+                  textShadow: '0 0 60px rgba(249,115,22,0.2), 0 0 120px rgba(249,115,22,0.1)',
+                }}
+              >
+                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
+                  {ROTATING_WORDS[wordIndex]}
+                </span>
+                {/* Subtle underline that pulses */}
+                <div className="absolute -bottom-2 sm:-bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent animate-pulse" />
+              </div>
+
+              <p className="text-white/60 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
+                & everyone you care about
+              </p>
+            </div>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-white/70 font-light max-w-3xl mx-auto mb-12 sm:mb-16 leading-relaxed px-4">
-            Understand the patterns. Stay calm when things get tense.<br className="hidden sm:block" />
-            <span className="text-white/40 text-sm sm:text-base mt-4 block font-normal tracking-wide">Based on real astrology and family systems therapy.</span>
-          </p>
+          {/* Subheadline - The promise */}
+          <div className="opacity-0 animate-[fadeInUp_1s_1.4s_ease-out_forwards] mt-10 sm:mt-16 max-w-4xl mx-auto">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6">
+              Why they do what they do.
+              <br className="hidden sm:block" />
+              <span className="text-white">How to stay connected when it's hard.</span>
+            </p>
+            <p className="text-sm sm:text-base md:text-lg text-white/40 font-light max-w-2xl mx-auto leading-relaxed">
+              No more guessing. No more feeling lost.<br className="hidden sm:block" />
+              Just clarity when you need it most.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 w-full max-w-lg mx-auto">
-            <Link
-              to="/start"
-              className="w-full h-14 flex items-center justify-center bg-orange-500 text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
-            >
-              Generate Manual
-            </Link>
-            <Link
-              to="/signin"
-              className="w-full h-14 flex items-center justify-center border border-white/20 text-white/70 text-xs sm:text-sm tracking-[0.2em] font-medium hover:border-white/50 hover:text-white transition-all duration-200 rounded-lg backdrop-blur-sm uppercase"
-            >
-              Member Login
-            </Link>
+          {/* Methodology badges - More prominent */}
+          <div className="opacity-0 animate-[fadeInUp_1s_1.8s_ease-out_forwards] mt-10 sm:mt-14">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14">
+              <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
+                      <circle cx="10" cy="10" r="2" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">Real Astrology</span>
+                </div>
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-[10px] text-white/60 whitespace-nowrap">Natal charts · Timing · Patterns</p>
+                </div>
+              </div>
+
+              <div className="hidden sm:block text-2xl text-orange-500/30 font-light">×</div>
+
+              <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" />
+                      <path d="M7 10h2v5H7zm4-3h2v8h-2z" />
+                    </svg>
+                  </div>
+                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">Psychology</span>
+                </div>
+                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <p className="text-[10px] text-white/60 whitespace-nowrap">Family Systems · Bowen Theory</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 w-full max-w-lg mx-auto">
+              <Link
+                to="/start"
+                className="w-full h-14 flex items-center justify-center bg-orange-500 text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
+              >
+                Generate Manual
+              </Link>
+              <Link
+                to="/signin"
+                className="w-full h-14 flex items-center justify-center border border-white/20 text-white/70 text-xs sm:text-sm tracking-[0.2em] font-medium hover:border-white/50 hover:text-white transition-all duration-200 rounded-lg backdrop-blur-sm uppercase"
+              >
+                Member Login
+              </Link>
+            </div>
           </div>
 
           <div className="mt-16 flex items-center justify-center gap-6 text-[10px] sm:text-xs text-white/30 tracking-[0.2em] font-mono uppercase">
@@ -123,57 +210,66 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* THE FRICTION SECTION */}
-      <section className="h-screen w-full snap-start flex items-center py-20 relative border-t border-white/5">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-950/20 to-black pointer-events-none" />
+      {/* THE FRICTION SECTION - ELEVATED */}
+      <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
-          <div className="max-w-4xl">
-            <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
+          <div className="max-w-5xl">
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
               The Friction
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-16 leading-[1.15]">
-              Why does it feel like you're<br className="hidden sm:block" /> speaking different languages?
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-16 sm:mb-20 leading-[1.1]">
+              Why does it feel like<br className="hidden sm:block" />
+              <span className="text-white/60">you're speaking</span><br className="hidden sm:block" />
+              <span className="text-orange-400">different languages</span>?
             </h2>
 
-            <div className="space-y-10 text-xl sm:text-2xl font-light leading-relaxed text-white/60">
-              <p className="pl-6 border-l border-white/10 group hover:border-white/30 transition-colors">
-                You try to connect. <span className="text-white block mt-2 sm:mt-0 sm:inline group-hover:text-orange-100">They pull away.</span>
+            <div className="space-y-8 sm:space-y-12 text-xl sm:text-2xl md:text-3xl font-light leading-relaxed max-w-3xl">
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+                <span className="text-white/50">You try to connect.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They pull away.</span>
               </p>
-              <p className="pl-6 border-l border-white/10 group hover:border-white/30 transition-colors">
-                You ask for clarity. <span className="text-white block mt-2 sm:mt-0 sm:inline group-hover:text-orange-100">They get defensive.</span>
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+                <span className="text-white/50">You ask for clarity.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They get defensive.</span>
               </p>
-              <p className="pl-6 border-l border-white/10 group hover:border-white/30 transition-colors">
-                It's not that you're incompatible.<br />
-                It's that you're running on different <span className="text-orange-400 font-normal">operating systems</span>.
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+                <span className="text-white/50">You give them space.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They say you don't care.</span>
               </p>
             </div>
 
-            <div className="mt-20 pl-6 sm:pl-10 border-l border-orange-500/50">
-              <span className="block text-orange-400 text-xs font-mono tracking-widest uppercase mb-3 opacity-80">The Result</span>
-              <p className="text-2xl sm:text-3xl text-white font-normal leading-tight">Without a manual, every error feels personal.</p>
+            <div className="mt-16 sm:mt-24 pl-6 sm:pl-10 border-l-2 border-orange-500/60 bg-gradient-to-r from-orange-500/5 to-transparent py-6 sm:py-8 pr-6">
+              <span className="block text-orange-400 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">The Truth</span>
+              <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light leading-tight">
+                It's not that you're <span className="text-white/60">incompatible</span>.<br />
+                You're running on different<br className="hidden sm:block" />
+                <span className="font-normal text-orange-400 bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">operating systems</span>.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* THE ARCHITECTURE SECTION */}
-      <section className="h-screen w-full snap-start flex items-center py-20 relative overflow-hidden border-t border-white/5 bg-zinc-950/20">
+      {/* THE ARCHITECTURE SECTION - ELEVATED */}
+      <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative overflow-hidden border-t border-white/5 bg-black">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1">
-              <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
+              <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
                 How It Works
               </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] mb-10 text-white">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] mb-10 sm:mb-12 text-white">
                 We look at<br />
                 <span className="text-orange-500 font-normal">who people really are</span><br />
-                underneath the stress.
+                <span className="text-white/60">underneath the stress.</span>
               </h2>
-              <div className="space-y-6 text-lg sm:text-xl text-white/60 leading-relaxed max-w-xl">
-                <p>Most relationship advice focuses on what people do. We focus on why they do it.</p>
-                <p>DEFRAG looks at how each person handles anxiety, stays connected under pressure, and shows up when things get hard.</p>
-                <p className="text-white/90 font-medium pl-4 border-l-2 border-orange-500/20">When you understand the person, the behavior starts to make sense.</p>
+              <div className="space-y-6 sm:space-y-8 text-lg sm:text-xl md:text-2xl text-white/60 leading-relaxed max-w-xl">
+                <p className="text-white/70">Most relationship advice focuses on <span className="text-white/40">what people do</span>.</p>
+                <p className="text-2xl sm:text-3xl text-white font-light">We focus on <span className="text-orange-400">why</span> they do it.</p>
+                <p className="mt-8 sm:mt-10 text-base sm:text-lg text-white/50 leading-relaxed">DEFRAG maps how each person handles anxiety, stays connected under pressure, and shows up when things get hard.</p>
+                <p className="text-white font-medium pl-6 border-l-2 border-orange-500/40 text-xl sm:text-2xl">When you understand the person,<br />the behavior starts to make sense.</p>
               </div>
             </div>
 
@@ -232,7 +328,7 @@ export default function Landing() {
       </section>
 
       {/* MODULES SECTION */}
-      <section className="h-screen w-full snap-start flex items-center py-20 relative border-t border-white/5">
+      <section className="min-h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12">
           <div className="mb-16 md:mb-20">
             <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
@@ -271,30 +367,31 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* WHAT'S INSIDE SECTION */}
+      {/* WHAT'S INSIDE SECTION - ELEVATED */}
       <section className="h-screen w-full snap-start flex items-center py-20 relative overflow-hidden border-t border-white/5 bg-black">
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-orange-500/[0.03] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             <div>
-              <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
+              <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
                 What You Get
               </span>
-              <h2 className="text-3xl sm:text-5xl font-light text-white mb-8 leading-tight">
-                Your personalized<br /><span className="text-orange-500 font-normal">relationship guide.</span>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 sm:mb-12 leading-tight">
+                Your personalized<br />
+                <span className="text-orange-500 font-normal">relationship guide</span>.
               </h2>
-              <ul className="space-y-6">
+              <ul className="space-y-8 sm:space-y-10">
                 {[
                   { title: "WHO THEY ARE", text: "A clear picture of their core personality and how they handle stress." },
                   { title: "WHAT HAPPENS WHEN THINGS GET HARD", text: "The patterns that show up when anxiety is high and what you can do about it." },
                   { title: "HOW TO STAY CONNECTED", text: "Practical ways to stay calm and grounded, even when they're pulling away or pushing back." }
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4 group">
-                    <span className="text-orange-500/40 font-mono text-xs pt-1">0{i + 1}</span>
+                  <li key={i} className="flex gap-5 sm:gap-6 group">
+                    <span className="text-orange-500/40 font-mono text-sm sm:text-base pt-1 font-bold">0{i + 1}</span>
                     <div>
-                      <h4 className="text-white text-sm font-bold tracking-widest mb-1 group-hover:text-orange-400 transition-colors uppercase">{item.title}</h4>
-                      <p className="text-white/40 text-sm">{item.text}</p>
+                      <h4 className="text-white text-sm sm:text-base font-bold tracking-[0.2em] mb-2 group-hover:text-orange-400 transition-colors uppercase">{item.title}</h4>
+                      <p className="text-white/50 text-base sm:text-lg leading-relaxed">{item.text}</p>
                     </div>
                   </li>
                 ))}
@@ -338,16 +435,21 @@ export default function Landing() {
       </section>
 
       {/* FINAL SECTION (PRICING + FOOTER) */}
-      <section className="h-screen w-full snap-start flex flex-col pt-20 pb-10 relative border-t border-white/5 bg-zinc-950/20">
+      <section className="min-h-screen w-full snap-start flex flex-col pt-12 sm:pt-20 pb-10 relative border-t border-white/5 bg-black">
         <div className="max-w-[1200px] w-full mx-auto px-6 sm:px-12 relative flex-grow flex flex-col justify-center">
-          <div className="text-center mb-12 sm:mb-20">
-            <h2 className="text-4xl sm:text-6xl font-light leading-[1.1] mb-6 text-white text-center">
-              Stop guessing.<br /><span className="text-white/40">Start understanding.</span>
+          <div className="text-center mb-16 sm:mb-24 max-w-5xl mx-auto">
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/60 mb-8 sm:mb-12 uppercase">Ready to understand?</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.1] mb-6 sm:mb-8 text-white text-center">
+              Stop guessing.<br />
+              <span className="text-white/40">Start understanding.</span>
             </h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/50 font-light max-w-2xl mx-auto">
+              Choose the right level of insight for your relationships.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
-            <div className="p-8 border border-white/10 bg-black/40 rounded-2xl flex flex-col">
+            <div className="p-6 sm:p-8 border border-white/10 glass-box rounded-2xl flex flex-col">
               <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Look</div>
               <div className="text-4xl font-light text-white mb-2">Free</div>
               <p className="text-sm text-white/50 mb-8 font-mono">Basic personality snapshot</p>

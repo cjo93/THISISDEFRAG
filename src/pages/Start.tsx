@@ -13,10 +13,44 @@ interface BirthData {
   email?: string;
 }
 
+// Field explanations for guided onboarding
+const FIELD_INFO = {
+  email: {
+    why: "To save your manual and send you access",
+    how: "Encrypted, never shared. Used only for account access and manual delivery.",
+    icon: "🔒"
+  },
+  name: {
+    why: "Personalizes your manual for better insights",
+    how: "Used privately in your manual. Not visible to others.",
+    icon: "👤"
+  },
+  birthDate: {
+    why: "Essential for accurate astrological mapping",
+    how: "Calculates your natal chart positions. Stored encrypted.",
+    icon: "📅"
+  },
+  birthTime: {
+    why: "Unlocks precise personality architecture",
+    how: "Determines rising sign & house placements. Optional but highly recommended.",
+    icon: "⏰"
+  },
+  birthPlace: {
+    why: "Refines timing & location-based calculations",
+    how: "Used for chart accuracy. Stored securely, never shared publicly.",
+    icon: "📍"
+  }
+};
+
 export default function Start() {
   const navigate = useNavigate();
   const [step, setStep] = useState<'you' | 'them'>('you');
   const [isAnimating, setIsAnimating] = useState(false);
+  const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
+
+  // Check if owner email for pre-fill
+  const isOwnerEmail = (email: string) => OWNER_EMAILS.includes(email?.toLowerCase().trim());
+
   const [userData, setUserData] = useState<BirthData>({
     name: '',
     birthDate: '',
@@ -30,6 +64,22 @@ export default function Start() {
     birthTime: '',
     birthPlace: '',
   });
+
+  // Auto-fill owner data on component mount
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const prefillOwner = params.get('owner') === 'true';
+
+    if (prefillOwner) {
+      setUserData({
+        name: 'Chad',
+        birthDate: '1993-07-26',
+        birthTime: '20:00',
+        birthPlace: 'Upland, California',
+        email: 'info@defrag.app',
+      });
+    }
+  }, []);
 
   const currentData = step === 'you' ? userData : partnerData;
   const setCurrentData = step === 'you' ? setUserData : setPartnerData;
@@ -114,15 +164,36 @@ export default function Start() {
             <form onSubmit={handleNext} className="space-y-6">
               {/* Email field - only on step 1 */}
               {step === 'you' && (
-                <div className="space-y-2">
-                  <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2 uppercase">
-                    Email
-                    {isOwner && (
-                      <span className="text-[9px] tracking-wider text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 font-mono">
-                        DEV MODE • BYPASS ENABLED
-                      </span>
-                    )}
-                  </label>
+                <div className="space-y-2 relative">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2 uppercase">
+                      Email {FIELD_INFO.email.icon}
+                      {isOwner && (
+                        <span className="text-[9px] tracking-wider text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 font-mono">
+                          DEV MODE • BYPASS ENABLED
+                        </span>
+                      )}
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTooltip(activeTooltip === 'email' ? null : 'email')}
+                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                    >
+                      {activeTooltip === 'email' ? '✕' : 'ⓘ'}
+                    </button>
+                  </div>
+                  {activeTooltip === 'email' && (
+                    <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                      <div>
+                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.email.why}</p>
+                      </div>
+                      <div>
+                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.email.how}</p>
+                      </div>
+                    </div>
+                  )}
                   <input
                     type="email"
                     required
@@ -139,10 +210,31 @@ export default function Start() {
                 </div>
               )}
 
-              <div className="space-y-2">
-                <label className="text-xs tracking-[0.25em] text-white/50">
-                  {step === 'you' ? 'YOUR NAME' : 'THEIR NAME'}
-                </label>
+              <div className="space-y-2 relative">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs tracking-[0.25em] text-white/50 uppercase">
+                    {step === 'you' ? 'YOUR NAME' : 'THEIR NAME'} {FIELD_INFO.name.icon}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTooltip(activeTooltip === 'name' ? null : 'name')}
+                    className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                  >
+                    {activeTooltip === 'name' ? '✕' : 'ⓘ'}
+                  </button>
+                </div>
+                {activeTooltip === 'name' && (
+                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                    <div>
+                      <span className="text-orange-400 font-semibold">Why we need this:</span>
+                      <p className="text-white/70 mt-1">{FIELD_INFO.name.why}</p>
+                    </div>
+                    <div>
+                      <span className="text-orange-400 font-semibold">How it's protected:</span>
+                      <p className="text-white/70 mt-1">{FIELD_INFO.name.how}</p>
+                    </div>
+                  </div>
+                )}
                 <input
                   type="text"
                   required
@@ -153,8 +245,29 @@ export default function Start() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <label className="text-xs tracking-[0.25em] text-white/50">DATE OF BIRTH</label>
+              <div className="space-y-2 relative">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs tracking-[0.25em] text-white/50 uppercase">DATE OF BIRTH {FIELD_INFO.birthDate.icon}</label>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTooltip(activeTooltip === 'birthDate' ? null : 'birthDate')}
+                    className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                  >
+                    {activeTooltip === 'birthDate' ? '✕' : 'ⓘ'}
+                  </button>
+                </div>
+                {activeTooltip === 'birthDate' && (
+                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                    <div>
+                      <span className="text-orange-400 font-semibold">Why we need this:</span>
+                      <p className="text-white/70 mt-1">{FIELD_INFO.birthDate.why}</p>
+                    </div>
+                    <div>
+                      <span className="text-orange-400 font-semibold">How it's protected:</span>
+                      <p className="text-white/70 mt-1">{FIELD_INFO.birthDate.how}</p>
+                    </div>
+                  </div>
+                )}
                 <input
                   type="date"
                   required
@@ -165,10 +278,31 @@ export default function Start() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <label className="text-xs tracking-[0.25em] text-white/50">
-                    TIME <span className="text-white/30 tracking-normal">(opt.)</span>
-                  </label>
+                <div className="space-y-2 relative">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs tracking-[0.25em] text-white/50 uppercase text-[10px] sm:text-xs">
+                      TIME {FIELD_INFO.birthTime.icon}
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTooltip(activeTooltip === 'birthTime' ? null : 'birthTime')}
+                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                    >
+                      {activeTooltip === 'birthTime' ? '✕' : 'ⓘ'}
+                    </button>
+                  </div>
+                  {activeTooltip === 'birthTime' && (
+                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
+                      <div>
+                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.birthTime.why}</p>
+                      </div>
+                      <div>
+                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.birthTime.how}</p>
+                      </div>
+                    </div>
+                  )}
                   <input
                     type="time"
                     value={currentData.birthTime}
@@ -176,10 +310,31 @@ export default function Start() {
                     className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all text-white [color-scheme:dark]"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs tracking-[0.25em] text-white/50">
-                    LOCATION <span className="text-white/30 tracking-normal">(opt.)</span>
-                  </label>
+                <div className="space-y-2 relative">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs tracking-[0.25em] text-white/50 uppercase text-[10px] sm:text-xs">
+                      LOCATION {FIELD_INFO.birthPlace.icon}
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTooltip(activeTooltip === 'birthPlace' ? null : 'birthPlace')}
+                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                    >
+                      {activeTooltip === 'birthPlace' ? '✕' : 'ⓘ'}
+                    </button>
+                  </div>
+                  {activeTooltip === 'birthPlace' && (
+                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
+                      <div>
+                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.birthPlace.why}</p>
+                      </div>
+                      <div>
+                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <p className="text-white/70 mt-1">{FIELD_INFO.birthPlace.how}</p>
+                      </div>
+                    </div>
+                  )}
                   <input
                     type="text"
                     value={currentData.birthPlace}

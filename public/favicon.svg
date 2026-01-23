@@ -1,36 +1,66 @@
-
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 100 100">
   <defs>
     <style>
-      .petal {
-        fill: #ea580c;
-        opacity: 0.9;
+      .bg { fill: #000000; }
+      .ring { fill: none; stroke: #ea580c; stroke-width: 0.5; opacity: 0.6; }
+      .core { fill: #ea580c; }
+      .pulse-ring { 
+        fill: none; 
+        stroke: #f97316; 
+        stroke-width: 1;
+        animation: pulse 3s ease-in-out infinite;
       }
-      .center {
-        fill: #ea580c;
+      @keyframes pulse {
+        0%, 100% { 
+          opacity: 0.8;
+          transform: scale(1);
+        }
+        50% { 
+          opacity: 0.3;
+          transform: scale(1.05);
+        }
+      }
+      .rotate-ring {
+        animation: rotate 20s linear infinite;
+        transform-origin: 50px 50px;
+      }
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
       @media (prefers-color-scheme: dark) {
-        .petal { fill: #f97316; }
-        .center { fill: #f97316; }
+        .ring { stroke: #f97316; }
+        .core { fill: #f97316; }
       }
     </style>
   </defs>
   
-  <!-- Background circle (optional, safe area) -->
-  <circle cx="50" cy="50" r="50" fill="black" />
+  <!-- Background -->
+  <circle class="bg" cx="50" cy="50" r="50" />
   
-  <!-- Petals -->
-  <g transform="translate(50,50)">
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(45)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(90)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(135)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(180)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(225)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(270)" />
-    <path class="petal" d="M0 0 C10 -20 20 -30 0 -45 C-20 -30 -10 -20 0 0" transform="rotate(315)" />
+  <!-- Animated concentric rings -->
+  <g class="rotate-ring">
+    <circle class="ring" cx="50" cy="50" r="45" />
+    <circle class="ring" cx="50" cy="50" r="35" style="opacity: 0.5;" />
+    <circle class="ring" cx="50" cy="50" r="25" style="opacity: 0.4;" />
+    <circle class="ring" cx="50" cy="50" r="15" style="opacity: 0.3;" />
   </g>
   
-  <!-- Center dot -->
-  <circle class="center" cx="50" cy="50" r="8" />
+  <!-- Pulsing outer ring -->
+  <circle class="pulse-ring" cx="50" cy="50" r="42" />
+  
+  <!-- Geometric connector lines -->
+  <g opacity="0.3" stroke="#ea580c" stroke-width="0.5">
+    <line x1="50" y1="10" x2="50" y2="90" />
+    <line x1="10" y1="50" x2="90" y2="50" />
+    <line x1="20" y1="20" x2="80" y2="80" />
+    <line x1="80" y1="20" x2="20" y2="80" />
+  </g>
+  
+  <!-- Inner hexagon -->
+  <path class="ring" d="M50 30 L65 40 L65 60 L50 70 L35 60 L35 40 Z" style="stroke-width: 1; opacity: 0.8;" />
+  
+  <!-- Center core -->
+  <circle class="core" cx="50" cy="50" r="6" />
+  <circle class="pulse-ring" cx="50" cy="50" r="10" style="animation-delay: 1s;" />
 </svg>
