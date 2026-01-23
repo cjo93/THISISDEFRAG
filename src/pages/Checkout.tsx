@@ -67,7 +67,7 @@ export default function Checkout() {
         // Fallback to stripe.js redirect
         const stripe = await stripePromise;
         if (stripe) {
-          const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+          const { error } = await (stripe as any).redirectToCheckout({ sessionId: data.sessionId });
           if (error) setError(error.message || 'Payment failed');
         }
       } else {
