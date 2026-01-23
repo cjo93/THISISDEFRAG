@@ -83,7 +83,7 @@ export default function Landing() {
 
 
             {/* Main headline - Universal, emotional */}
-            <div className="opacity-0 animate-[fadeInUp_1s_1s_ease-out_forwards] space-y-3 sm:space-y-5">
+            <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-3 sm:space-y-5">
               <p className="text-white/70 text-base sm:text-xl md:text-2xl tracking-[0.2em] uppercase font-light">
                 The User Manual For
               </p>
@@ -115,7 +115,7 @@ export default function Landing() {
           </h1>
 
           {/* Subheadline - The promise */}
-          <div className="opacity-0 animate-[fadeInUp_1s_1.4s_ease-out_forwards] mt-10 sm:mt-16 max-w-4xl mx-auto">
+          <div className="opacity-0 animate-[fadeReveal_1.5s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-16 max-w-4xl mx-auto">
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6">
               Why they do what they do.
               <br className="hidden sm:block" />
@@ -128,7 +128,7 @@ export default function Landing() {
           </div>
 
           {/* Methodology badges - More prominent */}
-          <div className="opacity-0 animate-[fadeInUp_1s_1.8s_ease-out_forwards] mt-10 sm:mt-14">
+          <div className="opacity-0 animate-[fadeReveal_1.5s_0.8s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-14">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14">
               <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
                 <div className="flex items-center gap-3">
