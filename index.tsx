@@ -9,6 +9,44 @@ import './src/index.css';
 
 console.log('BOOT: Imports passed. Looking for root...');
 
+// CACHE BUSTING & VERSION CONTROL
+const APP_VERSION = '1.2.0';
+
+try {
+  const currentStoredVersion = localStorage.getItem('defrag_version');
+  if (currentStoredVersion !== APP_VERSION) {
+    console.log(`New version detected: ${APP_VERSION} (was ${currentStoredVersion}). Clearing cache...`);
+
+    // 1. Update version
+    localStorage.setItem('defrag_version', APP_VERSION);
+
+    // 2. Clear generic caches
+    if ('caches' in window) {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
+          console.log('Deleting cache:', name);
+          caches.delete(name);
+        });
+      });
+    }
+
+    // 3. Unregister Service Workers (if any existed from previous PWA attempts)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          console.log('Unregistering SW:', registration);
+          registration.unregister();
+        }
+      });
+    }
+
+    // Optional: Force reload if we suspect we are running stale code, 
+    // but usually let the React app mount first so we don't boot loop.
+  }
+} catch (e) {
+  console.error('Cache clear failed', e);
+}
+
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
