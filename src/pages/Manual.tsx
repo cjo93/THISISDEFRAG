@@ -117,9 +117,24 @@ export default function Manual() {
         setUnitB(mechanicsB);
 
         // Generate manual
+        // Generate manual (or load from cache)
         setLoadingPhase(4);
-        const result = await generateManualPreview(mechanicsA, mechanicsB);
-        setManual(result);
+
+        const cachedManual = localStorage.getItem('defrag_manual_preview');
+        // Simple invalidation strategy: if unit names match (basic check)
+        const cachedSignature = localStorage.getItem('defrag_manual_sig');
+        const currentSignature = `${mechanicsA.name}-${mechanicsB.name}`;
+
+        if (cachedManual && cachedSignature === currentSignature) {
+          console.log('Loading cached manual...');
+          setManual(JSON.parse(cachedManual));
+        } else {
+          console.log('Generating new manual...');
+          const result = await generateManualPreview(mechanicsA, mechanicsB);
+          setManual(result);
+          localStorage.setItem('defrag_manual_preview', JSON.stringify(result));
+          localStorage.setItem('defrag_manual_sig', currentSignature);
+        }
       } catch (err) {
         console.error('Error generating manual:', err);
         setError('Failed to generate manual. Please try again.');
