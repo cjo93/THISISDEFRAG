@@ -401,8 +401,8 @@ export default function Landing() {
             <div className="relative">
               {/* Blurred "Pages" stack for premium feel */}
               <div className="relative aspect-[4/3] w-full max-w-lg mx-auto">
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-zinc-900 border border-white/10 rounded-lg shadow-2xl rotate-2 translate-x-4 translate-y-4 blur-[2px] opacity-20" />
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-zinc-900 border border-white/10 rounded-lg shadow-2xl -rotate-1 translate-x-2 translate-y-2 opacity-40 blur-[1px]" />
+                <div className="absolute top-0 right-0 w-[80%] h-full bg-black/80 border border-white/10 rounded-lg shadow-2xl rotate-2 translate-x-4 translate-y-4 blur-[2px] opacity-20" />
+                <div className="absolute top-0 right-0 w-[80%] h-full bg-black/80 border border-white/10 rounded-lg shadow-2xl -rotate-1 translate-x-2 translate-y-2 opacity-40 blur-[1px]" />
                 <div className="absolute top-0 right-0 w-[80%] h-full bg-black border border-orange-500/20 rounded-lg shadow-[0_0_50px_rgba(249,115,22,0.1)] p-8 overflow-hidden group/page">
                   {/* Decorative "content" */}
                   <div className="space-y-4 opacity-40 select-none">
@@ -420,7 +420,7 @@ export default function Landing() {
                     </div>
                   </div>
                   {/* Floating callout */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-900/90 backdrop-blur-md border border-orange-500/50 p-6 rounded-lg w-64 shadow-2xl transition-transform group-hover/page:scale-105">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-box-opaque border border-orange-500/50 p-6 rounded-lg w-64 shadow-2xl transition-transform group-hover/page:scale-105">
                     <p className="text-white/90 text-[10px] leading-relaxed font-mono">
                       <span className="text-orange-500 font-bold block mb-2 uppercase tracking-widest">Self-Differentiation</span>
                       "When anxiety rises in the emotional system, focus on regulating your own response rather than reacting to their withdrawal."

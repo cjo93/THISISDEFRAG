@@ -86,7 +86,7 @@ export default function SignIn() {
           </div>
 
           {/* Form Card */}
-          <div className="bg-zinc-950/80 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div className="glass-box border border-white/10 rounded-2xl p-8">
 
             {status === 'success' ? (
               <div className="text-center py-6">

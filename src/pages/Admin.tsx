@@ -20,6 +20,35 @@ export default function Admin() {
             navigate('/signin');
             return;
         }
+
+        // Fetch live stats
+        const fetchStats = async () => {
+            try {
+                const res = await fetch('/api/admin-stats', {
+                    headers: { 'x-admin-key': 'defrag-internal' }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    console.log('Live stats loaded:', data);
+                    setStats(prev => ({
+                        ...prev,
+                        activeUsers: data.activeUsers || prev.activeUsers,
+                        totalSessions: data.totalSessions || prev.totalSessions,
+                        manualsGenerated: data.manualsGenerated || prev.manualsGenerated,
+                        revenue: data.revenue || prev.revenue
+                    }));
+                }
+            } catch (err) {
+                console.error('Stats fetch failed, using cached data', err);
+            }
+        };
+
+        // Initial fetch
+        fetchStats();
+
+        // Poll every 30s
+        const interval = setInterval(fetchStats, 30000);
+        return () => clearInterval(interval);
     }, [navigate]);
 
     const handleGenerateCard = () => {
@@ -92,7 +121,7 @@ export default function Admin() {
 
                         {/* Charts Area Placeholder */}
                         <div className="grid lg:grid-cols-3 gap-6">
-                            <div className="lg:col-span-2 bg-zinc-900/20 border border-white/5 rounded-2xl p-8 min-h-[400px] flex items-center justify-center relative overflow-hidden">
+                            <div className="lg:col-span-2 glass-box border border-white/5 rounded-2xl p-8 min-h-[400px] flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.03] to-transparent pointer-events-none" />
                                 <span className="text-[10px] tracking-[0.3em] font-mono text-white/20 uppercase">Real-time Traffic Mapping</span>
                                 {/* Small visual chart lines */}
@@ -103,7 +132,7 @@ export default function Admin() {
                                 </div>
                             </div>
                             <div className="space-y-6">
-                                <div className="bg-zinc-900/20 border border-white/5 rounded-2xl p-8">
+                                <div className="glass-box border border-white/5 rounded-2xl p-8">
                                     <h3 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-6 font-mono">Top Profiles</h3>
                                     <ul className="space-y-4">
                                         <ProfileRow name="Avoidants" count="124" />
@@ -250,7 +279,7 @@ export default function Admin() {
 
 function StatCard({ label, value, trend }: { label: string, value: string, trend: string }) {
     return (
-        <div className="bg-zinc-900/40 border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
+        <div className="glass-box border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="text-white/40 text-[10px] uppercase tracking-[0.4em] mb-3 font-mono">{label}</div>
             <div className="text-4xl font-light text-white mb-3">{value}</div>
