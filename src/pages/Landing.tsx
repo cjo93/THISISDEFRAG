@@ -93,12 +93,12 @@ export default function Landing() {
                 className={`
                   relative inline-block
                   text-white font-light text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 
-                  tracking-tight leading-none
-                  transition-all duration-700 ease-out
-                  ${isVisible ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-95 blur-sm'}
+                  tracking-tight leading-[1.1] pb-4
+                  transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+                  ${isVisible ? 'opacity-100 scale-100 blur-0 translate-y-0' : 'opacity-0 scale-90 blur-xl translate-y-8'}
                 `}
                 style={{
-                  textShadow: '0 0 60px rgba(249,115,22,0.2), 0 0 120px rgba(249,115,22,0.1)',
+                  textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160px rgba(249,115,22,0.15)',
                 }}
               >
                 <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
