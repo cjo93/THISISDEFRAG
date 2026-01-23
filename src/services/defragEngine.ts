@@ -1,8 +1,6 @@
 
-import Astronomy from 'astronomy-engine';
+import * as Astronomy from 'astronomy-engine';
 import { UnitData } from '../types';
-
-const { Body, EclipticLongitude, MakeTime } = Astronomy;
 
 // Simple zodiac Calculator
 const ZODIAC_SIGNS = [

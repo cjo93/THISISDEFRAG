@@ -52,3 +52,32 @@ export enum AppView {
   GENERATOR = 'generator',
   DASHBOARD = 'dashboard'
 }
+
+// New types for Dashboard redesign
+export interface UserProfile {
+  name: string;
+  email: string;
+  birthDate: string;
+  birthTime?: string;
+  birthPlace?: string;
+  sun_sign?: string;
+  mars_sign?: string;
+  rising_sign?: string;
+  createdAt?: string;
+}
+
+export interface RelationshipData {
+  id: string;
+  name: string;
+  birthDate: string;
+  birthTime?: string;
+  birthPlace?: string;
+  sun_sign?: string;
+  mars_sign?: string;
+  rising_sign?: string;
+  relationshipType: 'partner' | 'family' | 'friend' | 'colleague';
+  compatibilityScore?: number;
+  isUnlocked: boolean;
+  createdAt: string;
+  lastAccessed?: string;
+}

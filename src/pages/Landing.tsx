@@ -50,7 +50,7 @@ export default function Landing() {
   const heroScale = 1 + scrollY * 0.0002;
 
   return (
-    <div id="landing-container" data-version="1.2.0" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-orange-500/20">
+    <div id="landing-container" data-version="1.3.0" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-orange-500/20">
 
       {/* Nav */}
       <Header />
@@ -480,7 +480,7 @@ export default function Landing() {
               <Link to="/privacy" className="hover:text-white transition">Privacy</Link>
               <a href="mailto:help@defrag.app" className="hover:text-white transition">Contact</a>
             </div>
-            <div className="hidden sm:block text-[9px] text-white/10 font-mono">v1.2.0</div>
+            <div className="hidden sm:block text-[9px] text-white/10 font-mono">v1.3.0</div>
           </div>
         </footer>
       </section>
