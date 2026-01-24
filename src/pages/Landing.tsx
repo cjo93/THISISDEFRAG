@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { trackEvent, AnalyticsEvents, initScrollTracking, ConversionFunnel } from '../lib/analytics';
 
 // Pain-point language that triggers instant recognition
 const ROTATING_WORDS = [
@@ -29,6 +30,11 @@ export default function Landing() {
         setIsVisible(true);
       }, 300);
     }, 2800);
+
+    // Initialize analytics
+    ConversionFunnel.step1_landing();
+    initScrollTracking();
+
     return () => clearInterval(interval);
   }, []);
 
@@ -166,12 +172,14 @@ export default function Landing() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4 w-full max-w-lg mx-auto">
               <Link
                 to="/start"
+                onClick={() => trackEvent(AnalyticsEvents.GENERATE_MANUAL_CLICK)}
                 className="w-full h-14 flex items-center justify-center bg-orange-500 text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
               >
                 Generate Manual
               </Link>
               <Link
                 to="/signin"
+                onClick={() => trackEvent(AnalyticsEvents.MEMBER_LOGIN_CLICK)}
                 className="w-full h-14 flex items-center justify-center border border-white/20 text-white/70 text-xs sm:text-sm tracking-[0.2em] font-medium hover:border-white/50 hover:text-white transition-all duration-200 rounded-lg backdrop-blur-sm uppercase"
               >
                 Member Login
