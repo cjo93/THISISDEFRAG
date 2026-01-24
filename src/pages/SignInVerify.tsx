@@ -37,6 +37,17 @@ export default function SignInVerify() {
                 // Complete the sign-in
                 await signInWithEmailLink(auth, email, window.location.href);
 
+                // Migrate data from localStorage to Firestore
+                try {
+                    const { migrateLocalStorageToFirestore } = await import('../services/userService');
+                    // We need the user object, so we get it from auth.currentUser
+                    if (auth.currentUser) {
+                        await migrateLocalStorageToFirestore(auth.currentUser.uid);
+                    }
+                } catch (migrationError) {
+                    console.error('Data migration warning:', migrationError);
+                }
+
                 // Clear the email from storage
                 window.localStorage.removeItem('emailForSignIn');
 

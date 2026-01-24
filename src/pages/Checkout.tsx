@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import Header from '../components/Header';
+import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '');
 
@@ -39,6 +40,8 @@ export default function Checkout() {
     if (savedA && savedB) {
       setUnitA(JSON.parse(savedA));
       setUnitB(JSON.parse(savedB));
+      // Track view
+      ConversionFunnel.step4_checkout();
     } else {
       // No data, redirect to start
       navigate('/start');
@@ -50,6 +53,9 @@ export default function Checkout() {
 
     setIsLoading(true);
     setError('');
+
+    // Track checkout initiation
+    trackEvent(AnalyticsEvents.CHECKOUT_BEGIN);
 
     try {
       const response = await fetch('/api/create-checkout', {

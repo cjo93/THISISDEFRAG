@@ -6,6 +6,7 @@ import { calculateMechanics } from '../services/defragEngine';
 import { UnitData, ManualPreview } from '../types';
 import ShareCard from '../components/ui/ShareCard';
 import Header from '../components/Header';
+import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
 
 const LOADING_PHASES = [
   { message: 'Verifying access...' },
@@ -46,6 +47,15 @@ export default function Manual() {
     const verifyAndGenerate = async () => {
       try {
         const sessionId = searchParams.get('session_id');
+        const isNew = searchParams.get('new') === 'true';
+
+        // Track purchase if this is a new manual from checkout
+        if (isNew || sessionId) {
+          ConversionFunnel.step5_purchase(sessionId || 'manual_bypass', 19.00);
+        } else {
+          // It's a view of an existing manual
+          trackEvent(AnalyticsEvents.ANALYSIS_VIEW);
+        }
 
         // Check for owner bypass or stored payment
         const ownerBypass = localStorage.getItem('defrag_owner_bypass');

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
+import { trackEvent, AnalyticsEvents, ConversionFunnel, setUserProperty } from '../lib/analytics';
 
 // Owner emails that bypass payment
 const OWNER_EMAILS = ['info@defrag.app', 'chadowen93@gmail.com'];
@@ -79,6 +80,9 @@ export default function Start() {
         email: 'info@defrag.app',
       });
     }
+
+    // Track step 2 of funnel
+    ConversionFunnel.step2_start();
   }, []);
 
   const currentData = step === 'you' ? userData : partnerData;
@@ -99,12 +103,23 @@ export default function Start() {
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Track form completion for current step
+    trackEvent(AnalyticsEvents.START_FORM_COMPLETE, { step });
+
     if (step === 'you') {
       setStep('them');
+      // Set user email prop if available
+      if (userData.email) {
+        setUserProperty('email_provided', 'true');
+      }
     } else {
       // Save data
       localStorage.setItem('defrag_unitA', JSON.stringify(userData));
       localStorage.setItem('defrag_unitB', JSON.stringify(partnerData));
+
+      // Track completion of start phase
+      trackEvent('start_phase_complete');
 
       // ALWAYS go to analysis first for the premium "processing" feel
       if (isOwner) {
