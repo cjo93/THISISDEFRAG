@@ -11,7 +11,7 @@ import './src/index.css';
 console.log('BOOT: Imports passed. Looking for root...');
 
 // CACHE BUSTING & VERSION CONTROL
-const APP_VERSION = '2.0.0';
+const APP_VERSION = 'RELEASE';
 
 try {
   const currentStoredVersion = localStorage.getItem('defrag_version');

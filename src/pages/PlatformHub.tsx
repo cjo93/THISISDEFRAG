@@ -1,15 +1,13 @@
-// src/pages/PlatformHub.tsx - PRODUCTION READY
 
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ChevronRight, Zap, Shield, Code, TrendingUp, Users, BookOpen, ArrowRight } from 'lucide-react';
 import '../styles/PlatformHub.css';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 const PlatformHub: React.FC = () => {
-    const navigate = useNavigate();
     const [scrollY, setScrollY] = useState(0);
-    const [activeFeature, setActiveFeature] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => setScrollY(window.scrollY);
@@ -18,439 +16,84 @@ const PlatformHub: React.FC = () => {
     }, []);
 
     return (
-        <div className="platform-container">
-            {/* ========== HEADER ========== */}
-            <header className="platform-header" style={{
-                backdropFilter: scrollY > 50 ? 'blur(10px)' : 'none',
-                borderBottom: scrollY > 50 ? '1px solid #f0f0f0' : 'none'
-            }}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <Link to="/" className="platform-brand">
-                        <span className="brand-icon">◎</span>
-                        DEFRAG
-                    </Link>
-                </div>
+        <div className="platform-container bg-black text-white">
+            <Header />
 
-                <nav className="platform-nav">
-                    <Link to="/products/manuals" className="nav-link">Products</Link>
-                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                    <Link to="/docs" className="nav-link">Docs</Link>
-                    <Link to="/developer" className="nav-link">Developer</Link>
-                    <Link to="/signin" className="nav-signin">Sign In</Link>
-                    <Link to="/start" className="nav-cta">Get Started</Link>
-                </nav>
-            </header>
+            <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(249,115,22,0.15)_0%,_transparent_50%)]" />
 
-            {/* ========== HERO SECTION - EMOTIONALLY RESONANT ========== */}
-            <section className="hero-section" style={{ background: 'linear-gradient(180deg, #000 0%, #0a0a0a 100%)' }}>
-                <div className="hero-glow-top" style={{
-                    background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(249,115,22,0.15) 0%, transparent 70%)'
-                }}></div>
-
-                <div className="hero-content" style={{ textAlign: 'center', maxWidth: '900px' }}>
-                    {/* Methodology Badge */}
-                    <div className="hero-badge" style={{
-                        background: 'rgba(249,115,22,0.1)',
-                        border: '1px solid rgba(249,115,22,0.3)',
-                        color: '#f97316'
-                    }}>
-                        <span className="badge-dot" style={{ background: '#f97316' }}></span>
-                        No Astrology, Astrology × No Psychology, Psychology
+                <div className="hero-content relative z-10 text-center px-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/5 text-orange-400 text-xs font-mono tracking-widest uppercase mb-8">
+                        <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                        Human Systems Intelligence
                     </div>
 
-                    <h1 className="hero-title" style={{
-                        fontWeight: 300,
-                        lineHeight: 1.1,
-                        marginBottom: '1.5rem'
-                    }}>
-                        Cognitive Middleware<br />
-                        <span className="gradient-text" style={{
-                            background: 'linear-gradient(135deg, #fff 0%, #fed7aa 50%, #f97316 100%)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text'
-                        }}>for Human Systems</span>
+                    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+                        DEFRAG
                     </h1>
 
-                    <p className="hero-subtitle" style={{
-                        maxWidth: '700px',
-                        margin: '0 auto 1rem',
-                        fontSize: '1.5rem',
-                        color: 'rgba(255,255,255,0.8)',
-                        fontWeight: 300
-                    }}>
-                        Why they do what they do.<br />
-                        <span style={{ color: '#fff' }}>How to stay connected when it's hard.</span>
+                    <p className="text-xl sm:text-2xl md:text-3xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-12">
+                        Holistic infrastructure for <span className="text-white">Cognitive Middleware</span>.
+                        NASA JPL Precision × SEDA Clinical Safety.
                     </p>
 
-                    <p style={{
-                        fontSize: '1.1rem',
-                        color: 'rgba(255,255,255,0.5)',
-                        maxWidth: '600px',
-                        margin: '0 auto 2.5rem',
-                        fontWeight: 300
-                    }}>
-                        No more guessing. No more feeling lost.<br />
-                        Just clarity when you need it most.
-                    </p>
-
-                    <div className="hero-actions">
-                        <Link to="/start" className="btn btn-primary btn-lg" style={{
-                            background: '#f97316',
-                            color: '#000',
-                            fontWeight: 600,
-                            boxShadow: '0 0 30px rgba(249,115,22,0.3)'
-                        }}>
-                            Generate My Manual
-                            <ArrowRight size={18} />
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <Link to="/products/manuals" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase">
+                            Manuals for People
+                            <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link to="/products/manuals" className="btn btn-secondary btn-lg" style={{
-                            background: 'transparent',
-                            border: '1px solid rgba(255,255,255,0.2)',
-                            color: 'rgba(255,255,255,0.7)'
-                        }}>
-                            How It Works
+                        <Link to="/developer" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
+                            Explore API
                         </Link>
                     </div>
 
-                    <div className="hero-stats" style={{ marginTop: '3rem' }}>
-                        <div className="stat">
-                            <div className="stat-number" style={{ color: '#f97316' }}>NASA JPL</div>
-                            <div className="stat-label">Topocentric Precision</div>
+                    <div className="mt-20 flex flex-wrap justify-center gap-12 opacity-40 grayscale group-hover:grayscale-0 transition-all">
+                        <div className="text-center">
+                            <div className="text-sm font-black tracking-widest uppercase">NASA JPL</div>
+                            <div className="text-[10px] tracking-widest">Orbital Telemetry</div>
                         </div>
-                        <div className="stat">
-                            <div className="stat-number" style={{ color: '#f97316' }}>SEDA</div>
-                            <div className="stat-label">Clinical Firewall</div>
-                        </div>
-                        <div className="stat">
-                            <div className="stat-number" style={{ color: '#f97316' }}>No Diagnosis</div>
-                            <div className="stat-label">Mechanical Transparency</div>
+                        <div className="text-center">
+                            <div className="text-sm font-black tracking-widest uppercase">SEDA</div>
+                            <div className="text-[10px] tracking-widest">Clinical Firewall</div>
                         </div>
                     </div>
                 </div>
 
-                <div className="hero-visual">
-                    {/* Scroll indicator */}
-                    <div style={{
-                        position: 'absolute',
-                        bottom: '2rem',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        opacity: 0.4,
-                        animation: 'bounce 2s infinite'
-                    }}>
-                        <span style={{ fontSize: '0.65rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Scroll</span>
-                        <div style={{ width: '1px', height: '40px', background: 'linear-gradient(to bottom, white, transparent)' }} />
-                    </div>
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20">
+                    <span className="text-[10px] tracking-[0.3em] uppercase">Scroll to Explore</span>
+                    <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
                 </div>
             </section>
 
-            {/* ========== PRODUCTS SHOWCASE ========== */}
-            <section className="products-section">
-                <div className="section-header">
-                    <h2>Our Platform</h2>
-                    <p>Everything you need in one integrated ecosystem</p>
-                </div>
-
-                <div className="products-grid">
-                    {/* Product 1: Manuals */}
-                    <div className="product-card" onMouseEnter={() => setActiveFeature(0)}>
-                        <div className="product-icon manuals-icon">
-                            <BookOpen size={32} />
-                        </div>
-                        <h3>Manuals</h3>
-                        <p>Personalized relationship guides powered by psychology and astrology. Understand why people do what they do.</p>
-
-                        <div className="product-features">
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Individual insights
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Relationship dynamics
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Team compatibility
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Stress patterns
-                            </div>
+            <section className="products-section py-24 bg-black">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">◎</div>
+                            <h3 className="text-2xl font-light mb-4">Manuals</h3>
+                            <p className="text-white/50 mb-8 leading-relaxed">Personal design specifications. Understanding why they do what they do under pressure.</p>
+                            <Link to="/products/manuals" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
+                                Learn More <ArrowRight size={14} />
+                            </Link>
                         </div>
 
-                        <Link to="/products/manuals" className="product-link">
-                            Explore Manuals
-                            <ChevronRight size={18} />
-                        </Link>
-                    </div>
-
-                    {/* Product 2: Developer Dashboard */}
-                    <div className="product-card featured" onMouseEnter={() => setActiveFeature(1)}>
-                        <div className="badge-featured">Most Powerful</div>
-                        <div className="product-icon dashboard-icon">
-                            <Zap size={32} />
-                        </div>
-                        <h3>Developer Dashboard</h3>
-                        <p>Manage API keys, monitor usage, and control your integration—all from a powerful, intuitive interface.</p>
-
-                        <div className="product-features">
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                API key management
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Real-time analytics
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Usage tracking
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Secure auth
-                            </div>
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">{"{ }"}</div>
+                            <h3 className="text-2xl font-light mb-4">Developer Hub</h3>
+                            <p className="text-white/50 mb-8 leading-relaxed">NASA-grade orbital telemetry and clinical safety barriers for your wellness platform.</p>
+                            <Link to="/developer" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
+                                Get API Keys <ArrowRight size={14} />
+                            </Link>
                         </div>
 
-                        <Link to="/dashboard" className="product-link">
-                            Access Dashboard
-                            <ChevronRight size={18} />
-                        </Link>
-                    </div>
-
-                    {/* Product 3: APIs */}
-                    <div className="product-card" onMouseEnter={() => setActiveFeature(2)}>
-                        <div className="product-icon api-icon">
-                            <Code size={32} />
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">⎔</div>
+                            <h3 className="text-2xl font-light mb-4">Enterprise</h3>
+                            <p className="text-white/50 mb-8 leading-relaxed">Custom SEDA implementations and high-fidelity human system modeling for organizations.</p>
+                            <Link to="/contact" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
+                                Contact Sales <ArrowRight size={14} />
+                            </Link>
                         </div>
-                        <h3>APIs & Resources</h3>
-                        <p>RESTful APIs, SDKs, and comprehensive documentation for seamless integration into your stack.</p>
-
-                        <div className="product-features">
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                REST API endpoints
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Multi-language SDKs
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Code examples
-                            </div>
-                            <div className="feature-item">
-                                <span className="feature-check">✓</span>
-                                Technical support
-                            </div>
-                        </div>
-
-                        <Link to="/docs" className="product-link">
-                            View Documentation
-                            <ChevronRight size={18} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== WHY DEFRAG SECTION ========== */}
-            <section className="why-section">
-                <div className="section-header">
-                    <h2>Why Build on DEFRAG?</h2>
-                    <p>Enterprise-grade platform built for scale, security, and simplicity</p>
-                </div>
-
-                <div className="why-grid">
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <Shield size={28} />
-                        </div>
-                        <h4>Enterprise Security</h4>
-                        <p>Bank-grade encryption, SOC 2 compliance, and privacy-first architecture.</p>
-                    </div>
-
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <Zap size={28} />
-                        </div>
-                        <h4>Lightning Fast</h4>
-                        <p>Global CDN, optimized APIs, and sub-100ms response times.</p>
-                    </div>
-
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <Code size={28} />
-                        </div>
-                        <h4>Developer Friendly</h4>
-                        <p>Clear documentation, generous free tier, and world-class support.</p>
-                    </div>
-
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <TrendingUp size={28} />
-                        </div>
-                        <h4>Scale Without Limits</h4>
-                        <p>From startup to enterprise—flexible pricing and infrastructure.</p>
-                    </div>
-
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <Users size={28} />
-                        </div>
-                        <h4>Purpose-Built</h4>
-                        <p>Designed specifically for understanding human behavior and relationships.</p>
-                    </div>
-
-                    <div className="why-card">
-                        <div className="why-icon">
-                            <BookOpen size={28} />
-                        </div>
-                        <h4>Constantly Evolving</h4>
-                        <p>Regular updates, new features, and community-driven roadmap.</p>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== PRICING SECTION ========== */}
-            <section className="pricing-section">
-                <div className="section-header">
-                    <h2>Simple, Transparent Pricing</h2>
-                    <p>Choose the plan that works for you. Upgrade or downgrade anytime.</p>
-                </div>
-
-                <div className="pricing-grid">
-                    {/* Pricing Tier 1 */}
-                    <div className="pricing-card">
-                        <h4>Explorer</h4>
-                        <div className="price">
-                            <span className="currency">Free</span>
-                        </div>
-                        <p className="price-desc">Get started with the essentials</p>
-                        <Link to="/products/manuals" className="pricing-btn">Start Free</Link>
-                        <ul className="pricing-features">
-                            <li><span>✓</span> 1 manual per month</li>
-                            <li><span>✓</span> Basic insights</li>
-                            <li><span>✓</span> Community access</li>
-                            <li><span>✗</span> API access</li>
-                            <li><span>✗</span> Priority support</li>
-                        </ul>
-                    </div>
-
-                    {/* Pricing Tier 2 */}
-                    <div className="pricing-card featured">
-                        <div className="tier-badge">Most Popular</div>
-                        <h4>Professional</h4>
-                        <div className="price">
-                            <span className="amount">$19</span>
-                            <span className="period">/month</span>
-                        </div>
-                        <p className="price-desc">For individuals and small teams</p>
-                        <Link to="/start" className="pricing-btn primary">Get Started</Link>
-                        <ul className="pricing-features">
-                            <li><span>✓</span> Unlimited manuals</li>
-                            <li><span>✓</span> Advanced analytics</li>
-                            <li><span>✓</span> Team collaboration</li>
-                            <li><span>✓</span> API access</li>
-                            <li><span>✓</span> Email support</li>
-                        </ul>
-                    </div>
-
-                    {/* Pricing Tier 3 */}
-                    <div className="pricing-card">
-                        <h4>Enterprise</h4>
-                        <div className="price">
-                            <span className="currency">Custom</span>
-                        </div>
-                        <p className="price-desc">For large organizations</p>
-                        <Link to="mailto:hello@defrag.app" className="pricing-btn">Contact Sales</Link>
-                        <ul className="pricing-features">
-                            <li><span>✓</span> Everything in Pro</li>
-                            <li><span>✓</span> Dedicated support</li>
-                            <li><span>✓</span> Custom integrations</li>
-                            <li><span>✓</span> SLA guarantee</li>
-                            <li><span>✓</span> Advanced security</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            {/* ========== FEATURE COMPARISON ========== */}
-            <section className="features-section" style={{ padding: "4rem 2rem", background: "white" }}>
-                <div className="section-header">
-                    <h2>Feature Comparison</h2>
-                    <p>See what's included in each plan</p>
-                </div>
-
-                <div className="comparison-table" style={{ maxWidth: "1000px", margin: "0 auto", overflowX: "auto" }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left" }}>
-                        <thead>
-                            <tr style={{ borderBottom: "2px solid #eee" }}>
-                                <th style={{ padding: "1rem" }}>Feature</th>
-                                <th style={{ padding: "1rem" }}>Explorer</th>
-                                <th style={{ padding: "1rem" }}>Professional</th>
-                                <th style={{ padding: "1rem" }}>Enterprise</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={{ padding: "1rem" }}>Monthly Manuals</td>
-                                <td style={{ padding: "1rem" }}>1</td>
-                                <td style={{ padding: "1rem" }}>Unlimited</td>
-                                <td style={{ padding: "1rem" }}>Unlimited</td>
-                            </tr>
-                            <tr style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={{ padding: "1rem" }}>API Requests/Month</td>
-                                <td style={{ padding: "1rem" }}>0</td>
-                                <td style={{ padding: "1rem" }}>100K</td>
-                                <td style={{ padding: "1rem" }}>Custom</td>
-                            </tr>
-                            <tr style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={{ padding: "1rem" }}>Team Members</td>
-                                <td style={{ padding: "1rem" }}>1</td>
-                                <td style={{ padding: "1rem" }}>5</td>
-                                <td style={{ padding: "1rem" }}>Unlimited</td>
-                            </tr>
-                            <tr style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={{ padding: "1rem" }}>Support</td>
-                                <td style={{ padding: "1rem" }}>Community</td>
-                                <td style={{ padding: "1rem" }}>Email</td>
-                                <td style={{ padding: "1rem" }}>24/7 Phone</td>
-                            </tr>
-                            <tr style={{ borderBottom: "1px solid #eee" }}>
-                                <td style={{ padding: "1rem" }}>SLA</td>
-                                <td style={{ padding: "1rem" }}>Best effort</td>
-                                <td style={{ padding: "1rem" }}>99.5%</td>
-                                <td style={{ padding: "1rem" }}>99.9%</td>
-                            </tr>
-                            <tr>
-                                <td style={{ padding: "1rem" }}>Custom Integrations</td>
-                                <td style={{ padding: "1rem" }}>—</td>
-                                <td style={{ padding: "1rem" }}>—</td>
-                                <td style={{ padding: "1rem" }}>✓</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            {/* ========== CTA SECTION ========== */}
-            <section className="final-cta">
-                <div className="cta-content">
-                    <h2>Ready to Bring Clarity?</h2>
-                    <p>Join early adopters and developers building clarity into their systems with DEFRAG.</p>
-                    <div className="cta-actions">
-                        <Link to="/products/manuals" className="btn btn-primary btn-lg" style={{ background: "white", color: "black" }}>
-                            Create Your First Manual
-                        </Link>
-                        <Link to="/docs" className="btn btn-secondary btn-lg" style={{ background: "transparent", color: "white", borderColor: "white" }}>
-                            Read Documentation
-                        </Link>
                     </div>
                 </div>
             </section>

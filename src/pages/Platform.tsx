@@ -11,7 +11,7 @@ export default function Platform() {
             <section className="pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/10 via-black to-black">
                 <div className="max-w-7xl mx-auto text-center">
                     <span className="inline-block text-xs font-mono tracking-widest text-cyan-400 mb-6 border border-cyan-500/30 px-3 py-1 rounded bg-cyan-900/10 uppercase">
-                        DEFRAG API v2
+                        DEFRAG API
                     </span>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
                         Cognitive Infrastructure<br />
@@ -118,7 +118,7 @@ export default function Platform() {
 
             {/* FOOTER */}
             <footer className="py-12 text-center text-white/20 text-xs font-mono border-t border-white/5">
-                API v2.0.0 • STATUS: OPERATIONAL
+                API STATUS: OPERATIONAL
             </footer>
 
         </div>

@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Pages
-import Landing from './pages/Landing'; // Keep for reference or unused
+import Manuals from './pages/products/Manuals';
 import PlatformHub from './pages/PlatformHub'; // New Main Entry
 import Echo from './pages/Echo';
 import Platform from './pages/Platform';
@@ -61,7 +61,7 @@ export default function AppRouter() {
       <Route path="/analysis" element={<Analysis />} />
 
       {/* Product Pages */}
-      <Route path="/products/manuals" element={<Landing />} /> {/* Original Sales Page */}
+      <Route path="/products/manuals" element={<Manuals />} /> {/* Original Sales Page */}
       <Route path="/manual" element={<Manual />} /> {/* Legacy path support */}
 
       {/* --- DASHBOARD --- */}
