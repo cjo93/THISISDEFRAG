@@ -56,6 +56,24 @@ export default function Header() {
                     <span className="tracking-[0.3em] text-sm font-bold text-white group-hover:text-orange-500 transition-colors uppercase">Defrag</span>
                 </Link>
 
+                <div className="flex items-center gap-4 sm:gap-6">
+                    {/* Navigation Links */}
+                    <Link
+                        to="/learn"
+                        className="text-[10px] sm:text-xs tracking-[0.2em] text-white/50 hover:text-white transition-colors uppercase font-medium"
+                    >
+                        Learn
+                    </Link>
+                    <a
+                        href="https://api.defrag.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] sm:text-xs tracking-[0.2em] text-white/50 hover:text-orange-500 transition-colors uppercase font-medium"
+                    >
+                        API
+                    </a>
+                </div>
+
                 <div className="flex items-center gap-4 sm:gap-8">
                     {/* If logged in, show Dashboard link. Else show Login */}
                     {isLoggedIn ? (

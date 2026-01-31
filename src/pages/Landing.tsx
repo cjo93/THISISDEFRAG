@@ -81,41 +81,32 @@ export default function Landing() {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-7xl mx-auto">
-          {/* Opening statement - smaller, builds anticipation */}
-
-
           <h1 className="space-y-6 sm:space-y-10">
-            {/* "FINALLY" - Massive impact word */}
-
-
-            {/* Main headline - Universal, emotional */}
-            <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-3 sm:space-y-5">
-              <p className="text-white/70 text-base sm:text-xl md:text-2xl tracking-[0.2em] uppercase font-light">
-                The User Manual For
+            {/* Main headline - Static, clear value prop */}
+            <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-4 sm:space-y-6">
+              <p className="text-white font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
+                The User Manual for
+                <br />
+                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent"
+                  style={{
+                    textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160px rgba(249,115,22,0.15)',
+                  }}
+                >
+                  You and Your People
+                </span>
               </p>
 
-              {/* The rotating relationship word - HUGE */}
-              <div
-                className={`
-                  relative inline-block
-                  text-white font-light text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] 
-                  tracking-tight leading-[1.1] pb-10
-                  transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
-                  ${isVisible ? 'opacity-100 scale-100 blur-0 translate-y-0' : 'opacity-0 scale-90 blur-xl translate-y-8'}
-                `}
-                style={{
-                  textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160px rgba(249,115,22,0.15)',
-                }}
-              >
-                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
-                  {ROTATING_WORDS[wordIndex]}
-                </span>
-                {/* Subtle underline that pulses */}
-                <div className="absolute -bottom-2 sm:-bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent animate-pulse" />
-              </div>
+              {/* Subheadline with mantras */}
+              <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-4xl mx-auto mt-6">
+                Relational Geometry optimization and Environmental Pressure mapping—
+                <br className="hidden sm:block" />
+                <span className="text-orange-400/90">no astrology, astrology.</span>{' '}
+                <span className="text-orange-400/90">no psychology, psychology.</span>
+              </p>
 
-              <p className="text-white/60 text-xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight">
-                & everyone you care about
+              {/* Trust signal */}
+              <p className="text-white/50 text-sm sm:text-base md:text-lg font-light max-w-3xl mx-auto mt-4">
+                Built on NASA-grade telemetry + clinical safety standards (SEDA)
               </p>
             </div>
           </h1>
@@ -133,7 +124,7 @@ export default function Landing() {
             </p>
           </div>
 
-          {/* Methodology badges - More prominent */}
+          {/* Methodology badges - Mantra-focused */}
           <div className="opacity-0 animate-[fadeReveal_1.5s_0.8s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-14">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14">
               <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
@@ -144,10 +135,10 @@ export default function Landing() {
                       <circle cx="10" cy="10" r="2" fill="currentColor" />
                     </svg>
                   </div>
-                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">Real Astrology</span>
+                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">No Astrology, Astrology</span>
                 </div>
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-[10px] text-white/60 whitespace-nowrap">Natal charts · Timing · Patterns</p>
+                  <p className="text-[10px] text-white/60 whitespace-nowrap">NASA JPL topocentric precision</p>
                 </div>
               </div>
 
@@ -161,10 +152,10 @@ export default function Landing() {
                       <path d="M7 10h2v5H7zm4-3h2v8h-2z" />
                     </svg>
                   </div>
-                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">Psychology</span>
+                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">No Psychology, Psychology</span>
                 </div>
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <p className="text-[10px] text-white/60 whitespace-nowrap">Family Systems · Bowen Theory</p>
+                  <p className="text-[10px] text-white/60 whitespace-nowrap">Mechanical transparency · Not diagnosis</p>
                 </div>
               </div>
             </div>
@@ -255,8 +246,8 @@ export default function Landing() {
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] mb-10 sm:mb-12 text-white">
                 We look at<br />
-                <span className="text-orange-500 font-normal">who people really are</span><br />
-                <span className="text-white/60">underneath the stress.</span>
+                <span className="text-orange-500 font-normal">each person's design specification</span><br />
+                <span className="text-white/60">underneath the stress response.</span>
               </h2>
               <div className="space-y-6 sm:space-y-8 text-lg sm:text-xl md:text-2xl text-white/60 leading-relaxed max-w-xl">
                 <p className="text-white/70">Most relationship advice focuses on <span className="text-white/40">what people do</span>.</p>
@@ -325,20 +316,19 @@ export default function Landing() {
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12">
           <div className="mb-16 md:mb-20">
             <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
-              The Manual
+              What You Get
             </span>
             <h2 className="text-3xl sm:text-5xl font-light text-white mb-6 leading-tight">
-              The user manual for you and your people.
+              Your personalized guide + relational tools
             </h2>
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase">// Here's what you get</p>
+            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase">// Three layers of clarity</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {[
-              { num: "01", title: "Who They Are", short: "Understanding their core personality.", desc: "Learn how they handle stress, what makes them feel safe, and how they naturally show up in relationships." },
-              { num: "02", title: "Patterns Under Stress", short: "What happens when things get tense.", desc: "See the cycles that play out when anxiety is high. Learn to spot when distance or pursuit patterns are starting." },
-              { num: "03", title: "How to Stay Grounded", short: "What helps when emotions run high.", desc: "Practical ways to stay calm, connected, and clear-headed when the other person is stressed or pulling away." },
-              { num: "04", title: "Keeping It Healthy", short: "Simple practices for your relationship.", desc: "Regular habits that help both of you stay connected and reduce the chronic stress that builds up over time." },
+              { num: "01", title: "Your Personal Design Specification", short: "Understanding your core design.", desc: "Learn how you handle Environmental Pressure, what maintains your coherence, and how your design naturally shows up in relational systems. Your personal operating system explained.", available: true },
+              { num: "02", title: "SIGNAL: Design-Aware De-escalation", short: "Conflict de-escalation engine.", desc: "Mobile keyboard that sanitizes tense conversations using design-awareness in real-time. Coming soon: optimize relational friction before you hit send.", available: false },
+              { num: "03", title: "ORBIT: Relational Geometry System", short: "NASA-grade multi-person friction analysis.", desc: "Visualize the Relational Geometry in your family system using topocentric precision. See triangulation, pressure points, and how each person's design creates friction. Map your system architecture.", available: false },
             ].map((item, index) => {
               const isActive = activeManualItem === index;
               return (
@@ -349,6 +339,9 @@ export default function Landing() {
                 >
                   <div className="mb-8 flex justify-between items-start">
                     <span className={`text-xl font-light font-mono opacity-60 ${isActive ? 'text-black' : 'text-orange-500'}`}>{item.num}</span>
+                    {!item.available && (
+                      <span className="text-[9px] tracking-wider px-2 py-1 bg-orange-500/20 text-orange-400 rounded-full uppercase font-bold">Soon</span>
+                    )}
                     <span className={`text-2xl transition-transform duration-300 ${isActive ? 'rotate-45 text-black' : 'text-white/20 group-hover:text-white/60'}`}>+</span>
                   </div>
                   <h3 className={`text-lg font-medium mb-4 tracking-wide ${isActive ? 'text-black' : 'text-white'}`}>{item.title}</h3>
@@ -372,13 +365,13 @@ export default function Landing() {
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 sm:mb-12 leading-tight">
                 Your personalized<br />
-                <span className="text-orange-500 font-normal">relationship guide</span>.
+                <span className="text-orange-500 font-normal">Design Coherence Manual</span>.
               </h2>
               <ul className="space-y-8 sm:space-y-10">
                 {[
-                  { title: "WHO THEY ARE", text: "A clear picture of their core personality and how they handle stress." },
-                  { title: "WHAT HAPPENS WHEN THINGS GET HARD", text: "The patterns that show up when anxiety is high and what you can do about it." },
-                  { title: "HOW TO STAY CONNECTED", text: "Practical ways to stay calm and grounded, even when they're pulling away or pushing back." }
+                  { title: "THEIR DESIGN SPECIFICATION", text: "A clear picture of their core design and how they respond to Environmental Pressure." },
+                  { title: "PRESSURE RESPONSE PROTOCOLS", text: "The patterns that emerge when systemic pressure is elevated and how to optimize relational friction." },
+                  { title: "MAINTAINING COHERENCE", text: "Mechanical strategies to stabilize your own design, even when they're cycling through pressure responses." }
                 ].map((item, i) => (
                   <li key={i} className="flex gap-5 sm:gap-6 group">
                     <span className="text-orange-500/40 font-mono text-sm sm:text-base pt-1 font-bold">0{i + 1}</span>
@@ -427,53 +420,123 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* SEDA SAFETY FIRST SECTION - NEW */}
+      <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/[0.02] to-transparent pointer-events-none" />
+        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
+          <div className="max-w-5xl mx-auto">
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+              Safety First
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-10 sm:mb-12 text-white">
+              We don't diagnose.
+              <br />
+              <span className="text-orange-500 font-normal">We provide mechanical transparency.</span>
+            </h2>
+
+            {/* SEDA Threshold Chart */}
+            <div className="mb-12 sm:mb-16">
+              <h3 className="text-xl sm:text-2xl text-white/80 font-light mb-8">SEDA Safety Firewall</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { range: "61–75", label: "Optimal", color: "green", desc: "High narrative clarity" },
+                  { range: "46–60", label: "Stable", color: "blue", desc: "Moderate integration" },
+                  { range: "30–45", label: "Caution", color: "yellow", desc: "Dual diagnosis risk" },
+                  { range: "<30", label: "Clinical Crisis", color: "red", desc: "Graceful degradation" },
+                ].map((threshold) => (
+                  <div
+                    key={threshold.range}
+                    className={`p-6 rounded-xl border ${threshold.color === 'green' ? 'border-green-500/30 bg-green-500/5' :
+                      threshold.color === 'blue' ? 'border-blue-500/30 bg-blue-500/5' :
+                        threshold.color === 'yellow' ? 'border-yellow-500/30 bg-yellow-500/5' :
+                          'border-red-500/30 bg-red-500/5'
+                      }`}
+                  >
+                    <div className={`text-3xl font-bold mb-2 ${threshold.color === 'green' ? 'text-green-400' :
+                      threshold.color === 'blue' ? 'text-blue-400' :
+                        threshold.color === 'yellow' ? 'text-yellow-400' :
+                          'text-red-400'
+                      }`}>
+                      {threshold.range}
+                    </div>
+                    <div className="text-white font-medium text-sm mb-1">{threshold.label}</div>
+                    <p className="text-white/50 text-xs">{threshold.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Crisis Protocol */}
+            <div className="pl-6 sm:pl-10 border-l-2 border-orange-500/60 bg-gradient-to-r from-orange-500/5 to-transparent py-6 sm:py-8 pr-6 mb-10">
+              <span className="block text-orange-400 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">Crisis Protocol</span>
+              <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-tight mb-4">
+                When your safety score falls below 30, we <span className="text-orange-400">gracefully degrade</span>.
+              </p>
+              <p className="text-base sm:text-lg text-white/60 leading-relaxed">
+                Instead of esoteric analysis, we shift focus to <span className="text-white">somatic grounding</span>: sleep, hydration, and physical stabilization. We provide the transparency that enables self-governance, not diagnosis.
+              </p>
+            </div>
+
+            {/* Supportive Tone */}
+            <blockquote className="border-l-2 border-white/20 pl-6 sm:pl-8 py-4">
+              <p className="text-lg sm:text-xl font-light text-white/70 italic">
+                "Things feel intense right now. Let's pause the deep work and focus on getting you settled. We'll find clarity together once you're grounded."
+              </p>
+              <p className="text-sm text-white/40 mt-3 font-mono">— DEFRAG Safety Protocol</p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL SECTION (PRICING + FOOTER) */}
       <section className="min-h-screen w-full snap-start flex flex-col pt-12 sm:pt-20 pb-10 relative border-t border-white/5 bg-black">
         <div className="max-w-[1200px] w-full mx-auto px-6 sm:px-12 relative flex-grow flex flex-col justify-center">
           <div className="text-center mb-16 sm:mb-24 max-w-5xl mx-auto">
-            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/60 mb-8 sm:mb-12 uppercase">Ready to understand?</span>
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/60 mb-8 sm:mb-12 uppercase">Risk Mitigation for Your Relationships</span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.1] mb-6 sm:mb-8 text-white text-center">
-              Stop guessing.<br />
-              <span className="text-white/40">Start understanding.</span>
+              Relationship insurance.
+              <br />
+              <span className="text-white/40">Not relationship advice.</span>
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-white/50 font-light max-w-2xl mx-auto">
-              Choose the right level of insight for your relationships.
+              Prevent conflict before it escalates. The cost of one bad fight is worth months of clarity.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
             <div className="p-6 sm:p-8 border border-white/10 glass-box rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Look</div>
+              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Audit</div>
               <div className="text-4xl font-light text-white mb-2">Free</div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Basic personality snapshot</p>
+              <p className="text-sm text-white/50 mb-8 font-mono">Basic compatibility baseline</p>
               <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Basic compatibility</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Core personality traits</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Safety threshold check (SEDA)</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Core design snapshot</li>
               </ul>
               <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Try It</Link>
             </div>
 
             <div className="p-8 border border-orange-500 bg-orange-500/[0.05] rounded-2xl relative flex flex-col scale-[1.05] shadow-[0_0_50px_rgba(249,115,22,0.1)]">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-orange-500 text-black text-[10px] tracking-[0.2em] font-bold rounded-full uppercase">Most Popular</div>
-              <div className="text-[10px] tracking-[0.3em] text-orange-500 uppercase mb-4 font-mono">Full Manual</div>
-              <div className="text-4xl font-light text-white mb-2">$19</div>
-              <p className="text-sm text-orange-500/60 mb-8 font-mono">The user manual for you & your people</p>
+              <div className="text-[10px] tracking-[0.3em] text-orange-500 uppercase mb-4 font-mono">Relationship Insurance</div>
+              <div className="text-4xl font-light text-white mb-2">$19<span className="text-lg text-white/50">/mo</span></div>
+              <p className="text-sm text-orange-500/60 mb-8 font-mono">The user manual + SEDA safety monitoring</p>
               <ul className="space-y-4 text-sm text-white/80 mb-8 flex-grow">
                 <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Who they really are</li>
                 <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Patterns under stress</li>
+                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● SEDA clinical safety firewall</li>
                 <li className="flex items-center gap-3 text-orange-500/90 font-medium">● How to stay grounded</li>
               </ul>
               <Link to="/start" className="w-full h-12 flex items-center justify-center bg-orange-500 text-black text-xs tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20">Get Your Manual</Link>
             </div>
 
             <div className="p-8 border border-white/10 bg-black/40 rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">For Teams</div>
-              <div className="text-4xl font-light text-white mb-2">$29</div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Multiple people</p>
+              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">For Teams + Families</div>
+              <div className="text-4xl font-light text-white mb-2">$29<span className="text-lg text-white/50">/mo</span></div>
+              <p className="text-sm text-white/50 mb-8 font-mono">Multiple people + ORBIT preview</p>
               <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Everything in Full Manual</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Everything in Insurance tier</li>
                 <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Family members & coworkers</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Compare dynamics</li>
+                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Early access to ORBIT Maps</li>
               </ul>
               <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Upgrade</Link>
             </div>

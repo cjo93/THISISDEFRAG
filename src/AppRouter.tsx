@@ -14,6 +14,8 @@ import Admin from './pages/Admin';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import OwnerRoute from './components/OwnerRoute';
+import Learn from './pages/Learn';
+import Relational from './pages/Relational';
 
 export default function AppRouter() {
   return (
@@ -29,6 +31,8 @@ export default function AppRouter() {
       <Route path="/terms" element={<Terms />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/signin/verify" element={<SignInVerify />} />
+      <Route path="/learn" element={<Learn />} />
+      <Route path="/relational" element={<Relational />} />
 
       {/* Protected Routes - Require Authentication */}
       <Route
