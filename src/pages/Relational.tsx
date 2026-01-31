@@ -22,9 +22,10 @@ export default function Relational() {
                         pressure points. See <em>why</em> certain people become conflict lightning rods—it's positional,
                         not personal.
                     </p>
-                    <div className="mt-10 inline-flex items-center gap-3 px-6 py-3 bg-orange-500/10 border border-orange-500/30 rounded-full">
-                        <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
-                        <span className="text-sm text-orange-400 font-semibold uppercase tracking-wider">Coming Soon</span>
+                    <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                        <Link to="/start" className="inline-flex h-12 px-8 items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-orange-400 transition-all rounded uppercase shadow-lg shadow-orange-500/20">
+                            Start Mapping
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -252,30 +253,29 @@ export default function Relational() {
                 </div>
             </section>
 
-            {/* Pricing Preview */}
-            <section className="py-20 px-6">
+            {/* CTA */}
+            <section className="py-20 px-6 border-t border-white/5 bg-white/[0.02]">
                 <div className="max-w-3xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl font-light mb-8 text-white">
-                        ORBIT is coming soon
+                        Map your system geometry.
                     </h2>
                     <p className="text-xl text-white/60 mb-12">
-                        Early access will be included in the <span className="text-orange-400 font-semibold">Teams + Families</span> tier ($29/mo).
-                        Get your individual User Manual now, and ORBIT will be added to your account when it launches.
+                        Identify the pressure points in your family or team with NASA-grade precision.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             to="/start"
                             className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20"
                         >
-                            Start with Your Manual
+                            Start Mapping ($29–99)
                         </Link>
                         <a
                             href="https://api.defrag.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-14 px-12 items-center justify-center border-2 border-white/20 text-white text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase"
+                            className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase"
                         >
-                            Developer API
+                            For Platforms (API)
                         </a>
                     </div>
                 </div>

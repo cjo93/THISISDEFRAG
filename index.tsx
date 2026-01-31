@@ -11,7 +11,7 @@ import './src/index.css';
 console.log('BOOT: Imports passed. Looking for root...');
 
 // CACHE BUSTING & VERSION CONTROL
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '2.0.0';
 
 try {
   const currentStoredVersion = localStorage.getItem('defrag_version');
@@ -57,8 +57,11 @@ if (!rootElement) {
 
 console.log('BOOT: Root found. Attempting mount...');
 
-class ErrorBoundary extends React.Component<{ children: React.ReactNode }, { hasError: boolean; error: any }> {
-  constructor(props: { children: React.ReactNode }) {
+interface ErrorBoundaryProps { children: React.ReactNode }
+interface ErrorBoundaryState { hasError: boolean; error: any }
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false, error: null };
   }

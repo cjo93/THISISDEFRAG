@@ -85,20 +85,20 @@ export default function Landing() {
             {/* Main headline - Static, clear value prop */}
             <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-4 sm:space-y-6">
               <p className="text-white font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
-                The User Manual for
+                Cognitive Middleware
                 <br />
                 <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent"
                   style={{
-                    textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160px rgba(249,115,22,0.15)',
+                    textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160 px rgba(249,115,22,0.15))',
                   }}
                 >
-                  You and Your People
+                  for Human Systems
                 </span>
               </p>
 
               {/* Subheadline with mantras */}
               <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-4xl mx-auto mt-6">
-                Relational Geometry optimization and Environmental Pressure mapping—
+                NASA JPL topocentric precision + SEDA Clinical Firewall.
                 <br className="hidden sm:block" />
                 <span className="text-orange-400/90">no astrology, astrology.</span>{' '}
                 <span className="text-orange-400/90">no psychology, psychology.</span>
@@ -106,7 +106,7 @@ export default function Landing() {
 
               {/* Trust signal */}
               <p className="text-white/50 text-sm sm:text-base md:text-lg font-light max-w-3xl mx-auto mt-4">
-                Built on NASA-grade telemetry + clinical safety standards (SEDA)
+                For individuals, couples, teams, and platforms
               </p>
             </div>
           </h1>
@@ -311,114 +311,114 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* MODULES SECTION */}
-      <section className="min-h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
-        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12">
-          <div className="mb-16 md:mb-20">
-            <span className="inline-block text-xs font-mono tracking-widest text-orange-400/80 mb-8 border-l border-orange-500/50 pl-3 uppercase">
-              What You Get
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-light text-white mb-6 leading-tight">
-              Your personalized guide + relational tools
+      {/* OFFERINGS GRID - 4 SEPARATE PRODUCTS */}
+      <section className="min-h-screen w-full snap-start flex items-center py-16 sm:py-24 relative border-t border-white/5 bg-black">
+        <div className="max-w-7xl w-full mx-auto px-6 sm:px-12">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-white font-light text-4xl sm:text-5xl md:text-6xl leading-[1.1] mb-6">
+              DEFRAG Offerings
             </h2>
-            <p className="text-white/40 text-[10px] sm:text-xs tracking-[0.2em] font-mono uppercase">// Three layers of clarity</p>
+            <p className="text-white/50 text-lg sm:text-xl max-w-3xl mx-auto">
+              Four tools. One clinical firewall. Choose what you need.
+            </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {[
-              { num: "01", title: "Your Personal Design Specification", short: "Understanding your core design.", desc: "Learn how you handle Environmental Pressure, what maintains your coherence, and how your design naturally shows up in relational systems. Your personal operating system explained.", available: true },
-              { num: "02", title: "SIGNAL: Design-Aware De-escalation", short: "Conflict de-escalation engine.", desc: "Mobile keyboard that sanitizes tense conversations using design-awareness in real-time. Coming soon: optimize relational friction before you hit send.", available: false },
-              { num: "03", title: "ORBIT: Relational Geometry System", short: "NASA-grade multi-person friction analysis.", desc: "Visualize the Relational Geometry in your family system using topocentric precision. See triangulation, pressure points, and how each person's design creates friction. Map your system architecture.", available: false },
-            ].map((item, index) => {
-              const isActive = activeManualItem === index;
-              return (
-                <div
-                  key={item.num}
-                  onClick={() => setActiveManualItem(isActive ? null : index)}
-                  className={`group relative p-8 rounded-xl cursor-pointer transition-all duration-500 border ${isActive ? 'bg-orange-500 border-orange-500 text-black shadow-[0_0_40px_rgba(249,115,22,0.3)]' : 'bg-white/[0.01] border-white/10 hover:border-orange-500/50 hover:bg-orange-500/[0.05]'}`}
-                >
-                  <div className="mb-8 flex justify-between items-start">
-                    <span className={`text-xl font-light font-mono opacity-60 ${isActive ? 'text-black' : 'text-orange-500'}`}>{item.num}</span>
-                    {!item.available && (
-                      <span className="text-[9px] tracking-wider px-2 py-1 bg-orange-500/20 text-orange-400 rounded-full uppercase font-bold">Soon</span>
-                    )}
-                    <span className={`text-2xl transition-transform duration-300 ${isActive ? 'rotate-45 text-black' : 'text-white/20 group-hover:text-white/60'}`}>+</span>
-                  </div>
-                  <h3 className={`text-lg font-medium mb-4 tracking-wide ${isActive ? 'text-black' : 'text-white'}`}>{item.title}</h3>
-                  <p className={`text-sm leading-relaxed ${isActive ? 'text-black/80 font-medium' : 'text-white/50'}`}>{isActive ? item.desc : item.short}</p>
+          {/* 4-Tile Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {/* TILE 1: ECHO */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-orange-400 text-xl">📄</span>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* WHAT'S INSIDE SECTION - ELEVATED */}
-      <section className="h-screen w-full snap-start flex items-center py-20 relative overflow-hidden border-t border-white/5 bg-black">
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-orange-500/[0.03] to-transparent pointer-events-none" />
-        <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-            <div>
-              <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
-                What You Get
-              </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white mb-10 sm:mb-12 leading-tight">
-                Your personalized<br />
-                <span className="text-orange-500 font-normal">Design Coherence Manual</span>.
-              </h2>
-              <ul className="space-y-8 sm:space-y-10">
-                {[
-                  { title: "THEIR DESIGN SPECIFICATION", text: "A clear picture of their core design and how they respond to Environmental Pressure." },
-                  { title: "PRESSURE RESPONSE PROTOCOLS", text: "The patterns that emerge when systemic pressure is elevated and how to optimize relational friction." },
-                  { title: "MAINTAINING COHERENCE", text: "Mechanical strategies to stabilize your own design, even when they're cycling through pressure responses." }
-                ].map((item, i) => (
-                  <li key={i} className="flex gap-5 sm:gap-6 group">
-                    <span className="text-orange-500/40 font-mono text-sm sm:text-base pt-1 font-bold">0{i + 1}</span>
-                    <div>
-                      <h4 className="text-white text-sm sm:text-base font-bold tracking-[0.2em] mb-2 group-hover:text-orange-400 transition-colors uppercase">{item.title}</h4>
-                      <p className="text-white/50 text-base sm:text-lg leading-relaxed">{item.text}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                <h3 className="text-white text-xl sm:text-2xl font-light mb-2">ECHO</h3>
+                <p className="text-orange-400 text-sm font-mono">Personal Design Specification</p>
+              </div>
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                Understand your operating system. One-time User Manual with Gates, Environmental Pressure profiles, and pressure response protocols.
+              </p>
+              <div className="space-y-3">
+                <Link
+                  to="/echo"
+                  className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
+                >
+                  Generate Manual ($19–49)
+                </Link>
+                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
+              </div>
             </div>
 
-            <div className="relative">
-              {/* Blurred "Pages" stack for premium feel */}
-              <div className="relative aspect-[4/3] w-full max-w-lg mx-auto">
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-black/80 border border-white/10 rounded-lg shadow-2xl rotate-2 translate-x-4 translate-y-4 blur-[2px] opacity-20" />
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-black/80 border border-white/10 rounded-lg shadow-2xl -rotate-1 translate-x-2 translate-y-2 opacity-40 blur-[1px]" />
-                <div className="absolute top-0 right-0 w-[80%] h-full bg-black border border-orange-500/20 rounded-lg shadow-[0_0_50px_rgba(249,115,22,0.1)] p-8 overflow-hidden group/page">
-                  {/* Decorative "content" */}
-                  <div className="space-y-4 opacity-40 select-none">
-                    <div className="h-2 w-1/2 bg-orange-500/50 rounded" />
-                    <div className="space-y-2">
-                      <div className="h-1 w-full bg-white/20 rounded" />
-                      <div className="h-1 w-[90%] bg-white/20 rounded" />
-                      <div className="h-1 w-[95%] bg-white/20 rounded" />
-                    </div>
-                    <div className="pt-4 border-t border-white/5">
-                      <div className="h-2 w-1/3 bg-white/30 rounded mb-2" />
-                      <div className="h-40 w-full bg-white/[0.02] border border-white/10 rounded-lg flex items-center justify-center">
-                        <span className="text-[10px] text-white/20 font-mono uppercase tracking-[0.3em]">Analysis Node 042</span>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Floating callout */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-box-opaque border border-orange-500/50 p-6 rounded-lg w-64 shadow-2xl transition-transform group-hover/page:scale-105">
-                    <p className="text-white/90 text-[10px] leading-relaxed font-mono">
-                      <span className="text-orange-500 font-bold block mb-2 uppercase tracking-widest">Self-Differentiation</span>
-                      "When anxiety rises in the emotional system, focus on regulating your own response rather than reacting to their withdrawal."
-                    </p>
-                  </div>
+            {/* TILE 2: SIGNAL */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col opacity-75">
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-orange-400 text-xl">💬</span>
                 </div>
+                <h3 className="text-white text-xl sm:text-2xl font-light mb-2">SIGNAL</h3>
+                <p className="text-orange-400 text-sm font-mono">Design-Aware Conflict De-escalation</p>
+              </div>
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                Real-time message revision. Removes Entropy Markers before they trigger relational collapse. Design-aware keyboard app.
+              </p>
+              <div className="space-y-3">
+                <button className="w-full px-4 py-3 border border-orange-500/50 text-orange-400 text-sm font-mono rounded opacity-50 cursor-not-allowed">
+                  Coming Soon (Early Access)
+                </button>
+                <span className="block text-center text-orange-400/60 text-xs font-mono">Q2 2026</span>
+              </div>
+            </div>
+
+            {/* TILE 3: ORBIT */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-orange-400 text-xl">🔗</span>
+                </div>
+                <h3 className="text-white text-xl sm:text-2xl font-light mb-2">ORBIT</h3>
+                <p className="text-orange-400 text-sm font-mono">Relational Geometry System</p>
+              </div>
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                Multi-person system mapping. Identify friction, pressure points, and triangulation patterns in families or teams. NASA JPL precision.
+              </p>
+              <div className="space-y-3">
+                <Link
+                  to="/relational"
+                  className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
+                >
+                  Map Your System ($29–99)
+                </Link>
+                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
+              </div>
+            </div>
+
+            {/* TILE 4: API */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+              <div className="mb-6">
+                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-orange-400 text-xl">⚙️</span>
+                </div>
+                <h3 className="text-white text-xl sm:text-2xl font-light mb-2">DEFRAG API</h3>
+                <p className="text-orange-400 text-sm font-mono">Clinical Firewall for Platforms</p>
+              </div>
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
+                B2B infrastructure. Integrate SEDA safety gating + NASA telemetry + relational geometry into your wellness platform. Enterprise licensing.
+              </p>
+              <div className="space-y-3">
+                <a href="https://api.defrag.app" target="_blank" rel="noopener noreferrer" className="block">
+                  <button className="w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition">
+                    Explore API
+                  </button>
+                </a>
+                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
               </div>
             </div>
 
           </div>
         </div>
       </section>
+
 
       {/* SEDA SAFETY FIRST SECTION - NEW */}
       <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
@@ -488,58 +488,28 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* FINAL SECTION (PRICING + FOOTER) */}
-      <section className="min-h-screen w-full snap-start flex flex-col pt-12 sm:pt-20 pb-10 relative border-t border-white/5 bg-black">
-        <div className="max-w-[1200px] w-full mx-auto px-6 sm:px-12 relative flex-grow flex flex-col justify-center">
-          <div className="text-center mb-16 sm:mb-24 max-w-5xl mx-auto">
-            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/60 mb-8 sm:mb-12 uppercase">Risk Mitigation for Your Relationships</span>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.1] mb-6 sm:mb-8 text-white text-center">
-              Relationship insurance.
-              <br />
-              <span className="text-white/40">Not relationship advice.</span>
-            </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/50 font-light max-w-2xl mx-auto">
-              Prevent conflict before it escalates. The cost of one bad fight is worth months of clarity.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto w-full">
-            <div className="p-6 sm:p-8 border border-white/10 glass-box rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">Quick Audit</div>
-              <div className="text-4xl font-light text-white mb-2">Free</div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Basic compatibility baseline</p>
-              <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Safety threshold check (SEDA)</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Core design snapshot</li>
-              </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Try It</Link>
-            </div>
-
-            <div className="p-8 border border-orange-500 bg-orange-500/[0.05] rounded-2xl relative flex flex-col scale-[1.05] shadow-[0_0_50px_rgba(249,115,22,0.1)]">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-orange-500 text-black text-[10px] tracking-[0.2em] font-bold rounded-full uppercase">Most Popular</div>
-              <div className="text-[10px] tracking-[0.3em] text-orange-500 uppercase mb-4 font-mono">Relationship Insurance</div>
-              <div className="text-4xl font-light text-white mb-2">$19<span className="text-lg text-white/50">/mo</span></div>
-              <p className="text-sm text-orange-500/60 mb-8 font-mono">The user manual + SEDA safety monitoring</p>
-              <ul className="space-y-4 text-sm text-white/80 mb-8 flex-grow">
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Who they really are</li>
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● Patterns under stress</li>
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● SEDA clinical safety firewall</li>
-                <li className="flex items-center gap-3 text-orange-500/90 font-medium">● How to stay grounded</li>
-              </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center bg-orange-500 text-black text-xs tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20">Get Your Manual</Link>
-            </div>
-
-            <div className="p-8 border border-white/10 bg-black/40 rounded-2xl flex flex-col">
-              <div className="text-[10px] tracking-[0.3em] text-white/40 uppercase mb-4 font-mono">For Teams + Families</div>
-              <div className="text-4xl font-light text-white mb-2">$29<span className="text-lg text-white/50">/mo</span></div>
-              <p className="text-sm text-white/50 mb-8 font-mono">Multiple people + ORBIT preview</p>
-              <ul className="space-y-4 text-sm text-white/60 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Everything in Insurance tier</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Family members & coworkers</li>
-                <li className="flex items-center gap-3"><span className="text-orange-500">+</span> Early access to ORBIT Maps</li>
-              </ul>
-              <Link to="/start" className="w-full h-12 flex items-center justify-center border border-white/20 text-white/80 text-xs tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">Upgrade</Link>
-            </div>
+      {/* FOOTER CTA */}
+      <section className="w-full snap-start flex flex-col pt-16 pb-10 relative border-t border-white/5 bg-black">
+        <div className="max-w-5xl w-full mx-auto px-6 sm:px-12 text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light text-white mb-6">
+            Ready to build clarity?
+          </h2>
+          <p className="text-lg sm:text-xl text-white/50 mb-10 max-w-2xl mx-auto">
+            Start with your Personal Design Specification or explore multi-person system mapping.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/start"
+              className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase"
+            >
+              Generate Manual
+            </Link>
+            <Link
+              to="/relational"
+              className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white/80 text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase"
+            >
+              Explore ORBIT
+            </Link>
           </div>
         </div>
 
