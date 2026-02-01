@@ -22,51 +22,52 @@ const PlatformHub: React.FC = () => {
         <div className="platform-container bg-black text-white">
             <Header />
 
-            <section className="hero-section min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(249,115,22,0.15)_0%,_transparent_50%)]" />
-
-                <div className="hero-content relative z-10 text-center px-6">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/5 text-orange-400 text-xs font-mono tracking-widest uppercase mb-8">
-                        <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                        The Manual for You and Your People
+            {/* HERO — Infrastructure-first, matching /agents visual language */}
+            <section className="min-h-screen flex items-center relative overflow-hidden pt-20 bg-black">
+                <div className="max-w-7xl mx-auto px-6 py-24 w-full">
+                    {/* Phase Badge — technical, not consumer */}
+                    <div className="inline-flex items-center gap-2 px-3 py-1 border border-orange-500/50 text-orange-400 text-[10px] font-mono tracking-widest uppercase mb-8 rounded">
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                        Cognitive Middleware
                     </div>
 
-                    <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                        DEFRAG
+                    {/* Headline — left-aligned, high-contrast */}
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
+                        Safety Infrastructure<br />
+                        <span className="text-white/40">for Human Systems</span>
                     </h1>
 
-                    <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-6">
-                        A clear user manual for you and your people, so you <span className="text-white">stop repeating the same fight on different days</span>.
-                    </p>
-                    <p className="text-lg text-white/40 font-light max-w-2xl mx-auto leading-relaxed mb-12">
-                        See how you run under stress, how the people around you run under stress, and what keeps the system stable instead of spinning out.
+                    {/* Subline — mechanical, not emotional */}
+                    <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed mb-12">
+                        DEFRAG provides pattern recognition, safety gating, and stability tracking for any platform handling high-stakes human decisions.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link to="/start" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase">
-                            Get Your Manual
+                    {/* Dual CTAs — explore vs develop */}
+                    <div className="flex flex-col sm:flex-row gap-4 mb-20">
+                        <Link to="/products/manuals" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase">
+                            Explore Tools
                             <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link to="/products/manuals" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
-                            How It Works
+                        <Link to="/developer" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
+                            For Developers
                         </Link>
                     </div>
 
-                    <div className="mt-20 flex flex-wrap justify-center gap-12 opacity-40 grayscale group-hover:grayscale-0 transition-all">
-                        <div className="text-center">
-                            <div className="text-sm font-black tracking-widest uppercase">NASA JPL</div>
-                            <div className="text-[10px] tracking-widest">Orbital Telemetry</div>
+                    {/* Trust Badges — infrastructure credibility */}
+                    <div className="flex flex-wrap gap-12 opacity-60">
+                        <div>
+                            <div className="text-xs font-bold tracking-widest uppercase text-white">SEDA-Gated</div>
+                            <div className="text-[10px] tracking-widest text-zinc-500">Clinical Safety Standard</div>
                         </div>
-                        <div className="text-center">
-                            <div className="text-sm font-black tracking-widest uppercase">SEDA</div>
-                            <div className="text-[10px] tracking-widest">Clinical Firewall</div>
+                        <div>
+                            <div className="text-xs font-bold tracking-widest uppercase text-white">SOC 2 Type II</div>
+                            <div className="text-[10px] tracking-widest text-zinc-500">Enterprise Ready</div>
+                        </div>
+                        <div>
+                            <div className="text-xs font-bold tracking-widest uppercase text-white">99.9% Uptime</div>
+                            <div className="text-[10px] tracking-widest text-zinc-500">Production SLA</div>
                         </div>
                     </div>
-                </div>
-
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20">
-                    <span className="text-[10px] tracking-[0.3em] uppercase">Scroll to Explore</span>
-                    <div className="w-px h-12 bg-gradient-to-b from-white to-transparent" />
                 </div>
             </section>
 
