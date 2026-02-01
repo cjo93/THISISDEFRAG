@@ -33,13 +33,13 @@ const PlatformHub: React.FC = () => {
 
                     {/* Headline — left-aligned, high-contrast */}
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
-                        Safety Infrastructure<br />
+                        Cognitive Middleware<br />
                         <span className="text-white/40">for Human Systems</span>
                     </h1>
 
                     {/* Subline — mechanical, not emotional */}
                     <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed mb-12">
-                        DEFRAG provides pattern recognition, safety gating, and stability tracking for any platform handling high-stakes human decisions.
+                        NASA-grade telemetry with a clinical safety firewall. For individuals, couples, teams, and platforms.
                     </p>
 
                     {/* Dual CTAs — explore vs develop */}
@@ -73,22 +73,30 @@ const PlatformHub: React.FC = () => {
 
             <section className="products-section py-24 bg-black">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-4 gap-6">
                         <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">◎</div>
                             <h3 className="text-2xl font-light mb-2">ECHO</h3>
                             <p className="text-xs text-white/30 font-mono mb-4">Personal Manual</p>
-                            <p className="text-white/50 mb-8 leading-relaxed">A short, plain-language manual: what drains you, what restores you, and the few rules that keep you stable.</p>
+                            <p className="text-white/50 mb-8 leading-relaxed text-sm">A short, plain-language manual: what drains you, what restores you, and the few rules that keep you stable.</p>
                             <Link to="/products/manuals" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
                                 Get Your Manual <ArrowRight size={14} />
                             </Link>
+                        </div>
+
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] opacity-75 group">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">💬</div>
+                            <h3 className="text-2xl font-light mb-2">SIGNAL</h3>
+                            <p className="text-xs text-white/30 font-mono mb-4">Conflict Resolution</p>
+                            <p className="text-white/50 mb-8 leading-relaxed text-sm">Real-time message filtering. Removes entropy markers before they trigger relational collapse.</p>
+                            <span className="text-white/30 text-xs font-mono border border-white/10 px-2 py-1 rounded">COMING SOON</span>
                         </div>
 
                         <Link to="/relational" className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group block">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">⬡</div>
                             <h3 className="text-2xl font-light mb-2">ORBIT</h3>
                             <p className="text-xs text-white/30 font-mono mb-4">System Map</p>
-                            <p className="text-white/50 mb-8 leading-relaxed">A simple map of where a family or team locks up, who holds most of the pressure, and the smallest moves that release it.</p>
+                            <p className="text-white/50 mb-8 leading-relaxed text-sm">A simple map of where a family or team locks up, and who holds most of the pressure.</p>
                             <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
                                 Map Your System <ArrowRight size={14} />
                             </span>
@@ -98,10 +106,10 @@ const PlatformHub: React.FC = () => {
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">{"{ }"}</div>
                             <div className="flex items-center gap-3 mb-2">
                                 <h3 className="text-2xl font-light">API</h3>
-                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Private Testing</span>
+                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Testing</span>
                             </div>
                             <p className="text-xs text-white/30 font-mono mb-4">Safety Layer</p>
-                            <p className="text-white/50 mb-8 leading-relaxed">A safety layer any app can use to keep people safe when talking about big life topics.</p>
+                            <p className="text-white/50 mb-8 leading-relaxed text-sm">A safety layer any app can use to keep people safe when talking about big life topics.</p>
                             <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
                                 Request Access <ArrowRight size={14} />
                             </span>
