@@ -85,28 +85,23 @@ export default function Landing() {
             {/* Main headline - Static, clear value prop */}
             <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-4 sm:space-y-6">
               <p className="text-white font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
-                Manuals for your People
+                Stop repeating the same fight
                 <br />
-                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent"
-                  style={{
-                    textShadow: '0 0 80px rgba(249,115,22,0.3), 0 0 160 px rgba(249,115,22,0.15))',
-                  }}
-                >
-
+                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
+                  on different days
                 </span>
               </p>
 
-              {/* Subheadline with mantras */}
+              {/* Subheadline - plain language */}
               <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-4xl mx-auto mt-6">
-                NASA JPL topocentric precision + SEDA Clinical Firewall.
+                A clear user manual for you and your people.
                 <br className="hidden sm:block" />
-                <span className="text-orange-400/90">no astrology, astrology.</span>{' '}
-                <span className="text-orange-400/90">no psychology, psychology.</span>
+                <span className="text-orange-400/90">What drains you. What restores you. What keeps you stable.</span>
               </p>
 
               {/* Trust signal */}
               <p className="text-white/50 text-sm sm:text-base md:text-lg font-light max-w-3xl mx-auto mt-4">
-                For individuals, couples, teams, and platforms
+                See how you run under stress — and what keeps the system from spinning out.
               </p>
             </div>
           </h1>
@@ -114,13 +109,13 @@ export default function Landing() {
           {/* Subheadline - The promise */}
           <div className="opacity-0 animate-[fadeReveal_1.5s_0.6s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-16 max-w-4xl mx-auto">
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/80 font-light leading-relaxed mb-4 sm:mb-6">
-              Why they do what they do.
+              We don't do vibes or diagnosis.
               <br className="hidden sm:block" />
-              <span className="text-white">How to stay connected when it's hard.</span>
+              <span className="text-white">We show the mechanics: where the pressure is, where the friction is, and what stabilizes it.</span>
             </p>
             <p className="text-sm sm:text-base md:text-lg text-white/40 font-light max-w-2xl mx-auto leading-relaxed">
               No more guessing. No more feeling lost.<br className="hidden sm:block" />
-              Just clarity when you need it most.
+              Just a short, plain-language manual you can actually use.
             </p>
           </div>
 

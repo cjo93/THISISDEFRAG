@@ -28,25 +28,27 @@ const PlatformHub: React.FC = () => {
                 <div className="hero-content relative z-10 text-center px-6">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/5 text-orange-400 text-xs font-mono tracking-widest uppercase mb-8">
                         <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-                        Human Systems Intelligence
+                        The Manual for You and Your People
                     </div>
 
                     <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-light tracking-tighter mb-8 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
                         DEFRAG
                     </h1>
 
-                    <p className="text-xl sm:text-2xl md:text-3xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-12">
-                        Holistic infrastructure for <span className="text-white">Cognitive Middleware</span>.
-                        NASA JPL Precision × SEDA Clinical Safety.
+                    <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-6">
+                        A clear user manual for you and your people, so you <span className="text-white">stop repeating the same fight on different days</span>.
+                    </p>
+                    <p className="text-lg text-white/40 font-light max-w-2xl mx-auto leading-relaxed mb-12">
+                        See how you run under stress, how the people around you run under stress, and what keeps the system stable instead of spinning out.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link to="/developer" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase">
-                            Explore API
+                        <Link to="/start" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase">
+                            Get Your Manual
                             <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link to="/docs" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
-                            Read Docs
+                        <Link to="/products/manuals" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
+                            How It Works
                         </Link>
                     </div>
 
@@ -73,32 +75,35 @@ const PlatformHub: React.FC = () => {
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">◎</div>
-                            <h3 className="text-2xl font-light mb-4">Manuals</h3>
-                            <p className="text-white/50 mb-8 leading-relaxed">Personal design specifications. Understanding why they do what they do under pressure.</p>
+                            <h3 className="text-2xl font-light mb-2">ECHO</h3>
+                            <p className="text-xs text-white/30 font-mono mb-4">Personal Manual</p>
+                            <p className="text-white/50 mb-8 leading-relaxed">A short, plain-language manual: what drains you, what restores you, and the few rules that keep you stable.</p>
                             <Link to="/products/manuals" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
-                                Learn More <ArrowRight size={14} />
+                                Get Your Manual <ArrowRight size={14} />
                             </Link>
                         </div>
+
+                        <Link to="/relational" className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group block">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">⬡</div>
+                            <h3 className="text-2xl font-light mb-2">ORBIT</h3>
+                            <p className="text-xs text-white/30 font-mono mb-4">System Map</p>
+                            <p className="text-white/50 mb-8 leading-relaxed">A simple map of where a family or team locks up, who holds most of the pressure, and the smallest moves that release it.</p>
+                            <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
+                                Map Your System <ArrowRight size={14} />
+                            </span>
+                        </Link>
 
                         <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group cursor-pointer" onClick={() => setShowDevModal(true)}>
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">{"{ }"}</div>
-                            <div className="flex items-center gap-3 mb-4">
-                                <h3 className="text-2xl font-light">For Builders</h3>
-                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Coming Soon</span>
+                            <div className="flex items-center gap-3 mb-2">
+                                <h3 className="text-2xl font-light">API</h3>
+                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Private Testing</span>
                             </div>
-                            <p className="text-white/50 mb-8 leading-relaxed">Use DEFRAG in my own tools. API access for developers building human-aware applications.</p>
+                            <p className="text-xs text-white/30 font-mono mb-4">Safety Layer</p>
+                            <p className="text-white/50 mb-8 leading-relaxed">A safety layer any app can use to keep people safe when talking about big life topics.</p>
                             <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
                                 Request Access <ArrowRight size={14} />
                             </span>
-                        </div>
-
-                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">⎔</div>
-                            <h3 className="text-2xl font-light mb-4">Enterprise</h3>
-                            <p className="text-white/50 mb-8 leading-relaxed">Custom SEDA implementations and high-fidelity human system modeling for organizations.</p>
-                            <Link to="/contact" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
-                                Contact Sales <ArrowRight size={14} />
-                            </Link>
                         </div>
                     </div>
                 </div>
