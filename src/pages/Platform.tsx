@@ -4,13 +4,13 @@ import Header from '../components/Header';
 
 export default function Platform() {
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-cyan-500/30">
+        <div className="min-h-screen bg-black text-white selection:bg-orange-500/30">
             <Header />
 
             {/* HERO */}
-            <section className="pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-900/10 via-black to-black">
+            <section className="pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/10 via-black to-black">
                 <div className="max-w-7xl mx-auto text-center">
-                    <span className="inline-block text-xs font-mono tracking-widest text-cyan-400 mb-6 border border-cyan-500/30 px-3 py-1 rounded bg-cyan-900/10 uppercase">
+                    <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-6 border border-orange-500/30 px-3 py-1 rounded bg-slate-900/10 uppercase">
                         DEFRAG API
                     </span>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
@@ -21,7 +21,7 @@ export default function Platform() {
                         Add NASA-grade orbital telemetry and clinical safety barriers to your wellness platform with a single API.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button className="inline-flex h-14 px-8 items-center justify-center bg-cyan-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-cyan-400 transition-all rounded-lg uppercase shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                        <button className="inline-flex h-14 px-8 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                             Get API Keys
                         </button>
                         <Link to="/docs" className="inline-flex h-14 px-8 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase">
@@ -36,7 +36,7 @@ export default function Platform() {
                 <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
                     {/* SEDA */}
                     <div className="space-y-4">
-                        <div className="h-12 w-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400 text-2xl">🛡️</div>
+                        <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">🛡️</div>
                         <h3 className="text-2xl text-white font-light">SEDA Clinical Firewall</h3>
                         <p className="text-white/50 leading-relaxed">
                             Automated safety auditing for AI outputs. Detects esoteric delusion risk and throttles content based on SEDA scores.
@@ -44,7 +44,7 @@ export default function Platform() {
                     </div>
                     {/* TELEMETRY */}
                     <div className="space-y-4">
-                        <div className="h-12 w-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400 text-2xl">📡</div>
+                        <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">📡</div>
                         <h3 className="text-2xl text-white font-light">NASA Telemetry</h3>
                         <p className="text-white/50 leading-relaxed">
                             Sub-arcsecond planetary position vectors. Topocentric precision for biologically accurate environmental pressure mapping.
@@ -52,7 +52,7 @@ export default function Platform() {
                     </div>
                     {/* ORBIT */}
                     <div className="space-y-4">
-                        <div className="h-12 w-12 bg-cyan-500/10 rounded flex items-center justify-center text-cyan-400 text-2xl">🔗</div>
+                        <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">🔗</div>
                         <h3 className="text-2xl text-white font-light">Relational Geometry</h3>
                         <p className="text-white/50 leading-relaxed">
                             Map the friction and flow between any two human systems. Identify structural pressure points in teams and families.
@@ -82,8 +82,8 @@ export default function Platform() {
                         </div>
 
                         {/* PRO */}
-                        <div className="p-8 rounded-2xl border border-cyan-500/30 bg-cyan-900/5 relative">
-                            <div className="absolute top-0 right-0 bg-cyan-500 text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest">
+                        <div className="p-8 rounded-2xl border border-orange-500/30 bg-slate-900/5 relative">
+                            <div className="absolute top-0 right-0 bg-orange-500 text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest">
                                 Recommended
                             </div>
                             <h3 className="text-xl text-white font-mono mb-2">Pro</h3>
@@ -93,7 +93,7 @@ export default function Platform() {
                                 <li>• All Endpoints (SEDA + Relay)</li>
                                 <li>• Priority Support</li>
                             </ul>
-                            <button className="w-full py-4 bg-cyan-500 text-black hover:bg-cyan-400 transition uppercase text-xs tracking-widest font-bold rounded shadow-lg shadow-cyan-500/20">
+                            <button className="w-full py-4 bg-orange-500 text-black hover:bg-orange-400 transition uppercase text-xs tracking-widest font-bold rounded shadow-lg shadow-orange-500/20">
                                 Subscribe
                             </button>
                         </div>

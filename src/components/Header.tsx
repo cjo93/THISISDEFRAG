@@ -1,70 +1,190 @@
+'use client';
 
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
-const NavLink = ({ to, label, active }: { to: string; label: string; active: boolean }) => (
-    <Link
-        to={to}
-        className={`text-[10px] tracking-[0.3em] font-mono uppercase transition-all duration-300 ${active ? 'text-orange-500' : 'text-white/40 hover:text-white'
-            }`}
-    >
-        {label}
-    </Link>
-);
-
-const Header = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const location = useLocation();
-
-    useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+export default function Header() {
+    const [mobileOpen, setMobileOpen] = useState(false);
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/5 py-4' : 'bg-transparent py-8'
-                }`}
+            style={{
+                position: 'sticky',
+                top: 0,
+                zIndex: 100,
+                background: 'rgba(10, 10, 10, 0.98)',
+                backdropFilter: 'blur(12px)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: 'var(--space-4) 0',
+            }}
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <div
+                style={{
+                    maxWidth: '80rem',
+                    margin: '0 auto',
+                    padding: '0 var(--space-6)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 'var(--space-8)',
+                }}
+            >
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-4 group">
-                    <div className="relative w-10 h-10 flex items-center justify-center text-orange-500">
-                        <svg width="100" height="100" viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(249,115,22,0.4)]" fill="none">
-                            <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" className="opacity-20" />
-                            <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="1.5" className="opacity-40" />
-                            <circle cx="50" cy="50" r="8" fill="currentColor" />
-                        </svg>
-                    </div>
-                    <span className="text-xl font-light tracking-[0.4em] uppercase group-hover:tracking-[0.5em] transition-all duration-500">
-                        DEFRAG
-                    </span>
+                <Link
+                    to="/"
+                    style={{
+                        fontSize: '1.5rem',
+                        fontWeight: 700,
+                        color: 'var(--color-white)',
+                        textDecoration: 'none',
+                        letterSpacing: '-0.05em',
+                        transition: 'color var(--transition-base)',
+                        cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-orange)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-white)')}
+                >
+                    DEFRAG
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-12">
-                    <NavLink to="/products/manuals" label="Manuals" active={location.pathname === '/products/manuals'} />
-                    <NavLink to="/dashboard" label="Dashboard" active={location.pathname.startsWith('/dashboard')} />
-                    <NavLink to="/developer" label="Developer" active={location.pathname.startsWith('/developer')} />
-                    <NavLink to="/docs" label="Docs" active={location.pathname.startsWith('/docs')} />
+                <nav
+                    className="desktop-nav"
+                    style={{
+                        flex: 1,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        gap: 'var(--space-8)',
+                    }}
+                >
+                    {[
+                        { label: 'Platform', path: '/platform' },
+                        { label: 'Agents', path: '/agents' },
+                        { label: 'Developer', path: '/developer' },
+                        { label: 'Docs', path: '/docs' },
+                        { label: 'About', path: '/contact' },
+                    ].map((item) => (
+                        <Link
+                            key={item.label}
+                            to={item.path}
+                            style={{
+                                fontSize: '0.875rem',
+                                fontWeight: 500,
+                                color: 'var(--color-slate-400)',
+                                textDecoration: 'none',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                                transition: 'color var(--transition-base)',
+                                cursor: 'pointer',
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-white)')}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-slate-400)')}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
                 </nav>
 
+                {/* Mobile Toggle */}
+                <button
+                    className="mobile-toggle"
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--color-white)',
+                        cursor: 'pointer',
+                        padding: 0,
+                    }}
+                >
+                    {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
                 {/* CTA */}
-                <div className="flex items-center gap-6">
-                    <Link to="/signin" className="hidden sm:block text-[10px] tracking-[0.3em] font-mono uppercase text-white/40 hover:text-white transition-all">
-                        Sign In
-                    </Link>
-                    <Link
-                        to="/start"
-                        className="px-6 py-2 bg-orange-500 text-black text-[10px] tracking-[0.3em] font-bold uppercase rounded-lg hover:bg-white transition-all"
-                    >
-                        Get Started
-                    </Link>
-                </div>
+                <Link
+                    to="/developer"
+                    className="desktop-cta"
+                    style={{
+                        padding: 'var(--space-3) var(--space-6)',
+                        background: 'var(--color-orange)',
+                        color: 'var(--color-black)',
+                        fontWeight: 600,
+                        fontSize: '0.875rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                        border: 'none',
+                        borderRadius: '0.75rem',
+                        cursor: 'pointer',
+                        textDecoration: 'none',
+                        display: 'inline-block',
+                        transition: 'all var(--transition-base)',
+                        boxShadow: 'var(--shadow-md)',
+                        whiteSpace: 'nowrap',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.background = 'var(--color-orange-dark)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = 'var(--shadow-glow-orange)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.background = 'var(--color-orange)';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'var(--shadow-md)';
+                    }}
+                >
+                    Get Started
+                </Link>
             </div>
+
+            {/* Mobile Menu */}
+            {mobileOpen && (
+                <nav
+                    style={{
+                        background: 'rgba(26, 31, 58, 0.95)',
+                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                        padding: 'var(--space-6)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: 'var(--space-4)',
+                    }}
+                >
+                    {[
+                        { label: 'Platform', path: '/platform' },
+                        { label: 'Agents', path: '/agents' },
+                        { label: 'Developer', path: '/developer' },
+                        { label: 'Docs', path: '/docs' },
+                        { label: 'About', path: '/contact' },
+                    ].map((item) => (
+                        <Link
+                            key={item.label}
+                            to={item.path}
+                            onClick={() => setMobileOpen(false)}
+                            style={{
+                                color: 'var(--color-slate-200)',
+                                fontSize: '1rem',
+                                textDecoration: 'none',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
+            )}
+
+            {/* Responsive Styles */}
+            <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav, .desktop-cta { display: none !important; }
+          .mobile-toggle { display: block !important; }
+        }
+        @media (min-width: 769px) {
+          .mobile-toggle { display: none !important; }
+        }
+      `}</style>
         </header>
     );
-};
-
-export default Header;
+}

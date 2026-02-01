@@ -51,18 +51,19 @@ export default function AppRouter() {
   return (
     <Routes>
       {/* --- MAIN PLATFORM --- */}
-      <Route path="/" element={<PlatformHub />} />
+      <Route path="/" element={<Platform />} />
 
       {/* Legacy/Specific Product Landings */}
       <Route path="/echo" element={<Echo />} />
-      <Route path="/platform" element={<Platform />} />
+      <Route path="/platform" element={<PlatformHub />} />
       <Route path="/agents" element={<Agents />} />
       <Route path="/start" element={<Start />} />
       <Route path="/analysis" element={<Analysis />} />
 
       {/* Product Pages */}
       <Route path="/products/manuals" element={<Manuals />} /> {/* Original Sales Page */}
-      <Route path="/manual" element={<Manual />} /> {/* Legacy path support */}
+      <Route path="/manual" element={<Navigate to="/defrag-manual" replace />} />
+      <Route path="/defrag-manual" element={<Manual />} /> {/* Legacy path support */}
 
       {/* --- DASHBOARD --- */}
       <Route path="/dashboard" element={<DashboardLayout />}>
