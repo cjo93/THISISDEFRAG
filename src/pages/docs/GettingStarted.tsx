@@ -5,7 +5,9 @@ const GettingStarted: React.FC = () => {
     return (
         <DocLayout>
             <h1>Getting Started</h1>
-            <p className="text-xl text-white/60 mb-8">This guide will help you set up DEFRAG and make your first API call.</p>
+            <p className="text-xl text-white/60 mb-8">
+                This is a quick-start guide for engineers. It helps you get your first safety check running in under 5 minutes. It does this by walking you through installation, auth, and your first SEDA audit.
+            </p>
 
             <section className="mb-12">
                 <h2>Prerequisites</h2>

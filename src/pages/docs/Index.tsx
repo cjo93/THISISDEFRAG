@@ -6,7 +6,9 @@ const DocsIndex: React.FC = () => {
         <div className="min-h-screen bg-black text-white p-8 md:p-20">
             <section className="text-center mb-20">
                 <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tighter">Documentation</h1>
-                <p className="text-xl text-white/40 max-w-2xl mx-auto mb-10">Everything you need to integrate DEFRAG directly into your architecture.</p>
+                <p className="text-xl text-white/40 max-w-2xl mx-auto mb-10">
+                    This is the core manual for developers. It helps you build safety barriers into your autonomous agents. It does this by providing standard implementation patterns for our API.
+                </p>
                 <div className="max-w-xl mx-auto relative">
                     <input
                         type="text"
