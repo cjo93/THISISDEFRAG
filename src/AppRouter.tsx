@@ -51,11 +51,13 @@ export default function AppRouter() {
   return (
     <Routes>
       {/* --- MAIN PLATFORM --- */}
-      <Route path="/" element={<Platform />} />
+      {/* defrag.app root = Infrastructure Hub (ECHO/ORBIT/SIGNAL/API grid) */}
+      <Route path="/" element={<PlatformHub />} />
 
-      {/* Legacy/Specific Product Landings */}
+      {/* Product-specific landings */}
       <Route path="/echo" element={<Echo />} />
-      <Route path="/platform" element={<PlatformHub />} />
+      <Route path="/api" element={<Platform />} />  {/* API-specific page (was at root, now at /api) */}
+      <Route path="/platform" element={<PlatformHub />} />  {/* Legacy support */}
       <Route path="/agents" element={<Agents />} />
       <Route path="/start" element={<Start />} />
       <Route path="/analysis" element={<Analysis />} />
