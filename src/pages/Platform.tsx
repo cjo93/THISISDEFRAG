@@ -11,14 +11,14 @@ export default function Platform() {
             <section className="pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900/10 via-black to-black">
                 <div className="max-w-7xl mx-auto text-center">
                     <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-6 border border-orange-500/30 px-3 py-1 rounded bg-slate-900/10 uppercase">
-                        DEFRAG API
+                        DEFRAG API — Safety Layer
                     </span>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8">
-                        Cognitive Infrastructure<br />
-                        <span className="text-white/40">for Human Systems.</span>
+                        Keep people safe<br />
+                        <span className="text-white/40">when talking about big life topics.</span>
                     </h1>
                     <p className="text-xl text-white/60 max-w-2xl mx-auto mb-12">
-                        Add NASA-grade orbital telemetry and clinical safety barriers to your wellness platform with a single API.
+                        api.defrag.app checks if a user looks overloaded, tells you when to switch into grounding mode, and keeps risky advice from ever leaving your system.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <button className="inline-flex h-14 px-8 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-[0_0_30px_rgba(6,182,212,0.3)]">
@@ -37,25 +37,25 @@ export default function Platform() {
                     {/* SEDA */}
                     <div className="space-y-4">
                         <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">🛡️</div>
-                        <h3 className="text-2xl text-white font-light">SEDA Clinical Firewall</h3>
+                        <h3 className="text-2xl text-white font-light">SEDA Safety Check</h3>
                         <p className="text-white/50 leading-relaxed">
-                            Automated safety auditing for AI outputs. Detects esoteric delusion risk and throttles content based on SEDA scores.
+                            Scores how literal and unstable a user sounds, then returns one clear instruction: full content, reduce intensity, or switch to grounding only.
                         </p>
                     </div>
                     {/* TELEMETRY */}
                     <div className="space-y-4">
                         <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">📡</div>
-                        <h3 className="text-2xl text-white font-light">NASA Telemetry</h3>
+                        <h3 className="text-2xl text-white font-light">Pressure Forecast</h3>
                         <p className="text-white/50 leading-relaxed">
-                            Sub-arcsecond planetary position vectors. Topocentric precision for biologically accurate environmental pressure mapping.
+                            Turns NASA data into "pressure today" for a user's location, so your product can time hard conversations for lower friction.
                         </p>
                     </div>
                     {/* ORBIT */}
                     <div className="space-y-4">
                         <div className="h-12 w-12 bg-orange-500/10 rounded flex items-center justify-center text-orange-400 text-2xl">🔗</div>
-                        <h3 className="text-2xl text-white font-light">Relational Geometry</h3>
+                        <h3 className="text-2xl text-white font-light">Friction Map</h3>
                         <p className="text-white/50 leading-relaxed">
-                            Map the friction and flow between any two human systems. Identify structural pressure points in teams and families.
+                            Ingests a roster and returns which pairs strain the system, which roles are missing, and where a mediator is non-optional.
                         </p>
                     </div>
                 </div>

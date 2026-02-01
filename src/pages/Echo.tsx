@@ -12,14 +12,14 @@ export default function Echo() {
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
                     <div className="max-w-3xl">
                         <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-6 border-l border-orange-500/50 pl-3 uppercase">
-                            ECHO: Personal Design Specification
+                            ECHO: Personal Manual
                         </span>
                         <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] mb-8">
-                            The User Manual for <br />
-                            <span className="text-white/40">Your Operating System.</span>
+                            What drains you. <br />
+                            <span className="text-white/40">What restores you.</span>
                         </h1>
                         <p className="text-xl sm:text-2xl text-white/60 font-light mb-10 max-w-2xl leading-relaxed">
-                            Stop guessing why you function the way you do. Get the mechanical schematics of your cognitive and emotional architecture.
+                            ECHO turns your data into a short, plain-language manual: the few rules that keep you stable under pressure.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Link
