@@ -61,69 +61,44 @@ export default function Agents() {
                 </div>
             </section>
 
-            {/* PRICING */}
+            {/* PRICING - Single Builder Testing Tier */}
             <section className="py-24 px-6">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-light text-center mb-16">Agent Pricing</h2>
-                    <div className="grid md:grid-cols-4 gap-6">
-
-                        {/* FREE */}
-                        <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-                            <h3 className="text-lg text-white font-mono mb-2">Hobby</h3>
-                            <div className="text-3xl font-light text-white mb-4">$0<span className="text-sm text-white/40">/mo</span></div>
-                            <ul className="space-y-2 text-xs text-white/60 mb-6 font-mono">
-                                <li>• 1 Agent</li>
-                                <li>• Basic SEDA Check</li>
-                            </ul>
-                            <button className="w-full py-3 border border-white/20 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold rounded">
-                                Start
-                            </button>
-                        </div>
-
-                        {/* STARTER */}
-                        <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-                            <h3 className="text-lg text-white font-mono mb-2">Starter</h3>
-                            <div className="text-3xl font-light text-white mb-4">$29<span className="text-sm text-white/40">/mo</span></div>
-                            <ul className="space-y-2 text-xs text-white/60 mb-6 font-mono">
-                                <li>• 3 Agents</li>
-                                <li>• Hallucination Firewall</li>
-                            </ul>
-                            <button className="w-full py-3 border border-white/20 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold rounded">
-                                Subscribe
-                            </button>
-                        </div>
-
-                        {/* PRO */}
-                        <div className="p-6 rounded-2xl border border-orange-500/30 bg-slate-900/10 relative transform scale-105 shadow-2xl shadow-slate-900/20">
-                            <div className="absolute top-0 right-0 bg-orange-500 text-black text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest">
-                                Popular
-                            </div>
-                            <h3 className="text-lg text-white font-mono mb-2">Pro</h3>
-                            <div className="text-3xl font-light text-white mb-4">$99<span className="text-sm text-white/40">/mo</span></div>
-                            <ul className="space-y-2 text-xs text-white/60 mb-6 font-mono">
-                                <li>• 10 Agents</li>
-                                <li>• Full Memory Audit</li>
-                                <li>• Priority Latency</li>
-                            </ul>
-                            <button className="w-full py-3 bg-orange-500 text-black hover:bg-orange-400 transition uppercase text-[10px] tracking-widest font-bold rounded shadow-lg shadow-orange-500/20">
-                                Go Pro
-                            </button>
-                        </div>
-
-                        {/* ENTERPRISE */}
-                        <div className="p-6 rounded-2xl border border-white/10 bg-white/[0.02]">
-                            <h3 className="text-lg text-white font-mono mb-2">Grid</h3>
-                            <div className="text-3xl font-light text-white mb-4">Custom</div>
-                            <ul className="space-y-2 text-xs text-white/60 mb-6 font-mono">
-                                <li>• Unlimited Fleet</li>
-                                <li>• On-prem Deploy</li>
-                            </ul>
-                            <button className="w-full py-3 border border-white/20 hover:bg-white hover:text-black transition uppercase text-[10px] tracking-widest font-bold rounded">
-                                Contact
-                            </button>
-                        </div>
-
+                <div className="max-w-3xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-3 py-1 rounded-full border border-orange-500/20 uppercase">Private Testing</span>
+                        <h2 className="text-3xl font-light mt-6 mb-4">Agent Infrastructure</h2>
+                        <p className="text-white/50">We're testing this with a small group.</p>
                     </div>
+
+                    {/* Single Builder Tier */}
+                    <div className="p-8 rounded-2xl border border-white/10 bg-white/[0.02]">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                            <div>
+                                <h3 className="text-xl text-white font-mono mb-2">Builder (testing)</h3>
+                                <div className="text-3xl font-light text-white mb-4">From $99<span className="text-lg text-white/40">/mo</span></div>
+                                <ul className="space-y-2 text-sm text-white/60 font-mono">
+                                    <li>• Up to 5,000 calls a month while we're in testing</li>
+                                    <li>• Hallucination Firewall, Memory Audit, SEDA Safety</li>
+                                    <li>• If you need more, we'll discuss a custom testing agreement</li>
+                                </ul>
+                            </div>
+                            <div className="flex flex-col gap-3">
+                                <button className="px-8 py-4 border border-white/20 text-white/50 uppercase text-xs tracking-widest font-bold rounded cursor-not-allowed">
+                                    Not Open Yet
+                                </button>
+                                <a
+                                    href="mailto:help@defrag.app?subject=Agent%20API%20Access%20Request"
+                                    className="text-center px-8 py-3 text-orange-400 border border-orange-500/30 uppercase text-xs tracking-widest font-bold rounded hover:bg-orange-500/10 transition"
+                                >
+                                    Request Access
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p className="text-center text-white/30 text-xs font-mono mt-8">
+                        If you've been invited, sign in and check your dashboard.
+                    </p>
                 </div>
             </section>
 

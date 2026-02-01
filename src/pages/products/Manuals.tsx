@@ -344,9 +344,9 @@ export default function Landing() {
                   to="/echo"
                   className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
                 >
-                  Generate Manual ($19–49)
+                  Generate Manual ($29)
                 </Link>
-                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
+                <span className="block text-center text-white/40 text-xs font-mono">29 one-time</span>
               </div>
             </div>
 
@@ -364,9 +364,9 @@ export default function Landing() {
               </p>
               <div className="space-y-3">
                 <button className="w-full px-4 py-3 border border-orange-500/50 text-orange-400 text-sm font-mono rounded opacity-50 cursor-not-allowed">
-                  Coming Soon (Early Access)
+                  Coming Soon
                 </button>
-                <span className="block text-center text-orange-400/60 text-xs font-mono">Q2 2026</span>
+                <span className="block text-center text-orange-400/60 text-xs font-mono">Planned price: 9 / month</span>
               </div>
             </div>
 
@@ -387,31 +387,35 @@ export default function Landing() {
                   to="/relational"
                   className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
                 >
-                  Map Your System ($29–99)
+                  Map Your System ($39)
                 </Link>
-                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
+                <span className="block text-center text-white/40 text-xs font-mono">39 per group · Up to 6 people</span>
               </div>
             </div>
 
-            {/* TILE 4: API */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+            {/* TILE 4: API - Builder (testing) */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col opacity-80">
               <div className="mb-6">
                 <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
                   <span className="text-orange-400 text-xl">⚙️</span>
                 </div>
-                <h3 className="text-white text-xl sm:text-2xl font-light mb-2">DEFRAG API</h3>
-                <p className="text-orange-400 text-sm font-mono">Clinical Firewall for Platforms</p>
+                <div className="flex items-center gap-2 mb-2">
+                  <h3 className="text-white text-xl sm:text-2xl font-light">DEFRAG API</h3>
+                  <span className="text-[9px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Testing</span>
+                </div>
+                <p className="text-orange-400 text-sm font-mono">Builder (testing)</p>
               </div>
-              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
-                B2B infrastructure. Integrate SEDA safety gating + NASA telemetry + relational geometry into your wellness platform. Enterprise licensing.
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-4 flex-grow">
+                Currently in private testing. Safety scores, pressure scores, and basic group mapping.
+              </p>
+              <p className="text-white/40 text-xs leading-relaxed mb-6">
+                Up to 5,000 calls a month while we're in testing.
               </p>
               <div className="space-y-3">
-                <a href="https://api.defrag.app" target="_blank" rel="noopener noreferrer" className="block">
-                  <button className="w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition">
-                    Explore API
-                  </button>
-                </a>
-                <span className="block text-center text-white/40 text-xs font-mono">Available Now</span>
+                <button className="w-full px-4 py-3 border border-white/10 text-white/50 text-sm font-mono rounded cursor-not-allowed">
+                  Not Open Yet
+                </button>
+                <span className="block text-center text-white/30 text-xs font-mono">From 99 / month</span>
               </div>
             </div>
 

@@ -26,7 +26,7 @@ export default function Echo() {
                                 to="/start"
                                 className="inline-flex h-14 px-8 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:shadow-[0_0_50px_rgba(249,115,22,0.5)]"
                             >
-                                Generate Manual ($19)
+                                Generate Manual ($29)
                             </Link>
                             <Link
                                 to="/relational"

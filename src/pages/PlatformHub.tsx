@@ -5,9 +5,11 @@ import { ChevronRight, Zap, Shield, Code, TrendingUp, Users, BookOpen, ArrowRigh
 import '../styles/PlatformHub.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import DevAccessModal from '../components/DevAccessModal';
 
 const PlatformHub: React.FC = () => {
     const [scrollY, setScrollY] = useState(0);
+    const [showDevModal, setShowDevModal] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => setScrollY(window.scrollY);
@@ -77,13 +79,16 @@ const PlatformHub: React.FC = () => {
                             </Link>
                         </div>
 
-                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group cursor-pointer" onClick={() => setShowDevModal(true)}>
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">{"{ }"}</div>
-                            <h3 className="text-2xl font-light mb-4">Developer Hub</h3>
-                            <p className="text-white/50 mb-8 leading-relaxed">NASA-grade orbital telemetry and clinical safety barriers for your wellness platform.</p>
-                            <Link to="/developer" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
-                                Get API Keys <ArrowRight size={14} />
-                            </Link>
+                            <div className="flex items-center gap-3 mb-4">
+                                <h3 className="text-2xl font-light">For Builders</h3>
+                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Coming Soon</span>
+                            </div>
+                            <p className="text-white/50 mb-8 leading-relaxed">Use DEFRAG in my own tools. API access for developers building human-aware applications.</p>
+                            <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all">
+                                Request Access <ArrowRight size={14} />
+                            </span>
                         </div>
 
                         <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group">
@@ -99,6 +104,9 @@ const PlatformHub: React.FC = () => {
             </section>
 
             <Footer />
+
+            {/* Dev Access Modal */}
+            <DevAccessModal isOpen={showDevModal} onClose={() => setShowDevModal(false)} />
         </div>
     );
 };
