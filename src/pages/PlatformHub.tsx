@@ -6,6 +6,7 @@ import '../styles/PlatformHub.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import DevAccessModal from '../components/DevAccessModal';
+import { InfrastructureStatement, SafetyStandardExplainer, StanceStatement, CostOfError } from '../components/TrustMicrocopy';
 
 const PlatformHub: React.FC = () => {
     const [scrollY, setScrollY] = useState(0);
@@ -99,6 +100,36 @@ const PlatformHub: React.FC = () => {
                                 Contact Sales <ArrowRight size={14} />
                             </Link>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* TRUST & POSITIONING SECTION */}
+            <section className="py-24 bg-gradient-to-b from-black to-slate-950 border-t border-white/5">
+                <div className="max-w-5xl mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <InfrastructureStatement />
+                        <h2 className="text-3xl font-light mt-8 mb-4">Why DEFRAG</h2>
+                        <StanceStatement />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                        {/* Safety Standard */}
+                        <SafetyStandardExplainer variant="full" />
+
+                        {/* Cost of Error Examples */}
+                        <div className="p-6 bg-white/[0.02] border border-white/10 rounded-2xl space-y-4">
+                            <h3 className="text-lg font-light text-white mb-6">The Cost of Error</h3>
+                            <CostOfError audience="family" />
+                            <CostOfError audience="team" />
+                            <CostOfError audience="platform" />
+                        </div>
+                    </div>
+
+                    <div className="text-center">
+                        <p className="text-white/30 text-xs font-mono max-w-2xl mx-auto">
+                            Same engine, different contracts. Consumer or infrastructure — SEDA safety gating applies to every output.
+                        </p>
                     </div>
                 </div>
             </section>
