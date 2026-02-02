@@ -10,21 +10,21 @@ export default function Relational() {
             {/* Hero Section */}
             <section className="pt-32 lg:pt-40 pb-24 lg:pb-32 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
-                    <span className="badge-premium mb-10 lg:mb-16">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/40 font-mono text-xs font-semibold tracking-widest text-orange-300 uppercase mb-10 lg:mb-16">
                         ORBIT: Relational Geometry
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-8 sm:mb-12 text-white">
                         Map the geometry
                         <br />
-                        <span className="gradient-text">of your people.</span>
+                        <span className="bg-gradient-to-br from-white to-orange-400 bg-clip-text text-transparent">of your people.</span>
                     </h1>
-                    <p className="text-premium max-w-3xl mx-auto mb-12 lg:mb-16">
+                    <p className="text-lg lg:text-xl text-white/60 max-w-3xl mx-auto mb-12 lg:mb-16 leading-relaxed">
                         ORBIT reveals the invisible patterns in family systems using NASA JPL topocentric precision: triangulation, emotional cut-offs, and
                         pressure points. See <em>why</em> certain people become conflict lightning rods—it's positional,
                         not personal.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-                        <Link to="/start" className="button-primary">
+                        <Link to="/start" className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-orange-500 text-black font-bold text-sm tracking-wider uppercase rounded-full hover:bg-orange-400 transition-all">
                             Start Mapping
                         </Link>
                     </div>
@@ -32,13 +32,13 @@ export default function Relational() {
             </section>
 
             {/* What is ORBIT */}
-            <section className="section-premium border-b border-white/5">
+            <section className="py-32 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <div className="section-header">
+                    <div className="text-center mb-20">
                         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-white">
                             What is ORBIT?
                         </h2>
-                        <p className="text-premium max-w-2xl mx-auto">
+                        <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto">
                             Maps relational mechanics, not just personalities.
                         </p>
                     </div>
@@ -52,7 +52,7 @@ export default function Relational() {
                             </p>
                             <p className="text-lg">
                                 Based on Bowen Family Systems Theory, ORBIT shows how anxiety propagates through relational
-                                networks—not through individual pathology, but through <span className="gradient-text font-semibold">systemic position</span>.
+                                networks—not through individual pathology, but through <span className="bg-gradient-to-br from-white to-orange-400 bg-clip-text text-transparent font-semibold">systemic position</span>.
                             </p>
                             <p className="text-lg text-white/80 italic pl-6 border-l-2 border-orange-500/50">
                                 "You're not the problem. You're in the position that absorbs the system's friction."

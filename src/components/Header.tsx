@@ -16,9 +16,9 @@ export default function Header() {
                 background: 'rgba(10, 10, 10, 0.98)',
                 backdropFilter: 'blur(12px)',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                padding: `max(var(--space-4), env(safe-area-inset-top)) 0 var(--space-4)`,
-                paddingLeft: 'max(var(--space-6), env(safe-area-inset-left))',
-                paddingRight: 'max(var(--space-6), env(safe-area-inset-right))',
+                padding: '1rem 0',
+                paddingLeft: '1.5rem',
+                paddingRight: '1.5rem',
             }}
         >
             <div

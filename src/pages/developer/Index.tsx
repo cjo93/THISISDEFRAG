@@ -29,25 +29,25 @@ function ComingSoonView() {
         <div className="max-w-5xl mx-auto space-y-16 md:space-y-24 px-6">
             {/* Header */}
             <div className="pt-20 space-y-8">
-                <div className="badge-premium">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/40 font-mono text-xs font-semibold letter-spacing-widest text-orange-300 uppercase">
                     <Lock size={12} />
                     PRIVATE TESTING
                 </div>
                 <div>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-6">
-                        Developer <span className="gradient-text">API</span>
+                        Developer <span className="bg-gradient-to-br from-white to-orange-400 bg-clip-text text-transparent">API</span>
                     </h1>
-                    <p className="text-premium max-w-2xl">
+                    <p className="text-lg lg:text-xl text-white/60 max-w-2xl">
                         We're testing this with a small group. If you've been invited, sign in and check your dashboard.
                     </p>
                 </div>
             </div>
 
             {/* What This Will Do */}
-            <div className="card-premium">
+            <div className="p-8 rounded-xl border border-white/8 bg-white/[0.03] backdrop-blur-sm">
                 <div className="flex items-center gap-3 mb-8">
                     <h2 className="text-2xl lg:text-3xl font-semibold text-white">What this will do</h2>
-                    <span className="badge-premium">Coming Soon</span>
+                    <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/40 font-mono text-xs font-semibold letter-spacing-widest text-orange-300 uppercase">Coming Soon</span>
                 </div>
 
                 <ul className="space-y-6 text-white/60">
@@ -76,9 +76,9 @@ function ComingSoonView() {
             </div>
 
             {/* Testing Phase Info */}
-            <div className="card-premium border-orange-500/40">
+            <div className="p-8 rounded-xl border border-orange-500/30 bg-orange-500/10">
                 <div className="flex items-start gap-6">
-                    <div className="icon-box flex-shrink-0">
+                    <div className="w-14 h-14 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 flex-shrink-0">
                         <Shield size={24} />
                     </div>
                     <div>
@@ -95,13 +95,13 @@ function ComingSoonView() {
             <div className="flex flex-col sm:flex-row gap-4">
                 <a
                     href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                    className="button-primary"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-orange-500 text-black font-bold text-sm tracking-wider uppercase rounded-full hover:bg-orange-400 transition-all duration-300"
                 >
                     Request Access <ArrowRight size={16} />
                 </a>
                 <Link
                     to="/signin"
-                    className="button-secondary"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 border-2 border-white/15 text-white font-semibold text-sm tracking-wider uppercase rounded-full hover:border-white/30 hover:bg-white/5 transition-all duration-300"
                 >
                     Sign In (Invited Users)
                 </Link>
