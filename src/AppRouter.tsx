@@ -17,7 +17,7 @@ import Terms from './pages/Terms';
 import SignIn from './pages/SignIn';
 import SignInVerify from './pages/SignInVerify';
 // import Learn from './pages/Learn'; // If exists
-// import Relational from './pages/Relational'; // If exists
+import Relational from './pages/Relational'; // If exists
 
 // Admin
 import Admin from './pages/Admin';
@@ -55,12 +55,14 @@ export default function AppRouter() {
       <Route path="/" element={<PlatformHub />} />
 
       {/* Product-specific landings */}
+      {/* Product-specific landings */}
       <Route path="/echo" element={<Echo />} />
       <Route path="/api" element={<Platform />} />  {/* API-specific page (was at root, now at /api) */}
       <Route path="/platform" element={<PlatformHub />} />  {/* Legacy support */}
       <Route path="/agents" element={<Agents />} />
       <Route path="/start" element={<Start />} />
       <Route path="/analysis" element={<Analysis />} />
+      <Route path="/relational" element={<Relational />} />
 
       {/* Product Pages */}
       <Route path="/products/manuals" element={<Manuals />} /> {/* Original Sales Page */}
