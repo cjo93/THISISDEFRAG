@@ -1,15 +1,16 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
 export default function Relational() {
     return (
-        <div className="min-h-screen w-full bg-black text-white overflow-y-scroll">
+        <div className="min-h-screen w-full bg-black text-white overflow-y-scroll selection:bg-orange-500/30">
             <Header />
 
             {/* Hero Section */}
             <section className="pt-32 pb-20 px-6 border-b border-white/5">
-                <div className="max-w-5xl mx-auto">
-                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-8 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+                <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
+                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-8 sm:mb-12 border border-orange-500/50 px-4 py-1 rounded-full uppercase bg-orange-500/5">
                         ORBIT: Relational Geometry
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-8 sm:mb-12 text-white">
@@ -17,13 +18,13 @@ export default function Relational() {
                         <br />
                         <span className="text-orange-500">of your people.</span>
                     </h1>
-                    <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl leading-relaxed">
+                    <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-10">
                         ORBIT reveals the invisible patterns in family systems using NASA JPL topocentric precision: triangulation, emotional cut-offs, and
                         pressure points. See <em>why</em> certain people become conflict lightning rods—it's positional,
                         not personal.
                     </p>
-                    <div className="mt-10 flex flex-col sm:flex-row gap-4">
-                        <Link to="/start" className="inline-flex h-12 px-8 items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-orange-400 transition-all rounded uppercase shadow-lg shadow-orange-500/20">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-white transition-all rounded-full uppercase shadow-[0_0_25px_rgba(249,115,22,0.3)]">
                             Start Mapping
                         </Link>
                     </div>
@@ -33,12 +34,17 @@ export default function Relational() {
             {/* What is ORBIT */}
             <section className="py-20 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-light mb-12 text-white">
-                        What is ORBIT?
-                    </h2>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                            What is ORBIT?
+                        </h2>
+                        <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+                            Maps relational mechanics, not just personalities.
+                        </p>
+                    </div>
 
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6 text-white/60 leading-relaxed">
+                        <div className="space-y-6 text-white/60 leading-relaxed text-left">
                             <p>
                                 <span className="text-white font-semibold">ORBIT</span> (Operational Relational Behavioral
                                 Intelligence Tool) maps the mechanical geometry of family systems using Penta (5-person)
@@ -48,17 +54,17 @@ export default function Relational() {
                                 Based on Bowen Family Systems Theory, ORBIT shows how anxiety propagates through relational
                                 networks—not through individual pathology, but through <span className="text-orange-400">systemic position</span>.
                             </p>
-                            <p className="text-white/80 italic">
+                            <p className="text-white/80 italic pl-4 border-l-2 border-orange-500/50">
                                 "You're not the problem. You're in the position that absorbs the system's friction."
                             </p>
                         </div>
 
-                        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/10 border border-white/10 flex items-center justify-center">
-                            {/* Placeholder visualization */}
-                            <div className="relative w-64 h-64">
+                        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/10 border border-white/10 flex items-center justify-center overflow-hidden">
+                            {/* Visual Placeholder */}
+                            <div className="relative w-64 h-64 animate-[spin_60s_linear_infinite]">
                                 {/* Center node */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-orange-500/30 border-2 border-orange-400 flex items-center justify-center">
-                                    <span className="text-xs font-bold text-orange-400">YOU</span>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-orange-500/20 border border-orange-500/50 flex items-center justify-center z-10 backdrop-blur-sm">
+                                    <span className="text-[10px] font-bold text-orange-400 tracking-widest">YOU</span>
                                 </div>
                                 {/* Orbiting nodes */}
                                 {[0, 72, 144, 216, 288].map((angle, idx) => {
@@ -68,7 +74,7 @@ export default function Relational() {
                                     return (
                                         <div
                                             key={idx}
-                                            className="absolute w-10 h-10 rounded-full bg-blue-500/20 border-2 border-blue-400/60"
+                                            className="absolute w-8 h-8 rounded-full bg-blue-500/20 border border-blue-400/40"
                                             style={{
                                                 top: `calc(50% + ${y}px)`,
                                                 left: `calc(50% + ${x}px)`,
@@ -78,16 +84,15 @@ export default function Relational() {
                                     );
                                 })}
                                 {/* Connection lines */}
-                                <svg className="absolute inset-0 w-full h-full opacity-30" style={{ pointerEvents: 'none' }}>
+                                <svg className="absolute inset-0 w-full h-full opacity-20" style={{ pointerEvents: 'none' }}>
+                                    <circle cx="50%" cy="50%" r="100" stroke="#f97316" strokeWidth="1" fill="none" className="opacity-50" />
                                     <line x1="50%" y1="50%" x2="50%" y2="calc(50% - 100px)" stroke="#f97316" strokeWidth="1" />
                                     <line x1="50%" y1="50%" x2="calc(50% + 95px)" y2="calc(50% - 31px)" stroke="#f97316" strokeWidth="1" />
                                     <line x1="50%" y1="50%" x2="calc(50% + 59px)" y2="calc(50% + 81px)" stroke="#f97316" strokeWidth="1" />
-                                    <line x1="50%" y1="50%" x2="calc(50% - 59px)" y2="calc(50% + 81px)" stroke="#f97316" strokeWidth="1" />
-                                    <line x1="50%" y1="50%" x2="calc(50% - 95px)" y2="calc(50% - 31px)" stroke="#f97316" strokeWidth="1" />
                                 </svg>
                             </div>
-                            <p className="absolute bottom-6 text-center text-xs text-white/40 px-6">
-                                Penta (5-person) configuration preview
+                            <p className="absolute bottom-4 text-center text-[10px] text-white/30 tracking-widest uppercase px-6">
+                                Penta Configuration Preview
                             </p>
                         </div>
                     </div>
@@ -95,11 +100,13 @@ export default function Relational() {
             </section>
 
             {/* Key Features */}
-            <section className="py-20 px-6 border-b border-white/5">
+            <section className="py-20 px-6 border-b border-white/5 bg-zinc-950">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-light mb-12 text-white">
-                        What ORBIT Reveals
-                    </h2>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                            What ORBIT Reveals
+                        </h2>
+                    </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
@@ -136,9 +143,9 @@ export default function Relational() {
                         ].map((feature, idx) => (
                             <div
                                 key={idx}
-                                className="p-6 sm:p-8 bg-white/[0.02] border border-white/10 hover:border-orange-500/30 rounded-xl transition-all"
+                                className="p-8 bg-white/[0.02] border border-white/10 hover:border-orange-500/30 rounded-2xl transition-all hover:-translate-y-1 group"
                             >
-                                <div className="text-4xl mb-4">{feature.icon}</div>
+                                <div className="text-3xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity">{feature.icon}</div>
                                 <h3 className="text-lg font-semibold mb-3 text-white">{feature.title}</h3>
                                 <p className="text-white/60 text-sm leading-relaxed">{feature.desc}</p>
                             </div>
@@ -150,11 +157,13 @@ export default function Relational() {
             {/* Use Cases */}
             <section className="py-20 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-light mb-12 text-white">
-                        Who Needs ORBIT
-                    </h2>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                            Who Needs ORBIT
+                        </h2>
+                    </div>
 
-                    <div className="space-y-8">
+                    <div className="space-y-6">
                         {[
                             {
                                 title: "Families Stuck in Chronic Conflict",
@@ -179,93 +188,58 @@ export default function Relational() {
                         ].map((useCase, idx) => (
                             <div
                                 key={idx}
-                                className="p-8 bg-gradient-to-br from-white/[0.02] to-transparent border border-white/10 rounded-xl"
+                                className="p-8 bg-gradient-to-r from-white/[0.02] to-transparent border-l-2 border-white/10 hover:border-orange-500 transition-all rounded-r-xl"
                             >
-                                <h3 className="text-xl font-semibold mb-3 text-orange-400">{useCase.title}</h3>
-                                <p className="text-white/70 leading-relaxed mb-4">{useCase.desc}</p>
-                                <p className="text-sm text-white/50 italic pl-6 border-l-2 border-white/20">{useCase.example}</p>
+                                <h3 className="text-xl font-semibold mb-2 text-orange-400">{useCase.title}</h3>
+                                <p className="text-white/70 leading-relaxed mb-3">{useCase.desc}</p>
+                                <p className="text-sm text-white/40 italic">Example: {useCase.example}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* How It Works */}
+            {/* How It Works - Numbered Steps Refined */}
             <section className="py-20 px-6 border-b border-white/5 bg-gradient-to-b from-transparent to-orange-500/5">
                 <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-light mb-12 text-white">
-                        How ORBIT Works
-                    </h2>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                            How ORBIT Works
+                        </h2>
+                    </div>
 
-                    <div className="space-y-8">
-                        <div className="flex items-start gap-6">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 border-2 border-orange-400 flex items-center justify-center">
-                                <span className="text-orange-400 font-bold text-lg">1</span>
+                    <div className="grid sm:grid-cols-2 gap-8">
+                        {[
+                            { num: "01", title: "Input System", text: "Add 3-6 people from your family or team. Include birth data generate their core design." },
+                            { num: "02", title: "Generate Geometry", text: "ORBIT calculates who occupies which systemic positions: mediator, scapegoat, withdrawn, etc." },
+                            { num: "03", title: "Visualize Friction", text: "See where chronic anxiety concentrates and who is absorbing the system's pressure." },
+                            { num: "04", title: "Simulate Intervention", text: "Test how small changes in one person's stance can cascade calm through the whole map." }
+                        ].map((step, idx) => (
+                            <div key={idx} className="flex gap-6 p-6 rounded-2xl border border-white/5 hover:bg-white/[0.02] transition-colors">
+                                <span className="text-4xl font-light text-white/20 font-mono">{step.num}</span>
+                                <div>
+                                    <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                                    <p className="text-white/60 text-sm leading-relaxed">{step.text}</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="text-xl font-semibold text-white mb-2">Input Your Family System</h3>
-                                <p className="text-white/60">
-                                    Add 3-6 people from your family, partnership, or team. Include birth data for each
-                                    (date, time, location) to generate their core design.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-6">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 border-2 border-orange-400 flex items-center justify-center">
-                                <span className="text-orange-400 font-bold text-lg">2</span>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold text-white mb-2">ORBIT Generates Relational Geometry</h3>
-                                <p className="text-white/60">
-                                    Using Penta (5-person) or Hexa (6-person) mapping, ORBIT calculates who occupies
-                                    which systemic positions: mediator, scapegoat, withdrawn, pursuer, triangulated.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-6">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 border-2 border-orange-400 flex items-center justify-center">
-                                <span className="text-orange-400 font-bold text-lg">3</span>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold text-white mb-2">See the Friction Points</h3>
-                                <p className="text-white/60">
-                                    ORBIT highlights where chronic anxiety concentrates, who's absorbing the most
-                                    system friction, and what happens when one person shifts their stance.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-start gap-6">
-                            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-orange-500/20 border-2 border-orange-400 flex items-center justify-center">
-                                <span className="text-orange-400 font-bold text-lg">4</span>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold text-white mb-2">Get Intervention Strategies</h3>
-                                <p className="text-white/60">
-                                    ORBIT suggests where small changes create cascading calm—often by one person
-                                    differentiating (staying grounded while others react).
-                                </p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* CTA */}
-            <section className="py-20 px-6 border-t border-white/5 bg-white/[0.02]">
-                <div className="max-w-3xl mx-auto text-center">
+            <section className="py-24 px-6 border-t border-white/5 bg-white/[0.02]">
+                <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
                     <h2 className="text-3xl sm:text-4xl font-light mb-8 text-white">
                         Map your system geometry.
                     </h2>
-                    <p className="text-xl text-white/60 mb-12">
+                    <p className="text-xl text-white/60 mb-12 max-w-xl">
                         Identify the pressure points in your family or team with NASA-grade precision.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
                         <Link
                             to="/start"
-                            className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20"
+                            className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase shadow-lg shadow-orange-500/20"
                         >
                             Start Mapping ($29–99)
                         </Link>
@@ -273,7 +247,7 @@ export default function Relational() {
                             href="https://api.defrag.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase"
+                            className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase"
                         >
                             For Platforms (API)
                         </a>
@@ -282,16 +256,7 @@ export default function Relational() {
             </section>
 
             {/* Footer */}
-            <footer className="py-12 px-6 border-t border-white/5">
-                <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6 text-white/40 text-xs">
-                    <p>© 2026 DEFRAG. Relational geometry, not blame.</p>
-                    <div className="flex gap-6">
-                        <Link to="/learn" className="hover:text-white transition-colors">Learn</Link>
-                        <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                        <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }
