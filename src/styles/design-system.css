@@ -225,6 +225,101 @@ code {
     background: rgba(255, 255, 255, 0.02);
 }
 
+/* PREMIUM UTILITY CLASSES */
+
+/* Section spacing - premium layout breathing room */
+.section-premium {
+    padding: var(--space-32) var(--space-6);
+}
+
+/* Hero badge - elegant accent label */
+.badge-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    background-color: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.4);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-orange);
+    text-transform: uppercase;
+}
+
+/* Premium card with hover elevation */
+.card-premium {
+    padding: var(--space-8);
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+}
+
+.card-premium:hover {
+    border-color: rgba(249, 115, 22, 0.4);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Text utility for premium prose */
+.text-premium {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* Gradient text accent */
+.gradient-text {
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section header utility - consistent styling */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-20);
+}
+
+.section-header h2 {
+    margin-bottom: var(--space-6);
+}
+
+/* Icon box for feature displays */
+.icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-lg);
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-orange);
+}
+
+/* Safe area for iOS notch support */
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+}
+
+.safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
 /* Responsive Typography & Spacing */
 @media (max-width: 1024px) {
     h1 {

@@ -16,14 +16,16 @@ export default function Header() {
                 background: 'rgba(10, 10, 10, 0.98)',
                 backdropFilter: 'blur(12px)',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                padding: 'var(--space-4) 0',
+                padding: `max(var(--space-4), env(safe-area-inset-top)) 0 var(--space-4)`,
+                paddingLeft: 'max(var(--space-6), env(safe-area-inset-left))',
+                paddingRight: 'max(var(--space-6), env(safe-area-inset-right))',
             }}
         >
             <div
                 style={{
                     maxWidth: '80rem',
                     margin: '0 auto',
-                    padding: '0 var(--space-6)',
+                    width: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',

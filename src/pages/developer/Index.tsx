@@ -26,71 +26,82 @@ export default function DeveloperIndex() {
 // Minimal "Coming Soon" view for non-pilot users
 function ComingSoonView() {
     return (
-        <div className="space-y-12">
+        <div className="max-w-5xl mx-auto space-y-16 md:space-y-24 px-6">
             {/* Header */}
-            <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs font-mono tracking-wide">
+            <div className="pt-20 space-y-8">
+                <div className="badge-premium">
                     <Lock size={12} />
                     PRIVATE TESTING
                 </div>
-                <h1 className="text-4xl md:text-5xl font-light text-white tracking-tight">
-                    Developer <span className="text-orange-500">API</span>
-                </h1>
-                <p className="text-xl text-white/50 max-w-2xl leading-relaxed">
-                    We're testing this with a small group. If you've been invited, sign in and check your dashboard.
-                </p>
+                <div>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tight mb-6">
+                        Developer <span className="gradient-text">API</span>
+                    </h1>
+                    <p className="text-premium max-w-2xl">
+                        We're testing this with a small group. If you've been invited, sign in and check your dashboard.
+                    </p>
+                </div>
             </div>
 
-            {/* What This Will Do - 3 Bullets */}
-            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/10">
-                <div className="flex items-center gap-3 mb-6">
-                    <h2 className="text-xl font-light text-white">What this will do</h2>
-                    <span className="text-[9px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Coming Soon</span>
+            {/* What This Will Do */}
+            <div className="card-premium">
+                <div className="flex items-center gap-3 mb-8">
+                    <h2 className="text-2xl lg:text-3xl font-semibold text-white">What this will do</h2>
+                    <span className="badge-premium">Coming Soon</span>
                 </div>
 
-                <ul className="space-y-4 text-white/60">
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">SEDA Safety Scores</strong> — Real-time clinical safety gating for AI outputs and user content.</span>
+                <ul className="space-y-6 text-white/60">
+                    <li className="flex items-start gap-4">
+                        <span className="text-orange-400 mt-0.5 text-xl flex-shrink-0">◆</span>
+                        <div>
+                            <strong className="text-white/90 block mb-1">SEDA Safety Scores</strong>
+                            <span className="text-white/50">Real-time clinical safety gating for AI outputs and user content.</span>
+                        </div>
                     </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">Pressure Mapping</strong> — NASA JPL precision orbital telemetry for environmental pressure analysis.</span>
+                    <li className="flex items-start gap-4">
+                        <span className="text-orange-400 mt-0.5 text-xl flex-shrink-0">◆</span>
+                        <div>
+                            <strong className="text-white/90 block mb-1">Pressure Mapping</strong>
+                            <span className="text-white/50">NASA JPL precision orbital telemetry for environmental pressure analysis.</span>
+                        </div>
                     </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">Relational Geometry</strong> — Multi-person system mapping for teams and families.</span>
+                    <li className="flex items-start gap-4">
+                        <span className="text-orange-400 mt-0.5 text-xl flex-shrink-0">◆</span>
+                        <div>
+                            <strong className="text-white/90 block mb-1">Relational Geometry</strong>
+                            <span className="text-white/50">Multi-person system mapping for teams and families.</span>
+                        </div>
                     </li>
                 </ul>
             </div>
 
             {/* Testing Phase Info */}
-            <div className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
-                <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-lg bg-orange-500/10">
-                        <Shield size={20} className="text-orange-400" />
+            <div className="card-premium border-orange-500/40">
+                <div className="flex items-start gap-6">
+                    <div className="icon-box flex-shrink-0">
+                        <Shield size={24} />
                     </div>
                     <div>
-                        <h3 className="text-white font-medium mb-2">Builder (testing)</h3>
-                        <p className="text-white/50 text-sm leading-relaxed mb-3">
+                        <h3 className="text-xl font-semibold text-white mb-3">Builder (testing)</h3>
+                        <p className="text-white/60 leading-relaxed mb-4">
                             Up to 5,000 calls a month while we're in testing. Includes safety scores, pressure scores, and basic group mapping.
                         </p>
-                        <p className="text-orange-400 text-sm font-mono">From 99 / month</p>
+                        <p className="text-orange-400 font-mono text-sm font-semibold">From $99 / month</p>
                     </div>
                 </div>
             </div>
 
             {/* CTA */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
                 <a
                     href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                    className="flex items-center gap-2 px-6 py-3 bg-orange-500 text-black font-bold tracking-wide rounded hover:bg-orange-400 transition text-sm uppercase"
+                    className="button-primary"
                 >
                     Request Access <ArrowRight size={16} />
                 </a>
                 <Link
                     to="/signin"
-                    className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white border border-white/10 font-medium tracking-wide rounded hover:bg-white/10 transition text-sm uppercase"
+                    className="button-secondary"
                 >
                     Sign In (Invited Users)
                 </Link>

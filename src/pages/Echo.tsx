@@ -9,35 +9,35 @@ export default function Echo() {
             <Header />
 
             {/* HERO SECTION - Centered */}
-            <section className="relative pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-900/10 via-black to-black">
+            <section className="relative pt-32 lg:pt-40 pb-24 lg:pb-32 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-900/10 via-black to-black">
                 <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
-                    <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-8 border border-orange-500/50 px-4 py-1 rounded-full uppercase bg-orange-500/5 animate-pulse">
+                    <span className="badge-premium mb-10 lg:mb-16">
                         ECHO: Personal Manual
                     </span>
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] mb-8">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-semibold leading-[1.05] mb-8">
                         What drains you. <br />
-                        <span className="text-white/40">What restores you.</span>
+                        <span className="gradient-text">What restores you.</span>
                     </h1>
-                    <p className="text-xl sm:text-2xl text-white/60 font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-premium max-w-2xl mx-auto mb-12 lg:mb-16">
                         ECHO turns your data into a short, plain-language manual: the few rules that keep you stable under pressure.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 mb-20">
+                    <div className="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">
                         <Link
                             to="/start"
-                            className="inline-flex h-14 px-10 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-orange-400 transition-all rounded-full uppercase shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:shadow-[0_0_50px_rgba(249,115,22,0.5)]"
+                            className="button-primary"
                         >
                             Generate Manual ($29)
                         </Link>
                         <Link
                             to="/relational"
-                            className="inline-flex h-14 px-10 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase"
+                            className="button-secondary"
                         >
                             View System Maps
                         </Link>
                     </div>
 
                     <p className="mb-12 text-[10px] text-white/30 font-mono tracking-wider">
-                        * INSTANT DELIVERY • ENCRYPTED • CLINICAL GRADE
+                        INSTANT DELIVERY • ENCRYPTED • CLINICAL GRADE
                     </p>
 
                     {/* VISUAL MOCKUP - Centered abstract representation */}
@@ -63,38 +63,47 @@ export default function Echo() {
             </section>
 
             {/* WHAT YOU GET SECTION */}
-            <section className="py-24 px-6 sm:px-12 bg-black relative">
+            <section className="section-premium bg-black relative">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                    <div className="section-header">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-white">
                             Your Operating System
                         </h2>
+                        <p className="text-premium max-w-2xl mx-auto">
+                            Everything you need to understand and stabilize yourself.
+                        </p>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
 
                         {/* FEATURE 1 */}
-                        <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">01</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Core Design</h3>
-                            <p className="text-white/50 leading-relaxed text-sm">
+                        <div className="card-premium group text-center">
+                            <div className="icon-box mx-auto mb-8">
+                                <span className="font-mono text-lg font-bold">01</span>
+                            </div>
+                            <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4 group-hover:gradient-text transition-all">Core Design</h3>
+                            <p className="text-white/60 leading-relaxed text-base">
                                 A clear picture of your base operating state. How you process data, where your edges are, and what constitutes your "normal" before the world interferes.
                             </p>
                         </div>
 
                         {/* FEATURE 2 */}
-                        <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">02</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Pressure Protocols</h3>
-                            <p className="text-white/50 leading-relaxed text-sm">
+                        <div className="card-premium group text-center">
+                            <div className="icon-box mx-auto mb-8">
+                                <span className="font-mono text-lg font-bold">02</span>
+                            </div>
+                            <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4 group-hover:gradient-text transition-all">Pressure Protocols</h3>
+                            <p className="text-white/60 leading-relaxed text-base">
                                 The specific patterns that emerge when your systemic pressure elevates. Know exactly where you degrade so you can catch it before collapse.
                             </p>
                         </div>
 
                         {/* FEATURE 3 */}
-                        <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">03</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Coherence Strategy</h3>
-                            <p className="text-white/50 leading-relaxed text-sm">
+                        <div className="card-premium group text-center">
+                            <div className="icon-box mx-auto mb-8">
+                                <span className="font-mono text-lg font-bold">03</span>
+                            </div>
+                            <h3 className="text-xl lg:text-2xl font-semibold text-white mb-4 group-hover:gradient-text transition-all">Coherence Strategy</h3>
+                            <p className="text-white/60 leading-relaxed text-base">
                                 Mechanical strategies to stabilize your own design. No affirmations—just architectural adjustments to regain signal clarity.
                             </p>
                         </div>

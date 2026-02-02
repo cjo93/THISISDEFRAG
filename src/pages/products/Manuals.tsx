@@ -84,19 +84,19 @@ export default function Landing() {
           <h1 className="space-y-6 sm:space-y-10">
             {/* Main headline - Static, clear value prop */}
             <div className="opacity-0 animate-[fadeReveal_1.5s_0.2s_cubic-bezier(0.16,1,0.3,1)_forwards] space-y-4 sm:space-y-6">
-              <p className="text-white font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
+              <p className="text-white font-semibold text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
                 Stop repeating the same fight
                 <br />
-                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
+                <span className="gradient-text">
                   on different days
                 </span>
               </p>
 
               {/* Subheadline - plain language */}
-              <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-4xl mx-auto mt-6">
+              <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-medium leading-relaxed max-w-4xl mx-auto mt-6">
                 A clear user manual for you and your people.
                 <br className="hidden sm:block" />
-                <span className="text-orange-400/90">What drains you. What restores you. What keeps you stable.</span>
+                <span className="gradient-text">What drains you. What restores you. What keeps you stable.</span>
               </p>
 
               {/* Trust signal */}

@@ -67,11 +67,11 @@ export default function HowItWorks() {
             <span className="h-px w-8 bg-orange-500/50" />
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6">
-            <span className="text-orange-500">Me</span> before <span className="text-white">We</span>.
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight mb-8">
+            <span className="gradient-text">Me</span> before <span className="text-white">We</span>.
           </h1>
 
-          <p className="text-xl text-white/50 mb-16 max-w-2xl">
+          <p className="text-lg lg:text-xl text-white/60 mb-16 lg:mb-20 max-w-2xl">
             You can't debug a connection if you don't know your own source code.
             DEFRAG works for individuals just as well as pairs.
           </p>

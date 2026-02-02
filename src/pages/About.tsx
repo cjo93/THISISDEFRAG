@@ -42,37 +42,37 @@ export default function About() {
             <span className="h-px w-8 bg-orange-500/50" />
           </div>
 
-          <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-10">
-            What is <span className="text-orange-500">DEFRAG</span>?
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-tight mb-12">
+            What is <span className="gradient-text">DEFRAG</span>?
           </h1>
 
-          <div className="space-y-10 text-white/70 leading-relaxed">
-            <p className="text-xl sm:text-2xl text-white/60 font-light leading-relaxed">
-              DEFRAG creates personalized relationship guides practical manuals that explain
+          <div className="space-y-12 text-white/70 leading-relaxed">
+            <p className="text-xl sm:text-2xl text-white/60 font-medium leading-relaxed">
+              DEFRAG creates personalized relationship guides—practical manuals that explain
               how two people interact under pressure and what helps reduce friction.
             </p>
 
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
-              <h2 className="text-xl font-medium text-white mb-4">The Problem</h2>
-              <p className="text-base leading-relaxed">
-                Most relationship friction isn't about big issues it's about small, recurring
+            <div className="card-premium">
+              <h2 className="text-2xl font-semibold text-white mb-6">The Problem</h2>
+              <p className="text-base lg:text-lg leading-relaxed text-white/70">
+                Most relationship friction isn't about big issues—it's about small, recurring
                 patterns that nobody fully understands. The same argument happens again.
                 Someone feels dismissed without knowing why. Timing feels off but you can't
                 explain it.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-orange-500/20 bg-orange-500/[0.03] p-8">
-              <h2 className="text-xl font-medium text-white mb-4">The Solution</h2>
-              <p className="text-base leading-relaxed">
-                DEFRAG maps these patterns using birth data and ancient timing systems astrology,
+            <div className="card-premium border-orange-500/40">
+              <h2 className="text-2xl font-semibold text-white mb-6">The Solution</h2>
+              <p className="text-base lg:text-lg leading-relaxed text-white/70">
+                DEFRAG maps these patterns using birth data and ancient timing systems—astrology,
                 Human Design, the I-Ching. Not as mysticism, but as pattern-recognition frameworks
                 that have tracked human behavior for thousands of years.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.04] to-transparent p-8">
-              <h2 className="text-xl font-medium text-white mb-6">What You Get</h2>
+            <div className="card-premium">
+              <h2 className="text-2xl font-semibold text-white mb-8">What You Get</h2>
               <ul className="space-y-4">
                 {[
                   'A clear explanation of how two people\'s patterns interact',

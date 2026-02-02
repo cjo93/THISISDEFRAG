@@ -8,23 +8,23 @@ export default function Relational() {
             <Header />
 
             {/* Hero Section */}
-            <section className="pt-32 pb-20 px-6 border-b border-white/5">
+            <section className="pt-32 lg:pt-40 pb-24 lg:pb-32 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
-                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-8 sm:mb-12 border border-orange-500/50 px-4 py-1 rounded-full uppercase bg-orange-500/5">
+                    <span className="badge-premium mb-10 lg:mb-16">
                         ORBIT: Relational Geometry
                     </span>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-8 sm:mb-12 text-white">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] mb-8 sm:mb-12 text-white">
                         Map the geometry
                         <br />
-                        <span className="text-orange-500">of your people.</span>
+                        <span className="gradient-text">of your people.</span>
                     </h1>
-                    <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-10">
+                    <p className="text-premium max-w-3xl mx-auto mb-12 lg:mb-16">
                         ORBIT reveals the invisible patterns in family systems using NASA JPL topocentric precision: triangulation, emotional cut-offs, and
                         pressure points. See <em>why</em> certain people become conflict lightning rods—it's positional,
                         not personal.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-white transition-all rounded-full uppercase shadow-[0_0_25px_rgba(249,115,22,0.3)]">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+                        <Link to="/start" className="button-primary">
                             Start Mapping
                         </Link>
                     </div>
@@ -32,34 +32,34 @@ export default function Relational() {
             </section>
 
             {/* What is ORBIT */}
-            <section className="py-20 px-6 border-b border-white/5">
+            <section className="section-premium border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                    <div className="section-header">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-white">
                             What is ORBIT?
                         </h2>
-                        <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-premium max-w-2xl mx-auto">
                             Maps relational mechanics, not just personalities.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6 text-white/60 leading-relaxed text-left">
-                            <p>
+                    <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
+                        <div className="space-y-6 text-white/70 leading-relaxed text-left">
+                            <p className="text-lg">
                                 <span className="text-white font-semibold">ORBIT</span> (Operational Relational Behavioral
                                 Intelligence Tool) maps the mechanical geometry of family systems using Penta (5-person)
                                 and Hexa (6-person) configurations.
                             </p>
-                            <p>
+                            <p className="text-lg">
                                 Based on Bowen Family Systems Theory, ORBIT shows how anxiety propagates through relational
-                                networks—not through individual pathology, but through <span className="text-orange-400">systemic position</span>.
+                                networks—not through individual pathology, but through <span className="gradient-text font-semibold">systemic position</span>.
                             </p>
-                            <p className="text-white/80 italic pl-4 border-l-2 border-orange-500/50">
+                            <p className="text-lg text-white/80 italic pl-6 border-l-2 border-orange-500/50">
                                 "You're not the problem. You're in the position that absorbs the system's friction."
                             </p>
                         </div>
 
-                        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/10 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <div className="card-premium h-80 lg:h-96 flex items-center justify-center">
                             {/* Visual Placeholder */}
                             <div className="relative w-64 h-64 animate-[spin_60s_linear_infinite]">
                                 {/* Center node */}
@@ -100,15 +100,18 @@ export default function Relational() {
             </section>
 
             {/* Key Features */}
-            <section className="py-20 px-6 border-b border-white/5 bg-zinc-950">
+            <section className="section-premium border-b border-white/5 bg-zinc-950">
                 <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                    <div className="section-header">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-white">
                             What ORBIT Reveals
                         </h2>
+                        <p className="text-premium max-w-2xl mx-auto">
+                            Deep insights into relational geometry and system dynamics.
+                        </p>
                     </div>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                         {[
                             {
                                 title: "Triangulation Patterns",
@@ -143,11 +146,11 @@ export default function Relational() {
                         ].map((feature, idx) => (
                             <div
                                 key={idx}
-                                className="p-8 bg-white/[0.02] border border-white/10 hover:border-orange-500/30 rounded-2xl transition-all hover:-translate-y-1 group"
+                                className="card-premium group"
                             >
-                                <div className="text-3xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity">{feature.icon}</div>
-                                <h3 className="text-lg font-semibold mb-3 text-white">{feature.title}</h3>
-                                <p className="text-white/60 text-sm leading-relaxed">{feature.desc}</p>
+                                <div className="text-4xl mb-6 opacity-70 group-hover:opacity-100 transition-opacity">{feature.icon}</div>
+                                <h3 className="text-lg lg:text-xl font-semibold mb-4 text-white group-hover:gradient-text transition-all">{feature.title}</h3>
+                                <p className="text-white/60 text-base leading-relaxed">{feature.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -155,10 +158,10 @@ export default function Relational() {
             </section>
 
             {/* Use Cases */}
-            <section className="py-20 px-6 border-b border-white/5">
+            <section className="section-premium border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
+                    <div className="section-header">
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 text-white">
                             Who Needs ORBIT
                         </h2>
                     </div>
