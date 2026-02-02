@@ -164,6 +164,11 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* REFINED SECTION SPACING */
+section {
+  position: relative;
+}
+
 /* REFINED HEADINGS - Elegant Impact */
 h1,
 h2,
@@ -171,40 +176,58 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 h2 {
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.875rem, 6vw, 3.5rem);
+  font-weight: 550;
+  letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
   font-weight: 500;
 }
 
 /* Mobile-first responsive typography */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   h1 {
-    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-size: clamp(1.75rem, 8vw, 2.75rem);
+    margin-bottom: 1.5rem;
   }
 
   h2 {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 1.5rem;
   }
 
   h3 {
-    font-size: clamp(1.25rem, 6vw, 2rem);
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: clamp(1.5rem, 7vw, 2.25rem);
+  }
+
+  h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 4vw, 1.25rem);
   }
 }
 
