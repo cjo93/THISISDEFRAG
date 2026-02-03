@@ -80,8 +80,8 @@ export default function SignInVerify() {
         <div className="min-h-screen relative overflow-hidden bg-black">
             {/* Animated Background */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
-                <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
+                <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
+                <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-white" />
                 <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
             </div>
 
@@ -94,8 +94,8 @@ export default function SignInVerify() {
 
                         {status === 'verifying' && (
                             <div className="text-center py-6">
-                                <div className="h-16 w-16 rounded-full bg-orange-500/20 flex items-center justify-center mx-auto mb-6">
-                                    <div className="h-8 w-8 border-2 border-orange-500/30 border-t-orange-500 rounded-full animate-spin" />
+                                <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-6">
+                                    <div className="h-8 w-8 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                 </div>
                                 <h2 className="text-xl font-medium text-white mb-3">Verifying Sign-In</h2>
                                 <p className="text-white/60">{message}</p>
@@ -125,7 +125,7 @@ export default function SignInVerify() {
                                 <p className="text-white/60 mb-6">{message}</p>
                                 <button
                                     onClick={() => navigate('/signin')}
-                                    className="bg-orange-500 hover:bg-orange-400 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide"
+                                    className="bg-white hover:bg-white text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide"
                                 >
                                     Try Again
                                 </button>

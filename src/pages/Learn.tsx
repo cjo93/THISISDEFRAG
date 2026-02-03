@@ -9,13 +9,13 @@ export default function Learn() {
             {/* Hero Section */}
             <section className="pt-32 pb-20 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto">
-                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-8 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-gray-300/70 mb-8 sm:mb-12 border-l-2 border-white/50 pl-4 uppercase">
                         Knowledge Base
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-8 sm:mb-12 text-white">
                         The science behind
                         <br />
-                        <span className="text-orange-500">your user manual.</span>
+                        <span className="text-white">your user manual.</span>
                     </h1>
                     <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl">
                         DEFRAG is built on deterministic math, clinical safety protocols, and NASA-grade telemetry.
@@ -33,8 +33,8 @@ export default function Learn() {
 
                     <div className="space-y-12">
                         {/* No Astrology, Astrology */}
-                        <div className="bg-gradient-to-br from-orange-500/5 to-transparent p-8 sm:p-12 rounded-2xl border border-orange-500/20">
-                            <h3 className="text-2xl sm:text-3xl font-medium mb-6 text-orange-400">
+                        <div className="bg-gradient-to-br from-white/5 to-transparent p-8 sm:p-12 rounded-2xl border border-white/20">
+                            <h3 className="text-2xl sm:text-3xl font-medium mb-6 text-gray-300">
                                 No Astrology, Astrology
                             </h3>
                             <p className="text-lg text-white/70 leading-relaxed mb-6">
@@ -42,11 +42,11 @@ export default function Learn() {
                             </p>
                             <div className="space-y-4 text-white/60">
                                 <p>
-                                    <span className="text-orange-400 font-semibold">What we DON'T do:</span> Fortune-telling,
+                                    <span className="text-white font-semibold">What we DON'T do:</span> Fortune-telling,
                                     mystical predictions, or claiming planets "cause" personality traits.
                                 </p>
                                 <p>
-                                    <span className="text-orange-400 font-semibold">What we DO:</span> Use NASA JPL Horizons
+                                    <span className="text-white font-semibold">What we DO:</span> Use NASA JPL Horizons
                                     data to calculate precise planetary vectors at your birth moment. These become
                                     <span className="text-white font-medium"> Environmental Pressure markers</span>—deterministic
                                     data points that correlate with observable behavioral patterns, just like seasonal birth
@@ -98,8 +98,8 @@ export default function Learn() {
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* NASA Telemetry */}
                         <div className="p-8 bg-white/[0.02] border border-white/10 rounded-xl">
-                            <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mb-6">
-                                <svg className="w-6 h-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                            <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-6">
+                                <svg className="w-6 h-6 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
                                     <circle cx="10" cy="10" r="2" />
                                 </svg>
@@ -110,7 +110,7 @@ export default function Learn() {
                                 positions are calculated to sub-arcsecond precision.
                             </p>
                             <p className="text-white/50 text-sm">
-                                These vectors become <span className="text-orange-400">Environmental Pressure</span> markers—not
+                                These vectors become <span className="text-white">Environmental Pressure</span> markers—not
                                 "influences," but data points that map to observable relational mechanics.
                             </p>
                         </div>
@@ -215,7 +215,7 @@ export default function Learn() {
                         ].map((persona, idx) => (
                             <div
                                 key={idx}
-                                className="p-6 sm:p-8 bg-white/[0.02] border border-white/10 hover:border-orange-500/30 rounded-xl transition-all"
+                                className="p-6 sm:p-8 bg-white/[0.02] border border-white/10 hover:border-white/30 rounded-xl transition-all"
                             >
                                 <div className="text-4xl mb-4">{persona.icon}</div>
                                 <h3 className="text-lg font-semibold mb-3 text-white">{persona.title}</h3>
@@ -257,7 +257,7 @@ export default function Learn() {
                             },
                         ].map((faq, idx) => (
                             <div key={idx} className="p-6 sm:p-8 bg-white/[0.02] border border-white/10 rounded-xl">
-                                <h3 className="text-lg sm:text-xl font-semibold mb-4 text-orange-400">{faq.q}</h3>
+                                <h3 className="text-lg sm:text-xl font-semibold mb-4 text-white">{faq.q}</h3>
                                 <p className="text-white/60 leading-relaxed">{faq.a}</p>
                             </div>
                         ))}
@@ -266,7 +266,7 @@ export default function Learn() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-6 bg-gradient-to-b from-transparent to-orange-500/5">
+            <section className="py-20 px-6 bg-gradient-to-b from-transparent to-white/5">
                 <div className="max-w-5xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-8 text-white">
                         Ready to see your manual?
@@ -276,7 +276,7 @@ export default function Learn() {
                     </p>
                     <Link
                         to="/start"
-                        className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase shadow-lg shadow-orange-500/20"
+                        className="inline-flex h-14 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-bold hover:bg-gray-100 transition-all rounded-lg uppercase shadow-lg shadow-white/20"
                     >
                         Start Now
                     </Link>
@@ -290,7 +290,7 @@ export default function Learn() {
                     <div className="flex gap-6">
                         <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
                         <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-                        <a href="https://api.defrag.app" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Developer API</a>
+                        <a href="https://api.defrag.app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Developer API</a>
                     </div>
                 </div>
             </footer>

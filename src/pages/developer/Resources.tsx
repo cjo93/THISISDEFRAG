@@ -56,7 +56,7 @@ export default function DeveloperResources() {
                                 <h3 className="text-white font-medium mb-1">{resource.title}</h3>
                                 <p className="text-white/40 text-sm">{resource.description}</p>
                             </div>
-                            <code className="px-3 py-2 bg-black/50 text-orange-400 text-sm rounded font-mono">
+                            <code className="px-3 py-2 bg-black/50 text-white text-sm rounded font-mono">
                                 {resource.action}
                             </code>
                         </div>
@@ -72,7 +72,7 @@ export default function DeveloperResources() {
                         <Palette size={24} className="text-white/40 mb-3" />
                         <h3 className="text-white font-medium mb-1">Logo Kit</h3>
                         <p className="text-white/40 text-sm mb-3">SVG, PNG logos in all variations.</p>
-                        <button className="text-orange-400 text-sm font-medium hover:underline flex items-center gap-1">
+                        <button className="text-white text-sm font-medium hover:underline flex items-center gap-1">
                             <Download size={14} /> Download Kit
                         </button>
                     </div>
@@ -81,7 +81,7 @@ export default function DeveloperResources() {
                         <h3 className="text-white font-medium mb-1">Color System</h3>
                         <p className="text-white/40 text-sm mb-3">Brand colors, gradients, and usage.</p>
                         <div className="flex gap-2">
-                            <div className="w-6 h-6 rounded bg-orange-500" title="#f97316"></div>
+                            <div className="w-6 h-6 rounded bg-white" title="#f97316"></div>
                             <div className="w-6 h-6 rounded bg-black border border-white/20" title="#000000"></div>
                             <div className="w-6 h-6 rounded bg-white" title="#ffffff"></div>
                         </div>

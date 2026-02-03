@@ -98,7 +98,7 @@ export default function Checkout() {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-orange-500/[0.08] rounded-full blur-[150px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-white/[0.08] rounded-full blur-[150px]" />
       </div>
 
       <Header />
@@ -107,17 +107,17 @@ export default function Checkout() {
         <div className="max-w-xl mx-auto">
 
           {wasCancelled && (
-            <div className="mb-8 p-4 border border-orange-500/30 bg-orange-500/10 rounded-xl text-center backdrop-blur">
-              <p className="text-sm text-orange-300">Analysis preserved. Ready to initialize when you are.</p>
+            <div className="mb-8 p-4 border border-white/30 bg-white/10 rounded-xl text-center backdrop-blur">
+              <p className="text-sm text-gray-300">Analysis preserved. Ready to initialize when you are.</p>
             </div>
           )}
 
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-5">
-              <span className="h-px w-6 bg-orange-500/50" />
-              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">ANALYSIS COMPLETE</span>
-              <span className="h-px w-6 bg-orange-500/50" />
+              <span className="h-px w-6 bg-white/50" />
+              <span className="text-xs tracking-[0.4em] text-gray-300 font-medium">ANALYSIS COMPLETE</span>
+              <span className="h-px w-6 bg-white/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-5">
               Mapping Behavioral Architecture
@@ -134,7 +134,7 @@ export default function Checkout() {
             <div className="flex items-center justify-between gap-4">
               {/* Unit A */}
               <div className="flex items-center gap-3 flex-1">
-                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-black font-bold text-lg shadow-lg shadow-orange-500/25">
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-white to-gray-300 flex items-center justify-center text-black font-bold text-lg shadow-lg shadow-white/25">
                   {unitA.name.charAt(0).toUpperCase()}
                 </div>
                 <div>
@@ -148,7 +148,7 @@ export default function Checkout() {
                 {[0, 1, 2, 3].map(i => (
                   <div
                     key={i}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === pulseIndex ? 'bg-orange-500 scale-125' : 'bg-white/20'}`}
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === pulseIndex ? 'bg-white scale-125' : 'bg-white/20'}`}
                   />
                 ))}
               </div>
@@ -181,7 +181,7 @@ export default function Checkout() {
                 'Instant secure cloud access',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-white/60">
-                  <span className="text-orange-500 text-xs mt-1 font-mono">+</span>
+                  <span className="text-white text-xs mt-1 font-mono">+</span>
                   <span>{item}</span>
                 </li>
               ))}
@@ -198,7 +198,7 @@ export default function Checkout() {
           <button
             onClick={handleCheckout}
             disabled={isLoading}
-            className="w-full h-16 bg-white text-black text-sm tracking-[0.15em] font-semibold rounded-xl hover:bg-orange-500 hover:text-white transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-xl shadow-white/10 hover:shadow-orange-500/20"
+            className="w-full h-16 bg-white text-black text-sm tracking-[0.15em] font-semibold rounded-xl hover:bg-gray-100 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-xl shadow-white/10 hover:shadow-white/20"
           >
             {isLoading ? (
               <>

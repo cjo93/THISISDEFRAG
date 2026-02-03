@@ -46,29 +46,29 @@ export default function DeveloperGuides() {
                     <Link
                         key={index}
                         to={guide.link}
-                        className="group p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-orange-500/30 transition-all flex items-start gap-4"
+                        className="group p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all flex items-start gap-4"
                     >
-                        <div className="p-3 bg-orange-500/10 text-orange-400 rounded-lg">
+                        <div className="p-3 bg-white/10 text-white rounded-lg">
                             {guide.icon}
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-lg font-medium text-white group-hover:text-orange-400 transition mb-1">
+                            <h3 className="text-lg font-medium text-white group-hover:text-white transition mb-1">
                                 {guide.title}
                             </h3>
                             <p className="text-white/50 text-sm mb-2">{guide.description}</p>
                             <span className="text-xs text-white/30 font-mono">{guide.time}</span>
                         </div>
-                        <ArrowRight size={20} className="text-white/20 group-hover:text-orange-400 group-hover:translate-x-1 transition-all mt-2" />
+                        <ArrowRight size={20} className="text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all mt-2" />
                     </Link>
                 ))}
             </div>
 
-            <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+            <div className="p-6 bg-white/5 border border-white/20 rounded-xl">
                 <h3 className="text-white font-medium mb-2">Need a custom integration?</h3>
                 <p className="text-white/50 text-sm mb-4">
                     Enterprise customers get dedicated integration support and custom guide development.
                 </p>
-                <a href="mailto:hello@defrag.app" className="text-orange-400 text-sm font-medium hover:underline">
+                <a href="mailto:hello@defrag.app" className="text-white text-sm font-medium hover:underline">
                     Contact Enterprise Sales →
                 </a>
             </div>

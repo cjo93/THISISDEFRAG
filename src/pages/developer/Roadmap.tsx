@@ -52,7 +52,7 @@ export default function DeveloperRoadmap() {
     const getStatusIcon = (status: string) => {
         switch (status) {
             case 'completed': return <CheckCircle size={20} className="text-green-400" />;
-            case 'current': return <Zap size={20} className="text-orange-400" />;
+            case 'current': return <Zap size={20} className="text-white" />;
             default: return <Circle size={20} className="text-white/20" />;
         }
     };
@@ -60,7 +60,7 @@ export default function DeveloperRoadmap() {
     const getStatusBadge = (status: string) => {
         switch (status) {
             case 'completed': return 'bg-green-500/10 text-green-400 border-green-500/30';
-            case 'current': return 'bg-orange-500/10 text-orange-400 border-orange-500/30';
+            case 'current': return 'bg-white/10 text-white border-white/30';
             default: return 'bg-white/5 text-white/40 border-white/10';
         }
     };
@@ -78,7 +78,7 @@ export default function DeveloperRoadmap() {
                     <div
                         key={index}
                         className={`p-6 rounded-xl border ${phase.status === 'current'
-                                ? 'bg-orange-500/5 border-orange-500/30'
+                                ? 'bg-white/5 border-white/30'
                                 : 'bg-white/5 border-white/10'
                             }`}
                     >
@@ -89,7 +89,7 @@ export default function DeveloperRoadmap() {
                             </span>
                             <h3 className="text-lg font-medium text-white">{phase.title}</h3>
                             {phase.status === 'current' && (
-                                <span className="ml-auto text-xs text-orange-400 font-mono">IN PROGRESS</span>
+                                <span className="ml-auto text-xs text-white font-mono">IN PROGRESS</span>
                             )}
                         </div>
                         <div className="grid sm:grid-cols-2 gap-3 pl-8">
@@ -113,7 +113,7 @@ export default function DeveloperRoadmap() {
             {/* Feature Request */}
             <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
                 <div className="flex items-center gap-3 mb-3">
-                    <MessageCircle size={20} className="text-orange-400" />
+                    <MessageCircle size={20} className="text-white" />
                     <h3 className="text-white font-medium">Request a Feature</h3>
                 </div>
                 <p className="text-white/40 text-sm mb-4">
@@ -121,7 +121,7 @@ export default function DeveloperRoadmap() {
                 </p>
                 <a
                     href="mailto:features@defrag.app?subject=Feature Request"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 text-black text-sm font-medium rounded-lg hover:bg-orange-400 transition"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white transition"
                 >
                     Submit Feature Request
                 </a>

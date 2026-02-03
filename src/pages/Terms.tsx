@@ -7,7 +7,7 @@ export default function Terms() {
         <div className="min-h-screen relative overflow-hidden bg-black">
             {/* Background */}
             <div className="absolute inset-0">
-                <div className="absolute -top-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
+                <div className="absolute -top-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
             </div>
 
             <Header />
@@ -15,9 +15,9 @@ export default function Terms() {
             <main className="relative z-10 px-6 py-20">
                 <div className="mx-auto max-w-4xl">
                     <div className="inline-flex items-center gap-2 mb-6">
-                        <span className="h-px w-8 bg-orange-500/50" />
-                        <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">TERMS OF SERVICE</span>
-                        <span className="h-px w-8 bg-orange-500/50" />
+                        <span className="h-px w-8 bg-white/50" />
+                        <span className="text-xs tracking-[0.4em] text-white font-medium">TERMS OF SERVICE</span>
+                        <span className="h-px w-8 bg-white/50" />
                     </div>
 
                     <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6 text-white">
@@ -129,7 +129,7 @@ export default function Terms() {
                                 <li>Service failure to generate manual</li>
                             </ul>
                             <p>
-                                Refund requests must be submitted within 7 days of purchase to <a href="mailto:support@defrag.app" className="text-orange-400 hover:text-orange-300 underline">support@defrag.app</a>.
+                                Refund requests must be submitted within 7 days of purchase to <a href="mailto:support@defrag.app" className="text-white hover:text-gray-300 underline">support@defrag.app</a>.
                             </p>
                         </section>
 
@@ -178,7 +178,7 @@ export default function Terms() {
                         <section>
                             <h2 className="text-2xl font-medium text-white mb-4">7. Disclaimers and Limitations</h2>
                             <h3 className="text-xl font-medium text-white/90 mb-3 mt-6">7.1 Not Professional Advice</h3>
-                            <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6 mb-4">
+                            <div className="bg-white/10 border border-white/30 rounded-xl p-6 mb-4">
                                 <p className="font-medium text-white mb-2">IMPORTANT DISCLAIMER:</p>
                                 <p>
                                     DEFRAG is NOT a substitute for professional therapy, counseling, medical advice, or clinical diagnosis. Our analysis is based on pattern recognition frameworks and should be used as a tool for self-reflection, not as definitive truth about yourself or others.
@@ -261,7 +261,7 @@ export default function Terms() {
                                 Any disputes arising from these Terms or the Service shall be resolved through:
                             </p>
                             <ol className="list-decimal list-inside space-y-2 ml-4">
-                                <li><strong>Informal Negotiation</strong> - Contact us at <a href="mailto:legal@defrag.app" className="text-orange-400 hover:text-orange-300 underline">legal@defrag.app</a></li>
+                                <li><strong>Informal Negotiation</strong> - Contact us at <a href="mailto:legal@defrag.app" className="text-white hover:text-gray-300 underline">legal@defrag.app</a></li>
                                 <li><strong>Mediation</strong> - If negotiation fails, binding mediation</li>
                                 <li><strong>Arbitration</strong> - Final binding arbitration if mediation fails</li>
                             </ol>
@@ -290,9 +290,9 @@ export default function Terms() {
                                 For questions about these Terms, please contact us:
                             </p>
                             <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                                <p className="mb-2"><strong className="text-white">Legal:</strong> <a href="mailto:legal@defrag.app" className="text-orange-400 hover:text-orange-300">legal@defrag.app</a></p>
-                                <p className="mb-2"><strong className="text-white">Support:</strong> <a href="mailto:support@defrag.app" className="text-orange-400 hover:text-orange-300">support@defrag.app</a></p>
-                                <p><strong className="text-white">Website:</strong> <a href="https://defrag.app" className="text-orange-400 hover:text-orange-300">https://defrag.app</a></p>
+                                <p className="mb-2"><strong className="text-white">Legal:</strong> <a href="mailto:legal@defrag.app" className="text-white hover:text-gray-300">legal@defrag.app</a></p>
+                                <p className="mb-2"><strong className="text-white">Support:</strong> <a href="mailto:support@defrag.app" className="text-white hover:text-gray-300">support@defrag.app</a></p>
+                                <p><strong className="text-white">Website:</strong> <a href="https://defrag.app" className="text-white hover:text-gray-300">https://defrag.app</a></p>
                             </div>
                         </section>
 
@@ -302,7 +302,7 @@ export default function Terms() {
                     <div className="mt-16 text-center">
                         <Link
                             to="/"
-                            className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition shadow-lg shadow-white/10"
+                            className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-white hover:text-white transition shadow-lg shadow-white/10"
                         >
                             BACK TO HOME
                         </Link>

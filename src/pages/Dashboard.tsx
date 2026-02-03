@@ -109,14 +109,14 @@ export default function Dashboard() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-orange-500/20">
+        <div className="min-h-screen bg-black text-white selection:bg-white/20">
             {/* Grain Overlay */}
             <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_200_200%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.65%22_numOctaves=%223%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
 
             {/* Ambient background */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-[150px]" />
-                <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-orange-400/5 rounded-full blur-[120px]" />
+                <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-white/5 rounded-full blur-[150px]" />
+                <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-gray-300/5 rounded-full blur-[120px]" />
             </div>
 
             <Header />
@@ -133,7 +133,7 @@ export default function Dashboard() {
                     </div>
                     <Link
                         to="/start"
-                        className="bg-white text-black px-6 py-3 rounded-lg text-xs font-bold tracking-widest hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-white/5"
+                        className="bg-white text-black px-6 py-3 rounded-lg text-xs font-bold tracking-widest hover:bg-gray-100 transition-all shadow-lg shadow-white/5"
                     >
                         + ADD PERSON
                     </Link>
@@ -156,7 +156,7 @@ export default function Dashboard() {
                         <p className="text-white/40 mb-4">Set up your profile to unlock personalized insights</p>
                         <Link
                             to="/start"
-                            className="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg text-xs font-bold tracking-widest hover:bg-orange-400 transition-all"
+                            className="inline-block bg-white text-black px-6 py-3 rounded-lg text-xs font-bold tracking-widest hover:bg-gray-100 transition-all"
                         >
                             INITIALIZE PROFILE
                         </Link>
@@ -188,7 +188,7 @@ export default function Dashboard() {
                             {/* Add new card */}
                             <Link
                                 to="/start"
-                                className="glass-box rounded-xl p-5 border border-dashed border-white/10 hover:border-orange-500/30 transition-all flex items-center justify-center gap-3 text-white/40 hover:text-orange-400 min-h-[100px]"
+                                className="glass-box rounded-xl p-5 border border-dashed border-white/10 hover:border-white/30 transition-all flex items-center justify-center gap-3 text-white/40 hover:text-white min-h-[100px]"
                             >
                                 <span className="text-2xl">+</span>
                                 <span className="text-xs tracking-widest uppercase">Add Person</span>
@@ -200,7 +200,7 @@ export default function Dashboard() {
                             <p className="text-white/30 text-sm mb-6">No relationship manuals generated yet.</p>
                             <Link
                                 to="/start"
-                                className="text-orange-500 hover:text-orange-400 text-sm underline underline-offset-4"
+                                className="text-white hover:text-gray-300 text-sm underline underline-offset-4"
                             >
                                 Map your first relationship
                             </Link>

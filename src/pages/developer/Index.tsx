@@ -34,7 +34,7 @@ function ComingSoonView() {
                     PRIVATE TESTING
                 </div>
                 <h1 className="text-4xl md:text-5xl font-light text-white tracking-tight">
-                    Developer <span className="text-orange-500">API</span>
+                    Developer <span className="text-white">API</span>
                 </h1>
                 <p className="text-xl text-white/50 max-w-2xl leading-relaxed">
                     We're testing this with a small group. If you've been invited, sign in and check your dashboard.
@@ -45,37 +45,37 @@ function ComingSoonView() {
             <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/10">
                 <div className="flex items-center gap-3 mb-6">
                     <h2 className="text-xl font-light text-white">What this will do</h2>
-                    <span className="text-[9px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Coming Soon</span>
+                    <span className="text-[9px] font-mono tracking-widest bg-white/10 text-white px-2 py-0.5 rounded border border-white/20 uppercase">Coming Soon</span>
                 </div>
 
                 <ul className="space-y-4 text-white/60">
                     <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
+                        <span className="text-white mt-1">•</span>
                         <span><strong className="text-white/80">SEDA Safety Scores</strong> — Real-time clinical safety gating for AI outputs and user content.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
+                        <span className="text-white mt-1">•</span>
                         <span><strong className="text-white/80">Pressure Mapping</strong> — NASA JPL precision orbital telemetry for environmental pressure analysis.</span>
                     </li>
                     <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
+                        <span className="text-white mt-1">•</span>
                         <span><strong className="text-white/80">Relational Geometry</strong> — Multi-person system mapping for teams and families.</span>
                     </li>
                 </ul>
             </div>
 
             {/* Testing Phase Info */}
-            <div className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
+            <div className="p-6 rounded-xl bg-white/5 border border-white/20">
                 <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-lg bg-orange-500/10">
-                        <Shield size={20} className="text-orange-400" />
+                    <div className="p-2 rounded-lg bg-white/10">
+                        <Shield size={20} className="text-white" />
                     </div>
                     <div>
                         <h3 className="text-white font-medium mb-2">Builder (testing)</h3>
                         <p className="text-white/50 text-sm leading-relaxed mb-3">
                             Up to 5,000 calls a month while we're in testing. Includes safety scores, pressure scores, and basic group mapping.
                         </p>
-                        <p className="text-orange-400 text-sm font-mono">From 99 / month</p>
+                        <p className="text-white text-sm font-mono">From 99 / month</p>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@ function ComingSoonView() {
             <div className="flex flex-wrap gap-4">
                 <a
                     href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                    className="flex items-center gap-2 px-6 py-3 bg-orange-500 text-black font-bold tracking-wide rounded hover:bg-orange-400 transition text-sm uppercase"
+                    className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold tracking-wide rounded hover:bg-white transition text-sm uppercase"
                 >
                     Request Access <ArrowRight size={16} />
                 </a>
@@ -110,12 +110,12 @@ function FullDevDashboard() {
         <div className="space-y-12">
             {/* Hero */}
             <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-mono tracking-wide">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono tracking-wide">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                     DEV PILOT ACCESS
                 </div>
                 <h1 className="text-4xl md:text-5xl font-light text-white tracking-tight">
-                    Build with <span className="text-orange-500">Human Intelligence</span>
+                    Build with <span className="text-white">Human Intelligence</span>
                 </h1>
                 <p className="text-xl text-white/50 max-w-2xl leading-relaxed">
                     Integrate DEFRAG's proprietary behavioral engine into your application.
@@ -135,7 +135,7 @@ function FullDevDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <StatusCard icon={<Zap size={20} />} label="System Status" value="Operational" color="text-green-400" />
                 <StatusCard icon={<Shield size={20} />} label="Security Level" value="SOC2 Type II" color="text-blue-400" />
-                <StatusCard icon={<Code size={20} />} label="Latest Version" value="v2.0.0" color="text-orange-400" />
+                <StatusCard icon={<Code size={20} />} label="Latest Version" value="v2.0.0" color="text-white" />
             </div>
 
             {/* Featured Resources */}
@@ -169,8 +169,8 @@ function StatusCard({ icon, label, value, color }: any) {
 
 function ResourceCard({ title, desc, link }: any) {
     return (
-        <Link to={link} className="group p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent hover:border-orange-500/30 transition-all">
-            <h3 className="text-xl font-light text-white mb-2 group-hover:text-orange-400 transition-colors">{title}</h3>
+        <Link to={link} className="group p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent hover:border-white/30 transition-all">
+            <h3 className="text-xl font-light text-white mb-2 group-hover:text-white transition-colors">{title}</h3>
             <p className="text-white/50 text-sm leading-relaxed mb-4">{desc}</p>
             <div className="flex items-center gap-2 text-xs font-mono text-white/30 group-hover:text-white transition-colors">
                 READ ARTICLE <ArrowRight size={12} />

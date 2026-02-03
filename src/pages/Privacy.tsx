@@ -7,7 +7,7 @@ export default function Privacy() {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
+        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
       </div>
 
       <Header />
@@ -16,9 +16,9 @@ export default function Privacy() {
       <main className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="inline-flex items-center gap-2 mb-6">
-            <span className="h-px w-8 bg-orange-500/50" />
-            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">PRIVACY POLICY</span>
-            <span className="h-px w-8 bg-orange-500/50" />
+            <span className="h-px w-8 bg-white/50" />
+            <span className="text-xs tracking-[0.4em] text-white font-medium">PRIVACY POLICY</span>
+            <span className="h-px w-8 bg-white/50" />
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6 text-white">
@@ -125,7 +125,7 @@ export default function Privacy() {
                 <li><strong>Restriction</strong> - Limit how we process your data</li>
               </ul>
               <p className="mt-4">
-                To exercise these rights, contact us at <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300 underline">privacy@defrag.app</a>
+                To exercise these rights, contact us at <a href="mailto:privacy@defrag.app" className="text-white hover:text-gray-300 underline">privacy@defrag.app</a>
               </p>
             </section>
 
@@ -163,7 +163,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-medium text-white mb-4">9. Children's Privacy</h2>
               <p>
-                DEFRAG is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately at <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300 underline">privacy@defrag.app</a>.
+                DEFRAG is not intended for users under 18 years of age. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately at <a href="mailto:privacy@defrag.app" className="text-white hover:text-gray-300 underline">privacy@defrag.app</a>.
               </p>
             </section>
 
@@ -239,9 +239,9 @@ export default function Privacy() {
                 If you have questions about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                <p className="mb-2"><strong className="text-white">Email:</strong> <a href="mailto:privacy@defrag.app" className="text-orange-400 hover:text-orange-300">privacy@defrag.app</a></p>
-                <p className="mb-2"><strong className="text-white">Support:</strong> <a href="mailto:info@defrag.app" className="text-orange-400 hover:text-orange-300">info@defrag.app</a></p>
-                <p><strong className="text-white">Website:</strong> <a href="https://defrag.app" className="text-orange-400 hover:text-orange-300">https://defrag.app</a></p>
+                <p className="mb-2"><strong className="text-white">Email:</strong> <a href="mailto:privacy@defrag.app" className="text-white hover:text-gray-300">privacy@defrag.app</a></p>
+                <p className="mb-2"><strong className="text-white">Support:</strong> <a href="mailto:info@defrag.app" className="text-white hover:text-gray-300">info@defrag.app</a></p>
+                <p><strong className="text-white">Website:</strong> <a href="https://defrag.app" className="text-white hover:text-gray-300">https://defrag.app</a></p>
               </div>
             </section>
 
@@ -251,7 +251,7 @@ export default function Privacy() {
           <div className="mt-16 text-center">
             <Link
               to="/"
-              className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition shadow-lg shadow-white/10"
+              className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-white hover:text-white transition shadow-lg shadow-white/10"
             >
               BACK TO HOME
             </Link>

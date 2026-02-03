@@ -31,14 +31,14 @@ export default function HowItWorks() {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute -bottom-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
+        <div className="absolute -bottom-80 -left-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
       </div>
 
       {/* Nav */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
         <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-white flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
             <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
@@ -50,7 +50,7 @@ export default function HowItWorks() {
             </Link>
             <Link
               to="/start"
-              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
+              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-gray-100 transition rounded-lg"
             >
               START
             </Link>
@@ -62,13 +62,13 @@ export default function HowItWorks() {
       <main className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="inline-flex items-center gap-2 mb-6">
-            <span className="h-px w-8 bg-orange-500/50" />
-            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">HOW IT WORKS</span>
-            <span className="h-px w-8 bg-orange-500/50" />
+            <span className="h-px w-8 bg-white/50" />
+            <span className="text-xs tracking-[0.4em] text-gray-300 font-medium">HOW IT WORKS</span>
+            <span className="h-px w-8 bg-white/50" />
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-6">
-            <span className="text-orange-500">Me</span> before <span className="text-white">We</span>.
+            <span className="text-white">Me</span> before <span className="text-white">We</span>.
           </h1>
 
           <p className="text-xl text-white/50 mb-16 max-w-2xl">
@@ -78,8 +78,8 @@ export default function HowItWorks() {
 
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 mb-16 sm:mb-20">
             {/* Pathway 1: Self Discovery */}
-            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-orange-500/[0.02] transition-colors group">
-              <div className="text-xs tracking-[0.2em] text-orange-500 uppercase mb-4 font-bold">PATH 01: SELF-DISCOVERY</div>
+            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.02] transition-colors group">
+              <div className="text-xs tracking-[0.2em] text-white uppercase mb-4 font-bold">PATH 01: SELF-DISCOVERY</div>
               <h3 className="text-2xl font-medium text-white mb-4">Decode Yourself</h3>
               <p className="text-white/60 leading-relaxed mb-6">
                 Enter just your own birth data to get a "User Manual for YOU."
@@ -93,8 +93,8 @@ export default function HowItWorks() {
             </div>
 
             {/* Pathway 2: Relationship */}
-            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-orange-500/[0.02] transition-colors group">
-              <div className="text-xs tracking-[0.2em] text-orange-500 uppercase mb-4 font-bold">PATH 02: RELATIONSHIP</div>
+            <div className="relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.02] transition-colors group">
+              <div className="text-xs tracking-[0.2em] text-white uppercase mb-4 font-bold">PATH 02: RELATIONSHIP</div>
               <h3 className="text-2xl font-medium text-white mb-4">Decode the Dynamic</h3>
               <p className="text-white/60 leading-relaxed mb-6">
                 Add a second person partner, friend, parent to generate a "Combat Manual" for the relationship.
@@ -116,13 +116,13 @@ export default function HowItWorks() {
               <div key={step.num} className="relative">
                 {/* Connecting line */}
                 {i < steps.length - 1 && (
-                  <div className="absolute left-6 top-14 bottom-0 w-px bg-gradient-to-b from-orange-500/30 to-transparent hidden sm:block" />
+                  <div className="absolute left-6 top-14 bottom-0 w-px bg-gradient-to-b from-white/30 to-transparent hidden sm:block" />
                 )}
 
                 <div className="flex gap-6 sm:gap-8">
                   {/* Number */}
                   <div className="shrink-0">
-                    <div className="h-12 w-12 rounded-xl bg-orange-500 flex items-center justify-center text-black font-mono font-bold text-lg">
+                    <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center text-black font-mono font-bold text-lg">
                       {step.num}
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function HowItWorks() {
             <div className="grid sm:grid-cols-2 gap-3">
               {systems.map((system) => (
                 <div key={system.name} className="flex items-center gap-3 p-4 rounded-lg bg-white/[0.02] border border-white/5">
-                  <span className="text-orange-400">+</span>
+                  <span className="text-white">+</span>
                   <div>
                     <div className="font-medium text-white text-sm">{system.name}</div>
                     <div className="text-xs text-white/40">{system.desc}</div>
@@ -159,7 +159,7 @@ export default function HowItWorks() {
           </div>
 
           {/* Accuracy note */}
-          <blockquote className="border-l-2 border-orange-500 pl-6 py-2 mb-12">
+          <blockquote className="border-l-2 border-white pl-6 py-2 mb-12">
             <p className="text-base text-white/50">
               Patterns, not predictions. Use what helps.
             </p>
@@ -169,7 +169,7 @@ export default function HowItWorks() {
           <div className="flex flex-wrap gap-4">
             <Link
               to="/start"
-              className="h-14 px-8 flex items-center justify-center bg-white text-black font-semibold tracking-[0.12em] text-sm hover:bg-orange-500 hover:text-white transition rounded-lg shadow-lg shadow-white/10"
+              className="h-14 px-8 flex items-center justify-center bg-white text-black font-semibold tracking-[0.12em] text-sm hover:bg-gray-100 transition rounded-lg shadow-lg shadow-white/10"
             >
               CREATE YOUR MANUAL
             </Link>

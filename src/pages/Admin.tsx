@@ -60,7 +60,7 @@ export default function Admin() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-orange-500/20">
+        <div className="min-h-screen bg-black text-white selection:bg-white/20">
             {/* Grain Overlay */}
             <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_200_200%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.65%22_numOctaves=%223%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
 
@@ -69,9 +69,9 @@ export default function Admin() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/5 mb-4">
-                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                            <span className="text-[10px] tracking-[0.3em] font-mono text-orange-400 uppercase">Secure Link Established</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/30 bg-white/5 mb-4">
+                            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                            <span className="text-[10px] tracking-[0.3em] font-mono text-gray-300 uppercase">Secure Link Established</span>
                         </div>
                         <h1 className="text-4xl sm:text-5xl font-light tracking-tight">Admin<span className="text-white/30">.OS</span></h1>
                     </div>
@@ -79,7 +79,7 @@ export default function Admin() {
                     <div className="flex items-center gap-6">
                         <Link
                             to="/start"
-                            className="text-xs tracking-[0.2em] font-bold text-white hover:text-orange-500 transition-colors uppercase border-b border-white/10 pb-1"
+                            className="text-xs tracking-[0.2em] font-bold text-white hover:text-gray-300 transition-colors uppercase border-b border-white/10 pb-1"
                         >
                             Use as Normal User
                         </Link>
@@ -101,10 +101,10 @@ export default function Admin() {
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab as any)}
-                            className={`pb-4 text-xs tracking-[0.3em] uppercase transition-all relative ${activeTab === tab ? 'text-orange-500' : 'text-white/30 hover:text-white'}`}
+                            className={`pb-4 text-xs tracking-[0.3em] uppercase transition-all relative ${activeTab === tab ? 'text-white' : 'text-white/30 hover:text-white'}`}
                         >
                             {tab}
-                            {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-px bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,1)]" />}
+                            {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-px bg-white shadow-[0_0_10px_rgba(255,255,255,1)]" />}
                         </button>
                     ))}
                 </div>
@@ -128,7 +128,7 @@ export default function Admin() {
                                     (stats as any).recentTransactions.map((tx: any) => (
                                         <div key={tx.id} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0 hover:bg-white/[0.02] -mx-4 px-4 transition-colors">
                                             <div className="flex items-center gap-4">
-                                                <div className="h-8 w-8 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 font-mono text-xs">
+                                                <div className="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center text-white font-mono text-xs">
                                                     $
                                                 </div>
                                                 <div>
@@ -164,13 +164,13 @@ export default function Admin() {
                         </div>
 
                         <div className="bg-zinc-900/20 border border-white/5 rounded-3xl p-10 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
                             <div className="space-y-8 relative z-10">
                                 <div>
                                     <label className="block text-xs uppercase tracking-[0.3em] text-white/30 mb-4 font-mono">Grant Duration</label>
                                     <div className="grid grid-cols-2 gap-4">
                                         <button className="py-3 bg-white/5 border border-white/10 rounded-xl text-xs tracking-widest uppercase hover:bg-white/10 transition-all font-bold">1 Month</button>
-                                        <button className="py-3 bg-orange-500 text-black border border-orange-500 rounded-xl text-xs tracking-widest uppercase hover:bg-orange-400 transition-all font-bold">LIFETIME ACCESS</button>
+                                        <button className="py-3 bg-white text-black border border-white rounded-xl text-xs tracking-widest uppercase hover:bg-gray-100 transition-all font-bold">LIFETIME ACCESS</button>
                                     </div>
                                 </div>
                                 <div>
@@ -178,13 +178,13 @@ export default function Admin() {
                                     <input
                                         type="text"
                                         placeholder="Name or Memo"
-                                        className="w-full bg-black border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-orange-500/50"
+                                        className="w-full bg-black border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-white/50"
                                     />
                                 </div>
                                 <button
                                     onClick={handleGenerateCard}
                                     disabled={isGenerating}
-                                    className="w-full py-5 bg-white text-black rounded-xl text-xs tracking-[0.4em] font-black uppercase hover:bg-orange-500 hover:text-white transition-all disabled:opacity-50"
+                                    className="w-full py-5 bg-white text-black rounded-xl text-xs tracking-[0.4em] font-black uppercase hover:bg-gray-100 transition-all disabled:opacity-50"
                                 >
                                     {isGenerating ? 'GENOCIDING ACCESS TOKEN...' : 'GENERATE SHARED ACCESS'}
                                 </button>
@@ -208,7 +208,7 @@ export default function Admin() {
                             <h2 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-8 font-mono">System Load</h2>
                             <div className="h-40 flex items-end gap-1">
                                 {Array.from({ length: 30 }).map((_, i) => (
-                                    <div key={i} className={`flex-1 rounded-t-sm transition-all duration-1000 ${i > 24 ? 'bg-orange-500' : 'bg-white/10'}`} style={{ height: `${Math.random() * 80 + 20}%` }} />
+                                    <div key={i} className={`flex-1 rounded-t-sm transition-all duration-1000 ${i > 24 ? 'bg-white' : 'bg-white/10'}`} style={{ height: `${Math.random() * 80 + 20}%` }} />
                                 ))}
                             </div>
                         </div>
@@ -226,12 +226,12 @@ export default function Admin() {
                         {/* The "Card" */}
                         <div className="aspect-[1.6/1] w-full bg-gradient-to-br from-zinc-800 via-black to-zinc-900 rounded-[2rem] border border-white/20 p-8 shadow-[0_50px_100px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col justify-between">
                             {/* Mandala Glow */}
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/20 blur-[50px] -translate-y-1/2 translate-x-1/2" />
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-white/20 blur-[50px] -translate-y-1/2 translate-x-1/2" />
 
                             <div className="relative z-10">
                                 <div className="flex justify-between items-start mb-12">
                                     <div className="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center">
-                                        <svg width="20" height="20" viewBox="0 0 100 100" className="text-orange-500" fill="currentColor">
+                                        <svg width="20" height="20" viewBox="0 0 100 100" className="text-white" fill="currentColor">
                                             <circle cx="50" cy="50" r="40" opacity="0.1" />
                                             <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="4" />
                                         </svg>
@@ -247,9 +247,9 @@ export default function Admin() {
                             </div>
 
                             <div className="relative z-10 flex items-center justify-between mt-auto pt-8 border-t border-white/5">
-                                <span className="text-[10px] tracking-[0.3em] font-bold text-orange-500 uppercase">Airdrop Ready</span>
+                                <span className="text-[10px] tracking-[0.3em] font-bold text-white uppercase">Airdrop Ready</span>
                                 <div className="flex gap-1">
-                                    <div className="h-1 w-8 bg-orange-500 rounded-full" />
+                                    <div className="h-1 w-8 bg-white rounded-full" />
                                     <div className="h-1 w-2 bg-white/20 rounded-full" />
                                 </div>
                             </div>
@@ -286,7 +286,7 @@ export default function Admin() {
 function StatCard({ label, value, trend }: { label: string, value: string, trend: string }) {
     return (
         <div className="glass-box border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="text-white/40 text-[10px] uppercase tracking-[0.4em] mb-3 font-mono">{label}</div>
             <div className="text-4xl font-light text-white mb-3">{value}</div>
             <div className="text-green-400 text-[10px] font-mono tracking-widest">{trend} this interval</div>
@@ -311,7 +311,7 @@ function ProfileRow({ name, count }: { name: string, count: string }) {
     return (
         <div className="flex justify-between items-center group cursor-default">
             <span className="text-sm text-white/70 group-hover:text-white transition-colors">{name}</span>
-            <span className="text-xs font-mono text-orange-500/60">{count}</span>
+            <span className="text-xs font-mono text-white/60">{count}</span>
         </div>
     )
 }

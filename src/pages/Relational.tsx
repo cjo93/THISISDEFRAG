@@ -4,19 +4,19 @@ import { Link } from 'react-router-dom';
 
 export default function Relational() {
     return (
-        <div className="min-h-screen w-full bg-black text-white overflow-y-scroll selection:bg-orange-500/30">
+        <div className="min-h-screen w-full bg-black text-white overflow-y-scroll selection:bg-white/30">
             <Header />
 
             {/* Hero Section */}
             <section className="pt-32 pb-20 px-6 border-b border-white/5">
                 <div className="max-w-5xl mx-auto text-center flex flex-col items-center">
-                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-8 sm:mb-12 border border-orange-500/50 px-4 py-1 rounded-full uppercase bg-orange-500/5">
+                    <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-white/70 mb-8 sm:mb-12 border border-white/50 px-4 py-1 rounded-full uppercase bg-white/5">
                         ORBIT: Relational Geometry
                     </span>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-8 sm:mb-12 text-white">
                         Map the geometry
                         <br />
-                        <span className="text-orange-500">of your people.</span>
+                        <span className="text-white">of your people.</span>
                     </h1>
                     <p className="text-xl sm:text-2xl text-white/60 font-light max-w-3xl mx-auto leading-relaxed mb-10">
                         ORBIT reveals the invisible patterns in family systems using NASA JPL topocentric precision: triangulation, emotional cut-offs, and
@@ -24,7 +24,7 @@ export default function Relational() {
                         not personal.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-orange-500 text-black text-sm tracking-widest font-bold hover:bg-white transition-all rounded-full uppercase shadow-[0_0_25px_rgba(249,115,22,0.3)]">
+                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-white transition-all rounded-full uppercase shadow-[0_0_25px_rgba(249,115,22,0.3)]">
                             Start Mapping
                         </Link>
                     </div>
@@ -52,19 +52,19 @@ export default function Relational() {
                             </p>
                             <p>
                                 Based on Bowen Family Systems Theory, ORBIT shows how anxiety propagates through relational
-                                networks—not through individual pathology, but through <span className="text-orange-400">systemic position</span>.
+                                networks—not through individual pathology, but through <span className="text-white">systemic position</span>.
                             </p>
-                            <p className="text-white/80 italic pl-4 border-l-2 border-orange-500/50">
+                            <p className="text-white/80 italic pl-4 border-l-2 border-white/50">
                                 "You're not the problem. You're in the position that absorbs the system's friction."
                             </p>
                         </div>
 
-                        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-orange-500/10 to-purple-500/10 border border-white/10 flex items-center justify-center overflow-hidden">
+                        <div className="relative h-80 rounded-2xl bg-gradient-to-br from-white/10 to-purple-500/10 border border-white/10 flex items-center justify-center overflow-hidden">
                             {/* Visual Placeholder */}
                             <div className="relative w-64 h-64 animate-[spin_60s_linear_infinite]">
                                 {/* Center node */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-orange-500/20 border border-orange-500/50 flex items-center justify-center z-10 backdrop-blur-sm">
-                                    <span className="text-[10px] font-bold text-orange-400 tracking-widest">YOU</span>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/20 border border-white/50 flex items-center justify-center z-10 backdrop-blur-sm">
+                                    <span className="text-[10px] font-bold text-white tracking-widest">YOU</span>
                                 </div>
                                 {/* Orbiting nodes */}
                                 {[0, 72, 144, 216, 288].map((angle, idx) => {
@@ -143,7 +143,7 @@ export default function Relational() {
                         ].map((feature, idx) => (
                             <div
                                 key={idx}
-                                className="p-8 bg-white/[0.02] border border-white/10 hover:border-orange-500/30 rounded-2xl transition-all hover:-translate-y-1 group"
+                                className="p-8 bg-white/[0.02] border border-white/10 hover:border-white/30 rounded-2xl transition-all hover:-translate-y-1 group"
                             >
                                 <div className="text-3xl mb-4 opacity-70 group-hover:opacity-100 transition-opacity">{feature.icon}</div>
                                 <h3 className="text-lg font-semibold mb-3 text-white">{feature.title}</h3>
@@ -188,9 +188,9 @@ export default function Relational() {
                         ].map((useCase, idx) => (
                             <div
                                 key={idx}
-                                className="p-8 bg-gradient-to-r from-white/[0.02] to-transparent border-l-2 border-white/10 hover:border-orange-500 transition-all rounded-r-xl"
+                                className="p-8 bg-gradient-to-r from-white/[0.02] to-transparent border-l-2 border-white/10 hover:border-white transition-all rounded-r-xl"
                             >
-                                <h3 className="text-xl font-semibold mb-2 text-orange-400">{useCase.title}</h3>
+                                <h3 className="text-xl font-semibold mb-2 text-white">{useCase.title}</h3>
                                 <p className="text-white/70 leading-relaxed mb-3">{useCase.desc}</p>
                                 <p className="text-sm text-white/40 italic">Example: {useCase.example}</p>
                             </div>
@@ -200,7 +200,7 @@ export default function Relational() {
             </section>
 
             {/* How It Works - Numbered Steps Refined */}
-            <section className="py-20 px-6 border-b border-white/5 bg-gradient-to-b from-transparent to-orange-500/5">
+            <section className="py-20 px-6 border-b border-white/5 bg-gradient-to-b from-transparent to-white/5">
                 <div className="max-w-5xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl font-light mb-6 text-white">
@@ -239,7 +239,7 @@ export default function Relational() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
                         <Link
                             to="/start"
-                            className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase shadow-lg shadow-orange-500/20"
+                            className="inline-flex h-14 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase shadow-lg shadow-white/20"
                         >
                             Start Mapping ($29–99)
                         </Link>

@@ -15,16 +15,16 @@ export default function DeveloperCommunity() {
                     href="https://github.com/cjo93/defrag"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-orange-500/30 transition-all group"
+                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all group"
                 >
                     <Github size={28} className="text-white/60 mb-4" />
-                    <h3 className="text-lg font-medium text-white group-hover:text-orange-400 transition mb-2">
+                    <h3 className="text-lg font-medium text-white group-hover:text-white transition mb-2">
                         GitHub
                     </h3>
                     <p className="text-white/40 text-sm mb-3">
                         Report issues, request features, and contribute to the codebase.
                     </p>
-                    <span className="text-orange-400 text-sm flex items-center gap-1">
+                    <span className="text-white text-sm flex items-center gap-1">
                         View Repository <ExternalLink size={14} />
                     </span>
                 </a>
@@ -33,43 +33,43 @@ export default function DeveloperCommunity() {
                     href="https://twitter.com/defragapp"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-orange-500/30 transition-all group"
+                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all group"
                 >
                     <Twitter size={28} className="text-white/60 mb-4" />
-                    <h3 className="text-lg font-medium text-white group-hover:text-orange-400 transition mb-2">
+                    <h3 className="text-lg font-medium text-white group-hover:text-white transition mb-2">
                         Twitter / X
                     </h3>
                     <p className="text-white/40 text-sm mb-3">
                         Product updates, release announcements, and community highlights.
                     </p>
-                    <span className="text-orange-400 text-sm flex items-center gap-1">
+                    <span className="text-white text-sm flex items-center gap-1">
                         Follow @defragapp <ExternalLink size={14} />
                     </span>
                 </a>
 
                 <a
                     href="mailto:dev@defrag.app"
-                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-orange-500/30 transition-all group"
+                    className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/30 transition-all group"
                 >
                     <Mail size={28} className="text-white/60 mb-4" />
-                    <h3 className="text-lg font-medium text-white group-hover:text-orange-400 transition mb-2">
+                    <h3 className="text-lg font-medium text-white group-hover:text-white transition mb-2">
                         Developer Support
                     </h3>
                     <p className="text-white/40 text-sm mb-3">
                         Direct line to the engineering team for integration help.
                     </p>
-                    <span className="text-orange-400 text-sm">dev@defrag.app</span>
+                    <span className="text-white text-sm">dev@defrag.app</span>
                 </a>
 
-                <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
-                    <MessageCircle size={28} className="text-orange-400 mb-4" />
+                <div className="p-6 bg-white/5 border border-white/20 rounded-xl">
+                    <MessageCircle size={28} className="text-white mb-4" />
                     <h3 className="text-lg font-medium text-white mb-2">
                         Discord Coming Soon
                     </h3>
                     <p className="text-white/40 text-sm mb-3">
                         Real-time community chat launching Q2 2026.
                     </p>
-                    <button className="text-orange-400/60 text-sm cursor-not-allowed">
+                    <button className="text-white/60 text-sm cursor-not-allowed">
                         Join Waitlist
                     </button>
                 </div>
@@ -84,11 +84,11 @@ export default function DeveloperCommunity() {
                         <div className="text-white/40 text-sm">API Status</div>
                     </div>
                     <div>
-                        <div className="text-2xl font-bold text-orange-400">v2.0</div>
+                        <div className="text-2xl font-bold text-white">v2.0</div>
                         <div className="text-white/40 text-sm">Platform Version</div>
                     </div>
                     <div>
-                        <div className="text-2xl font-bold text-orange-400">2026</div>
+                        <div className="text-2xl font-bold text-white">2026</div>
                         <div className="text-white/40 text-sm">Launch Year</div>
                     </div>
                 </div>

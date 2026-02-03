@@ -64,8 +64,8 @@ export default function SignIn() {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
-        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
+        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
+        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-white" />
         <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
       </div>
 
@@ -102,7 +102,7 @@ export default function SignIn() {
                     setStatus('idle');
                     setEmail('');
                   }}
-                  className="text-orange-400 hover:text-orange-300 text-sm tracking-wide transition-colors"
+                  className="text-white hover:text-gray-300 text-sm tracking-wide transition-colors"
                 >
                   BACK Try a different email
                 </button>
@@ -118,7 +118,7 @@ export default function SignIn() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all text-lg"
+                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-white/50 focus:ring-1 focus:ring-white/20 transition-all text-lg"
                     disabled={status === 'loading'}
                   />
                   <p className="mt-2 text-xs text-white/30">
@@ -135,7 +135,7 @@ export default function SignIn() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-orange-500 hover:bg-orange-400 disabled:bg-orange-500/50 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide"
+                  className="w-full bg-white hover:bg-white disabled:bg-white/50 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide"
                 >
                   {status === 'loading' ? (
                     <span className="flex items-center justify-center gap-3">
@@ -154,7 +154,7 @@ export default function SignIn() {
           <div className="mt-8 text-center">
             <p className="text-white/40 text-sm">
               Don't have a manual yet?{' '}
-              <Link to="/start" className="text-orange-400 hover:text-orange-300 transition-colors">
+              <Link to="/start" className="text-white hover:text-gray-300 transition-colors">
                 Create one now
               </Link>
             </p>

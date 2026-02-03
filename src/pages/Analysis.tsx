@@ -61,7 +61,7 @@ export default function Analysis() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 selection:bg-orange-500/20">
+        <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 selection:bg-white/20">
 
             {/* Geometric Mandala in background */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.05]">
@@ -102,9 +102,9 @@ export default function Analysis() {
             <div className="relative z-10 w-full max-w-sm">
 
                 <div className="mb-12 text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/5 mb-6">
-                        <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                        <span className="text-[10px] tracking-[0.3em] font-mono text-orange-400 uppercase">System Analysis in Progress</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/30 bg-white/5 mb-6">
+                        <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                        <span className="text-[10px] tracking-[0.3em] font-mono text-gray-300 uppercase">System Analysis in Progress</span>
                     </div>
                     <h1 className="text-2xl font-light tracking-widest text-white/90 uppercase">Crafting Your Manual...</h1>
                 </div>
@@ -113,7 +113,7 @@ export default function Analysis() {
                 <div className="space-y-8">
                     <div className="relative h-[2px] w-full bg-white/5 overflow-hidden">
                         <div
-                            className="absolute top-0 left-0 h-full bg-orange-500 transition-all duration-300 ease-linear shadow-[0_0_15px_rgba(249,115,22,0.8)]"
+                            className="absolute top-0 left-0 h-full bg-white transition-all duration-300 ease-linear shadow-[0_0_15px_rgba(255,255,255,0.8)]"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
@@ -127,7 +127,7 @@ export default function Analysis() {
                             return (
                                 <div
                                     key={step.label}
-                                    className={`flex items-center justify-between text-[11px] font-mono tracking-[0.2em] transition-all duration-500 ${isActive ? 'text-orange-400 opacity-100' : isPast ? 'text-white/40 opacity-80' : 'text-white/10 opacity-30'}`}
+                                    className={`flex items-center justify-between text-[11px] font-mono tracking-[0.2em] transition-all duration-500 ${isActive ? 'text-white opacity-100' : isPast ? 'text-white/40 opacity-80' : 'text-white/10 opacity-30'}`}
                                 >
                                     <div className="flex items-center gap-3">
                                         <span className="w-4">{isPast ? '✓' : isActive ? '>' : '○'}</span>

@@ -56,7 +56,7 @@ export default function Landing() {
   const heroScale = 1 + scrollY * 0.0002;
 
   return (
-    <div id="landing-container" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-orange-500/20">
+    <div id="landing-container" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-white/20">
 
       {/* Nav */}
       <Header />
@@ -87,7 +87,7 @@ export default function Landing() {
               <p className="text-white font-light text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight leading-[1.1]">
                 Stop repeating the same fight
                 <br />
-                <span className="relative inline-block bg-gradient-to-br from-white via-orange-50 to-orange-200 bg-clip-text text-transparent">
+                <span className="relative inline-block bg-gradient-to-br from-white via-gray-100 to-gray-200 bg-clip-text text-transparent">
                   on different days
                 </span>
               </p>
@@ -96,7 +96,7 @@ export default function Landing() {
               <p className="text-white/70 text-lg sm:text-2xl md:text-3xl font-light leading-relaxed max-w-4xl mx-auto mt-6">
                 A clear user manual for you and your people.
                 <br className="hidden sm:block" />
-                <span className="text-orange-400/90">What drains you. What restores you. What keeps you stable.</span>
+                <span className="text-white/90">What drains you. What restores you. What keeps you stable.</span>
               </p>
 
               {/* Trust signal */}
@@ -122,32 +122,32 @@ export default function Landing() {
           {/* Methodology badges - Mantra-focused */}
           <div className="opacity-0 animate-[fadeReveal_1.5s_0.8s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-14">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14">
-              <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white500/10 to-white500/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
                       <circle cx="10" cy="10" r="2" fill="currentColor" />
                     </svg>
                   </div>
-                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">No Astrology, Astrology</span>
+                  <span className="text-white text-sm sm:text-base font-semibold tracking-wider uppercase">No Astrology, Astrology</span>
                 </div>
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <p className="text-[10px] text-white/60 whitespace-nowrap">NASA JPL topocentric precision</p>
                 </div>
               </div>
 
-              <div className="hidden sm:block text-2xl text-orange-500/30 font-light">×</div>
+              <div className="hidden sm:block text-2xl text-white/30 font-light">×</div>
 
-              <div className="group relative px-6 py-3 rounded-full border-2 border-orange-500/40 bg-gradient-to-br from-orange-500/10 to-orange-500/5 backdrop-blur-sm hover:border-orange-500/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white500/10 to-white500/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" />
                       <path d="M7 10h2v5H7zm4-3h2v8h-2z" />
                     </svg>
                   </div>
-                  <span className="text-orange-400 text-sm sm:text-base font-semibold tracking-wider uppercase">No Psychology, Psychology</span>
+                  <span className="text-white text-sm sm:text-base font-semibold tracking-wider uppercase">No Psychology, Psychology</span>
                 </div>
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <p className="text-[10px] text-white/60 whitespace-nowrap">Mechanical transparency · Not diagnosis</p>
@@ -159,7 +159,7 @@ export default function Landing() {
               <Link
                 to="/start"
                 onClick={() => trackEvent(AnalyticsEvents.GENERATE_MANUAL_CLICK)}
-                className="w-full h-14 flex items-center justify-center bg-orange-500 text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-orange-400 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
+                className="w-full h-14 flex items-center justify-center bg-white text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
               >
                 Generate Manual
               </Link>
@@ -194,36 +194,36 @@ export default function Landing() {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="max-w-5xl">
-            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-white/70 mb-10 sm:mb-12 border-l-2 border-white/50 pl-4 uppercase">
               The Friction
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-16 sm:mb-20 leading-[1.1]">
               Why does it feel like<br className="hidden sm:block" />
               <span className="text-white/60">you're speaking</span><br className="hidden sm:block" />
-              <span className="text-orange-400">different languages</span>?
+              <span className="text-white">different languages</span>?
             </h2>
 
             <div className="space-y-8 sm:space-y-12 text-xl sm:text-2xl md:text-3xl font-light leading-relaxed max-w-3xl">
-              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-white/40 transition-all duration-300">
                 <span className="text-white/50">You try to connect.</span>
-                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They pull away.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-gray-100 transition-colors">They pull away.</span>
               </p>
-              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-white/40 transition-all duration-300">
                 <span className="text-white/50">You ask for clarity.</span>
-                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They get defensive.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-gray-100 transition-colors">They get defensive.</span>
               </p>
-              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-orange-500/40 transition-all duration-300">
+              <p className="pl-6 sm:pl-8 border-l-2 border-white/10 group hover:border-white/40 transition-all duration-300">
                 <span className="text-white/50">You give them space.</span>
-                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-orange-100 transition-colors">They say you don't care.</span>
+                <span className="block mt-3 text-white text-2xl sm:text-3xl md:text-4xl group-hover:text-gray-100 transition-colors">They say you don't care.</span>
               </p>
             </div>
 
-            <div className="mt-16 sm:mt-24 pl-6 sm:pl-10 border-l-2 border-orange-500/60 bg-gradient-to-r from-orange-500/5 to-transparent py-6 sm:py-8 pr-6">
-              <span className="block text-orange-400 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">The Truth</span>
+            <div className="mt-16 sm:mt-24 pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white500/5 to-transparent py-6 sm:py-8 pr-6">
+              <span className="block text-white text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">The Truth</span>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light leading-tight">
                 It's not that you're <span className="text-white/60">incompatible</span>.<br />
                 You're running on different<br className="hidden sm:block" />
-                <span className="font-normal text-orange-400 bg-gradient-to-r from-orange-500 to-orange-400 bg-clip-text text-transparent">operating systems</span>.
+                <span className="font-normal text-white bg-gradient-to-r from-white500 to-white400 bg-clip-text text-transparent">operating systems</span>.
               </p>
             </div>
           </div>
@@ -232,68 +232,68 @@ export default function Landing() {
 
       {/* THE ARCHITECTURE SECTION - ELEVATED */}
       <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative overflow-hidden border-t border-white/5 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white500/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1">
-              <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+              <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-white/70 mb-10 sm:mb-12 border-l-2 border-white/50 pl-4 uppercase">
                 How It Works
               </span>
               <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] mb-10 sm:mb-12 text-white">
                 We look at<br />
-                <span className="text-orange-500 font-normal">each person's design specification</span><br />
+                <span className="text-white font-normal">each person's design specification</span><br />
                 <span className="text-white/60">underneath the stress response.</span>
               </h2>
               <div className="space-y-6 sm:space-y-8 text-lg sm:text-xl md:text-2xl text-white/60 leading-relaxed max-w-xl">
                 <p className="text-white/70">Most relationship advice focuses on <span className="text-white/40">what people do</span>.</p>
-                <p className="text-2xl sm:text-3xl text-white font-light">We focus on <span className="text-orange-400">why</span> they do it.</p>
+                <p className="text-2xl sm:text-3xl text-white font-light">We focus on <span className="text-white">why</span> they do it.</p>
                 <p className="mt-8 sm:mt-10 text-base sm:text-lg text-white/50 leading-relaxed">DEFRAG maps how each person handles anxiety, stays connected under pressure, and shows up when things get hard.</p>
-                <p className="text-white font-medium pl-6 border-l-2 border-orange-500/40 text-xl sm:text-2xl">When you understand the person,<br />the behavior starts to make sense.</p>
+                <p className="text-white font-medium pl-6 border-l-2 border-white/40 text-xl sm:text-2xl">When you understand the person,<br />the behavior starts to make sense.</p>
               </div>
             </div>
 
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="aspect-square w-full max-w-[450px] relative shrink-0 group/diagram">
                 {/* Outer glow */}
-                <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-orange-500/5 to-transparent animate-pulse duration-[5000ms]" />
+                <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-white500/5 to-transparent animate-pulse duration-[5000ms]" />
 
                 {/* Layer 5 - Triggers */}
-                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/40 hover:bg-orange-500/[0.02] peer/l5 group">
-                  <span className="text-[10px] tracking-[0.25em] text-white/40 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">5. Triggers</span>
+                <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4 transition-all duration-300 hover:border-white/40 hover:bg-white/[0.02] peer/l5 group">
+                  <span className="text-[10px] tracking-[0.25em] text-white/40 uppercase bg-black px-3 -mt-2 group-hover:text-white transition-colors">5. Triggers</span>
                   <div className="absolute inset-x-0 -bottom-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">EXTERNAL ENVIRONMENTAL STRESSORS</p>
+                    <p className="text-[11px] text-white font-mono tracking-wider">EXTERNAL ENVIRONMENTAL STRESSORS</p>
                   </div>
                 </div>
 
                 {/* Layer 4 - Behaviors */}
-                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/50 hover:bg-orange-500/[0.03] group">
-                  <span className="text-[10px] tracking-[0.25em] text-white/60 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">4. Behaviors</span>
+                <div className="absolute inset-[15%] rounded-full border border-white/20 flex items-start justify-center pt-4 transition-all duration-300 hover:border-white/50 hover:bg-white/[0.03] group">
+                  <span className="text-[10px] tracking-[0.25em] text-white/60 uppercase bg-black px-3 -mt-2 group-hover:text-white transition-colors">4. Behaviors</span>
                   <div className="absolute inset-x-0 -bottom-10 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">REACTIVE ACTION PATTERNS</p>
+                    <p className="text-[11px] text-white font-mono tracking-wider">REACTIVE ACTION PATTERNS</p>
                   </div>
                 </div>
 
                 {/* Layer 3 - Needs */}
-                <div className="absolute inset-[30%] rounded-full border border-orange-500/30 flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/60 hover:bg-orange-500/[0.05] group">
-                  <span className="text-[10px] tracking-[0.25em] text-orange-400/80 uppercase bg-black px-3 -mt-2 group-hover:text-orange-400 transition-colors">3. Needs</span>
+                <div className="absolute inset-[30%] rounded-full border border-white/30 flex items-start justify-center pt-4 transition-all duration-300 hover:border-white/60 hover:bg-white/[0.05] group">
+                  <span className="text-[10px] tracking-[0.25em] text-white/80 uppercase bg-black px-3 -mt-2 group-hover:text-white transition-colors">3. Needs</span>
                   <div className="absolute inset-x-0 -bottom-8 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">ESSENTIAL SAFETY REQUIREMENTS</p>
+                    <p className="text-[11px] text-white font-mono tracking-wider">ESSENTIAL SAFETY REQUIREMENTS</p>
                   </div>
                 </div>
 
                 {/* Layer 2 - Fears */}
-                <div className="absolute inset-[45%] rounded-full border border-orange-500/50 bg-orange-500/[0.02] flex items-start justify-center pt-4 transition-all duration-300 hover:border-orange-500/80 hover:bg-orange-500/[0.08] group">
-                  <span className="text-[10px] tracking-[0.25em] text-orange-400 uppercase bg-black px-3 -mt-2">2. Fears</span>
+                <div className="absolute inset-[45%] rounded-full border border-white/50 bg-white/[0.02] flex items-start justify-center pt-4 transition-all duration-300 hover:border-white/80 hover:bg-white/[0.08] group">
+                  <span className="text-[10px] tracking-[0.25em] text-white uppercase bg-black px-3 -mt-2">2. Fears</span>
                   <div className="absolute inset-x-0 -bottom-6 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">PRIMAL INSTINCTUAL DEFENSES</p>
+                    <p className="text-[11px] text-white font-mono tracking-wider">PRIMAL INSTINCTUAL DEFENSES</p>
                   </div>
                 </div>
 
                 {/* Layer 1 - Core */}
-                <div className="absolute inset-[60%] rounded-full bg-orange-500 flex items-center justify-center shadow-[0_0_60px_rgba(249,115,22,0.3)] hover:scale-105 transition-transform duration-500 group">
+                <div className="absolute inset-[60%] rounded-full bg-white flex items-center justify-center shadow-[0_0_60px_rgba(249,115,22,0.3)] hover:scale-105 transition-transform duration-500 group">
                   <span className="text-black text-xs sm:text-sm font-bold tracking-widest uppercase">1. Core</span>
                   <div className="absolute inset-x-0 -bottom-4 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
-                    <p className="text-[11px] text-orange-400 font-mono tracking-wider">INNATE COGNITIVE ARCHITECTURE</p>
+                    <p className="text-[11px] text-white font-mono tracking-wider">INNATE COGNITIVE ARCHITECTURE</p>
                   </div>
                 </div>
 
@@ -323,13 +323,13 @@ export default function Landing() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* TILE 1: ECHO */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-white/30 transition-all">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
-                  <span className="text-orange-400 text-xl">📄</span>
+                <div className="w-12 h-12 bg-white/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">📄</span>
                 </div>
                 <h3 className="text-white text-xl sm:text-2xl font-light mb-2">ECHO</h3>
-                <p className="text-orange-400 text-sm font-mono">Personal Design Specification</p>
+                <p className="text-white text-sm font-mono">Personal Design Specification</p>
               </div>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
                 Understand your operating system. One-time User Manual with Gates, Environmental Pressure profiles, and pressure response protocols.
@@ -337,7 +337,7 @@ export default function Landing() {
               <div className="space-y-3">
                 <Link
                   to="/echo"
-                  className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
+                  className="block w-full px-4 py-3 bg-white text-white text-sm font-mono rounded hover:bg-gray-100 transition text-center"
                 >
                   Generate Manual ($29)
                 </Link>
@@ -348,31 +348,31 @@ export default function Landing() {
             {/* TILE 2: SIGNAL */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col opacity-75">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
-                  <span className="text-orange-400 text-xl">💬</span>
+                <div className="w-12 h-12 bg-white/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">💬</span>
                 </div>
                 <h3 className="text-white text-xl sm:text-2xl font-light mb-2">SIGNAL</h3>
-                <p className="text-orange-400 text-sm font-mono">Design-Aware Conflict De-escalation</p>
+                <p className="text-white text-sm font-mono">Design-Aware Conflict De-escalation</p>
               </div>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
                 Real-time message revision. Removes Entropy Markers before they trigger relational collapse. Design-aware keyboard app.
               </p>
               <div className="space-y-3">
-                <button className="w-full px-4 py-3 border border-orange-500/50 text-orange-400 text-sm font-mono rounded opacity-50 cursor-not-allowed">
+                <button className="w-full px-4 py-3 border border-white/50 text-white text-sm font-mono rounded opacity-50 cursor-not-allowed">
                   Coming Soon
                 </button>
-                <span className="block text-center text-orange-400/60 text-xs font-mono">Planned price: 9 / month</span>
+                <span className="block text-center text-white/60 text-xs font-mono">Planned price: 9 / month</span>
               </div>
             </div>
 
             {/* TILE 3: ORBIT */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-orange-500/30 transition-all">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col hover:border-white/30 transition-all">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
-                  <span className="text-orange-400 text-xl">🔗</span>
+                <div className="w-12 h-12 bg-white/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">🔗</span>
                 </div>
                 <h3 className="text-white text-xl sm:text-2xl font-light mb-2">ORBIT</h3>
-                <p className="text-orange-400 text-sm font-mono">Relational Geometry System</p>
+                <p className="text-white text-sm font-mono">Relational Geometry System</p>
               </div>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-8 flex-grow">
                 Multi-person system mapping. Identify friction, pressure points, and triangulation patterns in families or teams. NASA JPL precision.
@@ -380,7 +380,7 @@ export default function Landing() {
               <div className="space-y-3">
                 <Link
                   to="/relational"
-                  className="block w-full px-4 py-3 bg-orange-500 text-white text-sm font-mono rounded hover:bg-orange-600 transition text-center"
+                  className="block w-full px-4 py-3 bg-white text-white text-sm font-mono rounded hover:bg-gray-100 transition text-center"
                 >
                   Map Your System ($39)
                 </Link>
@@ -391,14 +391,14 @@ export default function Landing() {
             {/* TILE 4: API - Builder (testing) */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 sm:p-8 flex flex-col opacity-80">
               <div className="mb-6">
-                <div className="w-12 h-12 bg-orange-500/20 rounded flex items-center justify-center mb-4">
-                  <span className="text-orange-400 text-xl">⚙️</span>
+                <div className="w-12 h-12 bg-white/20 rounded flex items-center justify-center mb-4">
+                  <span className="text-white text-xl">⚙️</span>
                 </div>
                 <div className="flex items-center gap-2 mb-2">
                   <h3 className="text-white text-xl sm:text-2xl font-light">DEFRAG API</h3>
-                  <span className="text-[9px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Testing</span>
+                  <span className="text-[9px] font-mono tracking-widest bg-white/10 text-white px-2 py-0.5 rounded border border-white/20 uppercase">Testing</span>
                 </div>
-                <p className="text-orange-400 text-sm font-mono">Builder (testing)</p>
+                <p className="text-white text-sm font-mono">Builder (testing)</p>
               </div>
               <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-4 flex-grow">
                 Currently in private testing. Safety scores, pressure scores, and basic group mapping.
@@ -421,16 +421,16 @@ export default function Landing() {
 
       {/* SEDA SAFETY FIRST SECTION - NEW */}
       <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/[0.02] to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white500/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="max-w-5xl mx-auto">
-            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-orange-400/70 mb-10 sm:mb-12 border-l-2 border-orange-500/50 pl-4 uppercase">
+            <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-white/70 mb-10 sm:mb-12 border-l-2 border-white/50 pl-4 uppercase">
               Safety First
             </span>
             <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-[1.05] mb-10 sm:mb-12 text-white">
               We don't diagnose.
               <br />
-              <span className="text-orange-500 font-normal">We provide mechanical transparency.</span>
+              <span className="text-white font-normal">We provide mechanical transparency.</span>
             </h2>
 
             {/* SEDA Threshold Chart */}
@@ -466,10 +466,10 @@ export default function Landing() {
             </div>
 
             {/* Crisis Protocol */}
-            <div className="pl-6 sm:pl-10 border-l-2 border-orange-500/60 bg-gradient-to-r from-orange-500/5 to-transparent py-6 sm:py-8 pr-6 mb-10">
-              <span className="block text-orange-400 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">Crisis Protocol</span>
+            <div className="pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white500/5 to-transparent py-6 sm:py-8 pr-6 mb-10">
+              <span className="block text-white text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">Crisis Protocol</span>
               <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-tight mb-4">
-                When your safety score falls below 30, we <span className="text-orange-400">gracefully degrade</span>.
+                When your safety score falls below 30, we <span className="text-white">gracefully degrade</span>.
               </p>
               <p className="text-base sm:text-lg text-white/60 leading-relaxed">
                 Instead of esoteric analysis, we shift focus to <span className="text-white">somatic grounding</span>: sleep, hydration, and physical stabilization. We provide the transparency that enables self-governance, not diagnosis.
@@ -499,7 +499,7 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/start"
-              className="inline-flex h-14 px-12 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-bold hover:bg-orange-400 transition-all rounded-lg uppercase"
+              className="inline-flex h-14 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-bold hover:bg-white transition-all rounded-lg uppercase"
             >
               Generate Manual
             </Link>

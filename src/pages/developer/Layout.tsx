@@ -6,12 +6,12 @@ export default function DeveloperLayout() {
     const location = useLocation();
 
     return (
-        <div className="flex min-h-screen bg-black text-white font-sans selection:bg-orange-500/30">
+        <div className="flex min-h-screen bg-black text-white font-sans selection:bg-white/30">
             {/* Sidebar */}
             <aside className="w-64 border-r border-white/10 hidden md:flex flex-col bg-neutral-900/50 backdrop-blur-xl">
                 <div className="p-6 border-b border-white/5">
                     <Link to="/" className="flex items-center gap-2 group">
-                        <div className="w-6 h-6 rounded bg-orange-500/20 flex items-center justify-center text-orange-500 group-hover:bg-orange-500/30 transition">
+                        <div className="w-6 h-6 rounded bg-white/20 flex items-center justify-center text-white group-hover:bg-white/30 transition">
                             <Terminal size={14} />
                         </div>
                         <span className="font-mono text-sm tracking-widest font-bold text-white/90 group-hover:text-white transition">DEFRAG_DEV</span>
@@ -54,7 +54,7 @@ function NavItem({ to, icon, label, active }: { to: string, icon: React.ReactNod
         <Link
             to={to}
             className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200 text-sm font-medium ${active
-                    ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20'
+                    ? 'bg-white/10 text-white border border-white/20'
                     : 'text-white/60 hover:bg-white/5 hover:text-white'
                 }`}
         >
