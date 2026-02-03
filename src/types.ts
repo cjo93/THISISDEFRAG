@@ -18,6 +18,37 @@ export interface UnitData {
   energyType?: string;
 }
 
+/** Birth data for DEFRAG engine (ISO date, HH:mm, lat/long). */
+export interface BirthData {
+  date: string;
+  time: string;
+  lat: number;
+  long: number;
+}
+
+/** Single chart: gates, channels, defined centers. */
+export interface ChartData {
+  gates: number[];
+  channels: string[];
+  centers: Record<string, boolean>;
+}
+
+/** Full profile from DefragEngine.generateProfile(). */
+export interface DefragUserProfile {
+  uuid: string;
+  charts: {
+    design: ChartData;
+    personality: ChartData;
+    integrated: ChartData;
+  };
+  vectors: {
+    resilience: number;
+    autonomy: number;
+    connectivity: number;
+  };
+  penta_contribution: string[];
+}
+
 export interface OperatingProcedure {
   title: string;
   description: string;

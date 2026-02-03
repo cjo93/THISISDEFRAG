@@ -1,6 +1,7 @@
 
 import * as Astronomy from 'astronomy-engine';
-import { UnitData } from '../types';
+import { UnitData, BirthData, ChartData, DefragUserProfile } from '../types';
+import { KNOWLEDGE_BASE } from '../data/knowledge_base';
 
 // Simple zodiac Calculator
 const ZODIAC_SIGNS = [
@@ -10,7 +11,6 @@ const ZODIAC_SIGNS = [
 
 function getSign(longitude: number): string {
   // Longitude is 0..360
-  // Normalize just in case
   let lng = longitude % 360;
   if (lng < 0) lng += 360;
   const index = Math.floor(lng / 30);
@@ -52,50 +52,145 @@ function getGate(longitude: number): number {
   const index = Math.floor(shifted / GATE_ARC);
   // Gate 41 is index 0. Sequence is circular.
   // The wheel order starts at 41.
-  // If we assume standard numerical order 1..64 is NOT the wheel order, we need a map.
-  // BUT the Colab logic: "gate_index = int(...); return ((41 - 1 + gate_index) % 64) + 1"
-  // This implies the gates are ordered sequentially by ID starting from 41?
-  // Standard HD Wheel: 41, 19, 13, 49... NOT sequential 41, 42, 43.
-  // HOWEVER, I will follow the Colab's python logic EXACTLY as extracted:
-  // "return ((41 - 1 + gate_index) % 64) + 1"
-  // This Math implies: Index 0 -> Gate 41. Index 1 -> Gate 42.
-  // This is a SEQUENTIAL mapping (41, 42, 43...).
-  // Standard Human Design is NOT sequential. It's the I-Ching/Rave Mandala (41, 19, 13...).
-  // Notes: If the Colab uses sequential mapping, it's a specific "Defrag" variant or a simplified model.
-  // PROCEEDING WITH EXTRACTED LOGIC:
+  // Following Colab logic: "return ((41 - 1 + gate_index) % 64) + 1"
+  // This Math implies: Index 0 -> Gate 41. Index 1 -> Gate 42. (Sequential mapping)
   return ((40 + index) % 64) + 1;
 }
 
 // Helper: Calc Design Date (Sun is 88 degrees prior)
 function calculateDesignDate(birthDate: Date, natalSunLong: number): Date {
   const targetLong = normalize(natalSunLong - 88.0);
-
-  // Design date is approx 88-92 days before birth.
-  // We scan backwards.
   // Start guess: birth - 88 days
   let time = new Date(birthDate.getTime() - (88 * 24 * 60 * 60 * 1000));
 
-  // Refine with simple iterative approach (Newton's method preferred but simple steps work for v1)
-  // We need Sun(time).lon == targetLong
-
-  for (let i = 0; i < 5; i++) { // 5 iterations is plenty for seconds-level precision
+  for (let i = 0; i < 5; i++) {
     const sunPos = Astronomy.SunPosition(time);
     const currentLong = sunPos.elon;
     let diff = normalize(targetLong - currentLong);
     if (diff > 180) diff -= 360; // shortest path
-
-    // Sun moves approx 1 degree per day (approx 0.04 deg per hour)
-    // adjustment in days = diff / 0.9856
     const daysShift = diff / 0.9856;
-
     time = new Date(time.getTime() + (daysShift * 24 * 60 * 60 * 1000));
-
-    if (Math.abs(diff) < 0.0001) break; // Precision reached
+    if (Math.abs(diff) < 0.0001) break;
   }
-
   return time;
 }
 
+// --- NEW DEFRAG ENGINE LOGIC ---
+
+export class DefragEngine {
+
+  // 1. CALCULATE PLANETARY POSITIONS (Using Astronomy Engine)
+  private calculatePlanets(data: BirthData, isDesign: boolean): Record<string, number> {
+    const timestamp = isDesign
+      ? this.getDesignDate(new Date(data.date + 'T' + data.time))
+      : new Date(`${data.date}T${data.time}`);
+
+    // Calculate core planets
+    // Astronomy.Body.{Sun, Moon, Mercury, Venus, Mars, Jupiter, Saturn}
+    // Nodes are not directly in Body enum for simple retrieval in some versions, but usually available.
+    // For MVP/V1 we use Sun/Earth/Moon/Mars widely.
+    // Earth is basically (Sun + 180) % 360
+
+    const planets: Record<string, number> = {};
+
+    // Sun
+    planets['Sun'] = Astronomy.SunPosition(timestamp).elon;
+    // Earth (Helio Earth is meaningless here, we want Geocentric output? No, HD Earth is Sun + 180)
+    planets['Earth'] = normalize(planets['Sun'] + 180);
+
+    // Moon
+    const moonVec = Astronomy.GeoVector(Astronomy.Body.Moon, timestamp, true);
+    planets['Moon'] = Astronomy.Ecliptic(moonVec).elon;
+
+    // Inner Planets
+    [Astronomy.Body.Mercury, Astronomy.Body.Venus, Astronomy.Body.Mars, Astronomy.Body.Jupiter, Astronomy.Body.Saturn].forEach(body => {
+      const vec = Astronomy.GeoVector(body, timestamp, true);
+      planets[body] = Astronomy.Ecliptic(vec).elon;
+    });
+
+    return planets;
+  }
+
+  private getDesignDate(date: Date): Date {
+    const pSunPos = Astronomy.SunPosition(date);
+    return calculateDesignDate(date, pSunPos.elon);
+  }
+
+  // 2. MAP LONGITUDE TO GATE (Already implemented as getGate helper)
+  private mapToGateData(longitude: number): { gate: number, line: number } {
+    const gate = getGate(longitude);
+    // Line calculation: 6 lines per gate
+    // GATE_ARC = 5.625 deg. Line Arc = 0.9375 deg.
+    // Normalized offset within the gate:
+    const shifted = normalize(longitude - GATE_OFFSET);
+    const gateStart = Math.floor(shifted / GATE_ARC) * GATE_ARC;
+    const offsetInGate = shifted - gateStart;
+    const line = Math.floor(offsetInGate / (GATE_ARC / 6)) + 1;
+
+    return { gate, line };
+  }
+
+  // 3. GENERATE FULL PROFILE
+  public generateProfile(user: BirthData): DefragUserProfile {
+    const designPlanets = this.calculatePlanets(user, true);
+    const personalityPlanets = this.calculatePlanets(user, false);
+
+    const designGates = Object.values(designPlanets).map(p => this.mapToGateData(p).gate);
+    const personalityGates = Object.values(personalityPlanets).map(p => this.mapToGateData(p).gate);
+
+    return {
+      uuid: `u_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+      charts: {
+        design: this.processChart(designGates),
+        personality: this.processChart(personalityGates),
+        integrated: this.processChart([...designGates, ...personalityGates])
+      },
+      vectors: this.calculateVectors([...designGates, ...personalityGates]),
+      penta_contribution: this.analyzePentaContribution([...designGates, ...personalityGates])
+    };
+  }
+
+  private processChart(gates: number[]): ChartData {
+    // Mock chart processing - would calculate channels and centers
+    // For now returning basic gate list
+    return {
+      gates: [...new Set(gates)], // dedup
+      channels: [],
+      centers: {}
+    };
+  }
+
+  // 4. PENTA (GROUP) DYNAMICS LOGIC
+  private analyzePentaContribution(gates: number[]): string[] {
+    const contributions: string[] = [];
+    const ZONES = KNOWLEDGE_BASE.PENTA_MATRIX.ZONES as Record<string, { gates: number[] }>;
+
+    for (const [zoneName, zoneData] of Object.entries(ZONES)) {
+      // Check if user has BOTH gates for a Penta Channel
+      // Example: Gate 15 AND Gate 5 for "FLOW"
+      const hasChannel = zoneData.gates.every(g => gates.includes(g));
+      if (hasChannel) {
+        contributions.push(zoneName);
+      }
+    }
+    return contributions;
+  }
+
+  // 5. RELATIONAL VECTOR PHYSICS (3D Coordinates)
+  private calculateVectors(gates: number[]): { resilience: number, autonomy: number, connectivity: number } {
+    // X-Axis (Resilience): Based on Defined Centers count
+    // Y-Axis (Autonomy): Based on Authority Type weight
+    // Z-Axis (Connectivity): Based on Split Definition (Single vs. Split vs. Quad)
+
+    // ...implementation of weights from 'DEFRAG Integrated Engine Spec'...
+    // Returning theoretical defaults
+    return { resilience: 0.8, autonomy: 0.5, connectivity: -0.2 };
+  }
+}
+
+export const defragEngineInstance = new DefragEngine();
+
+// --- LEGACY EXPORT FOR COMPATIBILITY ---
 export const calculateMechanics = async (
   name: string,
   birthDate: string,
@@ -125,16 +220,8 @@ export const calculateMechanics = async (
 
   // 3. Design (Unconscious) Calculations - 88 Solar degrees prior
   const designDate = calculateDesignDate(date, pSunLong);
-  const dSunPos = Astronomy.SunPosition(designDate);
-  const dMarsVec = Astronomy.GeoVector(Astronomy.Body.Mars, designDate, true);
-  const dMarsPos = Astronomy.Ecliptic(dMarsVec);
 
-  const dSunLong = dSunPos.elon;
-  const dMarsLong = dMarsPos.elon;
-
-  // 4. Designation Logic (Placeholder for full channel map)
-  // Using the simplistic Sun-Mars Phase angle for now as extracted previously
-  // or retaining the visual "Mirror/Guide/Doer/Architect" logic.
+  // 4. Designation Logic
   const designation = calculateDesignation(pSunLong, pMarsLong);
 
   return {
@@ -146,12 +233,6 @@ export const calculateMechanics = async (
     model: designation,
     sun_sign: sunSign,
     mars_sign: marsSign,
-
-    // Extended Data (Optional, but useful for logs/debugging)
-    // designDate: designDate.toISOString(),
-    // pSunGate: sunGateOnly,
-
-    // Retaining V1 flavor text
     os_type: 'Biocarbon V.8',
     operatingMode: 'Nominal',
     energyType: 'Solar/Kinetic',

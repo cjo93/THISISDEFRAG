@@ -162,13 +162,13 @@ export default function Manual() {
       <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
         {/* Background pulse */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-full max-w-2xl bg-orange-500/[0.02] rounded-full blur-[120px] animate-pulse" />
+          <div className="w-full h-full max-w-2xl bg-orange-500/[0.05] rounded-full blur-[120px] animate-pulse" />
         </div>
 
         <div className="text-center relative z-10 w-full max-w-sm px-6">
           {/* Geometric Mandala Logo */}
           <div className="relative w-32 h-32 mx-auto mb-12 flex items-center justify-center">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-orange-500 drop-shadow-[0_0_20px_rgba(249,115,22,0.4)] animate-[spin_20s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.8">
+            <svg viewBox="0 0 100 100" className="w-full h-full text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] animate-[spin_20s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.8">
               <circle cx="50" cy="50" r="45" strokeOpacity="0.1" />
               <circle cx="50" cy="50" r="1.5" fill="currentColor" />
               {[0, 60, 120, 180, 240, 300].map((deg) => (
@@ -187,19 +187,19 @@ export default function Manual() {
             </div>
           </div>
 
-          <p className="text-base text-white/70 tracking-[0.15em] mb-2">
+          <p className="text-base text-white/70 tracking-[0.2em] mb-4 font-light">
             {currentPhase.message.toUpperCase()}
           </p>
 
           {/* Progress bar */}
-          <div className="w-48 h-1 bg-white/10 rounded-full mx-auto overflow-hidden">
+          <div className="w-48 h-0.5 bg-white/10 rounded-full mx-auto overflow-hidden">
             <div
               className="h-full bg-orange-500 transition-all duration-500 ease-out"
               style={{ width: `${((loadingPhase + 1) / LOADING_PHASES.length) * 100}%` }}
             />
           </div>
 
-          <p className="mt-4 text-xs text-white/30">This may take a moment</p>
+          <p className="mt-6 text-[10px] tracking-wider text-white/30 uppercase">This may take a moment</p>
         </div>
       </div>
     );
@@ -210,12 +210,12 @@ export default function Manual() {
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-center max-w-md px-6">
           <div className="text-5xl mb-6 text-red-500 font-mono">ERR</div>
-          <p className="text-lg text-red-400 mb-6">{error}</p>
+          <p className="text-lg text-red-400 mb-8 font-light">{error}</p>
           <Link
             to="/start"
-            className="inline-flex items-center justify-center h-12 px-8 border border-orange-500/50 text-orange-400 text-sm tracking-[0.15em] rounded-lg hover:bg-orange-500/10 transition"
+            className="inline-flex items-center justify-center h-14 px-10 border border-white/20 text-white text-xs tracking-[0.2em] rounded-full hover:bg-white/10 transition uppercase"
           >
-            START OVER
+            Start Over
           </Link>
         </div>
       </div>
@@ -223,40 +223,39 @@ export default function Manual() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black">
+    <div className="min-h-screen relative overflow-hidden bg-black text-white selection:bg-orange-500/30">
       {/* Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 opacity-[0.02] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:32px_32px]" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orange-500/[0.04] rounded-full blur-[150px]" />
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-orange-500/[0.05] rounded-full blur-[150px]" />
       </div>
 
       {/* Top bar */}
       <Header />
 
       {/* Main */}
-      <main className="relative z-10 px-6 pt-8 pb-20">
+      <main className="relative z-10 px-6 pt-32 pb-32">
         <div className="mx-auto max-w-5xl">
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <span className="h-px w-8 bg-orange-500/50" />
-              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">YOUR MANUAL</span>
-              <span className="h-px w-8 bg-orange-500/50" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 mb-6">
+              <span className="h-px w-12 bg-white/10" />
+              <span className="text-[10px] tracking-[0.4em] text-orange-400 font-mono uppercase bg-orange-500/5 px-2 py-1 rounded border border-orange-500/10">YOUR MANUAL</span>
+              <span className="h-px w-12 bg-white/10" />
             </div>
-            <h1 className="text-4xl sm:text-5xl font-light tracking-tight">
-              {unitA?.name} <span className="text-white/20">&</span> {unitB?.name}
+            <h1 className="text-4xl sm:text-6xl font-light tracking-tight mb-2">
+              {unitA?.name} <span className="text-white/20 font-thin">&</span> {unitB?.name}
             </h1>
           </div>
 
           {/* Section Navigation */}
-          <div className="flex justify-center gap-2 mb-10 flex-wrap">
+          <div className="flex justify-center flex-wrap gap-2 mb-16">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-5 py-2.5 text-xs tracking-[0.15em] rounded-lg transition-all ${activeSection === section.id
-                  ? 'bg-orange-500 text-black font-semibold'
-                  : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/70'
+                className={`px-6 py-3 text-[10px] sm:text-xs tracking-[0.15em] rounded-full transition-all uppercase ${activeSection === section.id
+                  ? 'bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.1)]'
+                  : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
                   }`}
               >
                 {section.label}
@@ -265,11 +264,11 @@ export default function Manual() {
           </div>
 
           {manual && (
-            <div className="space-y-8">
+            <div className="space-y-12 animate-fade-in">
               {/* Specifications */}
               {activeSection === 'specs' && (
-                <Section title="WHO THEY ARE" subtitle="Core personality and how they tend to show up">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <Section title="Who They Are" subtitle="Core personality and how they tend to show up">
+                  <div className="grid md:grid-cols-2 gap-8">
                     <UnitCard unit={unitA} isFirst />
                     <UnitCard unit={unitB} isFirst={false} />
                   </div>
@@ -278,17 +277,17 @@ export default function Manual() {
 
               {/* Operating Procedures */}
               {activeSection === 'procedures' && (
-                <Section title="HOW TO CONNECT" subtitle="Practical ways to stay grounded with each other">
-                  <div className="space-y-4">
+                <Section title="How to Connect" subtitle="Practical ways to stay grounded with each other">
+                  <div className="space-y-6">
                     {manual.operatingProcedures.map((proc, i) => (
-                      <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
-                        <div className="flex items-start gap-4">
-                          <div className="h-8 w-8 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 text-sm font-mono shrink-0">
+                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 hover:bg-white/[0.04] transition group">
+                        <div className="flex items-start gap-6">
+                          <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 text-sm font-mono shrink-0 group-hover:text-orange-400 group-hover:bg-orange-500/10 transition-colors">
                             {String(i + 1).padStart(2, '0')}
                           </div>
                           <div>
-                            <div className="text-sm font-medium text-white mb-2 group-hover:text-orange-400 transition">{proc.title}</div>
-                            <p className="text-sm text-white/60 leading-relaxed">{proc.description}</p>
+                            <div className="text-lg font-light text-white mb-3 group-hover:text-orange-100 transition">{proc.title}</div>
+                            <p className="text-white/60 leading-loose font-light">{proc.description}</p>
                           </div>
                         </div>
                       </div>
@@ -299,23 +298,23 @@ export default function Manual() {
 
               {/* Troubleshooting */}
               {activeSection === 'troubleshooting' && (
-                <Section title="WHEN THINGS GET TENSE" subtitle="Common patterns and what helps">
-                  <div className="space-y-4">
+                <Section title="When Things Get Tense" subtitle="Common patterns and what helps">
+                  <div className="space-y-6">
                     {manual.troubleshooting.map((item, i) => (
-                      <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 overflow-hidden">
-                        <div className="flex items-start gap-4 mb-4 pb-4 border-b border-white/5">
-                          <div className="h-8 w-8 rounded-lg bg-red-500/10 flex items-center justify-center text-red-400 text-[10px] font-bold shrink-0">
-                            issue
+                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 overflow-hidden">
+                        <div className="flex items-start gap-5 mb-6 pb-6 border-b border-white/5">
+                          <div className="h-6 w-6 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 text-[10px] font-bold shrink-0 mt-1">
+                            !
                           </div>
                           <div>
-                            <div className="text-xs tracking-[0.15em] text-red-400/80 mb-1">WHAT HAPPENS</div>
-                            <p className="text-sm text-white/80">{item.symptom}</p>
+                            <div className="text-[10px] tracking-[0.2em] text-red-400/60 mb-2 uppercase">The Trigger</div>
+                            <p className="text-lg text-white/90 font-light">{item.symptom}</p>
                           </div>
                         </div>
-                        <div className="flex items-start gap-4 pl-12">
+                        <div className="flex items-start gap-5 pl-11">
                           <div>
-                            <div className="text-xs tracking-[0.15em] text-green-400/80 mb-1">WHAT HELPS</div>
-                            <p className="text-sm text-white/60 leading-relaxed">{item.resolution}</p>
+                            <div className="text-[10px] tracking-[0.2em] text-green-400/60 mb-2 uppercase">The Fix</div>
+                            <p className="text-white/60 leading-loose font-light">{item.resolution}</p>
                           </div>
                         </div>
                       </div>
@@ -326,16 +325,16 @@ export default function Manual() {
 
               {/* Maintenance Schedule */}
               {activeSection === 'maintenance' && (
-                <Section title="KEEPING THINGS HEALTHY" subtitle="Simple practices to stay connected and reduce stress">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <Section title="Keeping Things Healthy" subtitle="Simple practices to stay connected and reduce stress">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     {manual.maintenanceSchedule.map((item, i) => (
-                      <div key={i} className="p-5 bg-white/[0.03] rounded-xl border border-white/5 hover:border-orange-500/20 transition group">
-                        <div className="flex items-center gap-3 mb-3">
-                          <div className="text-xs tracking-[0.15em] text-orange-400 font-mono bg-orange-500/10 px-2 py-1 rounded">
+                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-green-500/20 transition group">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="text-[10px] tracking-widest text-green-400/80 font-mono bg-green-500/10 px-2 py-1 rounded uppercase">
                             {item.frequency}
                           </div>
                         </div>
-                        <p className="text-sm text-white/70 group-hover:text-white/90 transition">{item.task}</p>
+                        <p className="text-white/70 group-hover:text-white/90 transition leading-relaxed font-light">{item.task}</p>
                       </div>
                     ))}
                   </div>
@@ -344,8 +343,8 @@ export default function Manual() {
 
               {/* Share Card */}
               {activeSection === 'share' && unitA && (
-                <Section title="SHARE YOUR RESULTS" subtitle="Post a summary card to social media">
-                  <div className="py-8">
+                <Section title="Share Your Results" subtitle="Post a summary card to social media">
+                  <div className="py-10">
                     <ShareCard
                       name={unitA.name}
                       archetype={unitA.model || 'Generator'}
@@ -364,10 +363,10 @@ export default function Manual() {
 
 function Section({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-8">
-      <div className="mb-6">
-        <div className="text-sm tracking-[0.25em] text-white/40 mb-1">{title}</div>
-        <div className="text-sm text-white/60">{subtitle}</div>
+    <div className="rounded-[32px] border border-white/10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.04] to-transparent p-8 sm:p-12">
+      <div className="mb-12 text-center sm:text-left">
+        <div className="text-[10px] tracking-[0.3em] text-orange-500/50 mb-3 uppercase font-mono">{title}</div>
+        <div className="text-2xl text-white/80 font-light">{subtitle}</div>
       </div>
       {children}
     </div>
@@ -377,21 +376,21 @@ function Section({ title, subtitle, children }: { title: string; subtitle: strin
 function UnitCard({ unit, isFirst }: { unit: UnitData | null; isFirst: boolean }) {
   if (!unit) return null;
   return (
-    <div className={`p-5 rounded-xl border ${isFirst ? 'bg-orange-500/[0.03] border-orange-500/20' : 'bg-white/[0.02] border-white/10'}`}>
-      <div className="flex items-center gap-3 mb-5">
-        <div className={`h-11 w-11 rounded-xl flex items-center justify-center font-bold text-lg ${isFirst ? 'bg-orange-500 text-black' : 'bg-white/10 text-white/80'}`}>
+    <div className={`p-8 rounded-3xl border transition-all duration-300 ${isFirst ? 'bg-orange-500/[0.03] border-orange-500/20' : 'bg-white/[0.02] border-white/10'}`}>
+      <div className="flex items-center gap-5 mb-8">
+        <div className={`h-16 w-16 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-2xl ${isFirst ? 'bg-gradient-to-br from-orange-500 to-orange-600 text-white' : 'bg-white/10 text-white/50'}`}>
           {unit.name.charAt(0).toUpperCase()}
         </div>
         <div>
-          <div className="font-medium text-white">{unit.name}</div>
-          <div className="text-xs text-white/40">Unit {isFirst ? 'A' : 'B'}</div>
+          <div className="text-xl font-light text-white mb-1">{unit.name}</div>
+          <div className="text-[10px] tracking-widest text-white/30 uppercase">Unit {isFirst ? 'A' : 'B'}</div>
         </div>
       </div>
-      <div className="space-y-3">
-        <SpecRow label="Archetype" value={unit.model} highlight />
-        <SpecRow label="Processing Style" value={unit.coreProcessor} />
-        <SpecRow label="Default Mode" value={unit.operatingMode} />
-        <SpecRow label="Energy Style" value={unit.energyType} />
+      <div className="space-y-6">
+        <SpecRow label="Archetype" value={unit.model} highlight={isFirst} />
+        <SpecRow label="Processing Style" value={unit.coreProcessor} highlight={isFirst} />
+        <SpecRow label="Default Mode" value={unit.operatingMode} highlight={isFirst} />
+        <SpecRow label="Energy Style" value={unit.energyType} highlight={isFirst} />
       </div>
     </div>
   );
@@ -399,9 +398,9 @@ function UnitCard({ unit, isFirst }: { unit: UnitData | null; isFirst: boolean }
 
 function SpecRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className="flex justify-between items-center text-sm py-1.5 border-b border-white/5 last:border-0">
-      <span className="text-white/50">{label}</span>
-      <span className={highlight ? 'text-orange-400 font-medium' : 'text-white/80'}>{value}</span>
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 border-b border-white/5 last:border-0 gap-1">
+      <span className="text-white/40 text-xs tracking-wide">{label}</span>
+      <span className={`${highlight ? 'text-white font-medium' : 'text-white/70'} text-sm`}>{value}</span>
     </div>
   );
 }

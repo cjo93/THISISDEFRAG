@@ -1,24 +1,13 @@
 @import "tailwindcss";
 @import "./styles/design-system.css";
 
-:root {
-  color-scheme: dark;
-  --safe-area-top: env(safe-area-inset-top, 0px);
-  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
-  --color-jet-black: #000000;
-  --color-mirror-black: #0a0a0a;
-  --color-defrag-orange: #ea580c;
-  --color-defrag-orange-glow: #f97316;
-}
-
-/* iOS Safari fixes - Enhanced for smooth experience */
+/* GLOBAL TYPOGRAPHY & RESET */
 html {
   height: 100%;
   height: -webkit-fill-available;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  /* Prevent font scaling in landscape */
   text-size-adjust: 100%;
 }
 
@@ -27,15 +16,41 @@ body {
   min-height: 100%;
   min-height: 100dvh;
   min-height: -webkit-fill-available;
-  background: var(--color-jet-black);
+  background: var(--color-black);
   color: #ffffff;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  overscroll-behavior-y: none;
+  line-height: 1.75;
+  /* Relaxed leading for better readability (fixes 'smushed' text) */
+  letter-spacing: 0.01em;
+  /* Slight breathing room */
   touch-action: manipulation;
+  overflow-x: hidden;
   position: relative;
+}
+
+/* HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  /* Tighter headings for premium feel */
+  font-weight: 400;
+  /* Light/Regular weights feel more premium than Bold */
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+/* UTILITIES */
+p {
+  margin-bottom: 1.5rem;
 }
 
 /* Cinematic Grain Overlay */
@@ -46,7 +61,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.02;
+  opacity: 0.035;
+  /* Slightly increased for texture */
   pointer-events: none;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -55,98 +71,34 @@ body::before {
 #root {
   min-height: 100%;
   min-height: 100dvh;
-  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
 }
 
-/* Fix iOS input zoom - must be 16px+ */
+/* FORM ELEMENTS */
 input,
 select,
 textarea {
   font-size: 16px !important;
+  /* iOS Zoom Fix */
   -webkit-appearance: none;
   appearance: none;
   border-radius: 0;
+  letter-spacing: normal;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="time"] {
-  border-radius: 8px;
-}
-
-/* Fix iOS fixed positioning */
-.fixed {
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-/* Sticky header support */
-.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-}
-
-/* Smooth scroll for all containers */
-* {
-  scroll-behavior: smooth;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* Opaque glass/frosted text boxes - STARK BLACK THEME */
-.glass-box {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-box-opaque {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Fix backdrop blur on iOS Safari */
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-
-  .backdrop-blur-md,
-  .backdrop-blur-xl {
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
-  }
-}
-
-/* iOS safe areas */
-@supports (padding-top: env(safe-area-inset-top)) {
-  .safe-top {
-    padding-top: env(safe-area-inset-top);
-  }
-
-  .safe-bottom {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-}
-
-/* Premium button hover states */
+/* BUTTONS & INTERACTIONS */
 button,
 a {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
-/* Prevent pull-to-refresh on iOS */
-body {
-  overscroll-behavior-y: contain;
-}
-
-/* Custom scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -156,59 +108,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* REFINED HEADINGS - Elegant Impact */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-
-h3 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  font-weight: 500;
-}
-
-/* Mobile-first responsive typography */
-@media (max-width: 640px) {
-  h1 {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-  }
-
-  h3 {
-    font-size: clamp(1.25rem, 6vw, 2rem);
-  }
-}
-
-/* Simple fade-in animation for tooltips */
+/* ANIMATIONS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -221,12 +129,11 @@ h3 {
   }
 }
 
-/* Cinematic Reveal Animation - Premium Feel */
 @keyframes fadeReveal {
   from {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
-    filter: blur(10px);
+    filter: blur(5px);
   }
 
   to {
@@ -236,28 +143,37 @@ h3 {
   }
 }
 
-/* Pulse animation for rings */
 @keyframes pulse-ring {
 
   0%,
   100% {
-    opacity: 0.8;
+    opacity: 0.6;
     transform: scale(1);
   }
 
   50% {
-    opacity: 0.3;
+    opacity: 0.2;
     transform: scale(1.05);
   }
 }
 
-/* Rotate animation for diagrams */
-@keyframes rotate-slow {
-  from {
-    transform: rotate(0deg);
+/* Safaris & Mobile Fixes */
+.fixed {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+@supports (padding-top: env(safe-area-inset-top)) {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
   }
 
-  to {
-    transform: rotate(360deg);
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }
