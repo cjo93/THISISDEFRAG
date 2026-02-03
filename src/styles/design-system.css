@@ -1,5 +1,7 @@
 :root {
+    /* Core Colors - Single Source of Truth */
     --color-black: #0a0a0a;
+    --color-jet-black: #000000;
     --color-white: #ffffff;
     --color-slate-200: #e2e8f0;
     --color-slate-300: #cbd5e1;
@@ -8,17 +10,25 @@
     --color-slate-700: #334155;
     --color-orange: #f97316;
     --color-orange-dark: #ea580c;
+    --color-defrag-orange: #ea580c;
+    --color-defrag-orange-glow: #f97316;
     --color-navy: #1a1f3a;
 
+    /* Spacing */
     --space-2: 0.5rem;
     --space-3: 0.75rem;
     --space-4: 1rem;
     --space-6: 1.5rem;
     --space-8: 2rem;
 
+    /* Effects */
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
     --shadow-glow-orange: 0 0 40px rgba(249, 115, 22, 0.5);
     --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* iOS Support */
+    --safe-area-top: env(safe-area-inset-top, 0px);
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
@@ -46,24 +56,26 @@ h4,
 h5,
 h6 {
     color: var(--color-white);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    margin-bottom: var(--space-4);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
 }
 
 h1 {
-    font-size: 6rem;
-    line-height: 0.9;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
 }
 
 h2 {
-    font-size: 3.75rem;
-    line-height: 1;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    font-weight: 400;
+    letter-spacing: -0.015em;
 }
 
 h3 {
-    font-size: 2.25rem;
-    line-height: 1.1;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 500;
 }
 
 p {
@@ -149,16 +161,32 @@ code {
     color: var(--color-orange);
 }
 
-@media (max-width: 768px) {
+/* Glass/frosted effects for UI elements */
+.glass-box {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-box-opaque {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile typography refinements */
+@media (max-width: 640px) {
     h1 {
-        font-size: 3rem;
+        font-size: clamp(2rem, 10vw, 3.5rem);
     }
 
     h2 {
-        font-size: 2.25rem;
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: clamp(1.25rem, 6vw, 2rem);
     }
 }

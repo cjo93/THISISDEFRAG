@@ -1,16 +1,6 @@
 @import "tailwindcss";
 @import "./styles/design-system.css";
 
-:root {
-  color-scheme: dark;
-  --safe-area-top: env(safe-area-inset-top, 0px);
-  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
-  --color-jet-black: #000000;
-  --color-mirror-black: #0a0a0a;
-  --color-defrag-orange: #ea580c;
-  --color-defrag-orange-glow: #f97316;
-}
-
 /* iOS Safari fixes - Enhanced for smooth experience */
 html {
   height: 100%;
@@ -18,7 +8,6 @@ html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  /* Prevent font scaling in landscape */
   text-size-adjust: 100%;
 }
 
@@ -27,7 +16,7 @@ body {
   min-height: 100%;
   min-height: 100dvh;
   min-height: -webkit-fill-available;
-  background: var(--color-jet-black);
+  background: var(--color-black);
   color: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -97,24 +86,8 @@ input[type="time"] {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Opaque glass/frosted text boxes - STARK BLACK THEME */
-.glass-box {
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-box-opaque {
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 /* Fix backdrop blur on iOS Safari */
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-
   .backdrop-blur-md,
   .backdrop-blur-xl {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -164,50 +137,6 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* REFINED HEADINGS - Elegant Impact */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-
-h1 {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: -0.015em;
-}
-
-h3 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  font-weight: 500;
-}
-
-/* Mobile-first responsive typography */
-@media (max-width: 640px) {
-  h1 {
-    font-size: clamp(2rem, 10vw, 3.5rem);
-  }
-
-  h2 {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-  }
-
-  h3 {
-    font-size: clamp(1.25rem, 6vw, 2rem);
-  }
-}
-
 /* Simple fade-in animation for tooltips */
 @keyframes fadeIn {
   from {
@@ -238,7 +167,6 @@ h3 {
 
 /* Pulse animation for rings */
 @keyframes pulse-ring {
-
   0%,
   100% {
     opacity: 0.8;
