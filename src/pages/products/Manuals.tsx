@@ -72,7 +72,7 @@ export default function Landing() {
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax]"
             style={{
-              background: 'radial-gradient(circle, rgba(249,115,22,0.12) 0%, rgba(249,115,22,0.06) 20%, rgba(249,115,22,0.015) 40%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 20%, rgba(255,255,255,0.01) 40%, transparent 70%)',
               transform: `translate(-50%, -50%) scale(${heroScale})`,
             }}
           />
@@ -122,7 +122,7 @@ export default function Landing() {
           {/* Methodology badges - Mantra-focused */}
           <div className="opacity-0 animate-[fadeReveal_1.5s_0.8s_cubic-bezier(0.16,1,0.3,1)_forwards] mt-10 sm:mt-14">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-14">
-              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white500/10 to-white500/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -139,7 +139,7 @@ export default function Landing() {
 
               <div className="hidden sm:block text-2xl text-white/30 font-light">×</div>
 
-              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white500/10 to-white500/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] transition-all duration-300">
+              <div className="group relative px-6 py-3 rounded-full border-2 border-white/40 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
                     <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -159,7 +159,7 @@ export default function Landing() {
               <Link
                 to="/start"
                 onClick={() => trackEvent(AnalyticsEvents.GENERATE_MANUAL_CLICK)}
-                className="w-full h-14 flex items-center justify-center bg-white text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(249,115,22,0.2)] uppercase"
+                className="w-full h-14 flex items-center justify-center bg-white text-black text-xs sm:text-sm tracking-[0.2em] font-bold hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 rounded-lg shadow-[0_0_30px_rgba(255,255,255,0.1)] uppercase"
               >
                 Generate Manual
               </Link>
@@ -218,12 +218,12 @@ export default function Landing() {
               </p>
             </div>
 
-            <div className="mt-16 sm:mt-24 pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white500/5 to-transparent py-6 sm:py-8 pr-6">
+            <div className="mt-16 sm:mt-24 pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white/5 to-transparent py-6 sm:py-8 pr-6">
               <span className="block text-white text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">The Truth</span>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white font-light leading-tight">
                 It's not that you're <span className="text-white/60">incompatible</span>.<br />
                 You're running on different<br className="hidden sm:block" />
-                <span className="font-normal text-white bg-gradient-to-r from-white500 to-white400 bg-clip-text text-transparent">operating systems</span>.
+                <span className="font-normal text-white bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">operating systems</span>.
               </p>
             </div>
           </div>
@@ -232,7 +232,7 @@ export default function Landing() {
 
       {/* THE ARCHITECTURE SECTION - ELEVATED */}
       <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative overflow-hidden border-t border-white/5 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-white500/[0.02] to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1">
@@ -255,7 +255,7 @@ export default function Landing() {
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="aspect-square w-full max-w-[450px] relative shrink-0 group/diagram">
                 {/* Outer glow */}
-                <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-white500/5 to-transparent animate-pulse duration-[5000ms]" />
+                <div className="absolute inset-[-20%] rounded-full bg-gradient-radial from-white/5 to-transparent animate-pulse duration-[5000ms]" />
 
                 {/* Layer 5 - Triggers */}
                 <div className="absolute inset-0 rounded-full border border-white/10 flex items-start justify-center pt-4 transition-all duration-300 hover:border-white/40 hover:bg-white/[0.02] peer/l5 group">
@@ -290,7 +290,7 @@ export default function Landing() {
                 </div>
 
                 {/* Layer 1 - Core */}
-                <div className="absolute inset-[60%] rounded-full bg-white flex items-center justify-center shadow-[0_0_60px_rgba(249,115,22,0.3)] hover:scale-105 transition-transform duration-500 group">
+                <div className="absolute inset-[60%] rounded-full bg-white flex items-center justify-center shadow-[0_0_60px_rgba(255,255,255,0.15)] hover:scale-105 transition-transform duration-500 group">
                   <span className="text-black text-xs sm:text-sm font-bold tracking-widest uppercase">1. Core</span>
                   <div className="absolute inset-x-0 -bottom-4 text-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
                     <p className="text-[11px] text-white font-mono tracking-wider">INNATE COGNITIVE ARCHITECTURE</p>
@@ -337,7 +337,7 @@ export default function Landing() {
               <div className="space-y-3">
                 <Link
                   to="/echo"
-                  className="block w-full px-4 py-3 bg-white text-white text-sm font-mono rounded hover:bg-gray-100 transition text-center"
+                  className="block w-full px-4 py-3 bg-white text-black text-sm font-mono rounded hover:bg-gray-100 transition text-center"
                 >
                   Generate Manual ($29)
                 </Link>
@@ -380,7 +380,7 @@ export default function Landing() {
               <div className="space-y-3">
                 <Link
                   to="/relational"
-                  className="block w-full px-4 py-3 bg-white text-white text-sm font-mono rounded hover:bg-gray-100 transition text-center"
+                  className="block w-full px-4 py-3 bg-white text-black text-sm font-mono rounded hover:bg-gray-100 transition text-center"
                 >
                   Map Your System ($39)
                 </Link>
@@ -421,7 +421,7 @@ export default function Landing() {
 
       {/* SEDA SAFETY FIRST SECTION - NEW */}
       <section className="h-screen w-full snap-start flex items-center py-12 sm:py-20 relative border-t border-white/5 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-white500/[0.02] to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none" />
         <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-12 relative">
           <div className="max-w-5xl mx-auto">
             <span className="inline-block text-xs sm:text-sm font-mono tracking-[0.3em] text-white/70 mb-10 sm:mb-12 border-l-2 border-white/50 pl-4 uppercase">
@@ -466,7 +466,7 @@ export default function Landing() {
             </div>
 
             {/* Crisis Protocol */}
-            <div className="pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white500/5 to-transparent py-6 sm:py-8 pr-6 mb-10">
+            <div className="pl-6 sm:pl-10 border-l-2 border-white/60 bg-gradient-to-r from-white/5 to-transparent py-6 sm:py-8 pr-6 mb-10">
               <span className="block text-white text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-4 opacity-90">Crisis Protocol</span>
               <p className="text-xl sm:text-2xl md:text-3xl text-white font-light leading-tight mb-4">
                 When your safety score falls below 30, we <span className="text-white">gracefully degrade</span>.
@@ -499,13 +499,13 @@ export default function Landing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/start"
-              className="inline-flex h-14 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-bold hover:bg-white transition-all rounded-lg uppercase"
+              className="inline-flex h-14 px-12 items-center justify-center bg-white text-black font-bold hover:bg-gray-100 transition-all rounded-lg uppercase"
             >
               Generate Manual
             </Link>
             <Link
               to="/relational"
-              className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white/80 text-sm tracking-[0.2em] font-medium hover:bg-white hover:text-black transition-all rounded-lg uppercase"
+              className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white/80 text-sm tracking-[0.2em] font-medium hover:bg-gray-100 hover:text-black transition-all rounded-lg uppercase"
             >
               Explore ORBIT
             </Link>

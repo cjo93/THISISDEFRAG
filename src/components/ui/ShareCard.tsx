@@ -45,7 +45,7 @@ export default function ShareCard({ name, archetype, oneLiner }: ShareCardProps)
             >
                 {/* Background Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px]" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px]" />
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px]" />
 
                 {/* Grid Pattern */}
@@ -55,7 +55,7 @@ export default function ShareCard({ name, archetype, oneLiner }: ShareCardProps)
                 <div className="relative z-10 p-8 flex flex-col items-center text-center">
                     {/* Master Mandala Logo */}
                     <div className="relative w-16 h-16 flex items-center justify-center mb-6">
-                        <svg viewBox="0 0 100 100" className="w-full h-full text-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.4)]" fill="none" stroke="currentColor" strokeWidth="1.2">
+                        <svg viewBox="0 0 100 100" className="w-full h-full text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" fill="none" stroke="currentColor" strokeWidth="1.2">
                             <circle cx="50" cy="50" r="40" strokeOpacity="0.15" />
                             <circle cx="50" cy="50" r="2" fill="currentColor" />
                             {[0, 60, 120, 180, 240, 300].map((deg) => (
@@ -78,7 +78,7 @@ export default function ShareCard({ name, archetype, oneLiner }: ShareCardProps)
 
                     <div className="space-y-4">
                         <div>
-                            <div className="text-[10px] tracking-[0.2em] text-orange-400 uppercase mb-1">ARCHETYPE</div>
+                            <div className="text-[10px] tracking-[0.2em] text-gray-300 uppercase mb-1">ARCHETYPE</div>
                             <div className="text-xl font-light text-white/90">{archetype}</div>
                         </div>
 
@@ -100,7 +100,7 @@ export default function ShareCard({ name, archetype, oneLiner }: ShareCardProps)
             <div className="mt-6 flex justify-center">
                 <button
                     onClick={handleShare}
-                    className="flex items-center gap-2 px-6 py-3 bg-white text-black text-xs font-bold tracking-[0.1em] rounded-full hover:bg-orange-500 hover:text-white transition-all shadow-lg active:scale-95"
+                    className="flex items-center gap-2 px-6 py-3 bg-white text-black text-xs font-bold tracking-[0.1em] rounded-full hover:bg-gray-100 hover:text-black transition-all shadow-lg active:scale-95"
                 >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />

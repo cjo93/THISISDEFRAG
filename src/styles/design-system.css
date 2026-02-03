@@ -8,10 +8,6 @@
     --color-slate-400: #94a3b8;
     --color-slate-500: #64748b;
     --color-slate-700: #334155;
-    --color-orange: #f97316;
-    --color-orange-dark: #ea580c;
-    --color-defrag-orange: #ea580c;
-    --color-defrag-orange-glow: #f97316;
     --color-navy: #1a1f3a;
 
     /* Spacing */
@@ -23,7 +19,7 @@
 
     /* Effects */
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --shadow-glow-orange: 0 0 40px rgba(249, 115, 22, 0.5);
+    --shadow-glow-white: 0 0 40px rgba(255, 255, 255, 0.2);
     --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
     
     /* iOS Support */
@@ -95,7 +91,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-orange);
+    color: var(--color-white);
 }
 
 code {
@@ -109,8 +105,8 @@ code {
 }
 
 ::selection {
-    background-color: rgba(249, 115, 22, 0.3);
-    color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-black);
 }
 
 .button-primary {
@@ -118,7 +114,7 @@ code {
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-6);
-    background-color: var(--color-orange);
+    background-color: var(--color-white);
     color: var(--color-black);
     font-weight: 600;
     font-size: 0.875rem;
@@ -133,9 +129,9 @@ code {
 }
 
 .button-primary:hover {
-    background-color: var(--color-orange-dark);
+    background-color: #e5e5e5;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-glow-orange);
+    box-shadow: var(--shadow-glow-white);
 }
 
 .button-secondary {
@@ -157,8 +153,8 @@ code {
 }
 
 .button-secondary:hover {
-    border-color: var(--color-orange);
-    color: var(--color-orange);
+    border-color: var(--color-white);
+    color: var(--color-white);
 }
 
 /* Glass/frosted effects for UI elements */

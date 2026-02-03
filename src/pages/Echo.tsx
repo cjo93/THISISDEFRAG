@@ -5,13 +5,13 @@ import Footer from '../components/Footer';
 
 export default function Echo() {
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-orange-500/30">
+        <div className="min-h-screen bg-black text-white selection:bg-white/30">
             <Header />
 
             {/* HERO SECTION - Centered */}
-            <section className="relative pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-900/10 via-black to-black">
+            <section className="relative pt-32 pb-20 px-6 sm:px-12 border-b border-white/5 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/10 via-black to-black">
                 <div className="max-w-5xl mx-auto flex flex-col items-center text-center">
-                    <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-8 border border-orange-500/50 px-4 py-1 rounded-full uppercase bg-orange-500/5 animate-pulse">
+                    <span className="inline-block text-xs font-mono tracking-widest text-gray-300 mb-8 border border-white/50 px-4 py-1 rounded-full uppercase bg-white/5 animate-pulse">
                         ECHO: Personal Manual
                     </span>
                     <h1 className="text-5xl sm:text-6xl md:text-7xl font-light leading-[1.05] mb-8">
@@ -24,7 +24,7 @@ export default function Echo() {
                     <div className="flex flex-col sm:flex-row gap-4 mb-20">
                         <Link
                             to="/start"
-                            className="inline-flex h-14 px-10 items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-orange-400 transition-all rounded-full uppercase shadow-[0_0_30px_rgba(249,115,22,0.3)] hover:shadow-[0_0_50px_rgba(249,115,22,0.5)]"
+                            className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-black hover:bg-gray-100 transition-all rounded-full uppercase shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)]"
                         >
                             Generate Manual ($29)
                         </Link>
@@ -42,19 +42,19 @@ export default function Echo() {
 
                     {/* VISUAL MOCKUP - Centered abstract representation */}
                     <div className="relative w-full max-w-lg">
-                        <div className="absolute inset-0 bg-orange-500/10 blur-[80px] rounded-full"></div>
+                        <div className="absolute inset-0 bg-white/10 blur-[80px] rounded-full"></div>
                         <div className="relative border border-white/10 bg-black/80 backdrop-blur-xl rounded-2xl p-8 shadow-2xl skew-y-1 hover:skew-y-0 transition-transform duration-700">
                             <div className="space-y-6 opacity-80 text-left">
-                                <div className="h-2 w-20 bg-orange-500 rounded"></div>
+                                <div className="h-2 w-20 bg-white rounded"></div>
                                 <div className="h-8 w-3/4 bg-white/10 rounded"></div>
                                 <div className="space-y-3">
                                     <div className="h-2 w-full bg-white/5 rounded"></div>
                                     <div className="h-2 w-full bg-white/5 rounded"></div>
                                     <div className="h-2 w-2/3 bg-white/5 rounded"></div>
                                 </div>
-                                <div className="p-4 border border-orange-500/20 bg-orange-500/5 rounded-lg flex items-center justify-between">
-                                    <div className="text-xs font-mono text-orange-400">PRESSURE RESPONSE DETECTED</div>
-                                    <div className="h-2 w-12 bg-orange-500/20 rounded"></div>
+                                <div className="p-4 border border-white/20 bg-white/5 rounded-lg flex items-center justify-between">
+                                    <div className="text-xs font-mono text-gray-300">PRESSURE RESPONSE DETECTED</div>
+                                    <div className="h-2 w-12 bg-white/20 rounded"></div>
                                 </div>
                             </div>
                         </div>
@@ -74,8 +74,8 @@ export default function Echo() {
 
                         {/* FEATURE 1 */}
                         <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">01</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Core Design</h3>
+                            <span className="text-white/50 font-mono text-xl mb-6 block">01</span>
+                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-gray-300 transition-colors">Core Design</h3>
                             <p className="text-white/50 leading-relaxed text-sm">
                                 A clear picture of your base operating state. How you process data, where your edges are, and what constitutes your "normal" before the world interferes.
                             </p>
@@ -83,8 +83,8 @@ export default function Echo() {
 
                         {/* FEATURE 2 */}
                         <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">02</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Pressure Protocols</h3>
+                            <span className="text-white/50 font-mono text-xl mb-6 block">02</span>
+                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-gray-300 transition-colors">Pressure Protocols</h3>
                             <p className="text-white/50 leading-relaxed text-sm">
                                 The specific patterns that emerge when your systemic pressure elevates. Know exactly where you degrade so you can catch it before collapse.
                             </p>
@@ -92,8 +92,8 @@ export default function Echo() {
 
                         {/* FEATURE 3 */}
                         <div className="p-10 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors group text-center hover:-translate-y-1 duration-300">
-                            <span className="text-orange-500/50 font-mono text-xl mb-6 block">03</span>
-                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-orange-400 transition-colors">Coherence Strategy</h3>
+                            <span className="text-white/50 font-mono text-xl mb-6 block">03</span>
+                            <h3 className="text-2xl font-light text-white mb-4 group-hover:text-gray-300 transition-colors">Coherence Strategy</h3>
                             <p className="text-white/50 leading-relaxed text-sm">
                                 Mechanical strategies to stabilize your own design. No affirmations—just architectural adjustments to regain signal clarity.
                             </p>
@@ -111,7 +111,7 @@ export default function Echo() {
                     </h2>
                     <Link
                         to="/start"
-                        className="inline-flex h-16 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-black hover:bg-orange-500 hover:text-white transition-all rounded-full uppercase shadow-2xl mb-8"
+                        className="inline-flex h-16 px-12 items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-black hover:bg-gray-100 hover:text-black transition-all rounded-full uppercase shadow-2xl mb-8"
                     >
                         Get Your Manual Now
                     </Link>

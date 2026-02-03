@@ -16,15 +16,15 @@ const PlatformHub: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-orange-500/30">
+        <div className="min-h-screen bg-black text-white selection:bg-white/30">
             <Header />
 
             {/* HERO — Centered, Infrastructure-first */}
             <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 bg-black">
                 <div className="max-w-7xl mx-auto px-6 py-24 w-full text-center flex flex-col items-center">
                     {/* Phase Badge */}
-                    <div className="inline-flex items-center gap-2 px-3 py-1 border border-orange-500/50 text-orange-400 text-[10px] font-mono tracking-widest uppercase mb-8 rounded bg-orange-500/5 animate-pulse">
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                    <div className="inline-flex items-center gap-2 px-3 py-1 border border-white/50 text-gray-300 text-[10px] font-mono tracking-widest uppercase mb-8 rounded bg-white/5 animate-pulse">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white" />
                         Cognitive Middleware
                     </div>
 
@@ -42,11 +42,11 @@ const PlatformHub: React.FC = () => {
 
                     {/* Dual CTAs */}
                     <div className="flex flex-col sm:flex-row gap-4 mb-20 justify-center w-full">
-                        <Link to="/products/manuals" className="group h-14 px-10 flex items-center justify-center bg-orange-500 text-black text-sm tracking-[0.2em] font-black hover:bg-white transition-all rounded-full uppercase shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+                        <Link to="/products/manuals" className="group h-14 px-10 flex items-center justify-center bg-white text-black text-sm tracking-[0.2em] font-black hover:bg-gray-100 transition-all rounded-full uppercase shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                             Explore Tools
                             <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link to="/developer" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase">
+                        <Link to="/developer" className="h-14 px-10 flex items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-gray-100 hover:text-black transition-all rounded-full uppercase">
                             For Developers
                         </Link>
                     </div>
@@ -78,43 +78,43 @@ const PlatformHub: React.FC = () => {
                     </div>
 
                     <div className="grid md:grid-cols-4 gap-6">
-                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group flex flex-col items-center text-center">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">◎</div>
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-white/30 transition-all group flex flex-col items-center text-center">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mb-6 font-mono">◎</div>
                             <h3 className="text-2xl font-light mb-2">ECHO</h3>
                             <p className="text-xs text-white/30 font-mono mb-4">Personal Manual</p>
                             <p className="text-white/50 mb-8 leading-relaxed text-sm">A short, plain-language manual: what drains you, what restores you, and the few rules that keep you stable.</p>
-                            <Link to="/products/manuals" className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
+                            <Link to="/products/manuals" className="text-white flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
                                 Get Your Manual <ArrowRight size={14} />
                             </Link>
                         </div>
 
                         <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] opacity-75 group flex flex-col items-center text-center">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">💬</div>
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mb-6 font-mono">💬</div>
                             <h3 className="text-2xl font-light mb-2">SIGNAL</h3>
                             <p className="text-xs text-white/30 font-mono mb-4">Conflict Resolution</p>
                             <p className="text-white/50 mb-8 leading-relaxed text-sm">Real-time message filtering. Removes entropy markers before they trigger relational collapse.</p>
                             <span className="text-white/30 text-xs font-mono border border-white/10 px-2 py-1 rounded mt-auto">COMING SOON</span>
                         </div>
 
-                        <Link to="/relational" className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group flex flex-col items-center text-center block">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">⬡</div>
+                        <Link to="/relational" className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-white/30 transition-all group flex flex-col items-center text-center block">
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mb-6 font-mono">⬡</div>
                             <h3 className="text-2xl font-light mb-2">ORBIT</h3>
                             <p className="text-xs text-white/30 font-mono mb-4">System Map</p>
                             <p className="text-white/50 mb-8 leading-relaxed text-sm">A simple map of where a family or team locks up, and who holds most of the pressure.</p>
-                            <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
+                            <span className="text-white flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
                                 Map Your System <ArrowRight size={14} />
                             </span>
                         </Link>
 
-                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-orange-500/30 transition-all group cursor-pointer flex flex-col items-center text-center" onClick={() => setShowDevModal(true)}>
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-500 mb-6 font-mono">{"{ }"}</div>
+                        <div className="p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-white/30 transition-all group cursor-pointer flex flex-col items-center text-center" onClick={() => setShowDevModal(true)}>
+                            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white mb-6 font-mono">{"{ }"}</div>
                             <div className="flex items-center gap-3 mb-2 justify-center">
                                 <h3 className="text-2xl font-light">API</h3>
-                                <span className="text-[10px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Testing</span>
+                                <span className="text-[10px] font-mono tracking-widest bg-white/10 text-gray-300 px-2 py-0.5 rounded border border-white/20 uppercase">Testing</span>
                             </div>
                             <p className="text-xs text-white/30 font-mono mb-4">Safety Layer</p>
                             <p className="text-white/50 mb-8 leading-relaxed text-sm">A safety layer any app can use to keep people safe when talking about big life topics.</p>
-                            <span className="text-orange-500 flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
+                            <span className="text-white flex items-center gap-2 font-bold tracking-widest text-xs uppercase group-hover:gap-3 transition-all mt-auto">
                                 Request Access <ArrowRight size={14} />
                             </span>
                         </div>
@@ -126,7 +126,7 @@ const PlatformHub: React.FC = () => {
             <section className="py-24 bg-black border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col items-center justify-center text-center mb-16">
-                        <span className="inline-block text-xs font-mono tracking-widest text-orange-400 mb-6 border border-orange-500/30 px-3 py-1 rounded bg-orange-500/5 uppercase">
+                        <span className="inline-block text-xs font-mono tracking-widest text-gray-300 mb-6 border border-white/30 px-3 py-1 rounded bg-white/5 uppercase">
                             Telemetry-Based Safety
                         </span>
                         <h2 className="text-4xl sm:text-5xl font-light text-white mb-6 leading-tight">
@@ -146,7 +146,7 @@ const PlatformHub: React.FC = () => {
                                 </p>
                             </div>
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-white/60 tracking-wide">
-                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-white" />
                                 100% Deterministic Safety Layers
                             </div>
                         </div>
@@ -183,21 +183,21 @@ const PlatformHub: React.FC = () => {
                             <p className="text-xl text-zinc-400 leading-relaxed mb-12">
                                 We didn't just scrape the internet. We built a physics engine for human emotional pressure.
                                 Our dataset is built on <span className="text-white">millions of verified relationship vectors</span>, mapped against astrological topocentric coordinates and verified outcome data.
-                                This creates a <span className="text-orange-400">closed-loop verification system</span> that LLMs cannot hallucinate.
+                                This creates a <span className="text-gray-300">closed-loop verification system</span> that LLMs cannot hallucinate.
                             </p>
                             <div className="grid sm:grid-cols-3 gap-8 text-left">
                                 <div>
-                                    <div className="text-orange-500 font-mono mb-2 text-lg">01.</div>
+                                    <div className="text-white font-mono mb-2 text-lg">01.</div>
                                     <h4 className="text-white font-medium mb-2">Physics, Not Vibes</h4>
                                     <p className="text-white/40 text-sm">We treat emotional pressure as a mechanical force with predictable vectors, not a mysterious "energy".</p>
                                 </div>
                                 <div>
-                                    <div className="text-orange-500 font-mono mb-2 text-lg">02.</div>
+                                    <div className="text-white font-mono mb-2 text-lg">02.</div>
                                     <h4 className="text-white font-medium mb-2">Topocentric Precision</h4>
                                     <p className="text-white/40 text-sm">NASA-grade positional data ensures our "astrology" is astronomical engineering, not metaphor.</p>
                                 </div>
                                 <div>
-                                    <div className="text-orange-500 font-mono mb-2 text-lg">03.</div>
+                                    <div className="text-white font-mono mb-2 text-lg">03.</div>
                                     <h4 className="text-white font-medium mb-2">Safety By Design</h4>
                                     <p className="text-white/40 text-sm">Our SEDA firewall is hard-coded. It cannot be bypassed by prompt engineering or user manipulation.</p>
                                 </div>
@@ -222,10 +222,10 @@ const PlatformHub: React.FC = () => {
                             { title: "Teams", link: "/relational", desc: "Group cohesion telemetry. Prevent burnout and triangulation." },
                             { title: "Platforms", link: "/developer", desc: "API integration. Add a clinical safety layer to your app." }
                         ].map((item) => (
-                            <Link key={item.title} to={item.link} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange-500/30 hover:bg-white/[0.04] transition-all group flex flex-col h-full text-center items-center">
-                                <h3 className="text-white text-lg font-light mb-2 group-hover:text-orange-400 transition-colors">{item.title}</h3>
+                            <Link key={item.title} to={item.link} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/30 hover:bg-white/[0.04] transition-all group flex flex-col h-full text-center items-center">
+                                <h3 className="text-white text-lg font-light mb-2 group-hover:text-gray-300 transition-colors">{item.title}</h3>
                                 <p className="text-white/40 text-sm mb-4 flex-grow">{item.desc}</p>
-                                <ArrowRight size={16} className="text-white/20 group-hover:text-orange-500 transition-colors" />
+                                <ArrowRight size={16} className="text-white/20 group-hover:text-white transition-colors" />
                             </Link>
                         ))}
                     </div>

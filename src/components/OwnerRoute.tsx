@@ -19,7 +19,7 @@ export default function OwnerRoute({ children }: OwnerRouteProps) {
         return (
             <div className="min-h-screen bg-black flex items-center justify-center">
                 <div className="text-center">
-                    <div className="h-12 w-12 border-2 border-orange-500/30 border-t-orange-500 rounded-full animate-spin mx-auto mb-4" />
+                    <div className="h-12 w-12 border-2 border-white/20 border-t-white rounded-full animate-spin mx-auto mb-4" />
                     <p className="text-white/60">Verifying access...</p>
                 </div>
             </div>

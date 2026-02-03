@@ -302,7 +302,7 @@ export default function Terms() {
                     <div className="mt-16 text-center">
                         <Link
                             to="/"
-                            className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-white hover:text-white transition shadow-lg shadow-white/10"
+                            className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-gray-100 hover:text-black transition shadow-lg shadow-white/10"
                         >
                             BACK TO HOME
                         </Link>

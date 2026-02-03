@@ -121,7 +121,7 @@ export default function DeveloperRoadmap() {
                 </p>
                 <a
                     href="mailto:features@defrag.app?subject=Feature Request"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-white transition"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white text-black font-bold hover:bg-gray-100 transition"
                 >
                     Submit Feature Request
                 </a>

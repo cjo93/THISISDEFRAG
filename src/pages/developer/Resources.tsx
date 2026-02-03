@@ -81,7 +81,7 @@ export default function DeveloperResources() {
                         <h3 className="text-white font-medium mb-1">Color System</h3>
                         <p className="text-white/40 text-sm mb-3">Brand colors, gradients, and usage.</p>
                         <div className="flex gap-2">
-                            <div className="w-6 h-6 rounded bg-white" title="#f97316"></div>
+                            <div className="w-6 h-6 rounded bg-white" title="#ffffff"></div>
                             <div className="w-6 h-6 rounded bg-black border border-white/20" title="#000000"></div>
                             <div className="w-6 h-6 rounded bg-white" title="#ffffff"></div>
                         </div>

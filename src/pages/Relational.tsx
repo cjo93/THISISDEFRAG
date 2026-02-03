@@ -24,7 +24,7 @@ export default function Relational() {
                         not personal.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-white transition-all rounded-full uppercase shadow-[0_0_25px_rgba(249,115,22,0.3)]">
+                        <Link to="/start" className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-gray-100 transition-all rounded-full uppercase shadow-[0_0_25px_rgba(255,255,255,0.1)]">
                             Start Mapping
                         </Link>
                     </div>
@@ -247,7 +247,7 @@ export default function Relational() {
                             href="https://api.defrag.app"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-white hover:text-black transition-all rounded-full uppercase"
+                            className="inline-flex h-14 px-12 items-center justify-center border border-white/20 text-white text-sm tracking-[0.2em] font-bold hover:bg-gray-100 hover:text-black transition-all rounded-full uppercase"
                         >
                             For Platforms (API)
                         </a>

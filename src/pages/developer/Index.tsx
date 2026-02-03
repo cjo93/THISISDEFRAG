@@ -84,7 +84,7 @@ function ComingSoonView() {
             <div className="flex flex-wrap gap-4">
                 <a
                     href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                    className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold tracking-wide rounded hover:bg-white transition text-sm uppercase"
+                    className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold tracking-wide rounded hover:bg-gray-100 transition text-sm uppercase"
                 >
                     Request Access <ArrowRight size={16} />
                 </a>

@@ -138,11 +138,11 @@ export default function Start() {
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.12] bg-orange-500 transition-all duration-1000"
+          className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.12] bg-white transition-all duration-1000"
           style={{ transform: step === 'them' ? 'translate(-100px, 100px)' : 'translate(0, 0)' }}
         />
         <div
-          className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.06] bg-orange-400 transition-all duration-1000"
+          className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.06] bg-white transition-all duration-1000"
           style={{ transform: step === 'them' ? 'translate(50px, -50px)' : 'translate(0, 0)' }}
         />
         {/* Subtle grid */}
@@ -159,11 +159,11 @@ export default function Start() {
             className={`text-center mb-10 transition-all duration-300 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
           >
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="h-px w-8 bg-orange-500/50" />
-              <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">
+              <span className="h-px w-8 bg-white/50" />
+              <span className="text-xs tracking-[0.4em] text-gray-300 font-medium">
                 {step === 'you' ? 'STEP 01' : 'STEP 02'}
               </span>
-              <span className="h-px w-8 bg-orange-500/50" />
+              <span className="h-px w-8 bg-white/50" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-light tracking-tight mb-4">
               {step === 'you' ? 'Initialize Profile' : 'Partner Profile'}
@@ -187,7 +187,7 @@ export default function Start() {
                     <label className="text-xs tracking-[0.25em] text-white/50 flex items-center gap-2 uppercase">
                       Email {FIELD_INFO.email.icon}
                       {isOwner && (
-                        <span className="text-[9px] tracking-wider text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 font-mono">
+                        <span className="text-[9px] tracking-wider text-gray-300 bg-white/10 px-2 py-0.5 rounded border border-white/20 font-mono">
                           DEV MODE • BYPASS ENABLED
                         </span>
                       )}
@@ -195,19 +195,19 @@ export default function Start() {
                     <button
                       type="button"
                       onClick={() => setActiveTooltip(activeTooltip === 'email' ? null : 'email')}
-                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                      className="text-gray-300/60 hover:text-gray-300 transition-colors text-xs"
                     >
                       {activeTooltip === 'email' ? '✕' : 'ⓘ'}
                     </button>
                   </div>
                   {activeTooltip === 'email' && (
-                    <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                    <div className="bg-white/10 border border-white/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
                       <div>
-                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <span className="text-gray-300 font-semibold">Why we need this:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.email.why}</p>
                       </div>
                       <div>
-                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <span className="text-gray-300 font-semibold">How it's protected:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.email.how}</p>
                       </div>
                     </div>
@@ -218,10 +218,10 @@ export default function Start() {
                     value={userData.email || ''}
                     onChange={(e) => setUserData(prev => ({ ...prev, email: e.target.value }))}
                     placeholder="your@email.com"
-                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-white/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
                   />
                   {isOwner && (
-                    <p className="text-[10px] text-orange-400/60 font-mono mt-1">
+                    <p className="text-[10px] text-gray-300/60 font-mono mt-1">
                       Secure dev access • Full system with payment bypass
                     </p>
                   )}
@@ -236,19 +236,19 @@ export default function Start() {
                   <button
                     type="button"
                     onClick={() => setActiveTooltip(activeTooltip === 'name' ? null : 'name')}
-                    className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                    className="text-gray-300/60 hover:text-gray-300 transition-colors text-xs"
                   >
                     {activeTooltip === 'name' ? '✕' : 'ⓘ'}
                   </button>
                 </div>
                 {activeTooltip === 'name' && (
-                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                  <div className="bg-white/10 border border-white/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
                     <div>
-                      <span className="text-orange-400 font-semibold">Why we need this:</span>
+                      <span className="text-gray-300 font-semibold">Why we need this:</span>
                       <p className="text-white/70 mt-1">{FIELD_INFO.name.why}</p>
                     </div>
                     <div>
-                      <span className="text-orange-400 font-semibold">How it's protected:</span>
+                      <span className="text-gray-300 font-semibold">How it's protected:</span>
                       <p className="text-white/70 mt-1">{FIELD_INFO.name.how}</p>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ export default function Start() {
                   value={currentData.name}
                   onChange={(e) => handleChange('name', e.target.value)}
                   placeholder={step === 'you' ? 'Your first name' : 'Their first name'}
-                  className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                  className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-white/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
                 />
               </div>
 
@@ -269,19 +269,19 @@ export default function Start() {
                   <button
                     type="button"
                     onClick={() => setActiveTooltip(activeTooltip === 'birthDate' ? null : 'birthDate')}
-                    className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                    className="text-gray-300/60 hover:text-gray-300 transition-colors text-xs"
                   >
                     {activeTooltip === 'birthDate' ? '✕' : 'ⓘ'}
                   </button>
                 </div>
                 {activeTooltip === 'birthDate' && (
-                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
+                  <div className="bg-white/10 border border-white/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out]">
                     <div>
-                      <span className="text-orange-400 font-semibold">Why we need this:</span>
+                      <span className="text-gray-300 font-semibold">Why we need this:</span>
                       <p className="text-white/70 mt-1">{FIELD_INFO.birthDate.why}</p>
                     </div>
                     <div>
-                      <span className="text-orange-400 font-semibold">How it's protected:</span>
+                      <span className="text-gray-300 font-semibold">How it's protected:</span>
                       <p className="text-white/70 mt-1">{FIELD_INFO.birthDate.how}</p>
                     </div>
                   </div>
@@ -291,7 +291,7 @@ export default function Start() {
                   required
                   value={currentData.birthDate}
                   onChange={(e) => handleChange('birthDate', e.target.value)}
-                  className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all text-white [color-scheme:dark]"
+                  className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-white/50 focus:bg-black/80 outline-none transition-all text-white [color-scheme:dark]"
                 />
               </div>
 
@@ -304,19 +304,19 @@ export default function Start() {
                     <button
                       type="button"
                       onClick={() => setActiveTooltip(activeTooltip === 'birthTime' ? null : 'birthTime')}
-                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                      className="text-gray-300/60 hover:text-gray-300 transition-colors text-xs"
                     >
                       {activeTooltip === 'birthTime' ? '✕' : 'ⓘ'}
                     </button>
                   </div>
                   {activeTooltip === 'birthTime' && (
-                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
+                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-white/10 border border-white/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
                       <div>
-                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <span className="text-gray-300 font-semibold">Why we need this:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.birthTime.why}</p>
                       </div>
                       <div>
-                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <span className="text-gray-300 font-semibold">How it's protected:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.birthTime.how}</p>
                       </div>
                     </div>
@@ -325,7 +325,7 @@ export default function Start() {
                     type="time"
                     value={currentData.birthTime}
                     onChange={(e) => handleChange('birthTime', e.target.value)}
-                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all text-white [color-scheme:dark]"
+                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-white/50 focus:bg-black/80 outline-none transition-all text-white [color-scheme:dark]"
                   />
                 </div>
                 <div className="space-y-2 relative">
@@ -336,19 +336,19 @@ export default function Start() {
                     <button
                       type="button"
                       onClick={() => setActiveTooltip(activeTooltip === 'birthPlace' ? null : 'birthPlace')}
-                      className="text-orange-400/60 hover:text-orange-400 transition-colors text-xs"
+                      className="text-gray-300/60 hover:text-gray-300 transition-colors text-xs"
                     >
                       {activeTooltip === 'birthPlace' ? '✕' : 'ⓘ'}
                     </button>
                   </div>
                   {activeTooltip === 'birthPlace' && (
-                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
+                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-white/10 border border-white/30 rounded-lg p-3 text-xs space-y-2 animate-[fadeIn_0.2s_ease-out] shadow-2xl">
                       <div>
-                        <span className="text-orange-400 font-semibold">Why we need this:</span>
+                        <span className="text-gray-300 font-semibold">Why we need this:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.birthPlace.why}</p>
                       </div>
                       <div>
-                        <span className="text-orange-400 font-semibold">How it's protected:</span>
+                        <span className="text-gray-300 font-semibold">How it's protected:</span>
                         <p className="text-white/70 mt-1">{FIELD_INFO.birthPlace.how}</p>
                       </div>
                     </div>
@@ -358,7 +358,7 @@ export default function Start() {
                     value={currentData.birthPlace}
                     onChange={(e) => handleChange('birthPlace', e.target.value)}
                     placeholder="City"
-                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-orange-500/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
+                    className="w-full bg-black/60 border border-white/10 rounded-lg px-4 py-3.5 text-base focus:border-white/50 focus:bg-black/80 outline-none transition-all placeholder:text-white/25"
                   />
                 </div>
               </div>
@@ -369,10 +369,10 @@ export default function Start() {
                   type="checkbox"
                   required
                   id="tos"
-                  className="mt-1 w-4 h-4 rounded border-white/20 bg-black text-orange-500 focus:ring-orange-500/50 transition-all cursor-pointer"
+                  className="mt-1 w-4 h-4 rounded border-white/20 bg-black text-white focus:ring-white/50 transition-all cursor-pointer"
                 />
                 <label htmlFor="tos" className="text-xs leading-relaxed text-white/40 cursor-pointer select-none">
-                  I agree to the <Link to="/terms" className="text-orange-500/80 hover:text-orange-400 underline decoration-orange-500/20">Terms of Service</Link> and <Link to="/privacy" className="text-orange-500/80 hover:text-orange-400 underline decoration-orange-500/20">Privacy Policy</Link>. This tool provides technical behavioral mapping, not medical or clinical diagnosis.
+                  I agree to the <Link to="/terms" className="text-white/80 hover:text-gray-300 underline decoration-white/20">Terms of Service</Link> and <Link to="/privacy" className="text-white/80 hover:text-gray-300 underline decoration-white/20">Privacy Policy</Link>. This tool provides technical behavioral mapping, not medical or clinical diagnosis.
                 </label>
               </div>
 
@@ -388,7 +388,7 @@ export default function Start() {
                 )}
                 <button
                   type="submit"
-                  className="flex-1 h-14 bg-white text-black font-semibold tracking-[0.12em] text-sm rounded-lg hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-white/10 hover:shadow-orange-500/20"
+                  className="flex-1 h-14 bg-white text-black font-semibold tracking-[0.12em] text-sm rounded-lg hover:bg-gray-100 hover:text-black transition-all shadow-lg shadow-white/10 hover:shadow-white/20"
                 >
                   {step === 'you' ? 'CONTINUE' : isOwner ? 'GENERATE (FREE)' : 'CHECKOUT'}
                 </button>
@@ -403,9 +403,9 @@ export default function Start() {
 
           {/* Visual flourish */}
           <div className="mt-12 flex justify-center gap-4 opacity-20">
-            <div className="h-1 w-1 rounded-full bg-orange-500" />
             <div className="h-1 w-1 rounded-full bg-white" />
-            <div className="h-1 w-1 rounded-full bg-orange-500" />
+            <div className="h-1 w-1 rounded-full bg-white" />
+            <div className="h-1 w-1 rounded-full bg-white" />
           </div>
         </div>
       </main>

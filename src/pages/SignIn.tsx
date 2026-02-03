@@ -135,7 +135,7 @@ export default function SignIn() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-white hover:bg-white disabled:bg-white/50 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide"
+                  className="w-full bg-white hover:bg-gray-100 disabled:bg-white/50 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide"
                 >
                   {status === 'loading' ? (
                     <span className="flex items-center justify-center gap-3">

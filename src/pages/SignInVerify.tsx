@@ -125,7 +125,7 @@ export default function SignInVerify() {
                                 <p className="text-white/60 mb-6">{message}</p>
                                 <button
                                     onClick={() => navigate('/signin')}
-                                    className="bg-white hover:bg-white text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide"
+                                    className="bg-white hover:bg-gray-100 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide"
                                 >
                                     Try Again
                                 </button>

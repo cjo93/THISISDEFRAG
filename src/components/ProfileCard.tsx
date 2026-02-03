@@ -41,25 +41,25 @@ export default function ProfileCard({
     return (
         <div className="glass-box rounded-2xl p-8 border border-white/10 relative overflow-hidden group">
             {/* Ambient glow */}
-            <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-500/10 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity" />
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-white/5 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity" />
 
             <div className="relative z-10">
                 {/* Top row: Avatar + Info */}
                 <div className="flex items-start gap-6 mb-6">
                     {/* Mandala Avatar */}
                     <div className="relative">
-                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-600/10 border border-orange-500/30 flex items-center justify-center">
-                            <span className="text-3xl font-light text-orange-400">{initials}</span>
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/20 flex items-center justify-center">
+                            <span className="text-3xl font-light text-gray-300">{initials}</span>
                         </div>
                         {/* Orbital ring */}
-                        <div className="absolute inset-0 rounded-full border border-orange-500/20 animate-[spin_20s_linear_infinite]"
+                        <div className="absolute inset-0 rounded-full border border-white/10 animate-[spin_20s_linear_infinite]"
                             style={{ transform: 'scale(1.3)' }} />
                     </div>
 
                     {/* Identity Info */}
                     <div className="flex-1">
                         <h2 className="text-2xl font-light tracking-tight mb-1">{name}</h2>
-                        <p className="text-orange-400/80 text-sm tracking-wider mb-3">{archetype}</p>
+                        <p className="text-gray-300/80 text-sm tracking-wider mb-3">{archetype}</p>
 
                         {/* Natal badges */}
                         <div className="flex flex-wrap gap-2">
@@ -92,15 +92,15 @@ export default function ProfileCard({
                     onClick={handleListen}
                     disabled={isLoading}
                     className={`w-full py-4 rounded-xl text-sm tracking-widest uppercase font-medium transition-all flex items-center justify-center gap-3 ${isPlaying
-                            ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30'
+                            ? 'bg-white text-black shadow-lg shadow-white/20'
                             : isLoading
                                 ? 'bg-white/5 text-white/30 cursor-wait'
-                                : 'bg-white/5 border border-white/10 text-white/70 hover:bg-orange-500/10 hover:border-orange-500/30 hover:text-orange-400'
+                                : 'bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20 hover:text-white'
                         }`}
                 >
                     {isLoading ? (
                         <>
-                            <div className="w-4 h-4 border-2 border-white/30 border-t-orange-400 rounded-full animate-spin" />
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                             Synthesizing...
                         </>
                     ) : isPlaying ? (

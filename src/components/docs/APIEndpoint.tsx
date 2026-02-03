@@ -9,7 +9,7 @@ const APIEndpoint: React.FC<{
     const methodColors = {
         GET: 'bg-blue-500/20 text-blue-400',
         POST: 'bg-green-500/20 text-green-400',
-        PUT: 'bg-orange-500/20 text-orange-400',
+        PUT: 'bg-white/20 text-gray-300',
         DELETE: 'bg-red-500/20 text-red-400'
     };
 

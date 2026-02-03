@@ -11,7 +11,7 @@ export default function Header() {
                 {/* Logo */}
                 <Link
                     to="/"
-                    className="text-2xl font-bold text-white no-underline tracking-tight transition-colors duration-200 hover:text-orange-500"
+                    className="text-2xl font-bold text-white no-underline tracking-tight transition-colors duration-200 hover:text-white"
                 >
                     DEFRAG
                 </Link>
@@ -47,7 +47,7 @@ export default function Header() {
                 {/* CTA */}
                 <Link
                     to="/developer"
-                    className="hidden md:inline-block px-6 py-3 bg-orange-500 text-black font-semibold text-sm uppercase tracking-wider rounded-xl no-underline transition-all duration-200 shadow-md hover:bg-orange-600 hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] whitespace-nowrap"
+                    className="hidden md:inline-block px-6 py-3 bg-white text-black font-semibold text-sm uppercase tracking-wider rounded-xl no-underline transition-all duration-200 shadow-md hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] whitespace-nowrap"
                 >
                     Get Started
                 </Link>

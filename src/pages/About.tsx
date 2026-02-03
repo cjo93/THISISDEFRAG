@@ -6,14 +6,14 @@ export default function About() {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
+        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-white" />
       </div>
 
       {/* Nav */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-black/80 border-b border-white/5 safe-top">
         <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
-            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-orange-500 flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
+            <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg bg-white flex items-center justify-center font-black text-black text-base sm:text-lg group-hover:scale-105 transition-transform">
               D
             </div>
             <span className="tracking-[0.2em] sm:tracking-[0.25em] text-sm font-medium text-white/90">DEFRAG</span>
@@ -25,7 +25,7 @@ export default function About() {
             </Link>
             <Link
               to="/start"
-              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-orange-500 hover:text-white transition rounded-lg"
+              className="h-9 sm:h-10 px-4 sm:px-5 flex items-center justify-center bg-white text-black text-xs tracking-[0.15em] font-semibold hover:bg-gray-100 hover:text-black transition rounded-lg"
             >
               START
             </Link>
@@ -37,13 +37,13 @@ export default function About() {
       <main className="relative z-10 px-6 py-20">
         <div className="mx-auto max-w-3xl">
           <div className="inline-flex items-center gap-2 mb-6">
-            <span className="h-px w-8 bg-orange-500/50" />
-            <span className="text-xs tracking-[0.4em] text-orange-400 font-medium">ABOUT</span>
-            <span className="h-px w-8 bg-orange-500/50" />
+            <span className="h-px w-8 bg-white/50" />
+            <span className="text-xs tracking-[0.4em] text-gray-300 font-medium">ABOUT</span>
+            <span className="h-px w-8 bg-white/50" />
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-light tracking-tight leading-tight mb-10">
-            What is <span className="text-orange-500">DEFRAG</span>?
+            What is <span className="text-white">DEFRAG</span>?
           </h1>
 
           <div className="space-y-10 text-white/70 leading-relaxed">
@@ -62,7 +62,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-orange-500/20 bg-orange-500/[0.03] p-8">
+            <div className="rounded-2xl border border-white/20 bg-white/[0.03] p-8">
               <h2 className="text-xl font-medium text-white mb-4">The Solution</h2>
               <p className="text-base leading-relaxed">
                 DEFRAG maps these patterns using birth data and ancient timing systems astrology,
@@ -81,14 +81,14 @@ export default function About() {
                   'Real-time friction forecasts based on planetary transits',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <span className="h-6 w-6 rounded bg-orange-500/10 flex items-center justify-center text-orange-400 text-xs font-mono shrink-0">{i + 1}</span>
+                    <span className="h-6 w-6 rounded bg-white/10 flex items-center justify-center text-gray-300 text-xs font-mono shrink-0">{i + 1}</span>
                     <span className="text-base text-white/80">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <blockquote className="border-l-2 border-orange-500 pl-8 py-4">
+            <blockquote className="border-l-2 border-white pl-8 py-4">
               <p className="text-xl font-light text-white/50 italic">
                 "Human behavior isn't random. It follows patterns. DEFRAG makes those
                 patterns visible and actionable."
@@ -136,7 +136,7 @@ export default function About() {
           <div className="mt-16 text-center">
             <Link
               to="/start"
-              className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-orange-500 hover:text-white transition shadow-lg shadow-white/10"
+              className="inline-flex h-14 px-10 items-center justify-center bg-white text-black text-sm tracking-[0.12em] font-semibold rounded-lg hover:bg-gray-100 hover:text-black transition shadow-lg shadow-white/10"
             >
               GET YOUR MANUAL
             </Link>
