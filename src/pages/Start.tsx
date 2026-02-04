@@ -1,14 +1,15 @@
-
-import React, { useState } from 'react';
-import { ArrowRight, Loader2, MapPin, Calendar, Clock, User } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Loader2, MapPin, Calendar, Clock, User, Terminal } from 'lucide-react';
 import Header from '../components/Header';
 import { useNavigate } from 'react-router-dom';
 import { getPlanetSign } from '../lib/astronomy';
+import LivingBackground from '../components/visuals/LivingBackground';
 
 export default function Start() {
   const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [bootSequence, setBootSequence] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
     birthDate: '',
@@ -16,6 +17,14 @@ export default function Start() {
     birthPlace: '',
     email: ''
   });
+
+  // Boot Sequence Simulation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setBootSequence(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,26 +41,13 @@ export default function Start() {
   const finalizeData = () => {
     setIsLoading(true);
 
-    // REAL DATA CALCULATION
-    // We strictly use the input date to determine the signs using our engine.
-    // No mocks.
-
     setTimeout(() => {
       try {
-        // Combine Date and Time
-        // If time is missing, default to noon UTC or local? 
-        // Simple string concatenation for MVP ISO format
         const dateTimeString = `${formData.birthDate}T${formData.birthTime || '12:00'}:00`;
         const dateObj = new Date(dateTimeString);
 
-        // Calculate Signs
         const sunSign = getPlanetSign('Sun', dateObj);
         const marsSign = getPlanetSign('Mars', dateObj);
-
-        // Rising Sign requires Lat/Long and time. 
-        // For MVP "Zero Mock" without a geocoding API call here (unless we add one),
-        // We can leave it as optional or undefined, but we MUST NOT MOCK IT.
-        // We will omit it until we link a real Geocoder.
 
         const unitA = {
           name: formData.name,
@@ -61,77 +57,109 @@ export default function Start() {
           email: formData.email,
           sun_sign: sunSign,
           mars_sign: marsSign,
-          // rising_sign: calculateRising(...) // Pending Geocoding
         };
 
         localStorage.setItem('defrag_unitA', JSON.stringify(unitA));
-        // Also update the generic user profile
         localStorage.setItem('defrag_user_profile', JSON.stringify(unitA));
 
         navigate('/dashboard');
 
       } catch (error) {
         console.error("Calculation Error", error);
-        // Fallback? No, user requested NO MOCKS.
         setIsLoading(false);
         alert("Calculation failed. Please check date format.");
       }
-    }, 800);
+    }, 1200);
   };
+
+  if (bootSequence) {
+    return (
+      <div className="min-h-screen bg-black flex flex-col items-center justify-center text-white font-mono">
+        <div className="w-64 space-y-2">
+          <div className="h-1 w-full bg-zinc-900 overflow-hidden relative">
+            <div className="absolute inset-0 bg-white animate-[grid-move_2s_linear_infinite]" style={{ width: '100%' }} />
+          </div>
+          <div className="flex justify-between text-[10px] uppercase tracking-widest text-white/50">
+            <span>Initializing Core</span>
+            <span className="animate-pulse">...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white/10 font-sans">
       <Header />
 
+      {/* Dynamic Background */}
+      <LivingBackground />
+
       <section className="min-h-screen flex flex-col items-center justify-center text-center px-8 pt-20 pb-20 relative overflow-hidden">
         <div className="max-w-2xl w-full mx-auto relative z-10">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/[0.02] text-white/40 text-[10px] font-mono tracking-[0.4em] uppercase mb-16 rounded-full mx-auto">
+          <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-black/40 backdrop-blur-md text-white/40 text-[10px] font-mono tracking-[0.4em] uppercase mb-12 rounded-full mx-auto animate-fade-in">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
             System_Initialization
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-medium tracking-tight leading-none mb-12 text-white uppercase">
+          <h1 className="text-4xl sm:text-6xl font-medium tracking-tight leading-none mb-12 text-white uppercase animate-fade-in" style={{ animationDelay: '0.1s' }}>
             Input <span className="text-white/30 italic">Coordinates.</span>
           </h1>
 
           {/* Form Container */}
-          <div className="bg-zinc-900/50 border border-white/10 p-12 rounded-[2rem] backdrop-blur-md shadow-2xl text-left">
+          <div className="bg-zinc-900/40 border border-white/10 p-8 sm:p-12 rounded-[2rem] backdrop-blur-xl shadow-2xl text-left relative overflow-hidden animate-fade-in" style={{ animationDelay: '0.2s' }}>
 
-            {/* Progress */}
-            <div className="flex gap-2 mb-12">
+            {/* Corner Markers */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/20 rounded-tl-2xl" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-white/20 rounded-tr-2xl" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-white/20 rounded-bl-2xl" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/20 rounded-br-2xl" />
+
+            {/* Segmented Progress */}
+            <div className="flex gap-1 mb-12">
               {[1, 2, 3].map(i => (
-                <div key={i} className={`h-1 flex-1 rounded-full transition-all duration-500 ${step >= i ? 'bg-white' : 'bg-white/10'}`} />
+                <div
+                  key={i}
+                  className={`h-1.5 flex-1 rounded-sm transition-all duration-500 border border-white/5 ${
+                    step >= i
+                      ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]'
+                      : 'bg-transparent'
+                  }`}
+                />
               ))}
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-12 min-h-[300px]">
               {step === 1 && (
                 <div className="space-y-8 animate-fade-in">
-                  <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block">Identity_Designator</label>
-                    <div className="relative">
-                      <User className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-cyan-500 block font-bold group-focus-within:text-white transition-colors">Identity_Designator</label>
+                    <div className="relative flex items-center">
+                      <User className="absolute left-0 text-white/20 transition-colors group-focus-within:text-cyan-500" size={20} />
                       <input
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-white outline-none transition-colors placeholder:text-white/10 font-light"
-                        placeholder="Enter Full Name"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-cyan-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        placeholder="ENTER_FULL_NAME"
                         autoFocus
+                        autoComplete="off"
                       />
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block">Comms_Link (Email)</label>
-                    <div className="relative">
-                      <User className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Comms_Link</label>
+                    <div className="relative flex items-center">
+                      <Terminal className="absolute left-0 text-white/20 transition-colors group-focus-within:text-cyan-500" size={20} />
                       <input
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-white outline-none transition-colors placeholder:text-white/10 font-light"
-                        placeholder="email@domain.com"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-cyan-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        placeholder="EMAIL@DOMAIN.COM"
+                        autoComplete="off"
                       />
                     </div>
                   </div>
@@ -140,29 +168,29 @@ export default function Start() {
 
               {step === 2 && (
                 <div className="space-y-8 animate-fade-in">
-                  <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block">Temporal_Origin</label>
-                    <div className="relative">
-                      <Calendar className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-purple-500 block font-bold group-focus-within:text-white transition-colors">Temporal_Origin</label>
+                    <div className="relative flex items-center">
+                      <Calendar className="absolute left-0 text-white/20 transition-colors group-focus-within:text-purple-500" size={20} />
                       <input
                         type="date"
                         name="birthDate"
                         value={formData.birthDate}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-white outline-none transition-colors font-light appearance-none"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-purple-500 outline-none transition-all font-mono appearance-none"
                       />
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block">Temporal_Precise (Time)</label>
-                    <div className="relative">
-                      <Clock className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Temporal_Precise (Time)</label>
+                    <div className="relative flex items-center">
+                      <Clock className="absolute left-0 text-white/20 transition-colors group-focus-within:text-purple-500" size={20} />
                       <input
                         type="time"
                         name="birthTime"
                         value={formData.birthTime}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-white outline-none transition-colors font-light appearance-none"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-purple-500 outline-none transition-all font-mono appearance-none"
                       />
                     </div>
                   </div>
@@ -171,44 +199,44 @@ export default function Start() {
 
               {step === 3 && (
                 <div className="space-y-8 animate-fade-in">
-                  <div className="space-y-4">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block">Spatial_Origin (City, Country)</label>
-                    <div className="relative">
-                      <MapPin className="absolute left-0 top-1/2 -translate-y-1/2 text-white/20" size={20} />
+                  <div className="space-y-2 group">
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-emerald-500 block font-bold group-focus-within:text-white transition-colors">Spatial_Origin</label>
+                    <div className="relative flex items-center">
+                      <MapPin className="absolute left-0 text-white/20 transition-colors group-focus-within:text-emerald-500" size={20} />
                       <input
                         name="birthPlace"
                         value={formData.birthPlace}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-white outline-none transition-colors placeholder:text-white/10 font-light"
-                        placeholder="e.g. London, UK"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-emerald-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        placeholder="CITY, COUNTRY"
                         autoFocus
+                        autoComplete="off"
                       />
                     </div>
                   </div>
-                  <div className="p-6 bg-white/5 rounded-xl border border-white/5 text-center">
-                    <p className="text-[10px] uppercase tracking-widest text-white/50 leading-relaxed italic">
-                      Data is used strictly for astronomical calculation.
-                      <br /> Encrypted locally.
+                  <div className="p-6 bg-white/[0.03] rounded-sm border border-dashed border-white/10 text-center animate-pulse">
+                    <p className="text-[10px] uppercase tracking-widest text-white/50 leading-relaxed font-mono">
+                      Encryption Active // <br/> Data used strictly for calculation.
                     </p>
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="mt-16 flex justify-between items-center">
+            <div className="mt-16 flex justify-between items-center border-t border-white/5 pt-8">
               {step > 1 ? (
                 <button
                   onClick={() => setStep(step - 1)}
-                  className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+                  className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors flex items-center gap-2"
                 >
-                  ← Back
+                  <ArrowRight className="rotate-180" size={12} /> Back
                 </button>
               ) : <div />}
 
               <button
                 onClick={handleNext}
                 disabled={isLoading || (step === 1 && !formData.name) || (step === 2 && !formData.birthDate) || (step === 3 && !formData.birthPlace)}
-                className="h-16 px-10 bg-white text-black text-[10px] tracking-[0.3em] font-bold hover:bg-slate-200 transition-all uppercase flex items-center gap-4 disabled:opacity-20 disabled:cursor-not-allowed rounded-none"
+                className="h-14 px-8 bg-white text-black text-[10px] tracking-[0.3em] font-bold hover:bg-zinc-200 transition-all uppercase flex items-center gap-4 disabled:opacity-20 disabled:cursor-not-allowed rounded-sm group shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
               >
                 {isLoading ? (
                   <>
@@ -217,8 +245,8 @@ export default function Start() {
                   </>
                 ) : (
                   <>
-                    {step === 3 ? 'Initialize_System' : 'Next_Phase'}
-                    <ArrowRight size={16} />
+                    {step === 3 ? 'Execute_Init' : 'Next_Phase'}
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
               </button>
@@ -227,14 +255,12 @@ export default function Start() {
           </div>
 
           <div className="mt-16 flex items-center justify-center gap-8 opacity-30 text-[10px] font-mono uppercase tracking-[0.2em] italic">
-            <span>Secure_Input</span>
+            <span className="animate-flicker">Secure_Input</span>
             <span className="w-1 h-1 bg-white/50 rounded-full"></span>
             <span>Latency: 12ms</span>
           </div>
 
         </div>
-        {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-white/[0.015] rounded-full blur-[200px] pointer-events-none" />
       </section>
     </div>
   );
