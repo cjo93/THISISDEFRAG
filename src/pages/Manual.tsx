@@ -6,6 +6,7 @@ import { calculateMechanics } from '../services/defragEngine';
 import { UnitData, ManualPreview } from '../types';
 import ShareCard from '../components/ui/ShareCard';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
 import { Activity, Terminal, ShieldCheck, Zap, AlertCircle, Info, ArrowRight, Radio, Cpu, Share2 } from 'lucide-react';
 
@@ -107,19 +108,20 @@ export default function Manual() {
 
         // Calculate mechanics
         setLoadingPhase(2);
-        const mechanicsA = await calculateMechanics(
-          birthA.name,
-          birthA.birthDate,
-          birthA.birthTime || '12:00',
-          birthA.birthPlace || 'Unknown'
-        );
-
-        const mechanicsB = await calculateMechanics(
-          birthB.name,
-          birthB.birthDate,
-          birthB.birthTime || '12:00',
-          birthB.birthPlace || 'Unknown'
-        );
+        const [mechanicsA, mechanicsB] = await Promise.all([
+          calculateMechanics(
+            birthA.name,
+            birthA.birthDate,
+            birthA.birthTime || '12:00',
+            birthA.birthPlace || 'Unknown'
+          ),
+          calculateMechanics(
+            birthB.name,
+            birthB.birthDate,
+            birthB.birthTime || '12:00',
+            birthB.birthPlace || 'Unknown'
+          )
+        ]);
 
         setUnitA(mechanicsA);
         setUnitB(mechanicsB);
