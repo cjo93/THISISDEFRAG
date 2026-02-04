@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { authenticatedFetch } from '../../lib/api-client';
 import toast from 'react-hot-toast';
+import { Terminal, Copy, Trash2, Key, Info, Zap } from 'lucide-react';
 
 export default function Keys() {
     const [keys, setKeys] = useState<any[]>([]);
@@ -17,7 +19,7 @@ export default function Keys() {
             const data = await authenticatedFetch('/api-v2/dashboard/keys');
             setKeys(data.keys);
         } catch (error) {
-            toast.error('Failed to load keys');
+            toast.error('Load failed');
         } finally {
             setLoading(false);
         }
@@ -31,86 +33,107 @@ export default function Keys() {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ label: 'New Dashboard Key' })
+                body: JSON.stringify({ label: 'System Access Key' })
             });
             setNewKey(data.api_key);
-            toast.success('Key created! Copy it now.');
-            loadKeys(); // Refresh list
+            toast.success('Node established');
+            loadKeys();
         } catch (error) {
-            toast.error('Failed to create key');
+            toast.error('Deployment failed');
         } finally {
             setCreating(false);
         }
     };
 
     const revokeKey = async (keyId: string) => {
-        if (!confirm('Are you sure? This action cannot be undone.')) return;
+        if (!confirm('De-commission this node? This action is non-reversible.')) return;
         try {
             await authenticatedFetch('/api-v2/dashboard/keys/revoke', {
                 method: 'POST',
                 body: JSON.stringify({ key_id: keyId })
             });
-            toast.success('Key revoked');
+            toast.success('Node de-commissioned');
             loadKeys();
         } catch (error) {
-            toast.error('Failed to revoke key');
+            toast.error('Action failed');
         }
     };
 
-    if (loading) return <div className="p-12 text-white">Loading...</div>;
+    if (loading) return (
+        <div className="p-20 flex flex-col items-center justify-center animate-pulse">
+            <Terminal size={40} className="text-white/5 mb-8" />
+            <div className="text-[10px] font-mono tracking-[0.5em] text-white/10 uppercase italic">Retrieving_Nodes...</div>
+        </div>
+    );
 
     return (
-        <div className="p-12 max-w-7xl mx-auto">
-            <div className="flex justify-between items-center mb-12">
-                <h1 className="text-4xl font-light">API Keys</h1>
+        <div className="p-20 max-w-7xl mx-auto space-y-24 animate-fade-in">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-12">
+                <div className="space-y-4">
+                    <h1 className="text-5xl font-light text-white tracking-tighter uppercase italic">Access_Nodes</h1>
+                    <p className="text-lg text-white/30 font-light italic max-w-xl">Provision and manage high-precision API credentials for your integration.</p>
+                </div>
                 <button
                     onClick={createKey}
                     disabled={creating}
-                    className="bg-cyan-500 text-black px-6 py-3 rounded uppercase tracking-widest font-bold text-sm hover:bg-cyan-400 transition disabled:opacity-50"
+                    className="h-16 px-10 bg-white text-black text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-slate-200 transition-all duration-700 disabled:opacity-50 uppercase shadow-2xl"
                 >
-                    {creating ? 'Generating...' : '+ Generate Key'}
+                    {creating ? 'Generating_Node...' : '+ Establish_Node'}
                 </button>
             </div>
 
             {newKey && (
-                <div className="mb-8 p-6 bg-green-900/20 border border-green-500/50 rounded-xl">
-                    <h3 className="text-green-500 font-bold mb-2 uppercase tracking-widest text-xs">New Key Generated</h3>
-                    <div className="flex items-center gap-4">
-                        <code className="flex-1 bg-black p-4 rounded text-green-400 font-mono text-sm break-all">
+                <div className="p-10 bg-white/[0.03] border border-white/20 rounded-[40px] relative overflow-hidden group animate-fade-in">
+                    <div className="flex items-center gap-4 mb-8">
+                        <Zap size={16} className="text-white animate-pulse" />
+                        <h3 className="text-white text-[10px] font-mono tracking-[0.5em] uppercase italic">Credential_Established</h3>
+                    </div>
+                    <div className="flex flex-col sm:flex-row items-center gap-6 relative z-10">
+                        <code className="flex-1 bg-black/50 border border-white/5 p-6 rounded-2xl text-white font-mono text-sm break-all leading-relaxed shadow-inner">
                             {newKey}
                         </code>
                         <button
-                            onClick={() => { navigator.clipboard.writeText(newKey); toast.success('Copied'); }}
-                            className="text-white/40 hover:text-white text-xs uppercase"
+                            onClick={() => { navigator.clipboard.writeText(newKey); toast.success('Node copied'); }}
+                            className="h-16 w-full sm:w-auto px-10 border border-white/10 text-white/40 text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-white/10 hover:text-white transition-all uppercase flex items-center justify-center gap-3"
                         >
+                            <Copy size={14} />
                             Copy
                         </button>
                     </div>
-                    <p className="text-white/40 text-xs mt-4">
-                        Please save this key immediately. It will not be shown again.
-                    </p>
+                    <div className="mt-8 flex items-center gap-4 text-white/20 text-[9px] font-mono tracking-[0.3em] uppercase italic">
+                        <Info size={12} />
+                        Save this immediately. It will be encrypted and hidden after this session.
+                    </div>
+                    <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-white/[0.02] to-transparent pointer-events-none" />
                 </div>
             )}
 
-            <div className="space-y-4">
+            <div className="space-y-6">
                 {keys.map(key => (
-                    <div key={key.key_id} className={`p-6 bg-white/5 border ${key.is_active ? 'border-white/10' : 'border-red-900/30 bg-red-900/5'} rounded-xl flex items-center justify-between`}>
-                        <div>
-                            <div className="flex items-center gap-3 mb-1">
-                                <div className="font-mono text-white text-lg">{key.key_hint}</div>
-                                {!key.is_active && <span className="text-[10px] bg-red-500/20 text-red-500 px-2 py-0.5 rounded uppercase">Revoked</span>}
-                                {key.is_active && <span className="text-[10px] bg-green-500/20 text-green-500 px-2 py-0.5 rounded uppercase">Active</span>}
+                    <div key={key.key_id} className={`p-10 rounded-[48px] border transition-all duration-700 bg-white/[0.01] hover:bg-white/[0.03] ${key.is_active ? 'border-white/5' : 'border-red-900/10 grayscale opacity-40'} flex flex-col sm:flex-row sm:items-center justify-between gap-12 group`}>
+                        <div className="flex gap-10 items-center">
+                            <div className={`w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center ${key.is_active ? 'text-white/20 bg-white/5' : 'text-red-900/40 bg-red-900/5'}`}>
+                                <Key size={20} strokeWidth={1} />
                             </div>
-                            <div className="text-white/40 text-xs font-mono">
-                                Created: {new Date(key.created_at).toLocaleDateString()} • Tier: {key.tier}
+                            <div className="space-y-4">
+                                <div className="flex items-center gap-6">
+                                    <div className="font-mono text-white text-xl tracking-tighter">{key.key_hint}</div>
+                                    <span className={`text-[9px] px-3 py-1 rounded-full font-mono tracking-widest uppercase italic border ${key.is_active ? 'bg-white/5 text-white/40 border-white/10' : 'bg-red-500/10 text-red-500 border-red-500/20'}`}>
+                                        {key.is_active ? 'Node_Active' : 'Decommissioned'}
+                                    </span>
+                                </div>
+                                <div className="text-white/20 text-[10px] font-mono tracking-[0.4em] uppercase italic">
+                                    Sync: {new Date(key.created_at).toLocaleDateString()} • Tier: {key.tier}
+                                </div>
                             </div>
                         </div>
-                        <div>
+                        <div className="flex items-center">
                             {key.is_active && (
                                 <button
                                     onClick={() => revokeKey(key.key_id)}
-                                    className="text-red-500/50 hover:text-red-500 text-xs uppercase tracking-widest border border-red-500/20 px-4 py-2 rounded hover:bg-red-500/10 transition"
+                                    className="h-12 px-8 border border-white/5 text-white/10 text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 transition-all duration-700 flex items-center gap-3 uppercase shadow-xl"
                                 >
+                                    <Trash2 size={14} />
                                     Revoke
                                 </button>
                             )}
@@ -119,8 +142,12 @@ export default function Keys() {
                 ))}
 
                 {keys.length === 0 && (
-                    <div className="text-center py-20 text-white/20 font-mono">
-                        No API keys found. Generate one to get started.
+                    <div className="p-32 rounded-[64px] border border-white/[0.02] border-dashed text-center space-y-6 flex flex-col items-center">
+                        <div className="w-16 h-16 rounded-full bg-white/[0.02] flex items-center justify-center text-white/10 mb-4">
+                            <Terminal size={32} strokeWidth={1} />
+                        </div>
+                        <div className="text-white/10 text-[10px] font-mono tracking-[0.8em] uppercase italic">No_Nodes_Connected</div>
+                        <p className="text-white/5 text-sm font-light italic">Establish your first access node to begin integration.</p>
                     </div>
                 )}
             </div>

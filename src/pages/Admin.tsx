@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Terminal, Activity, Cpu, ShieldCheck, ShieldAlert, Zap, Radio, Database, ArrowRight, LogOut, CheckCircle } from 'lucide-react';
 
 export default function Admin() {
     const navigate = useNavigate();
@@ -21,7 +22,6 @@ export default function Admin() {
             return;
         }
 
-        // Fetch live stats
         const fetchStats = async () => {
             try {
                 const res = await fetch('/api/admin-stats', {
@@ -29,7 +29,6 @@ export default function Admin() {
                 });
                 if (res.ok) {
                     const data = await res.json();
-                    console.log('Live stats loaded:', data);
                     setStats(prev => ({
                         ...prev,
                         activeUsers: data.activeUsers || prev.activeUsers,
@@ -43,10 +42,7 @@ export default function Admin() {
             }
         };
 
-        // Initial fetch
         fetchStats();
-
-        // Poll every 30s
         const interval = setInterval(fetchStats, 30000);
         return () => clearInterval(interval);
     }, [navigate]);
@@ -60,95 +56,101 @@ export default function Admin() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-orange-500/20">
-            {/* Grain Overlay */}
-            <div className="fixed inset-0 pointer-events-none opacity-[0.015] z-[9999] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_200_200%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noiseFilter%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%220.65%22_numOctaves=%223%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]" />
+        <div className="min-h-screen bg-black text-white selection:bg-white/10 font-mono italic">
+            {/* Background Detail */}
+            <div className="fixed inset-0 pointer-events-none opacity-[0.02] z-0">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1500px] h-[1500px] bg-white rounded-full blur-[300px]" />
+            </div>
 
-            <div className="max-w-7xl mx-auto px-6 py-12 lg:px-12 relative z-10">
+            <div className="max-w-7xl mx-auto px-8 py-20 lg:px-16 relative z-10">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-orange-500/30 bg-orange-500/5 mb-4">
-                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                            <span className="text-[10px] tracking-[0.3em] font-mono text-orange-400 uppercase">Secure Link Established</span>
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-24">
+                    <div className="space-y-8">
+                        <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/[0.03] text-white/40 text-[10px] tracking-[0.4em] uppercase rounded-full shadow-2xl">
+                            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse" />
+                            Admin_Secure_Protocol
                         </div>
-                        <h1 className="text-4xl sm:text-5xl font-light tracking-tight">Admin<span className="text-white/30">.OS</span></h1>
+                        <h1 className="text-5xl sm:text-7xl font-light tracking-tighter uppercase italic text-white leading-none">
+                            System_Console<span className="text-white/20">.OS</span>
+                        </h1>
                     </div>
 
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-10">
                         <Link
                             to="/start"
-                            className="text-xs tracking-[0.2em] font-bold text-white hover:text-orange-500 transition-colors uppercase border-b border-white/10 pb-1"
+                            className="text-[10px] tracking-[0.4em] font-bold text-white/40 hover:text-white transition-all uppercase border-b border-white/5 pb-2 italic"
                         >
-                            Use as Normal User
+                            Client_Simulation
                         </Link>
                         <button
                             onClick={() => {
                                 localStorage.removeItem('defrag_owner_bypass');
                                 navigate('/signin');
                             }}
-                            className="bg-white/5 hover:bg-red-500/10 text-white/50 hover:text-red-400 px-4 py-2 rounded-lg text-xs tracking-widest uppercase transition-all border border-white/5"
+                            className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 rounded-full text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"
                         >
-                            Log Out
+                            Log_Out <LogOut size={14} />
                         </button>
                     </div>
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-8 mb-12 border-b border-white/5">
+                <div className="flex gap-12 mb-20 border-b border-white/5">
                     {['overview', 'access', 'system'].map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab as any)}
-                            className={`pb-4 text-xs tracking-[0.3em] uppercase transition-all relative ${activeTab === tab ? 'text-orange-500' : 'text-white/30 hover:text-white'}`}
+                            className={`pb-6 text-[11px] tracking-[0.5em] uppercase transition-all relative italic ${activeTab === tab ? 'text-white' : 'text-white/20 hover:text-white/40'}`}
                         >
                             {tab}
-                            {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-px bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,1)]" />}
+                            {activeTab === tab && <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white shadow-[0_0_15px_rgba(255,255,255,0.5)]" />}
                         </button>
                     ))}
                 </div>
 
                 {activeTab === 'overview' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <div className="animate-fade-in space-y-20">
                         {/* Stats Grid */}
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                            <StatCard label="Active Users" value={stats.activeUsers.toString()} trend="+12%" />
-                            <StatCard label="Total Sessions" value={stats.totalSessions.toString()} trend="+5%" />
-                            <StatCard label="Manuals" value={stats.manualsGenerated.toString()} trend="+8%" />
-                            <StatCard label="Revenue" value={`$${stats.revenue.toLocaleString()}`} trend="+15%" />
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <StatCard label="Active_Nodes" value={stats.activeUsers.toString()} trend="+12%" icon={<Radio size={14} />} />
+                            <StatCard label="Total_Sessions" value={stats.totalSessions.toString()} trend="+5%" icon={<Terminal size={14} />} />
+                            <StatCard label="Manuals_Finalized" value={stats.manualsGenerated.toString()} trend="+8%" icon={<CheckCircle size={14} />} />
+                            <StatCard label="Revenue_System" value={`$${stats.revenue.toLocaleString()}`} trend="+15%" icon={<Database size={14} />} />
                         </div>
 
-                        {/* Charts Area Placeholder */}
-                        {/* Real Data Area */}
-                        <div className="glass-box border border-white/5 rounded-2xl p-8 mb-12">
-                            <h3 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-6 font-mono">Recent Transactions (Live Stripe Data)</h3>
-                            <div className="space-y-2">
+                        {/* Recent Transactions */}
+                        <div className="p-16 rounded-[64px] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-700 shadow-2xl">
+                            <h3 className="text-[10px] tracking-[0.6em] text-white/20 uppercase mb-12 flex items-center gap-4 italic underline decoration-white/5 underline-offset-8">
+                                <Zap size={14} strokeWidth={1} />
+                                Live_Stripe_Stream
+                            </h3>
+                            <div className="space-y-6">
                                 {(stats as any).recentTransactions && (stats as any).recentTransactions.length > 0 ? (
                                     (stats as any).recentTransactions.map((tx: any) => (
-                                        <div key={tx.id} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0 hover:bg-white/[0.02] -mx-4 px-4 transition-colors">
-                                            <div className="flex items-center gap-4">
-                                                <div className="h-8 w-8 rounded-full bg-orange-500/10 flex items-center justify-center text-orange-500 font-mono text-xs">
-                                                    $
+                                        <div key={tx.id} className="flex justify-between items-center py-10 border-b border-white/5 last:border-0 hover:bg-white/[0.01] -mx-8 px-8 transition-all rounded-3xl">
+                                            <div className="flex items-center gap-8">
+                                                <div className="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white/20 group-hover:bg-white group-hover:text-black transition-all">
+                                                    <span className="text-xl">$</span>
                                                 </div>
-                                                <div>
-                                                    <div className="text-white font-medium text-sm">{tx.email}</div>
-                                                    <div className="text-[10px] text-white/40 font-mono tracking-wider">{new Date(tx.date).toLocaleDateString()} • {new Date(tx.date).toLocaleTimeString()}</div>
+                                                <div className="space-y-2">
+                                                    <div className="text-white text-xl font-light italic tracking-tight">{tx.email}</div>
+                                                    <div className="text-[10px] text-white/20 uppercase tracking-[0.2em]">{new Date(tx.date).toLocaleDateString()} • {new Date(tx.date).toLocaleTimeString()}</div>
                                                 </div>
                                             </div>
-                                            <div className="text-right">
-                                                <div className="flex items-center justify-end gap-2 mb-1">
-                                                    <span className={`h-1.5 w-1.5 rounded-full ${tx.status === 'paid' ? 'bg-green-500' : 'bg-yellow-500'}`} />
-                                                    <span className="text-sm font-light text-white">${tx.amount.toFixed(2)}</span>
+                                            <div className="text-right space-y-2">
+                                                <div className="text-2xl font-light text-white italic tracking-tighter">${tx.amount.toFixed(2)}</div>
+                                                <div className="flex items-center justify-end gap-3">
+                                                    <span className={`h-1.5 w-1.5 rounded-full ${tx.status === 'paid' ? 'bg-white shadow-[0_0_8px_white]' : 'bg-white/20'}`} />
+                                                    <span className="text-[10px] text-white/30 uppercase tracking-[0.4em] italic">{tx.status}</span>
                                                 </div>
-                                                <div className="text-[10px] text-white/30 uppercase tracking-widest">{tx.status}</div>
                                             </div>
                                         </div>
                                     ))
                                 ) : (
-                                    <div className="text-center py-12">
-                                        <div className="text-white/20 text-sm tracking-widest uppercase mb-1">No recent transactions</div>
-                                        <div className="text-white/10 text-xs">Data will appear here once live sales occur</div>
+                                    <div className="text-center py-24 space-y-4">
+                                        <div className="text-white/10 text-[10px] tracking-[0.8em] uppercase italic">Zero_Stream_Activity</div>
+                                        <div className="text-white/5 text-[9px] tracking-[0.4em] uppercase italic">System awaiting live sales synchronization</div>
                                     </div>
                                 )}
                             </div>
@@ -157,58 +159,72 @@ export default function Admin() {
                 )}
 
                 {activeTab === 'access' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-2xl mx-auto py-12">
-                        <div className="text-center mb-12">
-                            <h2 className="text-2xl font-light mb-4">Access Generator</h2>
-                            <p className="text-white/40 text-sm tracking-widest uppercase">Issue highest-tier manual access</p>
+                    <div className="animate-fade-in max-w-3xl mx-auto py-20">
+                        <div className="text-center space-y-6 mb-20">
+                            <h2 className="text-4xl font-light text-white tracking-tighter uppercase italic">Access_Protocol_Generator</h2>
+                            <p className="text-white/20 text-[10px] tracking-[0.6em] uppercase italic">Override system requirements and authorize bypass</p>
                         </div>
 
-                        <div className="bg-zinc-900/20 border border-white/5 rounded-3xl p-10 relative overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent pointer-events-none" />
-                            <div className="space-y-8 relative z-10">
-                                <div>
-                                    <label className="block text-xs uppercase tracking-[0.3em] text-white/30 mb-4 font-mono">Grant Duration</label>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <button className="py-3 bg-white/5 border border-white/10 rounded-xl text-xs tracking-widest uppercase hover:bg-white/10 transition-all font-bold">1 Month</button>
-                                        <button className="py-3 bg-orange-500 text-black border border-orange-500 rounded-xl text-xs tracking-widest uppercase hover:bg-orange-400 transition-all font-bold">LIFETIME ACCESS</button>
+                        <div className="p-16 rounded-[80px] border border-white/5 bg-white/[0.01] relative overflow-hidden group shadow-2xl">
+                            <div className="space-y-16 relative z-10">
+                                <div className="space-y-8">
+                                    <label className="block text-[10px] tracking-[0.5em] text-white/20 uppercase italic px-4">Authorization_Temporal_Scale</label>
+                                    <div className="grid grid-cols-2 gap-8">
+                                        <button className="h-20 bg-white/5 border border-white/10 rounded-full text-[10px] tracking-[0.5em] uppercase hover:bg-white/10 transition-all font-bold italic text-white/40">30_Day_Grant</button>
+                                        <button className="h-20 bg-white text-black rounded-full text-[10px] tracking-[0.5em] uppercase hover:bg-slate-200 transition-all font-bold italic shadow-2xl">Lifetime_Authorized</button>
                                     </div>
                                 </div>
-                                <div>
-                                    <label className="block text-xs uppercase tracking-[0.3em] text-white/30 mb-4 font-mono">Recipient (Optional)</label>
+                                <div className="space-y-8">
+                                    <label className="block text-[10px] tracking-[0.5em] text-white/20 uppercase italic px-4">Node_Identification (Memo)</label>
                                     <input
                                         type="text"
-                                        placeholder="Name or Memo"
-                                        className="w-full bg-black border border-white/10 rounded-xl px-4 py-4 text-sm focus:outline-none focus:border-orange-500/50"
+                                        placeholder="INPUT_RECIPIENT_OR_REASON"
+                                        className="w-full bg-transparent border-b border-white/10 py-6 text-xl italic font-light tracking-tight focus:border-white outline-none transition-colors placeholder:text-white/5 text-white"
                                     />
                                 </div>
                                 <button
                                     onClick={handleGenerateCard}
                                     disabled={isGenerating}
-                                    className="w-full py-5 bg-white text-black rounded-xl text-xs tracking-[0.4em] font-black uppercase hover:bg-orange-500 hover:text-white transition-all disabled:opacity-50"
+                                    className="w-full h-24 bg-white/[0.03] border border-white/10 text-white/20 rounded-full text-[10px] tracking-[0.6em] font-black uppercase hover:bg-white hover:text-black transition-all duration-700 disabled:opacity-20 italic flex items-center justify-center gap-6 shadow-2xl"
                                 >
-                                    {isGenerating ? 'GENOCIDING ACCESS TOKEN...' : 'GENERATE SHARED ACCESS'}
+                                    {isGenerating ? (
+                                        <>
+                                            <span className="h-4 w-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                                            Synchronizing_Access...
+                                        </>
+                                    ) : (
+                                        <>
+                                            Generate_Highest_Protocol
+                                            <ArrowRight size={20} />
+                                        </>
+                                    )}
                                 </button>
                             </div>
+                            <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-white/[0.01] to-transparent pointer-events-none" />
                         </div>
                     </div>
                 )}
 
                 {activeTab === 'system' && (
-                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 grid md:grid-cols-2 gap-8">
-                        <div className="bg-zinc-900/20 border border-white/5 rounded-2xl p-8">
-                            <h2 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-8 font-mono">Service Status</h2>
-                            <div className="space-y-6">
-                                <StatusRow label="Architecture Processing" value="STABLE" status="good" />
-                                <StatusRow label="Stripe Integration" value="ACTIVE" status="good" />
-                                <StatusRow label="Ephemeris Engine" value="SYNCED" status="good" />
-                                <StatusRow label="Gemini AI Response" value="124ms" status="good" />
+                    <div className="animate-fade-in grid md:grid-cols-2 gap-10">
+                        <div className="p-12 rounded-[64px] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-700">
+                            <h2 className="text-[10px] tracking-[0.6em] text-white/20 uppercase mb-12 italic underline decoration-white/5 underline-offset-8">Critical_Interface_Status</h2>
+                            <div className="space-y-4">
+                                <StatusRow label="Architecture_Processing" value="STABLE" status="good" icon={<ShieldCheck size={14} />} />
+                                <StatusRow label="Stripe_Relay" value="ACTIVE" status="good" icon={<Zap size={14} />} />
+                                <StatusRow label="Ephemeris_Link" value="SYNCED" status="good" icon={<Activity size={14} />} />
+                                <StatusRow label="Intelligence_Core" value="124ms" status="good" icon={<Cpu size={14} />} />
                             </div>
                         </div>
-                        <div className="bg-zinc-900/20 border border-white/5 rounded-2xl p-8">
-                            <h2 className="text-xs tracking-[0.3em] text-white/40 uppercase mb-8 font-mono">System Load</h2>
-                            <div className="h-40 flex items-end gap-1">
-                                {Array.from({ length: 30 }).map((_, i) => (
-                                    <div key={i} className={`flex-1 rounded-t-sm transition-all duration-1000 ${i > 24 ? 'bg-orange-500' : 'bg-white/10'}`} style={{ height: `${Math.random() * 80 + 20}%` }} />
+                        <div className="p-12 rounded-[64px] border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-700 flex flex-col">
+                            <h2 className="text-[10px] tracking-[0.6em] text-white/20 uppercase mb-12 italic underline decoration-white/5 underline-offset-8">Thermal_Load_Analysis</h2>
+                            <div className="h-48 flex items-end gap-2 mt-auto">
+                                {Array.from({ length: 40 }).map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className={`flex-1 rounded-t-sm transition-all duration-1000 ${i > 32 ? 'bg-white shadow-[0_0_10px_white]' : 'bg-white/10'}`}
+                                        style={{ height: `${Math.random() * 80 + 20}%` }}
+                                    />
                                 ))}
                             </div>
                         </div>
@@ -219,62 +235,64 @@ export default function Admin() {
 
             {/* Premium Access Card Modal */}
             {showCard && (
-                <div className="fixed inset-0 z-[1000] flex items-center justify-center p-6 sm:p-12 animate-in fade-in zoom-in duration-500">
-                    <div className="absolute inset-0 bg-black/90 backdrop-blur-2xl" onClick={() => setShowCard(false)} />
+                <div className="fixed inset-0 z-[1000] flex items-center justify-center p-8 sm:p-16 animate-fade-in">
+                    <div className="absolute inset-0 bg-black/95 backdrop-blur-3xl" onClick={() => setShowCard(false)} />
 
-                    <div className="relative group max-w-sm w-full">
+                    <div className="relative group max-w-lg w-full scale-in">
                         {/* The "Card" */}
-                        <div className="aspect-[1.6/1] w-full bg-gradient-to-br from-zinc-800 via-black to-zinc-900 rounded-[2rem] border border-white/20 p-8 shadow-[0_50px_100px_rgba(0,0,0,1)] relative overflow-hidden flex flex-col justify-between">
-                            {/* Mandala Glow */}
-                            <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/20 blur-[50px] -translate-y-1/2 translate-x-1/2" />
+                        <div className="aspect-[1.6/1] w-full bg-zinc-950 rounded-[3rem] border border-white/10 p-12 shadow-[0_0_100px_rgba(255,255,255,0.05)] relative overflow-hidden flex flex-col justify-between group-hover:border-white/20 transition-all duration-700 italic">
+                            {/* Card Glow */}
+                            <div className="absolute -top-20 -right-20 w-80 h-80 bg-white shadow-[0_0_150px_rgba(255,255,255,0.05)] rounded-full blur-[100px]" />
 
-                            <div className="relative z-10">
-                                <div className="flex justify-between items-start mb-12">
-                                    <div className="h-10 w-10 rounded-full border border-white/20 flex items-center justify-center">
-                                        <svg width="20" height="20" viewBox="0 0 100 100" className="text-orange-500" fill="currentColor">
-                                            <circle cx="50" cy="50" r="40" opacity="0.1" />
-                                            <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="4" />
-                                        </svg>
+                            <div className="relative z-10 flex justify-between items-start">
+                                <div className="space-y-4">
+                                    <div className="h-14 w-14 rounded-2xl border border-white/10 flex items-center justify-center bg-white/5">
+                                        <ShieldCheck size={28} strokeWidth={1} className="text-white" />
                                     </div>
-                                    <div className="text-right">
-                                        <span className="block text-[8px] tracking-[0.4em] text-white/40 uppercase mb-1">Access Token</span>
-                                        <span className="block text-xs font-mono text-white/90">#X-42-DFRG</span>
+                                    <div>
+                                        <h4 className="text-2xl font-light tracking-tighter text-white uppercase italic">Full_Protocol_Access</h4>
+                                        <p className="text-[9px] text-white/30 tracking-[0.6em] font-mono mt-2 uppercase">Authorized Deployment v2</p>
                                     </div>
                                 </div>
-
-                                <h4 className="text-xl font-light tracking-widest text-white uppercase">Full Access</h4>
-                                <p className="text-[10px] text-white/30 tracking-[0.2em] font-mono mt-1 uppercase">Validity: 30 Days (Tier: Highest)</p>
-                            </div>
-
-                            <div className="relative z-10 flex items-center justify-between mt-auto pt-8 border-t border-white/5">
-                                <span className="text-[10px] tracking-[0.3em] font-bold text-orange-500 uppercase">Airdrop Ready</span>
-                                <div className="flex gap-1">
-                                    <div className="h-1 w-8 bg-orange-500 rounded-full" />
-                                    <div className="h-1 w-2 bg-white/20 rounded-full" />
+                                <div className="text-right">
+                                    <span className="block text-[8px] tracking-[0.6em] text-white/20 uppercase mb-2">Access_Token</span>
+                                    <span className="block text-sm font-mono text-white/60">#X-42-DFRG</span>
                                 </div>
                             </div>
 
-                            {/* Intricate Mandala Pattern Overlaid */}
-                            <div className="absolute -bottom-10 -right-10 w-48 h-48 opacity-[0.05] pointer-events-none">
-                                <svg width="200" height="200" viewBox="0 0 100 100" className="text-white animate-[spin_20s_linear_infinite]">
+                            <div className="relative z-10 flex items-center justify-between pt-10 border-t border-white/5">
+                                <div className="space-y-1">
+                                    <span className="block text-[9px] tracking-[0.4em] font-bold text-white uppercase italic">Airdrop_Synchronized</span>
+                                    <span className="block text-[8px] tracking-[0.2em] text-white/20 uppercase italic">Tier: Highest_Authorized</span>
+                                </div>
+                                <div className="flex gap-2">
+                                    <div className="h-1.5 w-10 bg-white rounded-full shadow-[0_0_10px_white]" />
+                                    <div className="h-1.5 w-3 bg-white/10 rounded-full" />
+                                </div>
+                            </div>
+
+                            {/* Background Geometric Detail */}
+                            <div className="absolute -bottom-20 -right-20 w-64 h-64 opacity-[0.03] pointer-events-none">
+                                <svg width="256" height="256" viewBox="0 0 100 100" className="text-white animate-[spin_60s_linear_infinite]">
                                     <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="0.5" />
-                                    <path d="M50 10 L50 90 M10 50 L90 50" stroke="currentColor" strokeWidth="0.5" />
+                                    <path d="M50 5 L95 50 L50 95 L5 50 Z" stroke="currentColor" strokeWidth="0.5" />
                                 </svg>
                             </div>
                         </div>
 
-                        {/* Copy Link / AirDrop Control */}
-                        <div className="mt-12 space-y-4">
+                        {/* Actions */}
+                        <div className="mt-16 space-y-6 flex flex-col items-center">
                             <button
                                 onClick={() => {
-                                    alert('Link copied to clipboard (Mockup)');
+                                    alert('Access protocol link copied to terminal buffer.');
                                     setShowCard(false);
                                 }}
-                                className="w-full h-14 bg-white text-black rounded-xl font-bold text-xs tracking-widest uppercase hover:scale-105 active:scale-95 transition-all shadow-[0_20px_40px_rgba(255,255,255,0.1)]"
+                                className="w-full h-24 bg-white text-black rounded-full font-bold text-[10px] tracking-[0.6em] uppercase hover:bg-slate-200 transition-all duration-700 shadow-2xl flex items-center justify-center gap-6"
                             >
-                                Copy Share Link
+                                Copy_Access_Link
+                                <ArrowRight size={20} />
                             </button>
-                            <p className="text-center text-[10px] text-white/30 tracking-widest uppercase">Click outside to dismiss</p>
+                            <p className="text-[9px] text-white/20 tracking-[0.8em] uppercase italic">Close_Authorized_View</p>
                         </div>
                     </div>
                 </div>
@@ -283,35 +301,36 @@ export default function Admin() {
     );
 }
 
-function StatCard({ label, value, trend }: { label: string, value: string, trend: string }) {
+function StatCard({ label, value, trend, icon }: { label: string, value: string, trend: string, icon: React.ReactNode }) {
     return (
-        <div className="glass-box border border-white/5 p-8 rounded-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="text-white/40 text-[10px] uppercase tracking-[0.4em] mb-3 font-mono">{label}</div>
-            <div className="text-4xl font-light text-white mb-3">{value}</div>
-            <div className="text-green-400 text-[10px] font-mono tracking-widest">{trend} this interval</div>
-        </div>
-    )
-}
-
-function StatusRow({ label, value, status }: { label: string, value: string, status: 'good' | 'warning' | 'error' }) {
-    const color = status === 'good' ? 'text-green-400' : status === 'warning' ? 'text-yellow-400' : 'text-red-400';
-    return (
-        <div className="flex justify-between items-center text-xs tracking-widest uppercase py-4 border-b border-white/5 last:border-0">
-            <span className="text-white/40">{label}</span>
-            <div className="flex items-center gap-2">
-                <span className={`h-1.5 w-1.5 rounded-full ${status === 'good' ? 'bg-green-500' : 'bg-red-500'}`} />
-                <span className={`font-mono ${color}`}>{value}</span>
+        <div className="p-12 rounded-[56px] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-700 relative overflow-hidden group shadow-xl">
+            <div className="flex items-center gap-4 text-white/20 mb-10 group-hover:text-white transition-colors">
+                <div className="h-10 w-10 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center">
+                    {icon}
+                </div>
+                <div className="text-[10px] uppercase tracking-[0.5em] italic">{label}</div>
+            </div>
+            <div className="text-5xl font-light text-white mb-6 italic tracking-tighter">{value}</div>
+            <div className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_8px_white]" />
+                <div className="text-white/30 text-[9px] font-mono tracking-[0.4em] uppercase italic">{trend} Increase</div>
             </div>
         </div>
     )
 }
 
-function ProfileRow({ name, count }: { name: string, count: string }) {
+function StatusRow({ label, value, status, icon }: { label: string, value: string, status: 'good' | 'warning' | 'error', icon: React.ReactNode }) {
+    const color = status === 'good' ? 'text-white' : status === 'warning' ? 'text-white/40' : 'text-red-500';
     return (
-        <div className="flex justify-between items-center group cursor-default">
-            <span className="text-sm text-white/70 group-hover:text-white transition-colors">{name}</span>
-            <span className="text-xs font-mono text-orange-500/60">{count}</span>
+        <div className="flex justify-between items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.01] px-4 rounded-2xl transition-all font-mono italic">
+            <div className="flex items-center gap-6">
+                <div className="text-white/10">{icon}</div>
+                <span className="text-white/40 text-[10px] tracking-[0.4em] uppercase">{label}</span>
+            </div>
+            <div className="flex items-center gap-3">
+                <span className={`h-1.5 w-1.5 rounded-full ${status === 'good' ? 'bg-white shadow-[0_0_8px_white]' : 'bg-red-500 shadow-[0_0_8px_red]'}`} />
+                <span className={`text-[10px] tracking-[0.4em] ${color}`}>{value}</span>
+            </div>
         </div>
     )
 }

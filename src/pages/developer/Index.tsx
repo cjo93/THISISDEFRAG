@@ -1,180 +1,130 @@
+
 import React from 'react';
-import { ArrowRight, Code, Shield, Zap, Lock } from 'lucide-react';
+import { ArrowRight, Code, Shield, Zap, Lock, Activity, Terminal, ExternalLink, Globe, Cpu, Layers, Box } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Check if user has dev pilot access (internal flag)
-// This would normally come from your auth context/user profile
 const useIsDevPilot = () => {
-    // For now, check localStorage or a similar mechanism
-    // In production, this should come from user.isDevPilot in your auth system
     const user = JSON.parse(localStorage.getItem('defrag_user') || '{}');
     return user.isDevPilot === true || user.email === 'chadowen93@gmail.com' || user.email === 'info@defrag.app';
 };
 
 export default function DeveloperIndex() {
     const isDevPilot = useIsDevPilot();
-
-    // Show full dev dashboard only for dev pilots
-    if (isDevPilot) {
-        return <FullDevDashboard />;
-    }
-
-    // Show restricted "coming soon" view for everyone else
-    return <ComingSoonView />;
+    if (isDevPilot) return <FullDevDashboard />;
+    return <DeveloperLanding />;
 }
 
-// Minimal "Coming Soon" view for non-pilot users
-function ComingSoonView() {
+// Public Developer Landing (Refactored)
+function DeveloperLanding() {
     return (
-        <div className="space-y-12">
-            {/* Header */}
-            <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50 text-xs font-mono tracking-wide">
-                    <Lock size={12} />
-                    PRIVATE TESTING
-                </div>
-                <h1 className="text-4xl md:text-5xl font-light text-white tracking-tight">
-                    Developer <span className="text-orange-500">API</span>
-                </h1>
-                <p className="text-xl text-white/50 max-w-2xl leading-relaxed">
-                    We're testing this with a small group. If you've been invited, sign in and check your dashboard.
-                </p>
-            </div>
+        <div className="min-h-screen bg-black text-white selection:bg-white/10 font-sans">
 
-            {/* What This Will Do - 3 Bullets */}
-            <div className="p-8 rounded-2xl bg-white/[0.02] border border-white/10">
-                <div className="flex items-center gap-3 mb-6">
-                    <h2 className="text-xl font-light text-white">What this will do</h2>
-                    <span className="text-[9px] font-mono tracking-widest bg-orange-500/10 text-orange-400 px-2 py-0.5 rounded border border-orange-500/20 uppercase">Coming Soon</span>
-                </div>
+            {/* HERO */}
+            <section className="pt-40 pb-32 px-8 flex flex-col items-center justify-center text-center min-h-[80vh]">
+                <div className="max-w-4xl mx-auto relative z-10">
+                    <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase">
+                        Developer Portal
+                    </h1>
+                    <p className="text-xl sm:text-3xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light mb-16 italic">
+                        Build with deterministic relational data.
+                    </p>
+                    <p className="text-lg text-white/30 max-w-2xl mx-auto leading-relaxed font-light mb-20">
+                        The DEFRAG API allows developers to integrate human-system safety directly into their products.
+                        <br />
+                        Every request is gated. Every output is constrained.
+                        <br /><br />
+                        No hallucination. No drift.
+                    </p>
 
-                <ul className="space-y-4 text-white/60">
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">SEDA Safety Scores</strong> — Real-time clinical safety gating for AI outputs and user content.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">Pressure Mapping</strong> — NASA JPL precision orbital telemetry for environmental pressure analysis.</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                        <span className="text-orange-500 mt-1">•</span>
-                        <span><strong className="text-white/80">Relational Geometry</strong> — Multi-person system mapping for teams and families.</span>
-                    </li>
-                </ul>
-            </div>
-
-            {/* Testing Phase Info */}
-            <div className="p-6 rounded-xl bg-orange-500/5 border border-orange-500/20">
-                <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-lg bg-orange-500/10">
-                        <Shield size={20} className="text-orange-400" />
-                    </div>
-                    <div>
-                        <h3 className="text-white font-medium mb-2">Builder (testing)</h3>
-                        <p className="text-white/50 text-sm leading-relaxed mb-3">
-                            Up to 5,000 calls a month while we're in testing. Includes safety scores, pressure scores, and basic group mapping.
-                        </p>
-                        <p className="text-orange-400 text-sm font-mono">From 99 / month</p>
+                    <div className="flex justify-center w-full">
+                        <a href="mailto:api@defrag.app?subject=Request Developer Key" className="h-14 px-10 flex items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-slate-200 transition-all duration-300 uppercase shadow-lg">
+                            Request Developer Key
+                        </a>
                     </div>
                 </div>
-            </div>
+                {/* Background Glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[150px] pointer-events-none" />
+            </section>
 
-            {/* CTA */}
-            <div className="flex flex-wrap gap-4">
-                <a
-                    href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                    className="flex items-center gap-2 px-6 py-3 bg-orange-500 text-black font-bold tracking-wide rounded hover:bg-orange-400 transition text-sm uppercase"
-                >
-                    Request Access <ArrowRight size={16} />
-                </a>
-                <Link
-                    to="/signin"
-                    className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white border border-white/10 font-medium tracking-wide rounded hover:bg-white/10 transition text-sm uppercase"
-                >
-                    Sign In (Invited Users)
-                </Link>
-            </div>
+            {/* CAPABILITIES */}
+            <section className="py-40 bg-zinc-950 border-t border-white/10 px-8">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-24">
+                        <h2 className="text-4xl font-light text-white tracking-wide uppercase">What You Can Build</h2>
+                    </div>
 
-            {/* Note */}
-            <p className="text-white/30 text-xs font-mono">
-                If you need access for a real project, contact support and we'll discuss your use case.
-            </p>
+                    <div className="grid md:grid-cols-3 gap-10">
+                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
+                            <Shield className="text-white/40 mb-6" size={32} strokeWidth={1} />
+                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Safer AI Interfaces</h3>
+                            <p className="text-white/40 leading-relaxed text-sm">
+                                Embed constraints that prevent AI agents from triggering relational degradation.
+                            </p>
+                        </div>
+                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
+                            <Layers className="text-white/40 mb-6" size={32} strokeWidth={1} />
+                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Context-Aware Systems</h3>
+                            <p className="text-white/40 leading-relaxed text-sm">
+                                Applications that adjust their behavior based on the user's current relational load.
+                            </p>
+                        </div>
+                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
+                            <Box className="text-white/40 mb-6" size={32} strokeWidth={1} />
+                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Human-Centric Apps</h3>
+                            <p className="text-white/40 leading-relaxed text-sm">
+                                Deepen user trust by enforcing mechanical boundaries in social implementations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
 
-// Full dashboard for dev pilots only
+// Monochrome Pilot Dashboard (Preserved but styled)
 function FullDevDashboard() {
     return (
-        <div className="space-y-12">
-            {/* Hero */}
-            <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-mono tracking-wide">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
-                    DEV PILOT ACCESS
+        <div className="bg-black min-h-screen text-white p-8 font-sans">
+            <div className="max-w-7xl mx-auto space-y-24 py-12">
+                {/* Hero */}
+                <div className="space-y-10">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 text-white/50 text-xs tracking-widest uppercase">
+                        <span className="w-2 h-2 bg-white animate-pulse shadow-glow"></span>
+                        Terminal_Active
+                    </div>
+                    <h1 className="text-6xl md:text-8xl font-light text-white tracking-tighter leading-none">
+                        L0 <span className="text-white/40 italic">Control.</span>
+                    </h1>
+                    <div className="flex flex-wrap gap-6 pt-6 mb-12">
+                        <Link to="/docs/getting-started" className="h-14 px-8 flex items-center justify-center bg-white text-black font-bold tracking-widest uppercase hover:bg-slate-200 transition-all shadow-lg text-sm">
+                            Initialize Keys
+                        </Link>
+                        <Link to="/docs/api-reference" className="h-14 px-8 flex items-center justify-center bg-transparent text-white border border-white/20 font-bold tracking-widest uppercase hover:bg-white/10 transition-all text-sm">
+                            Read Specs
+                        </Link>
+                    </div>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-light text-white tracking-tight">
-                    Build with <span className="text-orange-500">Human Intelligence</span>
-                </h1>
-                <p className="text-xl text-white/50 max-w-2xl leading-relaxed">
-                    Integrate DEFRAG's proprietary behavioral engine into your application.
-                    Bank-grade security, sub-100ms latency, and NASA-precision data.
-                </p>
-                <div className="flex flex-wrap gap-4 pt-4">
-                    <Link to="/docs/getting-started" className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold tracking-wide rounded hover:bg-white/90 transition text-sm uppercase">
-                        Get API Keys <ArrowRight size={16} />
-                    </Link>
-                    <Link to="/docs/api-reference" className="flex items-center gap-2 px-6 py-3 bg-white/5 text-white border border-white/10 font-medium tracking-wide rounded hover:bg-white/10 transition text-sm uppercase">
-                        Read Docs
-                    </Link>
+
+                {/* Quick Status */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <StatusCard icon={<Terminal size={20} strokeWidth={1.5} />} label="System_Status" value="OPERATIONAL" />
+                    <StatusCard icon={<Cpu size={20} strokeWidth={1.5} />} label="Auth_Layer" value="ENCRYPTED" />
+                    <StatusCard icon={<Activity size={20} strokeWidth={1.5} />} label="Coherence" value="OPTIMAL" />
                 </div>
-            </div>
-
-            {/* Quick Stats / Status */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <StatusCard icon={<Zap size={20} />} label="System Status" value="Operational" color="text-green-400" />
-                <StatusCard icon={<Shield size={20} />} label="Security Level" value="SOC2 Type II" color="text-blue-400" />
-                <StatusCard icon={<Code size={20} />} label="Latest Version" value="v2.0.0" color="text-orange-400" />
-            </div>
-
-            {/* Featured Resources */}
-            <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-white/10">
-                <ResourceCard
-                    title="Quick Start Guide"
-                    desc="Integration in under 5 minutes. Python, Node, and Go examples."
-                    link="/docs/getting-started"
-                />
-                <ResourceCard
-                    title="Safety Gating (SEDA)"
-                    desc="Implementing the SEDA Firewall for compliant clinical boundaries."
-                    link="/developer/guides"
-                />
             </div>
         </div>
     );
 }
 
-function StatusCard({ icon, label, value, color }: any) {
+function StatusCard({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) {
     return (
-        <div className="p-6 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4">
-            <div className={`p-3 rounded-lg bg-white/5 ${color}`}>{icon}</div>
+        <div className="p-10 bg-white/[0.02] border border-white/5 flex items-center gap-8 hover:bg-white/[0.04] transition-colors group">
+            <div className="text-white/40 group-hover:text-white transition-colors">{icon}</div>
             <div>
-                <p className="text-xs text-white/40 uppercase tracking-widest mb-1">{label}</p>
-                <p className={`font-mono text-lg font-bold ${color}`}>{value}</p>
+                <p className="text-[10px] text-white/30 font-mono tracking-widest uppercase mb-1">{label}</p>
+                <p className="font-mono text-xl font-bold tracking-tight text-white">{value}</p>
             </div>
         </div>
-    );
-}
-
-function ResourceCard({ title, desc, link }: any) {
-    return (
-        <Link to={link} className="group p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent hover:border-orange-500/30 transition-all">
-            <h3 className="text-xl font-light text-white mb-2 group-hover:text-orange-400 transition-colors">{title}</h3>
-            <p className="text-white/50 text-sm leading-relaxed mb-4">{desc}</p>
-            <div className="flex items-center gap-2 text-xs font-mono text-white/30 group-hover:text-white transition-colors">
-                READ ARTICLE <ArrowRight size={12} />
-            </div>
-        </Link>
     );
 }

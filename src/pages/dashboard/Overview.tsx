@@ -1,52 +1,59 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Activity, Shield, Terminal, Zap, ArrowUpRight, Cpu } from 'lucide-react';
 
 export default function Overview() {
     return (
-        <div className="p-12 max-w-7xl mx-auto">
-            <header className="mb-12">
-                <h1 className="text-4xl font-light mb-2">Dashboard</h1>
-                <p className="text-white/40">Welcome back to the command line.</p>
+        <div className="p-20 max-w-7xl mx-auto space-y-20 animate-fade-in">
+            <header className="space-y-4">
+                <h1 className="text-5xl font-light text-white tracking-tighter uppercase italic">System_Overview</h1>
+                <p className="text-lg text-white/30 font-light italic">Operational baseline initialized. All nodes reporting as nominal.</p>
             </header>
 
             {/* STATS GRID */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-                <StatCard label="API Calls" value="12,450" trend="78% of limit" color="text-cyan-400" />
-                <StatCard label="Active Keys" value="3" trend="Production" color="text-green-400" />
-                <StatCard label="Error Rate" value="0.02%" trend="Normal" color="text-white" />
-                <StatCard label="Current Plan" value="PRO" trend="Renews Feb 1" color="text-purple-400" />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <StatCard label="Load_Volume" value="12,450" trend="78% Capacity" icon={<Cpu size={20} />} active />
+                <StatCard label="Active_Nodes" value="3" trend="Sync: Established" icon={<Terminal size={20} />} active />
+                <StatCard label="Error_Entropy" value="0.02%" trend="Nominal" icon={<Activity size={20} />} />
+                <StatCard label="Protocol_Tier" value="PRO_v2" trend="Renews: 01_FEB" icon={<Shield size={20} />} active />
             </div>
 
             {/* QUICK ACTIONS */}
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid lg:grid-cols-2 gap-12">
                 {/* RECENT ACTIVITY */}
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                    <h3 className="text-lg font-mono mb-6 flex items-center justify-between">
-                        Recent Activity
-                        <Link to="/dashboard/usage" className="text-xs text-white/40 hover:text-white transition">View All</Link>
+                <div className="bg-white/[0.01] border border-white/5 rounded-[48px] p-10 hover:bg-white/[0.02] transition-all duration-700 group">
+                    <h3 className="text-[10px] font-mono tracking-[0.6em] text-white/20 uppercase italic mb-10 flex items-center justify-between">
+                        Recent_Log_Activity
+                        <Link to="/dashboard/usage" className="text-white/40 hover:text-white transition-all flex items-center gap-2 group/link">
+                            Audit_Full
+                            <ArrowUpRight size={12} className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                        </Link>
                     </h3>
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         {[1, 2, 3].map(i => (
-                            <div key={i} className="flex items-center justify-between text-sm py-2 border-b border-white/5 last:border-0">
-                                <div className="flex items-center gap-3">
-                                    <span className={`w-2 h-2 rounded-full ${i === 2 ? 'bg-red-500' : 'bg-green-500'}`}></span>
-                                    <span className="font-mono text-white/60">POST /seda/audit</span>
+                            <div key={i} className="flex items-center justify-between text-sm py-4 border-b border-white/[0.03] last:border-0 group/item">
+                                <div className="flex items-center gap-6">
+                                    <span className={`w-1.5 h-1.5 rounded-full ${i === 2 ? 'bg-white/10' : 'bg-white shadow-[0_0_8px_rgba(255,255,255,0.3)] animate-pulse'}`}></span>
+                                    <span className="font-mono text-white/40 group-hover/item:text-white transition-colors tracking-tight italic">POST /seda/audit/v2</span>
                                 </div>
-                                <span className="text-white/20 text-xs">2m ago</span>
+                                <span className="text-white/10 text-[10px] font-mono tracking-widest">{6 * i}m_ago</span>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* KEYS */}
-                <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-                    <h3 className="text-lg font-mono mb-6 flex items-center justify-between">
-                        API Keys
-                        <Link to="/dashboard/keys" className="text-xs text-cyan-400 hover:text-cyan-300 transition">+ Generate New</Link>
+                <div className="bg-white/[0.01] border border-white/5 rounded-[48px] p-10 hover:bg-white/[0.02] transition-all duration-700 group">
+                    <h3 className="text-[10px] font-mono tracking-[0.6em] text-white/20 uppercase italic mb-10 flex items-center justify-between">
+                        Node_Access_Keys
+                        <Link to="/dashboard/keys" className="text-white hover:text-white/70 transition-all flex items-center gap-2 group/link uppercase text-[10px] font-bold tracking-[0.2em]">
+                            + New_Node
+                        </Link>
                     </h3>
-                    <div className="space-y-4">
-                        <KeyRow name="Production Key" prefix="sk_live_...x92f" custom="text-green-400 bg-green-400/10" status="Active" />
-                        <KeyRow name="Dev Key" prefix="sk_test_...k29a" custom="text-yellow-400 bg-yellow-400/10" status="Test" />
+                    <div className="space-y-6">
+                        <KeyRow name="Production_Node" prefix="sk_live_...x92f" status="Primary" active />
+                        <KeyRow name="Sandbox_Node" prefix="sk_test_...k29a" status="Sandbox" />
                     </div>
                 </div>
             </div>
@@ -54,24 +61,30 @@ export default function Overview() {
     );
 }
 
-function StatCard({ label, value, trend, color }: any) {
+function StatCard({ label, value, trend, icon, active }: any) {
     return (
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
-            <p className="text-white/40 text-xs uppercase tracking-widest mb-3">{label}</p>
-            <p className={`text-3xl font-light mb-2 ${color}`}>{value}</p>
-            <p className="text-[10px] text-white/30 font-mono">{trend}</p>
+        <div className="bg-white/[0.01] border border-white/5 rounded-[40px] p-8 hover:bg-white/[0.03] hover:border-white/10 transition-all duration-700 group">
+            <div className="flex items-center justify-between mb-8">
+                <p className="text-white/20 text-[10px] font-mono uppercase tracking-[0.4em] italic leading-none">{label}</p>
+                <div className={`${active ? 'text-white' : 'text-white/10'} transition-colors`}>{icon}</div>
+            </div>
+            <p className="text-4xl font-light text-white tracking-tighter mb-4 italic leading-none">{value}</p>
+            <p className="text-[9px] text-white/10 font-mono tracking-[0.2em] uppercase italic">{trend}</p>
         </div>
     );
 }
 
-function KeyRow({ name, prefix, custom, status }: any) {
+function KeyRow({ name, prefix, status, active }: any) {
     return (
-        <div className="flex items-center justify-between p-3 bg-black/20 rounded border border-white/5">
-            <div>
-                <div className="text-sm font-bold text-white mb-1">{name}</div>
-                <div className="text-xs font-mono text-white/40">{prefix}</div>
+        <div className="flex items-center justify-between p-8 bg-black/40 rounded-3xl border border-white/[0.03] group/row hover:border-white/10 transition-all">
+            <div className="flex items-center gap-6">
+                <Terminal size={16} className={`${active ? 'text-white' : 'text-white/10'} transition-colors`} />
+                <div>
+                    <div className="text-xs font-bold text-white mb-2 uppercase tracking-widest italic">{name}</div>
+                    <div className="text-[10px] font-mono text-white/20 group-hover/row:text-white/40 transition-colors uppercase pr-4">{prefix}</div>
+                </div>
             </div>
-            <span className={`text-[10px] uppercase px-2 py-1 rounded ${custom}`}>
+            <span className={`text-[9px] font-mono tracking-[0.3em] uppercase px-4 py-2 rounded-full italic border ${active ? 'bg-white text-black border-white' : 'bg-white/5 text-white/20 border-white/5'}`}>
                 {status}
             </span>
         </div>

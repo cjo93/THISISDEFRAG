@@ -6,9 +6,9 @@
     --color-slate-400: #94a3b8;
     --color-slate-500: #64748b;
     --color-slate-700: #334155;
-    --color-orange: #f97316;
-    --color-orange-dark: #ea580c;
-    --color-navy: #1a1f3a;
+    --color-accent: #ffffff;
+    --color-accent-dim: #94a3b8;
+    --color-navy: #0f0f0f;
 
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -17,7 +17,7 @@
     --space-8: 2rem;
 
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --shadow-glow-orange: 0 0 40px rgba(249, 115, 22, 0.5);
+    --shadow-glow: 0 0 40px rgba(255, 255, 255, 0.15);
     --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -83,7 +83,8 @@ a {
 }
 
 a:hover {
-    color: var(--color-orange);
+    color: var(--color-white);
+    opacity: 0.7;
 }
 
 code {
@@ -97,7 +98,7 @@ code {
 }
 
 ::selection {
-    background-color: rgba(249, 115, 22, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-white);
 }
 
@@ -106,14 +107,14 @@ code {
     align-items: center;
     gap: var(--space-2);
     padding: var(--space-3) var(--space-6);
-    background-color: var(--color-orange);
+    background-color: var(--color-white);
     color: var(--color-black);
     font-weight: 600;
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border: none;
-    border-radius: 0.75rem;
+    border-radius: 0;
     cursor: pointer;
     transition: all var(--transition-base);
     text-decoration: none;
@@ -121,9 +122,9 @@ code {
 }
 
 .button-primary:hover {
-    background-color: var(--color-orange-dark);
+    background-color: var(--color-slate-200);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-glow-orange);
+    box-shadow: var(--shadow-glow);
 }
 
 .button-secondary {
@@ -138,15 +139,15 @@ code {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    border-radius: 0.75rem;
+    border-radius: 0;
     cursor: pointer;
     transition: all var(--transition-base);
     text-decoration: none;
 }
 
 .button-secondary:hover {
-    border-color: var(--color-orange);
-    color: var(--color-orange);
+    border-color: var(--color-white);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 @media (max-width: 768px) {

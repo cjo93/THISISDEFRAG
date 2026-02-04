@@ -7,13 +7,14 @@ import { UnitData, ManualPreview } from '../types';
 import ShareCard from '../components/ui/ShareCard';
 import Header from '../components/Header';
 import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
+import { Activity, Terminal, ShieldCheck, Zap, AlertCircle, Info, ArrowRight, Radio, Cpu, Share2 } from 'lucide-react';
 
 const LOADING_PHASES = [
-  { message: 'Verifying access...' },
-  { message: 'Fetching planetary ephemeris...' },
-  { message: 'Charting relational dynamics...' },
-  { message: 'Mapping behavioral patterns...' },
-  { message: 'Creating your guide...' },
+  { message: 'VERIFYING_ACCESS_PROTOCOL' },
+  { message: 'SYNCHRONIZING_PLANETARY_EPHEMERIS' },
+  { message: 'MAPPING_RELATIONAL_GEOMETRY' },
+  { message: 'DECODING_BEHAVIORAL_TOPOLOGY' },
+  { message: 'FINALIZING_SYSTEM_OPERATING_MANUAL' },
 ];
 
 export default function Manual() {
@@ -28,11 +29,11 @@ export default function Manual() {
   const [activeSection, setActiveSection] = useState<string>('specs');
 
   const sections = [
-    { id: 'specs', label: 'ABOUT THEM' },
-    { id: 'procedures', label: 'HOW TO CONNECT' },
-    { id: 'troubleshooting', label: 'WHEN THINGS GO SIDEWAYS' },
-    { id: 'maintenance', label: 'STAYING HEALTHY' },
-    { id: 'share', label: 'SHARE' },
+    { id: 'specs', label: 'INTERFACE_SPEC' },
+    { id: 'procedures', label: 'DEPLOYMENT_LOGIC' },
+    { id: 'troubleshooting', label: 'TENSILE_STRENGTH' },
+    { id: 'maintenance', label: 'SYSTEM_HYGIENE' },
+    { id: 'share', label: 'DISPATCH' },
   ];
 
   // Animate through loading phases
@@ -49,15 +50,12 @@ export default function Manual() {
         const sessionId = searchParams.get('session_id');
         const isNew = searchParams.get('new') === 'true';
 
-        // Track purchase if this is a new manual from checkout
         if (isNew || sessionId) {
           ConversionFunnel.step5_purchase(sessionId || 'manual_bypass', 19.00);
         } else {
-          // It's a view of an existing manual
           trackEvent(AnalyticsEvents.ANALYSIS_VIEW);
         }
 
-        // Check for owner bypass or stored payment
         const ownerBypass = localStorage.getItem('defrag_owner_bypass');
         const storedPayment = localStorage.getItem('defrag_payment_verified');
 
@@ -86,7 +84,7 @@ export default function Manual() {
           const verifyData = await verifyResponse.json();
 
           if (!verifyData.paid) {
-            setError('Payment not completed. Please try again.');
+            setError('Payment verification failure. Session unauthorized.');
             setLoading(false);
             return;
           }
@@ -102,7 +100,7 @@ export default function Manual() {
         }
 
         if (!birthA?.name || !birthB?.name) {
-          setError('Missing birth data. Please start over.');
+          setError('Data corruption detected. Missing node parameters.');
           setLoading(false);
           return;
         }
@@ -126,20 +124,15 @@ export default function Manual() {
         setUnitA(mechanicsA);
         setUnitB(mechanicsB);
 
-        // Generate manual
-        // Generate manual (or load from cache)
         setLoadingPhase(4);
 
         const cachedManual = localStorage.getItem('defrag_manual_preview');
-        // Simple invalidation strategy: if unit names match (basic check)
         const cachedSignature = localStorage.getItem('defrag_manual_sig');
         const currentSignature = `${mechanicsA.name}-${mechanicsB.name}`;
 
         if (cachedManual && cachedSignature === currentSignature) {
-          console.log('Loading cached manual...');
           setManual(JSON.parse(cachedManual));
         } else {
-          console.log('Generating new manual...');
           const result = await generateManualPreview(mechanicsA, mechanicsB);
           setManual(result);
           localStorage.setItem('defrag_manual_preview', JSON.stringify(result));
@@ -147,7 +140,7 @@ export default function Manual() {
         }
       } catch (err) {
         console.error('Error generating manual:', err);
-        setError('Failed to generate manual. Please try again.');
+        setError('Manual synthesis failure. Retry protocol.');
       } finally {
         setLoading(false);
       }
@@ -159,47 +152,55 @@ export default function Manual() {
   if (loading) {
     const currentPhase = LOADING_PHASES[loadingPhase];
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
-        {/* Background pulse */}
+      <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden font-mono italic">
+        {/* Background Detail */}
+        <div className="absolute inset-x-0 top-0 h-px bg-white/5" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-full max-w-2xl bg-orange-500/[0.05] rounded-full blur-[120px] animate-pulse" />
+          <div className="w-[800px] h-[800px] bg-white/[0.01] rounded-full blur-[150px] animate-pulse" />
         </div>
 
-        <div className="text-center relative z-10 w-full max-w-sm px-6">
+        <div className="text-center relative z-10 w-full max-w-lg px-8 space-y-16">
           {/* Geometric Mandala Logo */}
-          <div className="relative w-32 h-32 mx-auto mb-12 flex items-center justify-center">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)] animate-[spin_20s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.8">
-              <circle cx="50" cy="50" r="45" strokeOpacity="0.1" />
+          <div className="relative w-40 h-40 mx-auto flex items-center justify-center">
+            <svg viewBox="0 0 100 100" className="w-full h-full text-white/40 drop-shadow-[0_0_20px_rgba(255,255,255,0.05)] animate-[spin_40s_linear_infinite]" fill="none" stroke="currentColor" strokeWidth="0.5">
+              <circle cx="50" cy="50" r="48" strokeOpacity="0.1" />
               <circle cx="50" cy="50" r="1.5" fill="currentColor" />
               {[0, 60, 120, 180, 240, 300].map((deg) => (
                 <circle
                   key={deg}
-                  cx={50 + 22.5 * Math.cos((deg * Math.PI) / 180)}
-                  cy={50 + 22.5 * Math.sin((deg * Math.PI) / 180)}
-                  r="22.5"
-                  strokeOpacity="0.4"
+                  cx={50 + 25 * Math.cos((deg * Math.PI) / 180)}
+                  cy={50 + 25 * Math.sin((deg * Math.PI) / 180)}
+                  r="25"
+                  strokeOpacity="0.1"
                 />
               ))}
-              <path d="M50 20 L76 35 L76 65 L50 80 L24 65 L24 35 Z" strokeOpacity="0.6" strokeWidth="1" />
+              <path d="M50 5 L95 50 L50 95 L5 50 Z" strokeOpacity="0.2" strokeWidth="0.5" />
             </svg>
-            <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase">
-              DEFRAG
+          </div>
+
+          <div className="space-y-8">
+            <p className="text-xl text-white/40 tracking-[0.4em] uppercase font-light">
+              {currentPhase.message}
+            </p>
+            {/* Progress bar */}
+            <div className="w-64 h-1 bg-white/5 rounded-full mx-auto overflow-hidden">
+              <div
+                className="h-full bg-white shadow-[0_0_15px_white] transition-all duration-1000 ease-linear"
+                style={{ width: `${((loadingPhase + 1) / LOADING_PHASES.length) * 100}%` }}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-6 pt-4">
+              <div className="flex items-center gap-3 text-[9px] text-white/10 tracking-[0.5em] uppercase italic">
+                <Activity size={12} strokeWidth={1} />
+                Processing...
+              </div>
+              <div className="w-1 h-1 rounded-full bg-white/10" />
+              <div className="flex items-center gap-3 text-[9px] text-white/10 tracking-[0.5em] uppercase italic">
+                <Cpu size={12} strokeWidth={1} />
+                Node_Secure
+              </div>
             </div>
           </div>
-
-          <p className="text-base text-white/70 tracking-[0.2em] mb-4 font-light">
-            {currentPhase.message.toUpperCase()}
-          </p>
-
-          {/* Progress bar */}
-          <div className="w-48 h-0.5 bg-white/10 rounded-full mx-auto overflow-hidden">
-            <div
-              className="h-full bg-orange-500 transition-all duration-500 ease-out"
-              style={{ width: `${((loadingPhase + 1) / LOADING_PHASES.length) * 100}%` }}
-            />
-          </div>
-
-          <p className="mt-6 text-[10px] tracking-wider text-white/30 uppercase">This may take a moment</p>
         </div>
       </div>
     );
@@ -207,55 +208,53 @@ export default function Manual() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-center max-w-md px-6">
-          <div className="text-5xl mb-6 text-red-500 font-mono">ERR</div>
-          <p className="text-lg text-red-400 mb-8 font-light">{error}</p>
-          <Link
-            to="/start"
-            className="inline-flex items-center justify-center h-14 px-10 border border-white/20 text-white text-xs tracking-[0.2em] rounded-full hover:bg-white/10 transition uppercase"
+      <div className="min-h-screen bg-black flex items-center justify-center font-mono italic">
+        <div className="text-center max-w-xl px-8 space-y-12">
+          <div className="h-24 w-24 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center mx-auto shadow-2xl animate-shake">
+            <AlertCircle size={40} strokeWidth={1} className="text-red-500" />
+          </div>
+          <div className="space-y-6">
+            <h2 className="text-3xl font-light text-red-500 uppercase tracking-tighter">System_Fault</h2>
+            <p className="text-white/30 text-lg leading-relaxed">{error}</p>
+          </div>
+          <button
+            onClick={() => navigate('/start')}
+            className="h-20 px-12 bg-white text-black font-bold text-[10px] tracking-[0.5em] rounded-full hover:bg-slate-200 transition-all duration-700 shadow-2xl uppercase"
           >
-            Start Over
-          </Link>
+            Reset_Protocol
+          </button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black text-white selection:bg-orange-500/30">
-      {/* Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-orange-500/[0.05] rounded-full blur-[150px]" />
-      </div>
-
-      {/* Top bar */}
+    <div className="min-h-screen relative overflow-hidden bg-black text-white selection:bg-white/10 font-mono italic">
       <Header />
 
       {/* Main */}
-      <main className="relative z-10 px-6 pt-32 pb-32">
-        <div className="mx-auto max-w-5xl">
+      <main className="relative z-10 px-8 pt-56 pb-32">
+        <div className="mx-auto max-w-6xl space-y-32">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <span className="h-px w-12 bg-white/10" />
-              <span className="text-[10px] tracking-[0.4em] text-orange-400 font-mono uppercase bg-orange-500/5 px-2 py-1 rounded border border-orange-500/10">YOUR MANUAL</span>
-              <span className="h-px w-12 bg-white/10" />
+          <div className="text-center space-y-12 flex flex-col items-center">
+            <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/[0.03] text-white/40 text-[10px] tracking-[0.4em] uppercase rounded-full shadow-2xl">
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse" />
+              Operating_Manual_Authorized
             </div>
-            <h1 className="text-4xl sm:text-6xl font-light tracking-tight mb-2">
-              {unitA?.name} <span className="text-white/20 font-thin">&</span> {unitB?.name}
+            <h1 className="text-6xl sm:text-8xl md:text-9xl font-light tracking-tighter uppercase text-white leading-none">
+              {unitA?.name} <span className="text-white/20 font-thin italic">/</span> {unitB?.name}
             </h1>
           </div>
 
           {/* Section Navigation */}
-          <div className="flex justify-center flex-wrap gap-2 mb-16">
+          <div className="flex justify-center flex-wrap gap-4 max-w-4xl mx-auto">
             {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-6 py-3 text-[10px] sm:text-xs tracking-[0.15em] rounded-full transition-all uppercase ${activeSection === section.id
-                  ? 'bg-white text-black font-bold shadow-[0_0_20px_rgba(255,255,255,0.1)]'
-                  : 'bg-white/5 text-white/40 hover:bg-white/10 hover:text-white'
+                className={`h-16 px-8 text-[10px] tracking-[0.4em] rounded-full transition-all duration-700 uppercase italic ${activeSection === section.id
+                  ? 'bg-white text-black font-bold shadow-2xl'
+                  : 'bg-white/[0.03] text-white/20 border border-white/5 hover:bg-white/[0.05] hover:text-white'
                   }`}
               >
                 {section.label}
@@ -264,11 +263,11 @@ export default function Manual() {
           </div>
 
           {manual && (
-            <div className="space-y-12 animate-fade-in">
+            <div className="animate-fade-in">
               {/* Specifications */}
               {activeSection === 'specs' && (
-                <Section title="Who They Are" subtitle="Core personality and how they tend to show up">
-                  <div className="grid md:grid-cols-2 gap-8">
+                <Section title="SPECIFICATION_STATIC" subtitle="Core architectural design and default operating modes.">
+                  <div className="grid md:grid-cols-2 gap-16">
                     <UnitCard unit={unitA} isFirst />
                     <UnitCard unit={unitB} isFirst={false} />
                   </div>
@@ -277,19 +276,20 @@ export default function Manual() {
 
               {/* Operating Procedures */}
               {activeSection === 'procedures' && (
-                <Section title="How to Connect" subtitle="Practical ways to stay grounded with each other">
-                  <div className="space-y-6">
+                <Section title="DEPLOYMENT_DYNAMIC" subtitle="Strategic protocols for synchronization and relational stability.">
+                  <div className="space-y-8 flex flex-col items-center">
                     {manual.operatingProcedures.map((proc, i) => (
-                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 hover:bg-white/[0.04] transition group">
-                        <div className="flex items-start gap-6">
-                          <div className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-white/40 text-sm font-mono shrink-0 group-hover:text-orange-400 group-hover:bg-orange-500/10 transition-colors">
+                      <div key={i} className="w-full p-12 bg-white/[0.01] rounded-[48px] border border-white/5 hover:bg-white/[0.02] transition-all duration-700 group relative overflow-hidden">
+                        <div className="flex items-start gap-10 relative z-10">
+                          <div className="h-16 w-16 rounded-[24px] bg-white/5 border border-white/5 flex items-center justify-center text-white/10 text-xl font-bold italic shrink-0 group-hover:bg-white group-hover:text-black transition-all">
                             {String(i + 1).padStart(2, '0')}
                           </div>
-                          <div>
-                            <div className="text-lg font-light text-white mb-3 group-hover:text-orange-100 transition">{proc.title}</div>
-                            <p className="text-white/60 leading-loose font-light">{proc.description}</p>
+                          <div className="space-y-4 pr-12">
+                            <div className="text-3xl font-light text-white uppercase italic tracking-tighter group-hover:text-white/70 transition-colors">{proc.title}</div>
+                            <p className="text-white/30 text-xl leading-relaxed font-light pr-8">{proc.description}</p>
                           </div>
                         </div>
+                        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white/[0.01] to-transparent pointer-events-none" />
                       </div>
                     ))}
                   </div>
@@ -298,25 +298,31 @@ export default function Manual() {
 
               {/* Troubleshooting */}
               {activeSection === 'troubleshooting' && (
-                <Section title="When Things Get Tense" subtitle="Common patterns and what helps">
-                  <div className="space-y-6">
+                <Section title="TENSILE_ANALYSIS" subtitle="Mechanical friction vectors and remedial alignment logic.">
+                  <div className="grid md:grid-cols-2 gap-10">
                     {manual.troubleshooting.map((item, i) => (
-                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 overflow-hidden">
-                        <div className="flex items-start gap-5 mb-6 pb-6 border-b border-white/5">
-                          <div className="h-6 w-6 rounded-full bg-red-500/10 flex items-center justify-center text-red-400 text-[10px] font-bold shrink-0 mt-1">
-                            !
+                      <div key={i} className="p-12 bg-white/[0.01] rounded-[64px] border border-white/5 relative overflow-hidden group hover:bg-white/[0.02] transition-all duration-700">
+                        <div className="space-y-10 relative z-10">
+                          <div className="flex items-start gap-6 pb-10 border-b border-white/5">
+                            <div className="h-10 w-10 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center text-red-500 text-[10px] font-bold shrink-0 shadow-2xl">
+                              !
+                            </div>
+                            <div className="space-y-4">
+                              <div className="text-[10px] tracking-[0.4em] text-red-500/40 uppercase italic">Strain_Marker</div>
+                              <p className="text-2xl text-white/80 font-light italic tracking-tight leading-snug">{item.symptom}</p>
+                            </div>
                           </div>
-                          <div>
-                            <div className="text-[10px] tracking-[0.2em] text-red-400/60 mb-2 uppercase">The Trigger</div>
-                            <p className="text-lg text-white/90 font-light">{item.symptom}</p>
+                          <div className="flex items-start gap-6 pl-2">
+                            <div className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 shadow-2xl">
+                              <ShieldCheck size={18} strokeWidth={1} />
+                            </div>
+                            <div className="space-y-4">
+                              <div className="text-[10px] tracking-[0.4em] text-white/20 uppercase italic">Remedial_Protocol</div>
+                              <p className="text-white/40 text-lg leading-relaxed font-light italic">{item.resolution}</p>
+                            </div>
                           </div>
                         </div>
-                        <div className="flex items-start gap-5 pl-11">
-                          <div>
-                            <div className="text-[10px] tracking-[0.2em] text-green-400/60 mb-2 uppercase">The Fix</div>
-                            <p className="text-white/60 leading-loose font-light">{item.resolution}</p>
-                          </div>
-                        </div>
+                        <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/[0.01] rounded-full blur-[80px] pointer-events-none" />
                       </div>
                     ))}
                   </div>
@@ -325,16 +331,19 @@ export default function Manual() {
 
               {/* Maintenance Schedule */}
               {activeSection === 'maintenance' && (
-                <Section title="Keeping Things Healthy" subtitle="Simple practices to stay connected and reduce stress">
-                  <div className="grid sm:grid-cols-2 gap-6">
+                <Section title="SYSTEM_HYGIENE" subtitle="Cyclical maintenance routines for optimized performance.">
+                  <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {manual.maintenanceSchedule.map((item, i) => (
-                      <div key={i} className="p-8 bg-white/[0.02] rounded-2xl border border-white/5 hover:border-green-500/20 transition group">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="text-[10px] tracking-widest text-green-400/80 font-mono bg-green-500/10 px-2 py-1 rounded uppercase">
+                      <div key={i} className="p-10 rounded-[56px] border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-700 group flex flex-col h-full shadow-xl">
+                        <div className="mb-10">
+                          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/5 text-[10px] tracking-[0.4em] text-white/40 font-mono italic rounded-full uppercase">
+                            <Activity size={12} strokeWidth={1} />
                             {item.frequency}
                           </div>
                         </div>
-                        <p className="text-white/70 group-hover:text-white/90 transition leading-relaxed font-light">{item.task}</p>
+                        <p className="text-xl text-white/30 italic group-hover:text-white/60 transition-colors leading-relaxed font-light mt-auto">
+                          {item.task}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -343,13 +352,17 @@ export default function Manual() {
 
               {/* Share Card */}
               {activeSection === 'share' && unitA && (
-                <Section title="Share Your Results" subtitle="Post a summary card to social media">
-                  <div className="py-10">
+                <Section title="DISPATCH_LOG" subtitle="Generate shared identification credentials.">
+                  <div className="py-20 flex flex-col items-center space-y-20">
                     <ShareCard
                       name={unitA.name}
                       archetype={unitA.model || 'Generator'}
                       oneLiner={unitA.operatingMode || 'Operating correctly.'}
                     />
+                    <button className="h-24 px-16 bg-white text-black font-bold text-[10px] tracking-[0.5em] rounded-full hover:bg-slate-200 transition-all duration-700 shadow-2xl uppercase flex items-center gap-6">
+                      Copy_Access_Link
+                      <Share2 size={20} strokeWidth={1.5} />
+                    </button>
                   </div>
                 </Section>
               )}
@@ -357,16 +370,21 @@ export default function Manual() {
           )}
         </div>
       </main>
+
+      <Footer />
+
+      {/* Background Detail */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-white/[0.015] rounded-full blur-[200px] pointer-events-none z-0" />
     </div>
   );
 }
 
 function Section({ title, subtitle, children }: { title: string; subtitle: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-[32px] border border-white/10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/[0.04] to-transparent p-8 sm:p-12">
-      <div className="mb-12 text-center sm:text-left">
-        <div className="text-[10px] tracking-[0.3em] text-orange-500/50 mb-3 uppercase font-mono">{title}</div>
-        <div className="text-2xl text-white/80 font-light">{subtitle}</div>
+    <div className="rounded-[80px] border border-white/5 bg-white/[0.005] p-16 sm:p-24 shadow-2xl">
+      <div className="mb-24 text-center space-y-8 flex flex-col items-center">
+        <div className="text-[10px] tracking-[0.6em] text-white/20 uppercase font-mono italic underline decoration-white/5 underline-offset-8">{title}</div>
+        <div className="text-3xl sm:text-5xl text-white/80 font-light tracking-tighter uppercase italic max-w-4xl">{subtitle}</div>
       </div>
       {children}
     </div>
@@ -376,31 +394,32 @@ function Section({ title, subtitle, children }: { title: string; subtitle: strin
 function UnitCard({ unit, isFirst }: { unit: UnitData | null; isFirst: boolean }) {
   if (!unit) return null;
   return (
-    <div className={`p-8 rounded-3xl border transition-all duration-300 ${isFirst ? 'bg-orange-500/[0.03] border-orange-500/20' : 'bg-white/[0.02] border-white/10'}`}>
-      <div className="flex items-center gap-5 mb-8">
-        <div className={`h-16 w-16 rounded-2xl flex items-center justify-center font-bold text-2xl shadow-2xl ${isFirst ? 'bg-gradient-to-br from-orange-500 to-orange-600 text-white' : 'bg-white/10 text-white/50'}`}>
+    <div className={`p-16 rounded-[64px] border transition-all duration-700 shadow-2xl relative overflow-hidden group ${isFirst ? 'bg-white/[0.01] border-white/10' : 'bg-white/[0.005] border-white/5'}`}>
+      <div className="flex items-center gap-8 mb-16 relative z-10">
+        <div className={`h-24 w-24 rounded-[32px] flex items-center justify-center font-bold text-4xl shadow-2xl transition-all duration-700 ${isFirst ? 'bg-white text-black' : 'bg-white/5 text-white/20 group-hover:bg-white/10'}`}>
           {unit.name.charAt(0).toUpperCase()}
         </div>
         <div>
-          <div className="text-xl font-light text-white mb-1">{unit.name}</div>
-          <div className="text-[10px] tracking-widest text-white/30 uppercase">Unit {isFirst ? 'A' : 'B'}</div>
+          <div className="text-3xl font-light text-white mb-2 uppercase italic tracking-tighter">{unit.name}</div>
+          <div className="text-[10px] tracking-[0.5em] text-white/20 uppercase italic">Unit_{isFirst ? 'A_Primary' : 'B_Secondary'}</div>
         </div>
       </div>
-      <div className="space-y-6">
-        <SpecRow label="Archetype" value={unit.model} highlight={isFirst} />
-        <SpecRow label="Processing Style" value={unit.coreProcessor} highlight={isFirst} />
-        <SpecRow label="Default Mode" value={unit.operatingMode} highlight={isFirst} />
-        <SpecRow label="Energy Style" value={unit.energyType} highlight={isFirst} />
+      <div className="space-y-8 relative z-10">
+        <SpecRow label="ARCHETYPE" value={unit.model} />
+        <SpecRow label="CORE_PROCESSOR" value={unit.coreProcessor} />
+        <SpecRow label="OPERATING_MODE" value={unit.operatingMode} />
+        <SpecRow label="ENERGY_DYNAMICS" value={unit.energyType} />
       </div>
+      <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white/[0.01] to-transparent pointer-events-none" />
     </div>
   );
 }
 
-function SpecRow({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
+function SpecRow({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 border-b border-white/5 last:border-0 gap-1">
-      <span className="text-white/40 text-xs tracking-wide">{label}</span>
-      <span className={`${highlight ? 'text-white font-medium' : 'text-white/70'} text-sm`}>{value}</span>
+    <div className="flex flex-col gap-3 py-6 border-b border-white/5 last:border-0 hover:translate-x-2 transition-transform duration-500">
+      <span className="text-white/20 text-[9px] tracking-[0.4em] uppercase italic">{label}</span>
+      <span className="text-white text-xl font-light italic tracking-tight">{value}</span>
     </div>
   );
 }

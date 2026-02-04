@@ -1,46 +1,43 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
 import { auth } from '../lib/firebase';
+import { ShieldCheck, ShieldAlert, Terminal, Activity } from 'lucide-react';
+import Header from '../components/Header';
 
 export default function SignInVerify() {
     const navigate = useNavigate();
     const { user } = useAuth();
     const [status, setStatus] = useState<'verifying' | 'success' | 'error'>('verifying');
-    const [message, setMessage] = useState('Verifying your sign-in link...');
+    const [message, setMessage] = useState('Verifying_Access_Credentials...');
 
     useEffect(() => {
         const verifySignIn = async () => {
             try {
-                // Check if this is a valid sign-in link
                 if (!isSignInWithEmailLink(auth, window.location.href)) {
                     setStatus('error');
-                    setMessage('Invalid sign-in link. Please request a new one.');
+                    setMessage('Invalid verification node. Request new link.');
                     return;
                 }
 
-                // Get the email from localStorage (set when user requested the link)
                 let email = window.localStorage.getItem('emailForSignIn');
 
                 if (!email) {
-                    // If missing, prompt the user to provide their email
-                    email = window.prompt('Please provide your email for confirmation');
+                    email = window.prompt('Identification required. Please confirm email:');
                 }
 
                 if (!email) {
                     setStatus('error');
-                    setMessage('Email is required to complete sign-in.');
+                    setMessage('Identification required for session authorization.');
                     return;
                 }
 
-                // Complete the sign-in
                 await signInWithEmailLink(auth, email, window.location.href);
 
-                // Migrate data from localStorage to Firestore
                 try {
                     const { migrateLocalStorageToFirestore } = await import('../services/userService');
-                    // We need the user object, so we get it from auth.currentUser
                     if (auth.currentUser) {
                         await migrateLocalStorageToFirestore(auth.currentUser.uid);
                     }
@@ -48,13 +45,11 @@ export default function SignInVerify() {
                     console.error('Data migration warning:', migrationError);
                 }
 
-                // Clear the email from storage
                 window.localStorage.removeItem('emailForSignIn');
 
                 setStatus('success');
-                setMessage('Sign-in successful! Redirecting...');
+                setMessage('Identification confirmed. Initializing_Session...');
 
-                // Redirect to dashboard after a brief delay
                 setTimeout(() => {
                     navigate('/dashboard');
                 }, 1500);
@@ -62,14 +57,13 @@ export default function SignInVerify() {
             } catch (error: any) {
                 console.error('Sign-in verification error:', error);
                 setStatus('error');
-                setMessage(error.message || 'Failed to verify sign-in link. Please try again.');
+                setMessage(error.message || 'Verification failure. Retry authorization request.');
             }
         };
 
         verifySignIn();
     }, [navigate]);
 
-    // If already signed in, redirect immediately
     useEffect(() => {
         if (user && status === 'success') {
             navigate('/dashboard');
@@ -77,75 +71,72 @@ export default function SignInVerify() {
     }, [user, status, navigate]);
 
     return (
-        <div className="min-h-screen relative overflow-hidden bg-black">
-            {/* Animated Background */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
-                <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
-                <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
-            </div>
+        <div className="min-h-screen relative overflow-hidden bg-black text-white selection:bg-white/10 font-mono">
+            <Header />
 
             {/* Main Content */}
-            <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">
-                <div className="w-full max-w-md">
+            <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-8">
+                <div className="w-full max-w-2xl space-y-20 animate-fade-in">
 
                     {/* Status Card */}
-                    <div className="glass-box border border-white/10 rounded-2xl p-8">
+                    <div className="bg-white/[0.01] border border-white/5 rounded-[64px] p-16 sm:p-24 relative overflow-hidden group">
 
                         {status === 'verifying' && (
-                            <div className="text-center py-6">
-                                <div className="h-16 w-16 rounded-full bg-orange-500/20 flex items-center justify-center mx-auto mb-6">
-                                    <div className="h-8 w-8 border-2 border-orange-500/30 border-t-orange-500 rounded-full animate-spin" />
+                            <div className="text-center space-y-12 py-8">
+                                <div className="h-24 w-24 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto shadow-2xl">
+                                    <div className="h-10 w-10 border-2 border-white/10 border-t-white rounded-full animate-spin" />
                                 </div>
-                                <h2 className="text-xl font-medium text-white mb-3">Verifying Sign-In</h2>
-                                <p className="text-white/60">{message}</p>
+                                <div className="space-y-6">
+                                    <h2 className="text-3xl font-light text-white uppercase italic tracking-tighter">Synchronizing_Node</h2>
+                                    <p className="text-white/30 text-lg italic pr-4">{message}</p>
+                                </div>
                             </div>
                         )}
 
                         {status === 'success' && (
-                            <div className="text-center py-6">
-                                <div className="h-16 w-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
-                                    <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
+                            <div className="text-center space-y-12 py-8 scale-in">
+                                <div className="h-24 w-24 rounded-full bg-white text-black flex items-center justify-center mx-auto shadow-2xl">
+                                    <ShieldCheck size={40} strokeWidth={1} />
                                 </div>
-                                <h2 className="text-xl font-medium text-white mb-3">Welcome Back!</h2>
-                                <p className="text-white/60">{message}</p>
+                                <div className="space-y-6">
+                                    <h2 className="text-3xl font-light text-white uppercase italic tracking-tighter">Access_Authorized</h2>
+                                    <p className="text-white/30 text-lg italic pr-4">{message}</p>
+                                </div>
                             </div>
                         )}
 
                         {status === 'error' && (
-                            <div className="text-center py-6">
-                                <div className="h-16 w-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-6">
-                                    <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                    </svg>
+                            <div className="text-center space-y-12 py-8">
+                                <div className="h-24 w-24 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center mx-auto shadow-2xl">
+                                    <ShieldAlert size={40} strokeWidth={1} className="text-red-500" />
                                 </div>
-                                <h2 className="text-xl font-medium text-white mb-3">Verification Failed</h2>
-                                <p className="text-white/60 mb-6">{message}</p>
+                                <div className="space-y-6">
+                                    <h2 className="text-3xl font-light text-red-500 uppercase italic tracking-tighter">Authorization_Failure</h2>
+                                    <p className="text-white/30 text-lg italic pr-4">{message}</p>
+                                </div>
                                 <button
                                     onClick={() => navigate('/signin')}
-                                    className="bg-orange-500 hover:bg-orange-400 text-black font-semibold px-6 py-3 rounded-xl transition-all duration-300 tracking-wide"
+                                    className="h-20 px-12 bg-white text-black font-bold rounded-full transition-all duration-700 hover:bg-slate-200 text-[10px] tracking-[0.5em] uppercase shadow-2xl"
                                 >
-                                    Try Again
+                                    Retry_Link_Dispatch
                                 </button>
                             </div>
                         )}
 
                     </div>
 
-                    {/* Support */}
-                    <div className="mt-6 text-center">
-                        <p className="text-white/30 text-xs">
-                            Need help?{' '}
-                            <a href="mailto:info@defrag.app" className="text-white/50 hover:text-white transition-colors">
-                                Contact support
-                            </a>
-                        </p>
+                    {/* Footer Support */}
+                    <div className="text-center pt-10">
+                        <a href="mailto:info@defrag.app" className="text-white/10 hover:text-white transition-colors text-[9px] tracking-[0.6em] uppercase italic">
+                            Request_Technical_Support
+                        </a>
                     </div>
 
                 </div>
             </main>
+
+            {/* Background Detail */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-white/[0.01] rounded-full blur-[200px] pointer-events-none" />
         </div>
     );
 }

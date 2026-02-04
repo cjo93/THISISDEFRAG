@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { ArrowRight, Mail, Terminal, ShieldCheck } from 'lucide-react';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
@@ -22,7 +24,7 @@ export default function SignIn() {
 
     if (!email.trim()) {
       setStatus('error');
-      setMessage('Please enter your email address.');
+      setMessage('Identification required.');
       return;
     }
 
@@ -33,145 +35,140 @@ export default function SignIn() {
       const { auth } = await import('../lib/firebase');
 
       const actionCodeSettings = {
-        // URL you want to redirect back to after email link is clicked
         url: `${window.location.origin}/signin/verify`,
         handleCodeInApp: true,
       };
 
       await sendSignInLinkToEmail(auth, email, actionCodeSettings);
 
-      // Save the email locally so we can complete sign-in on the verify page
       window.localStorage.setItem('emailForSignIn', email);
 
       setStatus('success');
-      setMessage(`We've sent a sign-in link to ${email}. Check your inbox and click the link to continue.`);
+      setMessage(`Command link dispatched to ${email}. Check your inbox to authorize session.`);
 
     } catch (error: any) {
       console.error('Sign-in error:', error);
       setStatus('error');
 
       if (error.code === 'auth/invalid-email') {
-        setMessage('Please enter a valid email address.');
-      } else if (error.code === 'auth/missing-android-pkg-name') {
-        setMessage('Configuration error. Please contact support.');
+        setMessage('Invalid identification format.');
       } else {
-        setMessage(error.message || 'Failed to send sign-in link. Please try again.');
+        setMessage(error.message || 'Dispatch failure. Retry link request.');
       }
     }
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black">
-      {/* Animated Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-80 -right-80 h-[800px] w-[800px] rounded-full blur-[200px] opacity-[0.08] bg-orange-500" />
-        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full blur-[150px] opacity-[0.04] bg-orange-400" />
-        <div className="absolute inset-0 opacity-[0.03] [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)] [background-size:60px_60px]" />
-      </div>
-
+    <div className="min-h-screen relative overflow-hidden bg-black text-white selection:bg-white/10 font-mono">
       <Header />
 
       {/* Main Content */}
-      <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-6">
-        <div className="w-full max-w-md">
+      <main className="relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)] px-8">
+        <div className="w-full max-w-2xl space-y-20 animate-fade-in">
 
           {/* Header */}
-          <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-4xl font-light text-white mb-4 tracking-tight">
-              Welcome Back
+          <div className="text-center space-y-8 flex flex-col items-center">
+            <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/[0.03] text-white/40 text-[10px] tracking-[0.4em] uppercase rounded-full italic transition-all duration-700">
+              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse" />
+              Access_Protocol_v2
+            </div>
+            <h1 className="text-6xl sm:text-8xl font-light tracking-tighter uppercase italic text-white leading-none">
+              Initialize_Access
             </h1>
-            <p className="text-white/50 text-lg">
-              Enter your email to access your manual
+            <p className="text-xl sm:text-2xl text-white/30 italic font-light max-w-xl mx-auto">
+              Secure identification required to access your relational operating manual.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="glass-box border border-white/10 rounded-2xl p-8">
+          <div className="bg-white/[0.01] border border-white/5 rounded-[64px] p-16 sm:p-24 relative overflow-hidden group">
 
             {status === 'success' ? (
-              <div className="text-center py-6">
-                <div className="h-16 w-16 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+              <div className="text-center space-y-12 py-8 scale-in">
+                <div className="h-24 w-24 rounded-full bg-white text-black flex items-center justify-center mx-auto shadow-2xl">
+                  <ShieldCheck size={40} strokeWidth={1} />
                 </div>
-                <h2 className="text-xl font-medium text-white mb-3">Check Your Email</h2>
-                <p className="text-white/60 mb-6">{message}</p>
+                <div className="space-y-6">
+                  <h2 className="text-3xl font-light text-white uppercase italic tracking-tighter">Command_Dispatched</h2>
+                  <p className="text-white/30 text-lg italic pr-4">{message}</p>
+                </div>
                 <button
-                  onClick={() => {
-                    setStatus('idle');
-                    setEmail('');
-                  }}
-                  className="text-orange-400 hover:text-orange-300 text-sm tracking-wide transition-colors"
+                  onClick={() => { setStatus('idle'); setEmail(''); }}
+                  className="text-white/40 hover:text-white text-[10px] tracking-[0.5em] uppercase italic transition-all duration-700 border-b border-white/10 pb-1"
                 >
-                  BACK Try a different email
+                  Request_New_Node
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-xs tracking-[0.2em] text-white/40 uppercase mb-3">
-                    Email or Session ID
+              <form onSubmit={handleSubmit} className="space-y-16 relative z-10">
+                <div className="space-y-8">
+                  <label className="block text-[10px] tracking-[0.6em] text-white/20 uppercase italic mb-4 ml-4">
+                    Authorized_Email_Target
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-white/30 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition-all text-lg"
+                    placeholder="IDENTIFY_TARGET@SYSTEM.COM"
+                    className="w-full bg-transparent border-b border-white/10 px-4 py-8 text-white placeholder:text-white/10 focus:outline-none focus:border-white transition-all text-2xl font-light italic tracking-tight"
                     disabled={status === 'loading'}
                   />
-                  <p className="mt-2 text-xs text-white/30">
-                    We'll check our records for your manual.
-                  </p>
+                  <div className="flex items-center gap-6 text-[9px] text-white/10 italic tracking-widest uppercase ml-4">
+                    <Terminal size={12} />
+                    Waiting_for_identification_input...
+                  </div>
                 </div>
 
                 {status === 'error' && (
-                  <div className="bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
-                    <p className="text-red-400 text-sm">{message}</p>
+                  <div className="bg-red-500/5 border border-red-500/10 rounded-3xl px-8 py-6 flex items-center gap-4 text-red-500 text-[10px] tracking-[0.4em] uppercase italic animate-shake">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                    {message}
                   </div>
                 )}
 
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full bg-orange-500 hover:bg-orange-400 disabled:bg-orange-500/50 disabled:cursor-not-allowed text-black font-semibold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide"
+                  className="w-full h-24 bg-white text-black font-bold rounded-full transition-all duration-700 hover:bg-slate-200 disabled:bg-white/10 disabled:text-white/10 disabled:cursor-not-allowed text-[10px] tracking-[0.5em] uppercase shadow-2xl flex items-center justify-center gap-4"
                 >
                   {status === 'loading' ? (
-                    <span className="flex items-center justify-center gap-3">
-                      <span className="h-4 w-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                      Locating...
-                    </span>
+                    <>
+                      <span className="h-4 w-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                      Synchronizing...
+                    </>
                   ) : (
-                    'Access Manual'
+                    <>
+                      Authorize_Session
+                      <ArrowRight size={20} />
+                    </>
                   )}
                 </button>
               </form>
             )}
+
+            {/* Backdrop Detail */}
+            <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-white/[0.01] to-transparent pointer-events-none" />
           </div>
 
-          {/* Help text */}
-          <div className="mt-8 text-center">
-            <p className="text-white/40 text-sm">
-              Don't have a manual yet?{' '}
-              <Link to="/start" className="text-orange-400 hover:text-orange-300 transition-colors">
-                Create one now
+          {/* Footer Links */}
+          <div className="flex flex-col items-center gap-10 pt-10">
+            <p className="text-white/20 text-[10px] tracking-[0.4em] uppercase italic">
+              No system record? {' '}
+              <Link to="/start" className="text-white hover:text-white/70 transition-colors border-b border-white/10 pb-1">
+                Initialize_New_Manual
               </Link>
             </p>
-          </div>
-
-          {/* Support */}
-          <div className="mt-6 text-center">
-            <p className="text-white/30 text-xs">
-              Need help?{' '}
-              <a href="mailto:info@defrag.app" className="text-white/50 hover:text-white transition-colors">
-                Contact support
-              </a>
-            </p>
+            <div className="h-px w-20 bg-white/5" />
+            <a href="mailto:info@defrag.app" className="text-white/10 hover:text-white transition-colors text-[9px] tracking-[0.6em] uppercase italic">
+              Request_Technical_Support
+            </a>
           </div>
 
         </div>
       </main>
+
+      {/* Background Detail */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-white/[0.01] rounded-full blur-[200px] pointer-events-none" />
     </div>
   );
 }
