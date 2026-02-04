@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2, ShieldAlert, Users, Lock, ChevronRight, Activity } from 'lucide-react';
 import PlanetaryView from '../components/orbit/PlanetaryView';
 import { inversionEngineInstance, RelationalSystem, AuditResult } from '../services/InversionEngine';
+import LivingBackground from '../components/visuals/LivingBackground';
 
 export default function Relational() {
     const navigate = useNavigate();
@@ -13,6 +14,15 @@ export default function Relational() {
     const [userData, setUserData] = useState<any>(null);
     const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
     const [isAuditRunning, setIsAuditRunning] = useState(false);
+
+    useEffect(() => {
+        const storedUnitA = localStorage.getItem('defrag_unitA');
+        if (storedUnitA) {
+            setUserData(JSON.parse(storedUnitA));
+            setAppMode(true);
+        }
+        setLoading(false);
+    }, []);
 
     const runAudit = () => {
         setIsAuditRunning(true);
@@ -47,19 +57,23 @@ export default function Relational() {
         return (
             <div className="min-h-screen bg-black text-white selection:bg-white/10 overflow-x-hidden font-sans">
                 <Header />
-                <section className="pt-40 pb-32 px-8 bg-black relative min-h-[80vh] flex flex-col justify-center items-center text-center">
+                <LivingBackground />
+                <section className="pt-40 pb-32 px-8 relative min-h-[80vh] flex flex-col justify-center items-center text-center">
                     <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
-                        <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase">ORBIT</h1>
-                        <p className="text-xl sm:text-3xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light mb-16 italic">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
+                            <span className="w-1 h-1 rounded-full bg-purple-500 animate-pulse"></span>
+                            <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">Module_02</span>
+                        </div>
+                        <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase animate-fade-in">ORBIT</h1>
+                        <p className="text-xl sm:text-3xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light mb-16 italic animate-fade-in" style={{ animationDelay: '0.2s' }}>
                             Geometric mapping of relational pressure.
                         </p>
-                        <div className="flex justify-center w-full">
+                        <div className="flex justify-center w-full animate-fade-in" style={{ animationDelay: '0.4s' }}>
                             <button onClick={() => navigate('/start')} className="h-14 px-10 flex items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-slate-200 transition-all duration-300 uppercase shadow-lg">
                                 Initialize Map
                             </button>
                         </div>
                     </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[150px] pointer-events-none" />
                 </section>
                 <Footer />
             </div>
@@ -82,7 +96,8 @@ export default function Relational() {
                 <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
                     <div>
                         <h1 className="text-6xl font-light text-white tracking-tighter uppercase italic mb-4">ORBIT_Field</h1>
-                        <p className="text-white/40 text-sm tracking-widest uppercase">
+                        <p className="text-white/40 text-sm tracking-widest uppercase flex items-center gap-3">
+                             <span className={`w-2 h-2 rounded-full animate-pulse ${auditResult ? 'bg-red-500' : 'bg-green-500'}`} />
                             Unit_A: {userData?.name || 'Unknown'} // Status: {auditResult ? 'AUDIT_COMPLETE' : 'ACTIVE'}
                         </p>
                     </div>
@@ -90,9 +105,9 @@ export default function Relational() {
                         <button
                             onClick={runAudit}
                             disabled={isAuditRunning}
-                            className="h-14 px-8 bg-white border border-white text-black text-[10px] tracking-widest font-bold uppercase hover:bg-transparent hover:text-white transition-all flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="h-14 px-8 bg-white border border-white text-black text-[10px] tracking-widest font-bold uppercase hover:bg-transparent hover:text-white transition-all flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed group"
                         >
-                            {isAuditRunning ? <Loader2 className="animate-spin" size={16} /> : <Activity size={16} />}
+                            {isAuditRunning ? <Loader2 className="animate-spin" size={16} /> : <Activity size={16} className="group-hover:text-white transition-colors" />}
                             {isAuditRunning ? 'Analyzing_Vectors...' : 'Run_Relational_Audit'}
                         </button>
                     )}
@@ -101,7 +116,7 @@ export default function Relational() {
                 <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
 
                     {/* LEFT: VISUALIZER (Takes up 2 cols) */}
-                    <div className="lg:col-span-2 h-[600px] w-full border border-white/10 rounded-[32px] bg-white/[0.02] relative overflow-hidden flex items-center justify-center">
+                    <div className="lg:col-span-2 h-[600px] w-full border border-white/10 rounded-[32px] bg-white/[0.02] relative overflow-hidden flex items-center justify-center glass-panel">
                         {/* Planetary View Canvas */}
                         <PlanetaryView date={userData?.birthDate ? `${userData.birthDate}T${userData.birthTime || '12:00'}:00` : new Date().toISOString()} />
 
@@ -125,11 +140,11 @@ export default function Relational() {
                     <div className="lg:col-span-1 space-y-8">
 
                         {/* Audit Result Card with HARD IRIDESCENCE BORDER */}
-                        <div className={`p-[1px] rounded-[32px] relative overflow-hidden group ${auditResult
+                        <div className={`p-[1px] rounded-[32px] relative overflow-hidden group transition-all duration-1000 ${auditResult
                             ? 'bg-gradient-to-br from-cyan-500 via-purple-500 to-emerald-500 shadow-[0_0_50px_rgba(168,85,247,0.15)] animate-shimmer'
                             : 'bg-white/10'
                             }`}>
-                            <div className="bg-black/80 backdrop-blur-2xl rounded-[31px] p-8 h-full relative overflow-hidden flex flex-col">
+                            <div className="bg-black/90 backdrop-blur-2xl rounded-[31px] p-8 h-full relative overflow-hidden flex flex-col">
                                 {!auditResult ? (
                                     <div className="h-full flex flex-col items-center justify-center text-center space-y-6 opacity-40">
                                         <Users size={48} strokeWidth={1} />
@@ -171,7 +186,7 @@ export default function Relational() {
                                         </div>
 
                                         {/* PAYWALL ACTION */}
-                                        <div className="bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-4 relative overflow-hidden">
+                                        <div className="bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-4 relative overflow-hidden group/btn">
                                             {/* Iridescent shimmer overlay for button area */}
                                             <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 pointer-events-none" />
 
@@ -183,7 +198,7 @@ export default function Relational() {
                                                 <p className="text-[10px] uppercase tracking-widest text-white/50 mt-1">$89.00 // One-time</p>
                                             </div>
                                             <button className="w-full h-12 bg-white text-black text-[10px] uppercase tracking-widest font-bold hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 relative z-10">
-                                                Unlock Protocol <ChevronRight size={14} />
+                                                Unlock Protocol <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                                             </button>
                                             <div className="text-[9px] text-white/30 uppercase tracking-widest pt-2 border-t border-white/5">
                                                 Includes Heatmap & Inversion Table
