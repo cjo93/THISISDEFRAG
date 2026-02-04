@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Terminal, Activity, Cpu, ShieldCheck, ShieldAlert, Zap, Radio, Database, ArrowRight, LogOut, CheckCircle } from 'lucide-react';
+import { useAuth } from '../lib/auth-context';
 
 export default function Admin() {
     const navigate = useNavigate();
+    const { user, loading } = useAuth();
     const [stats, setStats] = useState({
         activeUsers: 42,
         totalSessions: 1240,
@@ -16,16 +18,25 @@ export default function Admin() {
     const [activeTab, setActiveTab] = useState<'overview' | 'access' | 'system'>('overview');
 
     useEffect(() => {
-        const isOwner = localStorage.getItem('defrag_owner_bypass');
-        if (!isOwner) {
+        if (loading) return;
+
+        // Security: Enforce correct admin email
+        const allowedAdmins = ['chadowen93@gmail.com']; // Hardcoded for single-owner safety
+
+        if (!user || !user.email || !allowedAdmins.includes(user.email)) {
+            // Redirect unauthorized users
             navigate('/signin');
             return;
         }
 
         const fetchStats = async () => {
             try {
+                // In a real implementation, we would pass the ID token:
+                // const token = await user.getIdToken();
+                // headers: { 'Authorization': `Bearer ${token}` }
+
                 const res = await fetch('/api/admin-stats', {
-                    headers: { 'x-admin-key': 'defrag-internal' }
+                    headers: { 'x-admin-key': 'defrag-internal' } // Still needed until API is updated
                 });
                 if (res.ok) {
                     const data = await res.json();
@@ -45,7 +56,7 @@ export default function Admin() {
         fetchStats();
         const interval = setInterval(fetchStats, 30000);
         return () => clearInterval(interval);
-    }, [navigate]);
+    }, [user, loading, navigate]);
 
     const handleGenerateCard = () => {
         setIsGenerating(true);
@@ -85,7 +96,7 @@ export default function Admin() {
                         </Link>
                         <button
                             onClick={() => {
-                                localStorage.removeItem('defrag_owner_bypass');
+                                import('../lib/firebase').then(({ auth }) => auth.signOut());
                                 navigate('/signin');
                             }}
                             className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 rounded-none text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"

@@ -19,6 +19,47 @@ export default function Overview() {
                 <StatCard label="Protocol_Tier" value="PRO_v2" trend="Renews: 01_FEB" icon={<Shield size={20} />} active />
             </div>
 
+            {/* ACTIVE APPLICATIONS */}
+            <div className="grid md:grid-cols-2 gap-8">
+                {/* ECHO APP */}
+                <div className="bg-white/[0.01] border border-white/5 rounded-[48px] p-10 hover:bg-white/[0.02] transition-all duration-700 group relative overflow-hidden">
+                    <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-10">
+                            <div className="h-14 w-14 rounded-2xl bg-white/5 flex items-center justify-center text-2xl group-hover:bg-white text-white group-hover:text-black transition-all duration-500">⚡️</div>
+                            <span className="text-[9px] uppercase tracking-[0.4em] text-white/20 border border-white/5 px-4 py-2 rounded-full italic">System_Ready</span>
+                        </div>
+                        <h3 className="text-3xl text-white font-light tracking-tight mb-4 uppercase italic">ECHO</h3>
+                        <p className="text-sm text-white/40 leading-relaxed font-light font-mono mb-10 h-12">
+                            Real-time operational parameters. Analysis of drive and output vectors.
+                        </p>
+
+                        <Link to="/echo" className="flex items-center justify-between border-t border-white/5 pt-8 group-hover:text-white transition-colors text-white/30">
+                            <span className="text-[10px] uppercase tracking-[0.4em] font-bold italic">Launch_Sequence</span>
+                            <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </Link>
+                    </div>
+                </div>
+
+                {/* ORBIT APP */}
+                <div className="bg-white/[0.01] border border-white/5 rounded-[48px] p-10 hover:bg-white/[0.02] transition-all duration-700 group relative overflow-hidden">
+                    <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-10">
+                            <div className="h-14 w-14 rounded-2xl bg-white/5 flex items-center justify-center text-2xl group-hover:bg-white text-white group-hover:text-black transition-all duration-500">🕸</div>
+                            <span className="text-[9px] uppercase tracking-[0.4em] text-white/20 border border-white/5 px-4 py-2 rounded-full italic">Data_Synced</span>
+                        </div>
+                        <h3 className="text-3xl text-white font-light tracking-tight mb-4 uppercase italic">ORBIT</h3>
+                        <p className="text-sm text-white/40 leading-relaxed font-light font-mono mb-10 h-12">
+                            Relational geometry mapping. Visualize pressure and distance.
+                        </p>
+
+                        <Link to="/relational" className="flex items-center justify-between border-t border-white/5 pt-8 group-hover:text-white transition-colors text-white/30">
+                            <span className="text-[10px] uppercase tracking-[0.4em] font-bold italic">Launch_Sequence</span>
+                            <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
             {/* QUICK ACTIONS */}
             <div className="grid lg:grid-cols-2 gap-12">
                 {/* RECENT ACTIVITY */}
