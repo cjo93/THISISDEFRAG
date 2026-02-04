@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -20,10 +20,7 @@ const ROTATING_WORDS = [
 export default function Landing() {
   const [wordIndex, setWordIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-
-  const heroSectionRef = useRef<HTMLElement>(null);
-  const heroBgRef = useRef<HTMLDivElement>(null);
-  const ticking = useRef(false);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -69,35 +66,9 @@ export default function Landing() {
     container.addEventListener('scroll', handleScroll, { passive: true });
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
-    const update = () => {
-      const scrollTop = container.scrollTop;
 
-      const heroOpacity = Math.max(0, 1 - scrollTop / 600);
-      const heroScale = 1 + scrollTop * 0.0002;
-
-      if (heroSectionRef.current) {
-        heroSectionRef.current.style.opacity = heroOpacity.toString();
-      }
-      if (heroBgRef.current) {
-        heroBgRef.current.style.transform = `translate(-50%, -50%) scale(${heroScale})`;
-      }
-
-      ticking.current = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking.current) {
-        window.requestAnimationFrame(update);
-        ticking.current = true;
-      }
-    };
-
-    // Initial update in case of scroll restoration or non-zero start
-    update();
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
+  const heroOpacity = Math.max(0, 1 - scrollY / 600);
+  const heroScale = 1 + scrollY * 0.0002;
 
   return (
     <div id="landing-container" className="h-screen w-full bg-black text-white overflow-y-scroll snap-y snap-mandatory scroll-smooth selection:bg-white/10">
@@ -107,17 +78,15 @@ export default function Landing() {
 
       {/* HERO SECTION - MONOCHROME INDUSTRIAL */}
       <section
-        ref={heroSectionRef}
         className="h-screen w-full snap-start flex items-center justify-center relative overflow-hidden bg-black"
-        style={{ opacity: 1 }}
+        style={{ opacity: heroOpacity }}
       >
         <div className="absolute inset-0 pointer-events-none">
           <div
-            ref={heroBgRef}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax]"
             style={{
               background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 30%, transparent 70%)',
-              transform: `translate(-50%, -50%) scale(1)`,
+              transform: `translate(-50%, -50%) scale(${heroScale})`,
             }}
           />
         </div>

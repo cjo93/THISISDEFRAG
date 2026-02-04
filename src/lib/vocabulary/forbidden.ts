@@ -93,30 +93,12 @@ export const VOCABULARY_MAP: Record<string, string> = {
 };
 
 /**
- * Optimization: Pre-compile regex and map for faster lookup
- */
-const FORBIDDEN_REGEX = new RegExp(
-    FORBIDDEN_TERMS.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'),
-    'gi'
-);
-
-const FORBIDDEN_TERM_MAP = new Map<string, string>();
-FORBIDDEN_TERMS.forEach(term => FORBIDDEN_TERM_MAP.set(term.toLowerCase(), term));
-
-/**
  * Check text for forbidden terms
  * Returns array of violations found
  */
 export function checkForbiddenTerms(text: string): string[] {
-    const matches = text.match(FORBIDDEN_REGEX);
-    if (!matches) return [];
-
-    const violations = new Set<string>();
-    for (const match of matches) {
-        const term = FORBIDDEN_TERM_MAP.get(match.toLowerCase());
-        if (term) violations.add(term);
-    }
-    return Array.from(violations);
+    const lowerText = text.toLowerCase();
+    return FORBIDDEN_TERMS.filter(term => lowerText.includes(term.toLowerCase()));
 }
 
 /**

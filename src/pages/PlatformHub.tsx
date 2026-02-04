@@ -15,12 +15,12 @@ const PlatformHub: React.FC = () => {
             <Header />
 
             {/* HERO — 'THE MONOLITH' (Centered Pivot) */}
-            <section className="min-h-screen grid place-items-center text-center px-6 relative overflow-hidden">
+            <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
 
                 {/* REPLACED: Living Background Component */}
                 <LivingBackground />
 
-                <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 gap-12 justify-items-center">
+                <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center space-y-12">
 
                     {/* Status Pill */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-black/40 backdrop-blur-md animate-fade-in">
