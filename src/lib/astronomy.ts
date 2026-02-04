@@ -104,3 +104,16 @@ export function getPlanetSign(planet: PlanetName | 'Sun' | 'Moon', date: Date | 
     const ecliptic = Astronomy.Ecliptic(vector);
     return getZodiacSign(ecliptic.elon);
 }
+
+export function getElement(sign: string): 'Fire' | 'Earth' | 'Air' | 'Water' {
+    const fire = ['Aries', 'Leo', 'Sagittarius'];
+    const earth = ['Taurus', 'Virgo', 'Capricorn'];
+    const air = ['Gemini', 'Libra', 'Aquarius'];
+    const water = ['Cancer', 'Scorpio', 'Pisces'];
+
+    if (fire.includes(sign)) return 'Fire';
+    if (earth.includes(sign)) return 'Earth';
+    if (air.includes(sign)) return 'Air';
+    if (water.includes(sign)) return 'Water';
+    return 'Air'; // Default
+}

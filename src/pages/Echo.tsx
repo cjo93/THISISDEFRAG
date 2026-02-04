@@ -4,6 +4,8 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2 } from 'lucide-react';
+import PulseVisualizer from '../components/echo/PulseVisualizer';
+import { getElement } from '../lib/astronomy';
 
 export default function Echo() {
     const navigate = useNavigate();
@@ -66,7 +68,7 @@ export default function Echo() {
                     </p>
                 </header>
 
-                <div className="grid lg:grid-cols-2 gap-20">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
                     {/* Left Column: Data Readout */}
                     <div className="space-y-12">
 
@@ -92,17 +94,19 @@ export default function Echo() {
 
                     </div>
 
-                    {/* Right Column: Visualizer (Placeholder for now, could use Canvas) */}
-                    <div className="relative">
-                        <div className="aspect-square rounded-full border border-white/10 bg-white/[0.01] flex items-center justify-center relative">
-                            {/* Simple CSS orbits for MVP */}
-                            <div className="absolute inset-[10%] rounded-full border border-white/5 animate-[spin_20s_linear_infinite]" />
-                            <div className="absolute inset-[20%] rounded-full border border-white/5 animate-[spin_15s_linear_infinite_reverse]" />
-                            <div className="absolute inset-[30%] rounded-full border border-white/5 animate-[spin_10s_linear_infinite]" />
+                    {/* Right Column: Visualizer */}
+                    <div className="relative aspect-square">
+                        <div className="absolute inset-0 rounded-full border border-white/10 bg-white/[0.01] overflow-hidden">
+                            {userData?.sun_sign && (
+                                <PulseVisualizer mode={getElement(userData.sun_sign)} />
+                            )}
 
-                            <div className="text-center">
-                                <div className="text-xs uppercase tracking-widest text-white/30 mb-2">System Status</div>
-                                <div className="text-2xl font-light text-white italic">OPTIMAL</div>
+                            {/* Overlay Status */}
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div className="text-center backdrop-blur-sm bg-black/20 p-4 rounded-xl border border-white/5">
+                                    <div className="text-[10px] uppercase tracking-widest text-white/50 mb-2">System Status</div>
+                                    <div className="text-3xl font-light text-white italic tracking-tighter shadow-black drop-shadow-lg">OPTIMAL</div>
+                                </div>
                             </div>
                         </div>
                     </div>

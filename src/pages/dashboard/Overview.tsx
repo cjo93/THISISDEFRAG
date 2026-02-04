@@ -5,7 +5,7 @@ import { Activity, Shield, Terminal, Zap, ArrowUpRight, Cpu } from 'lucide-react
 
 export default function Overview() {
     return (
-        <div className="p-20 max-w-7xl mx-auto space-y-20 animate-fade-in">
+        <div className="p-6 sm:p-10 lg:p-20 max-w-7xl mx-auto space-y-12 lg:space-y-20 animate-fade-in">
             <header className="space-y-4">
                 <h1 className="text-5xl font-light text-white tracking-tighter uppercase italic">System_Overview</h1>
                 <p className="text-lg text-white/30 font-light italic">Operational baseline initialized. All nodes reporting as nominal.</p>

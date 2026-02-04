@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2 } from 'lucide-react';
+import PlanetaryView from '../components/orbit/PlanetaryView';
 
 export default function Relational() {
     const navigate = useNavigate();
@@ -67,19 +68,14 @@ export default function Relational() {
                 </header>
 
                 <div className="h-[600px] w-full border border-white/10 rounded-[32px] bg-white/[0.02] relative overflow-hidden flex items-center justify-center">
-                    {/* Placeholder for Orbit Canvas */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-[80%] h-[80%] border border-dashed border-white/10 rounded-full animate-[spin_60s_linear_infinite]" />
-                        <div className="w-[60%] h-[60%] border border-dashed border-white/10 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-                        <div className="w-[40%] h-[40%] border border-dashed border-white/10 rounded-full animate-[spin_20s_linear_infinite]" />
 
-                        <div className="absolute bg-white text-black text-[10px] font-bold px-3 py-1 uppercase tracking-widest rounded-full">
-                            YOU ({userData?.sun_sign || 'N/A'})
+                    {/* Planetary View Canvas */}
+                    <PlanetaryView date={userData.birthDate ? `${userData.birthDate}T${userData.birthTime || '12:00'}:00` : new Date().toISOString()} />
+
+                    <div className="absolute bottom-8 right-8 text-right pointer-events-none">
+                        <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2">
+                            {userData.birthDate ? `Epoch: ${userData.birthDate}` : 'Live Telemetry'}
                         </div>
-                    </div>
-
-                    <div className="absolute bottom-8 right-8 text-right">
-                        <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-2">Simulation Running</div>
                         <div className="flex gap-1 justify-end">
                             <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
                             <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse delay-75"></span>
