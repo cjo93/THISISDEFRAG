@@ -126,7 +126,7 @@ export default function Relational() {
 
                         {/* Audit Result Card with HARD IRIDESCENCE BORDER */}
                         <div className={`p-[1px] rounded-[32px] relative overflow-hidden group ${auditResult
-                            ? 'bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-lime-400 shadow-[0_0_50px_rgba(255,0,255,0.15)] animate-shimmer'
+                            ? 'bg-gradient-to-br from-cyan-500 via-purple-500 to-emerald-500 shadow-[0_0_50px_rgba(168,85,247,0.15)] animate-shimmer'
                             : 'bg-white/10'
                             }`}>
                             <div className="bg-black/80 backdrop-blur-2xl rounded-[31px] p-8 h-full relative overflow-hidden flex flex-col">
