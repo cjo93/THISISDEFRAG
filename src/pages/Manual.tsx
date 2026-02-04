@@ -6,6 +6,7 @@ import { calculateMechanics } from '../services/defragEngine';
 import { UnitData, ManualPreview } from '../types';
 import ShareCard from '../components/ui/ShareCard';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
 import { Activity, Terminal, ShieldCheck, Zap, AlertCircle, Info, ArrowRight, Radio, Cpu, Share2 } from 'lucide-react';
 
