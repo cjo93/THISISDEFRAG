@@ -55,68 +55,68 @@ const PlatformHub: React.FC = () => {
             </section>
 
             {/* HOW IT WORKS (Mechanical Strip) */}
-            <section className="py-24 bg-[#020202] border-t border-white/5 relative z-10">
+            <section className="py-24 bg-[#020202] border-t border-white/5 relative z-10 text-center">
                 <div className="max-w-7xl mx-auto px-6">
                     <p className="text-xs font-bold tracking-[0.3em] text-white/20 mb-12 uppercase">System_Architectonics</p>
 
                     <div className="grid md:grid-cols-3 gap-y-12 gap-x-8">
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
                             <div className="text-[10px] uppercase tracking-widest text-cyan-500 font-bold">01. Inputs</div>
                             <h4 className="text-white text-2xl font-light">Architectural JSON</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs">System ingests multi-node data profiles (Type, Authority, Gates) to map the mechanical baseline.</p>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">System ingests multi-node data profiles (Type, Authority, Gates) to map the mechanical baseline.</p>
                         </div>
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
                             <div className="text-[10px] uppercase tracking-widest text-fuchsia-500 font-bold">02. Processing</div>
                             <h4 className="text-white text-2xl font-light">Inversion Engine</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs">Calculates systemic voltage, fusion points, and triangles to identify friction sources.</p>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Calculates systemic voltage, fusion points, and triangles to identify friction sources.</p>
                         </div>
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col items-center">
                             <div className="text-[10px] uppercase tracking-widest text-white/50 font-bold">03. Outputs</div>
                             <h4 className="text-white text-2xl font-light">Action Protocols</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs">Generates objective, non-emotional tasks to restore stability and optimize flow.</p>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Generates objective, non-emotional tasks to restore stability and optimize flow.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* CORE MODULES (Cards) */}
-            <section className="py-32 bg-zinc-950 border-t border-white/10 relative z-10">
+            <section className="py-32 bg-zinc-950 border-t border-white/10 relative z-10 text-center">
                 <div className="max-w-7xl mx-auto px-6">
                     <p className="text-xs font-bold tracking-[0.3em] text-white/20 mb-12 uppercase">Active_Modules</p>
 
                     <div className="grid lg:grid-cols-3 gap-8">
                         {/* ECHO */}
-                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group">
+                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col items-center h-96 relative group text-center">
                             <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ECHO</h3>
                             <p className="text-white/40 text-sm">Individual Telemetry</p>
-                            <div className="mt-auto">
-                                <p className="text-white/60 mb-6 leading-relaxed">
+                            <div className="mt-auto flex flex-col items-center w-full">
+                                <p className="text-white/60 mb-6 leading-relaxed max-w-[200px]">
                                     Identify functional baseline and shadow triggers.
                                 </p>
-                                <Link to="/echo" className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-cyan-400 transition-colors">
+                                <Link to="/echo" className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-cyan-400 transition-colors">
                                     Launch Module <ArrowRight size={14} />
                                 </Link>
                             </div>
                         </div>
 
                         {/* ORBIT */}
-                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group overflow-hidden">
+                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col items-center h-96 relative group overflow-hidden text-center">
                             {/* Subtle gradient background for premium feel */}
                             <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.03] to-transparent pointer-events-none" />
                             <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ORBIT</h3>
                             <p className="text-white/40 text-sm italic">Relational CRM</p>
-                            <div className="mt-auto relative z-10">
-                                <p className="text-white/60 mb-6 leading-relaxed">
+                            <div className="mt-auto relative z-10 flex flex-col items-center w-full">
+                                <p className="text-white/60 mb-6 leading-relaxed max-w-[200px]">
                                     Map pressure transparency and team dynamics.
                                 </p>
-                                <Link to="/relational" className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-fuchsia-400 transition-colors">
+                                <Link to="/relational" className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-fuchsia-400 transition-colors">
                                     Launch Orbit <ArrowRight size={14} />
                                 </Link>
                             </div>
                         </div>
 
                         {/* SIGNAL */}
-                        <div className="p-10 border border-white/5 bg-black/20 backdrop-blur-sm flex flex-col h-96 relative opacity-80">
+                        <div className="p-10 border border-white/5 bg-black/20 backdrop-blur-sm flex flex-col items-center h-96 relative opacity-80 text-center">
                             <h3 className="text-3xl font-bold mb-2 text-white/50 tracking-tighter">SIGNAL</h3>
                             <p className="text-white/20 text-sm">Real-time Filtration</p>
 
@@ -126,11 +126,11 @@ const PlatformHub: React.FC = () => {
                                 </span>
                             </div>
 
-                            <div className="mt-auto">
-                                <p className="text-white/30 mb-6 leading-relaxed">
+                            <div className="mt-auto flex flex-col items-center w-full">
+                                <p className="text-white/30 mb-6 leading-relaxed max-w-[200px]">
                                     Prevent relational breakdown before it occurs.
                                 </p>
-                                <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/20 cursor-not-allowed">
+                                <span className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white/20 cursor-not-allowed">
                                     Offline <Lock size={12} />
                                 </span>
                             </div>

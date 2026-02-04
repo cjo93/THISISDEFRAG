@@ -55,7 +55,7 @@ export default function Inversion() {
                                     placeholder="Describe the friction (e.g., 'I feel like I have to control everyone...')"
                                     className="w-full h-48 bg-transparent text-white p-6 outline-none text-xl font-light placeholder:text-white/10 resize-none font-mono tracking-wide"
                                 />
-                                <div className="border-t border-white/5 p-2 flex justify-end">
+                                <div className="border-t border-white/5 p-2 flex justify-center">
                                     <button
                                         onClick={handleInvert}
                                         disabled={!inputText.trim() || isProcessing}
