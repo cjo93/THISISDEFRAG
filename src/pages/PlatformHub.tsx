@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Lock } from 'lucide-react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import DevAccessModal from '../components/DevAccessModal';
 import LivingBackground from '../components/visuals/LivingBackground';
 import SchematicImage from '../components/visuals/SchematicImage';
 
 const PlatformHub: React.FC = () => {
-    const [showDevModal, setShowDevModal] = useState(false);
-
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white/20">
             <Header />
@@ -242,7 +239,6 @@ const PlatformHub: React.FC = () => {
             </section>
 
             <Footer />
-            <DevAccessModal isOpen={showDevModal} onClose={() => setShowDevModal(false)} />
         </div>
     );
 };
