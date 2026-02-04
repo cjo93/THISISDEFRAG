@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Info, Zap, Network, ShieldCheck, Database, Layout, Terminal } from 'lucide-react';
+import { ArrowRight, Info, Zap, Network, ShieldCheck, Database, Layout, Terminal, Lock } from 'lucide-react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import DevAccessModal from '../components/DevAccessModal';
