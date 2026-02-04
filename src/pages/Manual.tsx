@@ -107,19 +107,20 @@ export default function Manual() {
 
         // Calculate mechanics
         setLoadingPhase(2);
-        const mechanicsA = await calculateMechanics(
-          birthA.name,
-          birthA.birthDate,
-          birthA.birthTime || '12:00',
-          birthA.birthPlace || 'Unknown'
-        );
-
-        const mechanicsB = await calculateMechanics(
-          birthB.name,
-          birthB.birthDate,
-          birthB.birthTime || '12:00',
-          birthB.birthPlace || 'Unknown'
-        );
+        const [mechanicsA, mechanicsB] = await Promise.all([
+          calculateMechanics(
+            birthA.name,
+            birthA.birthDate,
+            birthA.birthTime || '12:00',
+            birthA.birthPlace || 'Unknown'
+          ),
+          calculateMechanics(
+            birthB.name,
+            birthB.birthDate,
+            birthB.birthTime || '12:00',
+            birthB.birthPlace || 'Unknown'
+          )
+        ]);
 
         setUnitA(mechanicsA);
         setUnitB(mechanicsB);
