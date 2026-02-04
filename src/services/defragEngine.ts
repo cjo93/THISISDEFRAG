@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 import * as Astronomy from 'astronomy-engine';
+=======
+import Astronomy from 'astronomy-engine';
+>>>>>>> origin/main
 import { UnitData, BirthData, ChartData, DefragUserProfile } from '../types';
 import { KNOWLEDGE_BASE } from '../data/knowledge_base';
 

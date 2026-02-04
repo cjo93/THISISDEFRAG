@@ -50,6 +50,7 @@ service cloud.firestore {
     // RELATIONSHIP MANUALS
     // ========================================
     
+<<<<<<< HEAD
     match /manuals/{manualId} {
       // Users can read manuals they created
       // Owners can read all manuals
@@ -65,6 +66,18 @@ service cloud.firestore {
       allow update, delete: if isAuthenticated() && 
                                (resource.data.createdBy == request.auth.uid || 
                                 isOwner());
+=======
+    // Rule for the new metadata collection
+    match /manual_metadata/{manualId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+
+    // Existing rule for full manuals
+    match /manuals/{manualId} {
+      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+>>>>>>> origin/main
     }
     
     // ========================================

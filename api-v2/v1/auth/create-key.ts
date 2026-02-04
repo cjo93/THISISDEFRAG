@@ -1,6 +1,10 @@
 import { generateApiKey, hashKey } from '../../lib/stripe';
 import { db } from '../../../src/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+<<<<<<< HEAD
+=======
+import { requireDashboardAuth } from '../../middleware/dashboard-auth';
+>>>>>>> origin/main
 
 // POST /api-v2/v1/auth/create-key
 export default async function handler(req: any, res: any) {
@@ -8,6 +12,7 @@ export default async function handler(req: any, res: any) {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+<<<<<<< HEAD
     // TODO: Secure this endpoint! 
     // Normally this should be protected by Session Auth (Firebase Auth Token)
     // For MVP, we assume the caller is the Dashboard passing a valid token, 
@@ -17,6 +22,21 @@ export default async function handler(req: any, res: any) {
 
     if (!user_id) {
         return res.status(400).json({ error: 'Missing user_id' });
+=======
+    // Secure this endpoint with Session Auth
+    const user = await requireDashboardAuth(req);
+
+    if (!user) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    // Use the authenticated user's ID
+    const user_id = user.uid;
+    const { tier = 'free' } = req.body;
+
+    if (!user_id) {
+        return res.status(400).json({ error: 'Missing user_id from token' });
+>>>>>>> origin/main
     }
 
     try {
