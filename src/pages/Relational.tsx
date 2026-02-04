@@ -1,19 +1,20 @@
-
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Loader2 } from 'lucide-react';
+import { ArrowLeft, Loader2, ShieldAlert, Users, Lock, ChevronRight, Activity } from 'lucide-react';
 import PlanetaryView from '../components/orbit/PlanetaryView';
+import { inversionEngineInstance, RelationalSystem, AuditResult } from '../services/InversionEngine';
 
 export default function Relational() {
     const navigate = useNavigate();
     const [appMode, setAppMode] = useState(false);
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState<any>(null);
+    const [auditResult, setAuditResult] = useState<AuditResult | null>(null);
+    const [isAuditRunning, setIsAuditRunning] = useState(false);
 
     useEffect(() => {
-        // Check for User Data 
         const storedUnitA = localStorage.getItem('defrag_unitA');
         if (storedUnitA) {
             setUserData(JSON.parse(storedUnitA));
