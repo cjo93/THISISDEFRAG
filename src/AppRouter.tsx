@@ -18,6 +18,7 @@ import SignIn from './pages/SignIn';
 import SignInVerify from './pages/SignInVerify';
 // import Learn from './pages/Learn'; // If exists
 import Relational from './pages/Relational'; // If exists
+import Inversion from './pages/Inversion';
 
 // Admin
 import Admin from './pages/Admin';
@@ -63,6 +64,7 @@ export default function AppRouter() {
       <Route path="/start" element={<Start />} />
       <Route path="/analysis" element={<Analysis />} />
       <Route path="/relational" element={<Relational />} />
+      <Route path="/inversion" element={<Inversion />} />
 
       {/* Product Pages */}
       <Route path="/products/manuals" element={<Manuals />} /> {/* Original Sales Page */}

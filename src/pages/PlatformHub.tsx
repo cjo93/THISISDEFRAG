@@ -40,7 +40,7 @@ const PlatformHub: React.FC = () => {
                         <span className="italic">deterministic infrastructure</span> to map and stabilize them.
                     </p>
 
-                    <Link to="/start" className="relative group px-12 py-5 bg-black border border-white/10 overflow-hidden animate-slide-up delay-200">
+                    <Link to="/inversion" className="relative group px-12 py-5 bg-black border border-white/10 overflow-hidden animate-slide-up delay-200">
                         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/20 via-fuchsia-500/20 to-lime-500/20"></div>
 
                         <span className="relative z-10 text-white tracking-[0.3em] font-bold uppercase text-sm">
