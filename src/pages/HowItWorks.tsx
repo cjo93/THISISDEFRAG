@@ -55,7 +55,7 @@ export default function HowItWorks() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-8 justify-center w-full max-w-lg mx-auto">
-            <Link to="/start" className="group h-20 w-full flex items-center justify-center bg-white text-black text-[10px] font-bold tracking-[0.4em] hover:bg-slate-200 transition-all duration-700 rounded-full uppercase shadow-2xl">
+            <Link to="/start" className="group h-20 w-full flex items-center justify-center bg-white text-black text-[10px] font-bold tracking-[0.4em] hover:bg-slate-200 transition-all duration-700 rounded-none uppercase shadow-2xl">
               Initialize_Analysis
               <ArrowRight size={18} className="ml-3 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -199,7 +199,7 @@ export default function HowItWorks() {
             Patterns, not predictions. Use the architectural data to stabilize your environment.
           </p>
           <div className="flex flex-col sm:flex-row gap-8 justify-center w-full max-w-lg mx-auto">
-            <Link to="/start" className="group h-24 w-full flex items-center justify-center bg-white text-black text-xs tracking-[0.4em] font-bold hover:bg-slate-200 transition-all duration-700 rounded-full uppercase shadow-2xl">
+            <Link to="/start" className="group h-24 w-full flex items-center justify-center bg-white text-black text-xs tracking-[0.4em] font-bold hover:bg-slate-200 transition-all duration-700 rounded-none uppercase shadow-2xl">
               Initialize_Engine
               <ArrowRight size={20} className="ml-4 group-hover:translate-x-2 transition-transform" />
             </Link>

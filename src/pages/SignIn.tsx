@@ -129,7 +129,7 @@ export default function SignIn() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full h-24 bg-white text-black font-bold rounded-full transition-all duration-700 hover:bg-slate-200 disabled:bg-white/10 disabled:text-white/10 disabled:cursor-not-allowed text-[10px] tracking-[0.5em] uppercase shadow-2xl flex items-center justify-center gap-4"
+                  className="w-full h-24 bg-white text-black font-bold rounded-none transition-all duration-700 hover:bg-slate-200 disabled:bg-white/10 disabled:text-white/10 disabled:cursor-not-allowed text-[10px] tracking-[0.5em] uppercase shadow-2xl flex items-center justify-center gap-4"
                 >
                   {status === 'loading' ? (
                     <>
