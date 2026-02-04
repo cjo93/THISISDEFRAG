@@ -1,137 +1,163 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Info, Zap, Network, ShieldCheck, Database, Layout, Terminal, Lock } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import DevAccessModal from '../components/DevAccessModal';
 
 const PlatformHub: React.FC = () => {
-    const [scrollY, setScrollY] = useState(0);
     const [showDevModal, setShowDevModal] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-white/10 overflow-x-hidden font-sans">
+        <div className="min-h-screen bg-black text-white font-sans selection:bg-white/20">
             <Header />
 
-            {/* HERO — Dramatic Correction */}
-            <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 bg-black relative overflow-hidden">
-                <div className="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center">
+            {/* HERO — 'THE MONOLITH' */}
+            <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-900 via-black to-black">
 
-                    <div className="mb-6 text-[11px] tracking-[0.5em] text-cyan-400 font-medium uppercase opacity-60 animate-fade-in">
-                        System Status: Operational
+                {/* Ambient Light */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.03] blur-[120px] rounded-full pointer-events-none" />
+
+                <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center space-y-12">
+
+                    {/* Status Pill */}
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-white/[0.02] backdrop-blur-md">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span className="text-[10px] uppercase tracking-[0.25em] text-white/40 font-medium">System Online</span>
                     </div>
 
-                    <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-none mb-8 text-white animate-slide-up">
-                        RELATIONAL <br />
-                        <span className="italic font-thin text-slate-500 block -mt-2 sm:-mt-4 mb-2">INTELLIGENCE</span>
-                        ENGINEERED.
+                    {/* Main Title */}
+                    <h1 className="flex flex-col items-center leading-none">
+                        <span className="text-6xl sm:text-8xl md:text-[10rem] font-bold tracking-tighter text-white mix-blend-overlay opacity-90">
+                            RELATIONAL
+                        </span>
+                        <span className="text-4xl sm:text-6xl md:text-8xl font-thin tracking-tight text-white/50 -mt-2 sm:-mt-6 md:-mt-10 italic">
+                            INTELLIGENCE
+                        </span>
                     </h1>
 
-                    <p className="max-w-2xl text-base sm:text-xl text-slate-400 leading-relaxed mb-12 animate-slide-up delay-100 font-light">
-                        <span className="text-white font-medium">The friction isn't personal. It's structural.</span> <br className="hidden sm:block" />
-                        DEFRAG maps the invisible mechanics of your connections, turning entropy into authority.
+                    {/* Description */}
+                    <p className="max-w-xl text-lg sm:text-2xl text-white/40 font-light leading-relaxed tracking-wide">
+                        The friction isn't personal. It's <span className="text-white font-normal">structural</span>.
+                        <br className="hidden sm:block" />
+                        Map the invisible mechanics of your connections.
                     </p>
 
-                    <Link to="/inversion" className="relative group px-12 py-5 bg-black border border-white/10 overflow-hidden animate-slide-up delay-200">
-                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/20 via-fuchsia-500/20 to-lime-500/20"></div>
-
-                        <span className="relative z-10 text-white tracking-[0.3em] font-bold uppercase text-sm">
-                            Initialize Mapping
+                    {/* Primary Action - "Liquid Obsidian" Button */}
+                    <Link to="/inversion" className="group relative inline-flex items-center justify-center px-16 py-6 overflow-hidden rounded-full bg-white text-black transition-transform hover:scale-105 duration-500">
+                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-zinc-200 via-white to-zinc-200 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <span className="relative z-10 text-xs font-bold uppercase tracking-[0.25em] flex items-center gap-3">
+                            Initialize Mapping <ArrowRight size={14} />
                         </span>
-
-                        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-lime-400"></div>
                     </Link>
-                </div>
 
-                {/* Subtle BG Glow */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/[0.04] rounded-full blur-[100px] pointer-events-none" />
+                </div>
             </section>
 
-            {/* HOW IT WORKS (Mechanical Strip) */}
-            <section className="py-24 bg-[#020202] border-t border-white/5 relative z-10 text-center">
+            {/* SECTION 01: SYSTEM ARCHITECTURE */}
+            <section className="py-40 bg-black relative border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-xs font-bold tracking-[0.3em] text-white/20 mb-12 uppercase">System_Architectonics</p>
+                    <div className="text-center mb-24">
+                        <h2 className="text-sm font-bold tracking-[0.4em] text-white/20 uppercase mb-4">Architecture</h2>
+                        <h3 className="text-3xl md:text-5xl font-light text-white tracking-tight">The Mechanical Structure</h3>
+                    </div>
 
-                    <div className="grid md:grid-cols-3 gap-y-12 gap-x-8">
-                        <div className="space-y-4 flex flex-col items-center">
-                            <div className="text-[10px] uppercase tracking-widest text-cyan-500 font-bold">01. Inputs</div>
-                            <h4 className="text-white text-2xl font-light">Architectural JSON</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">System ingests multi-node data profiles (Type, Authority, Gates) to map the mechanical baseline.</p>
+                    <div className="grid md:grid-cols-3 gap-16 relative">
+                        {/* Divider Lines (Desktop) */}
+                        <div className="hidden md:block absolute top-10 bottom-10 left-1/3 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+                        <div className="hidden md:block absolute top-10 bottom-10 right-1/3 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+
+                        {/* Column 01 */}
+                        <div className="flex flex-col items-center text-center space-y-6 group">
+                            <span className="text-4xl font-thin text-white/20 group-hover:text-cyan-400 transition-colors duration-500">01</span>
+                            <h4 className="text-xl font-medium text-white tracking-wide">Input</h4>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">
+                                Ingest raw relational data. Classify friction points against a deterministic 64-gate framework.
+                            </p>
                         </div>
-                        <div className="space-y-4 flex flex-col items-center">
-                            <div className="text-[10px] uppercase tracking-widest text-fuchsia-500 font-bold">02. Processing</div>
-                            <h4 className="text-white text-2xl font-light">Inversion Engine</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Calculates systemic voltage, fusion points, and triangles to identify friction sources.</p>
+
+                        {/* Column 02 */}
+                        <div className="flex flex-col items-center text-center space-y-6 group">
+                            <span className="text-4xl font-thin text-white/20 group-hover:text-purple-500 transition-colors duration-500">02</span>
+                            <h4 className="text-xl font-medium text-white tracking-wide">Process</h4>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">
+                                The Inversion Engine calculates systemic voltage and identifies fusion triangles in real-time.
+                            </p>
                         </div>
-                        <div className="space-y-4 flex flex-col items-center">
-                            <div className="text-[10px] uppercase tracking-widest text-white/50 font-bold">03. Outputs</div>
-                            <h4 className="text-white text-2xl font-light">Action Protocols</h4>
-                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">Generates objective, non-emotional tasks to restore stability and optimize flow.</p>
+
+                        {/* Column 03 */}
+                        <div className="flex flex-col items-center text-center space-y-6 group">
+                            <span className="text-4xl font-thin text-white/20 group-hover:text-emerald-500 transition-colors duration-500">03</span>
+                            <h4 className="text-xl font-medium text-white tracking-wide">Output</h4>
+                            <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto">
+                                Receive actionable, mechanical protocols to neutralize entropy and restore authority.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* CORE MODULES (Cards) */}
-            <section className="py-32 bg-zinc-950 border-t border-white/10 relative z-10 text-center">
+            {/* SECTION 02: OPERATIONAL CAPABILITIES (Cards) */}
+            <section className="py-40 bg-black relative border-t border-white/5">
                 <div className="max-w-7xl mx-auto px-6">
-                    <p className="text-xs font-bold tracking-[0.3em] text-white/20 mb-12 uppercase">Active_Modules</p>
+                    <div className="text-center mb-24">
+                        <h2 className="text-sm font-bold tracking-[0.4em] text-white/20 uppercase mb-4">Modules</h2>
+                        <h3 className="text-3xl md:text-5xl font-light text-white tracking-tight">Operational Capabilities</h3>
+                    </div>
 
-                    <div className="grid lg:grid-cols-3 gap-8">
-                        {/* ECHO */}
-                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col items-center h-96 relative group text-center">
-                            <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ECHO</h3>
-                            <p className="text-white/40 text-sm">Individual Telemetry</p>
-                            <div className="mt-auto flex flex-col items-center w-full">
-                                <p className="text-white/60 mb-6 leading-relaxed max-w-[200px]">
-                                    Identify functional baseline and shadow triggers.
-                                </p>
-                                <Link to="/echo" className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-cyan-400 transition-colors">
-                                    Launch Module <ArrowRight size={14} />
+                    <div className="grid lg:grid-cols-3 gap-6">
+                        {/* ECHO CARD */}
+                        <div className="group relative h-[500px] bg-zinc-900/20 border border-white/5 hover:border-white/20 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-cyan-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                            <h3 className="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors duration-700 tracking-tighter mb-8">ECHO</h3>
+                            <div className="relative z-10 space-y-8">
+                                <div>
+                                    <h4 className="text-xl text-white font-medium mb-2">Individual Telemetry</h4>
+                                    <p className="text-white/40 text-sm leading-relaxed max-w-[240px] mx-auto">
+                                        Establish your mechanical baseline. Identify shadow triggers and core drive.
+                                    </p>
+                                </div>
+                                <Link to="/echo" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-1 hover:border-cyan-400 hover:text-cyan-400 transition-all">
+                                    Launch Module <ArrowRight size={12} />
                                 </Link>
                             </div>
                         </div>
 
-                        {/* ORBIT */}
-                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col items-center h-96 relative group overflow-hidden text-center">
-                            {/* Subtle gradient background for premium feel */}
-                            <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.03] to-transparent pointer-events-none" />
-                            <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ORBIT</h3>
-                            <p className="text-white/40 text-sm italic">Relational CRM</p>
-                            <div className="mt-auto relative z-10 flex flex-col items-center w-full">
-                                <p className="text-white/60 mb-6 leading-relaxed max-w-[200px]">
-                                    Map pressure transparency and team dynamics.
-                                </p>
-                                <Link to="/relational" className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white hover:text-fuchsia-400 transition-colors">
-                                    Launch Orbit <ArrowRight size={14} />
+                        {/* ORBIT CARD */}
+                        <div className="group relative h-[500px] bg-zinc-900/20 border border-white/5 hover:border-white/20 transition-all duration-700 flex flex-col items-center justify-center text-center p-12 overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-purple-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                            <h3 className="text-6xl font-black text-white/10 group-hover:text-white/20 transition-colors duration-700 tracking-tighter mb-8">ORBIT</h3>
+                            <div className="relative z-10 space-y-8">
+                                <div>
+                                    <h4 className="text-xl text-white font-medium mb-2">Relational CRM</h4>
+                                    <p className="text-white/40 text-sm leading-relaxed max-w-[240px] mx-auto">
+                                        Map pressure transparency and team dynamics. Visualize the geometry of connection.
+                                    </p>
+                                </div>
+                                <Link to="/relational" className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-1 hover:border-purple-400 hover:text-purple-400 transition-all">
+                                    Launch Module <ArrowRight size={12} />
                                 </Link>
                             </div>
                         </div>
 
-                        {/* SIGNAL */}
-                        <div className="p-10 border border-white/5 bg-black/20 backdrop-blur-sm flex flex-col items-center h-96 relative opacity-80 text-center">
-                            <h3 className="text-3xl font-bold mb-2 text-white/50 tracking-tighter">SIGNAL</h3>
-                            <p className="text-white/20 text-sm">Real-time Filtration</p>
-
-                            <div className="absolute top-10 right-10">
-                                <span className="px-3 py-1 bg-white/5 border border-white/10 text-[9px] uppercase tracking-widest text-white/50 rounded-full backdrop-blur-md">
-                                    Coming Soon
-                                </span>
+                        {/* SIGNAL CARD */}
+                        <div className="group relative h-[500px] bg-zinc-900/10 border border-dashed border-white/5 flex flex-col items-center justify-center text-center p-12 opacity-60">
+                            <div className="absolute top-6 right-6">
+                                <Lock size={16} className="text-white/20" />
                             </div>
-
-                            <div className="mt-auto flex flex-col items-center w-full">
-                                <p className="text-white/30 mb-6 leading-relaxed max-w-[200px]">
-                                    Prevent relational breakdown before it occurs.
-                                </p>
-                                <span className="inline-flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-white/20 cursor-not-allowed">
-                                    Offline <Lock size={12} />
+                            <h3 className="text-6xl font-black text-white/5 tracking-tighter mb-8">SIGNAL</h3>
+                            <div className="relative z-10 space-y-8">
+                                <div>
+                                    <h4 className="text-xl text-white/50 font-medium mb-2">Real-time Filtration</h4>
+                                    <p className="text-white/20 text-sm leading-relaxed max-w-[240px] mx-auto">
+                                        Prevent relational breakdown before it occurs. Active monitoring.
+                                    </p>
+                                </div>
+                                <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/20 cursor-not-allowed">
+                                    Module Offline
                                 </span>
                             </div>
                         </div>
@@ -140,24 +166,22 @@ const PlatformHub: React.FC = () => {
                 </div>
             </section>
 
-            {/* DEVELOPER REDIRECT */}
-            <section className="py-40 bg-black border-t border-white/10 relative overflow-hidden">
-                <div className="max-w-5xl mx-auto px-6 text-center relative z-10 space-y-16">
-                    <Terminal size={32} strokeWidth={1} className="mx-auto text-white/30" />
-                    <h2 className="text-4xl sm:text-6xl font-light text-white tracking-tight leading-tight uppercase">
-                        For Builders.
+            {/* PRE-FOOTER */}
+            <section className="py-40 bg-black border-t border-white/5">
+                <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+                    <h2 className="text-4xl md:text-5xl font-light text-white tracking-tight">
+                        Integrate Relational Intelligence.
                     </h2>
-                    <p className="text-xl text-white/40 leading-relaxed font-light italic max-w-3xl mx-auto">
-                        Integrate Defrag's safety and telemetry layers directly into your application architecture.
+                    <p className="text-lg text-white/40 leading-relaxed font-light max-w-2xl mx-auto">
+                        For builders and architects. Embed Defrag's safety and telemetry layers directly into your application.
                     </p>
-                    <Link to="/developer" className="inline-flex h-14 px-12 items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-slate-200 transition-all duration-300 uppercase">
-                        Enter_Developer_Portal
+                    <Link to="/developer" className="inline-flex h-14 px-10 items-center justify-center border border-white/10 hover:bg-white hover:text-black hover:border-transparent transition-all duration-300 text-xs font-bold uppercase tracking-[0.2em]">
+                        View Documentation
                     </Link>
                 </div>
             </section>
 
             <Footer />
-
             <DevAccessModal isOpen={showDevModal} onClose={() => setShowDevModal(false)} />
         </div>
     );
