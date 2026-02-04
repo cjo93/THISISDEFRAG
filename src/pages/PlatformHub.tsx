@@ -28,16 +28,15 @@ const PlatformHub: React.FC = () => {
                         System Status: Operational
                     </div>
 
-                    <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-none mb-6 text-white animate-slide-up">
+                    <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter leading-none mb-8 text-white animate-slide-up">
                         RELATIONAL <br />
-                        <span className="italic font-light text-slate-500">Intelligence</span> <br />
+                        <span className="italic font-thin text-slate-500 block -mt-2 sm:-mt-4 mb-2">INTELLIGENCE</span>
                         ENGINEERED.
                     </h1>
 
-                    <p className="max-w-xl text-lg md:text-xl text-slate-400 leading-relaxed mb-12 animate-slide-up delay-100">
-                        Human systems fail under invisible pressure. <br />
-                        <span className="text-white font-bold">DEFRAG</span> provides the
-                        <span className="italic">deterministic infrastructure</span> to map and stabilize them.
+                    <p className="max-w-2xl text-base sm:text-xl text-slate-400 leading-relaxed mb-12 animate-slide-up delay-100 font-light">
+                        <span className="text-white font-medium">The friction isn't personal. It's structural.</span> <br className="hidden sm:block" />
+                        DEFRAG maps the invisible mechanics of your connections, turning entropy into authority.
                     </p>
 
                     <Link to="/inversion" className="relative group px-12 py-5 bg-black border border-white/10 overflow-hidden animate-slide-up delay-200">
