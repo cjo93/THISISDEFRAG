@@ -38,17 +38,30 @@ const PlatformHub: React.FC = () => {
 
                     {/* Subline */}
                     <p className="text-xl sm:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed font-light mb-6">
-                        DEFRAG is a deterministic system for mapping human interaction, pressure, and stability.
+                        Prevent burnout and conflict across high-stakes teams with real-time relational telemetry.
                     </p>
                     <p className="text-lg sm:text-xl text-white/40 max-w-3xl mx-auto leading-relaxed font-light mb-16">
                         No psychology. No astrology. Just mechanics.
                     </p>
 
-                    {/* Supporting Copy */}
-                    <p className="text-base sm:text-lg text-white/30 max-w-2xl mx-auto leading-relaxed mb-20">
-                        Human systems fail under invisible pressure.
-                        DEFRAG turns relational dynamics into measurable data—so individuals, teams, and platforms can operate with clarity.
-                    </p>
+                    {/* HOW IT WORKS STRIP */}
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-20 text-left">
+                        <div className="p-6 border border-white/10 bg-white/[0.02]">
+                            <div className="text-[10px] uppercase tracking-widest text-white/30 mb-2">01. Inputs</div>
+                            <h4 className="text-white text-lg mb-2">Architectural JSON</h4>
+                            <p className="text-white/40 text-xs leading-relaxed">System ingests multi-node data profiles (Type, Authority, Gates) to map the mechanical baseline.</p>
+                        </div>
+                        <div className="p-6 border border-white/10 bg-white/[0.02]">
+                            <div className="text-[10px] uppercase tracking-widest text-white/30 mb-2">02. Processing</div>
+                            <h4 className="text-white text-lg mb-2">Inversion Engine</h4>
+                            <p className="text-white/40 text-xs leading-relaxed">Calculates systemic voltage, fusion points, and triangles to identify friction sources.</p>
+                        </div>
+                        <div className="p-6 border border-white/10 bg-white/[0.02]">
+                            <div className="text-[10px] uppercase tracking-widest text-white/30 mb-2">03. Outputs</div>
+                            <h4 className="text-white text-lg mb-2">Action Protocols</h4>
+                            <p className="text-white/40 text-xs leading-relaxed">Generates objective, non-emotional tasks to restore stability and optimize flow.</p>
+                        </div>
+                    </div>
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-lg mx-auto mb-32">
