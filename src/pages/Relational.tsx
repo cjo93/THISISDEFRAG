@@ -125,11 +125,11 @@ export default function Relational() {
                     <div className="lg:col-span-1 space-y-8">
 
                         {/* Audit Result Card with HARD IRIDESCENCE BORDER */}
-                        <div className={`p-[1px] rounded-[32px] relative overflow-hidden ${auditResult
-                                ? 'bg-gradient-to-r from-cyan-400 via-white to-fuchsia-500 shadow-[0_0_40px_rgba(0,255,255,0.2)]'
-                                : 'bg-white/10'
+                        <div className={`p-[1px] rounded-[32px] relative overflow-hidden group ${auditResult
+                            ? 'bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-lime-400 shadow-[0_0_50px_rgba(255,0,255,0.15)] animate-shimmer'
+                            : 'bg-white/10'
                             }`}>
-                            <div className="bg-black rounded-[31px] p-8 h-full relative overflow-hidden">
+                            <div className="bg-black/80 backdrop-blur-2xl rounded-[31px] p-8 h-full relative overflow-hidden flex flex-col">
                                 {!auditResult ? (
                                     <div className="h-full flex flex-col items-center justify-center text-center space-y-6 opacity-40">
                                         <Users size={48} strokeWidth={1} />
@@ -142,26 +142,31 @@ export default function Relational() {
                                         {/* Voltage Score */}
                                         <div>
                                             <div className="flex items-center justify-between mb-2">
-                                                <span className="text-[10px] uppercase tracking-widest text-red-500 font-bold">System_Voltage</span>
+                                                <span className="text-[10px] uppercase tracking-widest text-red-500 font-bold animate-pulse">System_Voltage</span>
                                                 <ShieldAlert size={16} className="text-red-500" />
                                             </div>
-                                            <div className="text-6xl font-light text-white tracking-tighter mb-2">
+                                            <div className="text-6xl font-black text-white tracking-tighter mb-2" style={{ textShadow: '0 0 30px rgba(255,0,0,0.5)' }}>
                                                 {auditResult.system_voltage}%
                                             </div>
-                                            <p className="text-xs text-white/40 leading-relaxed">
+                                            <p className="text-xs text-white/40 leading-relaxed font-light">
                                                 High entropy detected. Your system is acting as a release valve for external tension.
                                             </p>
                                         </div>
 
-                                        {/* Findings Preview */}
-                                        <div className="space-y-4 border-t border-white/5 pt-6">
-                                            <div className="flex items-center gap-3 text-sm text-white/70">
+                                        {/* Findings Preview - Frosted Overlay Effect */}
+                                        <div className="space-y-4 border-t border-white/5 pt-6 relative">
+                                            <div className="flex items-center gap-3 text-sm text-white/70 blur-[2px] select-none opacity-50">
                                                 <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
                                                 <span>{auditResult.fusion_points.length} Zones of Fusion Detected</span>
                                             </div>
-                                            <div className="flex items-center gap-3 text-sm text-white/70">
+                                            <div className="flex items-center gap-3 text-sm text-white/70 blur-[2px] select-none opacity-50">
                                                 <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
                                                 <span>{auditResult.triangles.length} Active Triangles</span>
+                                            </div>
+
+                                            {/* Overlay Text */}
+                                            <div className="absolute inset-0 flex items-center justify-center text-[10px] uppercase tracking-widest text-white/30 font-bold pointer-events-none">
+                                                Encrypted_Data
                                             </div>
                                         </div>
 
