@@ -30,19 +30,19 @@ export default function Header() {
                 : 'py-10 bg-transparent border-b border-transparent'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-8 flex items-center justify-between gap-12">
+            <div className="max-w-7xl mx-auto px-8 flex items-center justify-between relative">
 
                 {/* Logo — Industrial Monochrome */}
                 <Link
                     to="/"
-                    className="group flex items-center gap-4 text-2xl font-light text-white tracking-[-0.04em] transition-all hover:opacity-70"
+                    className="relative z-10 group flex items-center gap-4 text-2xl font-light text-white tracking-[-0.04em] transition-all hover:opacity-70"
                 >
                     <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/40 font-black text-sm group-hover:bg-white group-hover:text-black transition-all duration-700">D</div>
                     <span className="font-bold tracking-[0.4em] text-[11px] hidden sm:inline uppercase opacity-40 group-hover:opacity-100 transition-opacity">DEFRAG</span>
                 </Link>
 
                 {/* Desktop Nav — Centered, Spaced, Monochrome */}
-                <nav className="hidden md:flex flex-1 justify-center gap-12">
+                <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 gap-12">
                     {navItems.map((item) => {
                         const isActive = location.pathname === item.path;
                         return (
@@ -61,7 +61,7 @@ export default function Header() {
                 </nav>
 
                 {/* Desktop CTA — Premium Pill */}
-                <div className="hidden md:flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-8 relative z-10">
                     <Link
                         to="/start"
                         className="h-12 px-10 flex items-center justify-center bg-white text-black text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-700 rounded-full hover:bg-slate-200 shadow-[0_0_30px_rgba(255,255,255,0.05)] active:scale-95"
