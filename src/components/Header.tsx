@@ -26,27 +26,6 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 inset-x-0 z-[100] transition-all duration-700 ${scrolled
-<<<<<<< HEAD
-                ? 'py-4 bg-[#0F172A]/80 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
-                : 'py-10 bg-transparent border-b border-transparent'
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-8 grid grid-cols-12 items-center gap-4">
-
-                {/* Logo — Industrial Monochrome */}
-                <div className="col-span-6 md:col-span-3 lg:col-span-2 flex items-center">
-                    <Link
-                        to="/"
-                        className="group flex items-center gap-4 text-2xl font-light text-[var(--color-white)] tracking-[-0.04em] transition-all hover:opacity-70"
-                    >
-                        <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-center text-white/40 font-black text-sm group-hover:bg-white group-hover:text-black transition-all duration-700">D</div>
-                        <span className="font-bold tracking-[0.4em] text-[11px] hidden sm:inline uppercase opacity-40 group-hover:opacity-100 transition-opacity">DEFRAG</span>
-                    </Link>
-                </div>
-
-                {/* Desktop Nav — Centered, Spaced, Monochrome */}
-                <nav className="hidden md:flex col-span-6 lg:col-span-8 justify-center gap-12">
-=======
                 ? 'py-4 bg-black/80 backdrop-blur-2xl border-b border-white/5 shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
                 : 'py-10 bg-transparent border-b border-transparent'
                 }`}
@@ -64,7 +43,6 @@ export default function Header() {
 
                 {/* Desktop Nav — Centered, Spaced, Monochrome */}
                 <nav className="hidden md:flex flex-1 justify-center gap-12">
->>>>>>> origin/main
                     {navItems.map((item) => {
                         const isActive = location.pathname === item.path;
                         return (
@@ -83,11 +61,7 @@ export default function Header() {
                 </nav>
 
                 {/* Desktop CTA — Premium Pill */}
-<<<<<<< HEAD
-                <div className="hidden md:flex col-span-3 lg:col-span-2 justify-end items-center gap-8">
-=======
                 <div className="hidden md:flex items-center gap-8">
->>>>>>> origin/main
                     <Link
                         to="/start"
                         className="h-12 px-10 flex items-center justify-center bg-white text-black text-[10px] font-bold tracking-[0.2em] uppercase transition-all duration-700 rounded-full hover:bg-slate-200 shadow-[0_0_30px_rgba(255,255,255,0.05)] active:scale-95"
@@ -97,23 +71,12 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Toggle */}
-<<<<<<< HEAD
-                <div className="col-span-6 md:hidden flex justify-end">
-                    <button
-                        className="w-12 h-12 flex items-center justify-center text-white/40 hover:text-white transition-colors"
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                    >
-                        {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
-=======
                 <button
                     className="md:hidden w-12 h-12 flex items-center justify-center text-white/40 hover:text-white transition-colors"
                     onClick={() => setMobileOpen(!mobileOpen)}
                 >
                     {mobileOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
->>>>>>> origin/main
             </div>
 
             {/* Mobile Menu — Full Page Monochrome Blur */}

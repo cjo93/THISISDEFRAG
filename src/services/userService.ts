@@ -8,10 +8,7 @@ import {
     where,
     getDocs,
     serverTimestamp,
-<<<<<<< HEAD
-=======
     writeBatch
->>>>>>> origin/main
 } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 
@@ -29,11 +26,7 @@ export interface UserProfile {
     updatedAt: any;
 }
 
-<<<<<<< HEAD
-export interface RelationshipManual {
-=======
 export interface ManualMetadata {
->>>>>>> origin/main
     id: string;
     userId: string;
     unitA: {
@@ -48,28 +41,19 @@ export interface ManualMetadata {
         birthTime?: string;
         birthPlace?: string;
     };
-<<<<<<< HEAD
-    manualData: any;
-    isPaid: boolean;
-    stripeSessionId?: string;
-=======
     type?: string; // e.g. "relationship"
     status?: string; // e.g. "completed"
     isPaid: boolean;
     stripeSessionId?: string;
     previewText?: string;
->>>>>>> origin/main
     createdAt: any;
     updatedAt: any;
 }
 
-<<<<<<< HEAD
-=======
 export interface RelationshipManual extends ManualMetadata {
     manualData: any;
 }
 
->>>>>>> origin/main
 // User Profile Operations
 export async function createUserProfile(uid: string, data: Partial<UserProfile>) {
     const userRef = doc(db, 'users', uid);
@@ -104,18 +88,6 @@ export async function createRelationshipManual(
     userId: string,
     manualData: Omit<RelationshipManual, 'id' | 'userId' | 'createdAt' | 'updatedAt'>
 ) {
-<<<<<<< HEAD
-    const manualsRef = collection(db, 'manuals');
-    const newManualRef = doc(manualsRef);
-
-    await setDoc(newManualRef, {
-        id: newManualRef.id,
-        userId,
-        ...manualData,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-    });
-=======
     const batch = writeBatch(db);
 
     const manualsRef = collection(db, 'manuals');
@@ -150,19 +122,10 @@ export async function createRelationshipManual(
     batch.set(newManualRef, heavyData);
 
     await batch.commit();
->>>>>>> origin/main
 
     return newManualRef.id;
 }
 
-<<<<<<< HEAD
-export async function getUserManuals(userId: string): Promise<RelationshipManual[]> {
-    const manualsRef = collection(db, 'manuals');
-    const q = query(manualsRef, where('userId', '==', userId));
-    const querySnapshot = await getDocs(q);
-
-    return querySnapshot.docs.map(doc => doc.data() as RelationshipManual);
-=======
 export async function getUserManuals(userId: string): Promise<ManualMetadata[]> {
     // Optimization: Query the lightweight metadata collection
     const metaRef = collection(db, 'manual_metadata');
@@ -170,18 +133,10 @@ export async function getUserManuals(userId: string): Promise<ManualMetadata[]> 
     const querySnapshot = await getDocs(q);
 
     return querySnapshot.docs.map(doc => doc.data() as ManualMetadata);
->>>>>>> origin/main
 }
 
 export async function getManualById(manualId: string): Promise<RelationshipManual | null> {
     const manualRef = doc(db, 'manuals', manualId);
-<<<<<<< HEAD
-    const manualSnap = await getDoc(manualRef);
-
-    if (manualSnap.exists()) {
-        return manualSnap.data() as RelationshipManual;
-    }
-=======
     const metaRef = doc(db, 'manual_metadata', manualId);
 
     // Fetch both in parallel
@@ -209,7 +164,6 @@ export async function getManualById(manualId: string): Promise<RelationshipManua
          }
     }
 
->>>>>>> origin/main
     return null;
 }
 
@@ -218,24 +172,16 @@ export async function updateManualPaymentStatus(
     stripeSessionId: string,
     isPaid: boolean
 ) {
-<<<<<<< HEAD
-    const manualRef = doc(db, 'manuals', manualId);
-    await updateDoc(manualRef, {
-=======
     // Update metadata (source of truth for list views)
     const metaRef = doc(db, 'manual_metadata', manualId);
     await updateDoc(metaRef, {
->>>>>>> origin/main
         isPaid,
         stripeSessionId,
         updatedAt: serverTimestamp(),
     });
-<<<<<<< HEAD
-=======
 
     // Note: If we wanted strict consistency, we could also update the 'manuals' doc,
     // but the requirement is that metadata drives the UI state.
->>>>>>> origin/main
 }
 
 // Migration helper - move localStorage data to Firestore
@@ -287,8 +233,6 @@ export async function migrateLocalStorageToFirestore(uid: string) {
         throw error;
     }
 }
-<<<<<<< HEAD
-=======
 
 /**
  * Migration Script: Backfill manual_metadata from existing manuals
@@ -344,4 +288,3 @@ export async function migrateManualsToMetadata() {
     }
     console.log(`Migration complete. Processed ${count} documents.`);
 }
->>>>>>> origin/main
