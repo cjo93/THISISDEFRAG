@@ -98,7 +98,7 @@ export default function Privacy() {
           <div className="flex justify-center pt-20">
             <Link
               to="/"
-              className="h-20 px-16 inline-flex items-center justify-center bg-white text-black text-[10px] tracking-[0.5em] font-bold hover:bg-slate-200 transition-all duration-700 rounded-full uppercase shadow-2xl italic"
+              className="h-20 px-16 inline-flex items-center justify-center bg-white text-black text-[10px] tracking-[0.5em] font-bold hover:bg-slate-200 transition-all duration-700 rounded-none uppercase shadow-2xl italic"
             >
               Back_To_Root
             </Link>

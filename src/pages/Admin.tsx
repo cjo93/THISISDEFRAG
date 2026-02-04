@@ -67,7 +67,7 @@ export default function Admin() {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-24">
                     <div className="space-y-8">
-                        <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/[0.03] text-white/40 text-[10px] tracking-[0.4em] uppercase rounded-full shadow-2xl">
+                        <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/[0.03] text-white/40 text-[10px] tracking-[0.4em] uppercase rounded-none shadow-2xl">
                             <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)] animate-pulse" />
                             Admin_Secure_Protocol
                         </div>
@@ -88,7 +88,7 @@ export default function Admin() {
                                 localStorage.removeItem('defrag_owner_bypass');
                                 navigate('/signin');
                             }}
-                            className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 rounded-full text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"
+                            className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 rounded-none text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"
                         >
                             Log_Out <LogOut size={14} />
                         </button>
@@ -170,8 +170,8 @@ export default function Admin() {
                                 <div className="space-y-8">
                                     <label className="block text-[10px] tracking-[0.5em] text-white/20 uppercase italic px-4">Authorization_Temporal_Scale</label>
                                     <div className="grid grid-cols-2 gap-8">
-                                        <button className="h-20 bg-white/5 border border-white/10 rounded-full text-[10px] tracking-[0.5em] uppercase hover:bg-white/10 transition-all font-bold italic text-white/40">30_Day_Grant</button>
-                                        <button className="h-20 bg-white text-black rounded-full text-[10px] tracking-[0.5em] uppercase hover:bg-slate-200 transition-all font-bold italic shadow-2xl">Lifetime_Authorized</button>
+                                        <button className="h-20 bg-white/5 border border-white/10 rounded-none text-[10px] tracking-[0.5em] uppercase hover:bg-white/10 transition-all font-bold italic text-white/40">30_Day_Grant</button>
+                                        <button className="h-20 bg-white text-black rounded-none text-[10px] tracking-[0.5em] uppercase hover:bg-slate-200 transition-all font-bold italic shadow-2xl">Lifetime_Authorized</button>
                                     </div>
                                 </div>
                                 <div className="space-y-8">
@@ -185,7 +185,7 @@ export default function Admin() {
                                 <button
                                     onClick={handleGenerateCard}
                                     disabled={isGenerating}
-                                    className="w-full h-24 bg-white/[0.03] border border-white/10 text-white/20 rounded-full text-[10px] tracking-[0.6em] font-black uppercase hover:bg-white hover:text-black transition-all duration-700 disabled:opacity-20 italic flex items-center justify-center gap-6 shadow-2xl"
+                                    className="w-full h-24 bg-white/[0.03] border border-white/10 text-white/20 rounded-none text-[10px] tracking-[0.6em] font-black uppercase hover:bg-white hover:text-black transition-all duration-700 disabled:opacity-20 italic flex items-center justify-center gap-6 shadow-2xl"
                                 >
                                     {isGenerating ? (
                                         <>
@@ -287,7 +287,7 @@ export default function Admin() {
                                     alert('Access protocol link copied to terminal buffer.');
                                     setShowCard(false);
                                 }}
-                                className="w-full h-24 bg-white text-black rounded-full font-bold text-[10px] tracking-[0.6em] uppercase hover:bg-slate-200 transition-all duration-700 shadow-2xl flex items-center justify-center gap-6"
+                                className="w-full h-24 bg-white text-black rounded-none font-bold text-[10px] tracking-[0.6em] uppercase hover:bg-slate-200 transition-all duration-700 shadow-2xl flex items-center justify-center gap-6"
                             >
                                 Copy_Access_Link
                                 <ArrowRight size={20} />

@@ -188,7 +188,7 @@ export default function Checkout() {
           <button
             onClick={handleCheckout}
             disabled={isLoading}
-            className="w-full h-24 bg-white text-black font-bold tracking-[0.5em] rounded-full hover:bg-slate-200 transition-all duration-700 disabled:bg-white/10 disabled:text-white/10 disabled:cursor-not-allowed flex items-center justify-center gap-6 shadow-2xl group uppercase text-[10px]"
+            className="w-full h-24 bg-white text-black font-bold tracking-[0.5em] rounded-none hover:bg-slate-200 transition-all duration-700 disabled:bg-white/10 disabled:text-white/10 disabled:cursor-not-allowed flex items-center justify-center gap-6 shadow-2xl group uppercase text-[10px]"
           >
             {isLoading ? (
               <>
