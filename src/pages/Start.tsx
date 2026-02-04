@@ -67,7 +67,7 @@ export default function Start() {
       } catch (error) {
         console.error("Calculation Error", error);
         setIsLoading(false);
-        alert("Computation Variance Detected. Verify temporal inputs.");
+        alert("Calculation failed. Please check date format.");
       }
     }, 1200);
   };

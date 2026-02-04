@@ -44,31 +44,6 @@ export default function Landing() {
     const container = document.getElementById('landing-container');
     if (!container) return;
 
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrollTop = container.scrollTop;
-
-          setScrollY((prev) => {
-            // Optimization: Stop updating state once the hero section is fully hidden (opacity reaches 0 at 600px).
-            // This prevents unnecessary re-renders when scrolling through the rest of the page.
-            if (prev > 600 && scrollTop > 600) {
-              return prev;
-            }
-            return scrollTop;
-          });
-
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    container.addEventListener('scroll', handleScroll, { passive: true });
-    return () => container.removeEventListener('scroll', handleScroll);
-  }, []);
     const update = () => {
       const scrollTop = container.scrollTop;
 
