@@ -223,3 +223,32 @@ button, a {
   .safe-top { padding-top: env(safe-area-inset-top); }
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }
+
+/* MOBILE TYPOGRAPHY OPTIMIZATIONS */
+@media (max-width: 640px) {
+  /* Tighter spacing for large headings on mobile */
+  h1, .h1 {
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  /* Prevent overflow on very large text classes */
+  .text-6xl {
+    font-size: 2.75rem !important; /* Force smaller size on mobile */
+    line-height: 1.1;
+  }
+
+  .text-5xl {
+    font-size: 2.5rem !important;
+  }
+
+  .text-4xl {
+    font-size: 2rem !important;
+  }
+
+  /* Better reading experience */
+  p {
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+}

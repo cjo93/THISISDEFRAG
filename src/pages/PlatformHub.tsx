@@ -1,26 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Lock } from 'lucide-react';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import DevAccessModal from '../components/DevAccessModal';
 import LivingBackground from '../components/visuals/LivingBackground';
 import SchematicImage from '../components/visuals/SchematicImage';
 
 const PlatformHub: React.FC = () => {
-    const [showDevModal, setShowDevModal] = useState(false);
-
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white/20">
             <Header />
 
             {/* HERO — 'THE MONOLITH' (Centered Pivot) */}
-            <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+            <section className="min-h-screen grid place-items-center text-center px-6 relative overflow-hidden">
 
                 {/* REPLACED: Living Background Component */}
                 <LivingBackground />
 
-                <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center space-y-12">
+                <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 gap-12 justify-items-center">
 
                     {/* Status Pill */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/5 bg-black/40 backdrop-blur-md animate-fade-in">
@@ -242,7 +239,6 @@ const PlatformHub: React.FC = () => {
             </section>
 
             <Footer />
-            <DevAccessModal isOpen={showDevModal} onClose={() => setShowDevModal(false)} />
         </div>
     );
 };
