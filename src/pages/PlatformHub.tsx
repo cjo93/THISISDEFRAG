@@ -20,39 +20,39 @@ const PlatformHub: React.FC = () => {
         <div className="min-h-screen bg-black text-white selection:bg-white/10 overflow-x-hidden font-sans">
             <Header />
 
-            {/* HERO — Dramatic & High Hierarchy */}
-            <section className="min-h-screen flex flex-col justify-center px-6 pt-40 pb-20 bg-black relative overflow-hidden">
-                <div className="max-w-7xl mx-auto w-full relative z-10">
+            {/* HERO — Dramatic Correction */}
+            <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-32 pb-20 bg-black relative overflow-hidden">
+                <div className="max-w-4xl mx-auto w-full relative z-10 flex flex-col items-center">
 
-                    <span className="text-[10px] tracking-[0.3em] text-cyan-500 font-bold mb-8 block opacity-80 uppercase animate-fade-in">
-                        System_Online
-                    </span>
+                    <div className="mb-6 text-[11px] tracking-[0.5em] text-cyan-400 font-medium uppercase opacity-60 animate-fade-in">
+                        System Status: Operational
+                    </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-9xl font-extrabold tracking-tighter leading-[0.9] mb-8 text-white animate-slide-up">
+                    <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-none mb-6 text-white animate-slide-up">
                         RELATIONAL <br />
-                        <span className="font-light italic text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-white to-fuchsia-500">
-                            Intelligence
-                        </span>, <br />
+                        <span className="italic font-light text-slate-500">Intelligence</span> <br />
                         ENGINEERED.
                     </h1>
 
-                    <p className="text-lg md:text-2xl text-gray-400 leading-relaxed max-w-2xl mb-12 font-light animate-slide-up delay-100">
-                        A deterministic system for mapping <span className="text-white italic">human interaction</span>,
-                        pressure, and stability. Predict friction before it occurs.
+                    <p className="max-w-xl text-lg md:text-xl text-slate-400 leading-relaxed mb-12 animate-slide-up delay-100">
+                        Human systems fail under invisible pressure. <br />
+                        <span className="text-white font-bold">DEFRAG</span> provides the
+                        <span className="italic">deterministic infrastructure</span> to map and stabilize them.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4 animate-slide-up delay-200">
-                        <Link to="/start" className="px-10 py-4 bg-white text-black font-black uppercase tracking-widest hover:bg-cyan-400 transition-all flex items-center justify-center">
+                    <Link to="/start" className="relative group px-12 py-5 bg-black border border-white/10 overflow-hidden animate-slide-up delay-200">
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-cyan-500/20 via-fuchsia-500/20 to-lime-500/20"></div>
+
+                        <span className="relative z-10 text-white tracking-[0.3em] font-bold uppercase text-sm">
                             Initialize Mapping
-                        </Link>
-                        <Link to="/developer" className="px-10 py-4 border border-white/20 text-white font-medium hover:border-white transition-all uppercase tracking-widest flex items-center justify-center">
-                            Connect API
-                        </Link>
-                    </div>
+                        </span>
+
+                        <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 via-fuchsia-500 to-lime-400"></div>
+                    </Link>
                 </div>
 
                 {/* Subtle BG Glow */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-900/[0.05] rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/[0.04] rounded-full blur-[100px] pointer-events-none" />
             </section>
 
             {/* HOW IT WORKS (Mechanical Strip) */}
@@ -87,7 +87,7 @@ const PlatformHub: React.FC = () => {
 
                     <div className="grid lg:grid-cols-3 gap-8">
                         {/* ECHO */}
-                        <div className="p-10 border border-white/10 bg-black hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group">
+                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group">
                             <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ECHO</h3>
                             <p className="text-white/40 text-sm">Individual Telemetry</p>
                             <div className="mt-auto">
@@ -101,7 +101,7 @@ const PlatformHub: React.FC = () => {
                         </div>
 
                         {/* ORBIT */}
-                        <div className="p-10 border border-white/10 bg-black hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group overflow-hidden">
+                        <div className="p-10 border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/30 transition-all duration-500 flex flex-col h-96 relative group overflow-hidden">
                             {/* Subtle gradient background for premium feel */}
                             <div className="absolute inset-0 bg-gradient-to-bl from-white/[0.03] to-transparent pointer-events-none" />
                             <h3 className="text-3xl font-bold mb-2 text-white tracking-tighter">ORBIT</h3>
@@ -117,7 +117,7 @@ const PlatformHub: React.FC = () => {
                         </div>
 
                         {/* SIGNAL */}
-                        <div className="p-10 border border-white/5 bg-black/50 flex flex-col h-96 relative opacity-80">
+                        <div className="p-10 border border-white/5 bg-black/20 backdrop-blur-sm flex flex-col h-96 relative opacity-80">
                             <h3 className="text-3xl font-bold mb-2 text-white/50 tracking-tighter">SIGNAL</h3>
                             <p className="text-white/20 text-sm">Real-time Filtration</p>
 
