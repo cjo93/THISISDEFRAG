@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Pages
+import DesignSystem from './pages/DesignSystem';
 import Manuals from './pages/products/Manuals';
 import PlatformHub from './pages/PlatformHub'; // New Main Entry
 import Echo from './pages/Echo';
@@ -54,6 +55,7 @@ export default function AppRouter() {
       {/* --- MAIN PLATFORM --- */}
       {/* defrag.app root = Infrastructure Hub (ECHO/ORBIT/SIGNAL/API grid) */}
       <Route path="/" element={<PlatformHub />} />
+      <Route path="/design" element={<DesignSystem />} />
 
       {/* Product-specific landings */}
       {/* Product-specific landings */}

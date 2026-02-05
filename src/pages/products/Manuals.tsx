@@ -1,10 +1,9 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { trackEvent, AnalyticsEvents, initScrollTracking, ConversionFunnel } from '../../lib/analytics';
-import { ArrowRight, User, Users, Cpu, ShieldCheck, Microscope, Database, Terminal, Zap, Info, AlertTriangle } from 'lucide-react';
+import { ArrowRight, Users, Cpu, ShieldCheck, Terminal, Zap, AlertTriangle } from 'lucide-react';
 
 const ROTATING_WORDS = [
   "your partner",
@@ -46,7 +45,6 @@ export default function Landing() {
 
     const update = () => {
       const scrollTop = container.scrollTop;
-
       const heroOpacity = Math.max(0, 1 - scrollTop / 600);
       const heroScale = 1 + scrollTop * 0.0002;
 
@@ -67,7 +65,7 @@ export default function Landing() {
       }
     };
 
-    // Initial update in case of scroll restoration or non-zero start
+    // Initial update
     update();
 
     container.addEventListener('scroll', handleScroll, { passive: true });
@@ -92,7 +90,7 @@ export default function Landing() {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150vmax] h-[150vmax]"
             style={{
               background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 30%, transparent 70%)',
-              transform: `translate(-50%, -50%) scale(1)`,
+              transform: 'translate(-50%, -50%) scale(1)',
             }}
           />
         </div>
@@ -247,7 +245,7 @@ export default function Landing() {
               <p className="text-white/30 text-base leading-relaxed mb-12 flex-grow italic">One-time protocol generation. Understand your mechanical triggers and decision architecture.</p>
               <div className="space-y-4">
                 <Link to="/echo" className="block w-full h-16 bg-white text-black text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-slate-200 transition-all flex items-center justify-center uppercase">Generate_Manual</Link>
-                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">$29 One-Time</span>
+                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">9 One-Time</span>
               </div>
             </div>
 
@@ -263,7 +261,7 @@ export default function Landing() {
               <p className="text-white/30 text-base leading-relaxed mb-12 flex-grow italic">Real-time message filtering. Removes entropy markers before they trigger relational collapse.</p>
               <div className="space-y-4">
                 <button className="w-full h-16 border border-white/5 bg-white/[0.02] text-white/20 text-[10px] font-bold tracking-[0.4em] rounded-full cursor-not-allowed uppercase">Pending_Q2</button>
-                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">$9 / Cycle</span>
+                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase"> / Cycle</span>
               </div>
             </div>
 
@@ -279,7 +277,7 @@ export default function Landing() {
               <p className="text-white/30 text-base leading-relaxed mb-12 flex-grow italic">Multi-person system geometry. Identify friction points and stabilize group architectures.</p>
               <div className="space-y-4">
                 <Link to="/relational" className="block w-full h-16 bg-white text-black text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-slate-200 transition-all flex items-center justify-center uppercase">Map_System</Link>
-                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">$39 One-Time</span>
+                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">9 One-Time</span>
               </div>
             </div>
 
@@ -295,7 +293,7 @@ export default function Landing() {
               <p className="text-white/30 text-base leading-relaxed mb-12 flex-grow italic">Custom protocol integration. High-precision SEDA safety gating for private systems.</p>
               <div className="space-y-4">
                 <Link to="/developer" className="block w-full h-16 border border-white/10 bg-white/[0.02] text-white/40 text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-white/10 hover:text-white transition-all flex items-center justify-center uppercase">Enter_Dashboard</Link>
-                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">From $99 / Cycle</span>
+                <span className="block text-center text-white/10 text-[9px] font-mono tracking-widest uppercase">From 9 / Cycle</span>
               </div>
             </div>
           </div>
