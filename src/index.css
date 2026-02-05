@@ -1,126 +1,71 @@
-@import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* GLOBAL TYPOGRAPHY & RESET */
 :root {
-  --color-bg: #0F172A;
-  --color-text: #F8FAFC;
-  --color-accent: #64748B;
-}
+  /* Fluid Typography: Scales smoothly between mobile (14px) and desktop (18px) */
+  --font-body: clamp(14px, 1.2vw, 18px);
+  --font-header: clamp(24px, 3vw, 36px);
 
-html {
-  height: 100%;
-  height: -webkit-fill-available;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  /* The Container: Locks the app width to look like a dedicated device */
+  --app-max-width: 500px;
 }
 
 body {
+  background-color: #050505; /* Deep Void */
+  color: #e5e5e5;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: var(--font-body);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
   margin: 0;
-  min-height: 100%;
-  min-height: 100dvh;
-  min-height: -webkit-fill-available;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.75;
-  letter-spacing: 0.01em;
-  touch-action: manipulation;
   overflow-x: hidden;
-  position: relative;
-}
-
-/* HEADINGS */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  font-weight: 400;
-  color: #FFFFFF;
-}
-
-h1 {
-  letter-spacing: -0.03em;
-}
-
-/* UTILITIES */
-p {
-  margin-bottom: 1.5rem;
-}
-
-/* Cinematic Grain Overlay - Digital Vellum Texture */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 9999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 #root {
-  min-height: 100%;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #0a0a0a;
+  position: relative;
 }
 
-/* FORM ELEMENTS */
-input, select, textarea {
-  font-size: 16px !important;
-  -webkit-appearance: none;
-  appearance: none;
-  border-radius: 0;
-  letter-spacing: normal;
+/* --- ANIMATIONS --- */
+
+/* 1. Blinking Cursor (The 'Alive' Text) */
+.cursor-blink::after {
+  content: '▋';
+  margin-left: 4px;
+  animation: blink 1.2s step-end infinite;
+  color: #10b981; /* Emerald Green */
+  opacity: 0.8;
 }
 
-/* BUTTONS & INTERACTIONS */
-button, a {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+/* 2. Scanline Pulse (For Buttons) */
+.btn-alive {
+  position: relative;
+  overflow: hidden;
 }
 
-/* UTILITY CLASSES */
-.animate-fade-in {
-  animation: fadeIn 1s ease-out forwards;
+.btn-alive::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: scan 3s infinite;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* SAFARI & MOBILE FIXES */
-.fixed { -webkit-transform: translateZ(0); transform: translateZ(0); }
-.sticky { position: -webkit-sticky; position: sticky; }
-@supports (padding-top: env(safe-area-inset-top)) {
-  .safe-top { padding-top: env(safe-area-inset-top); }
-  .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+@keyframes scan {
+  0% { left: -100%; }
+  20% { left: 100%; }
+  100% { left: 100%; }
 }
