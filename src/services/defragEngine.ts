@@ -1,5 +1,5 @@
 
-import Astronomy from 'astronomy-engine';
+import * as Astronomy from 'astronomy-engine';
 import { UnitData, BirthData, ChartData, DefragUserProfile } from '../types';
 import { KNOWLEDGE_BASE } from '../data/knowledge_base';
 
