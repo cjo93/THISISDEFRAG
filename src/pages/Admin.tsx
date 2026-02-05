@@ -99,7 +99,7 @@ export default function Admin() {
                                 import('../lib/firebase').then(({ auth }) => auth.signOut());
                                 navigate('/signin');
                             }}
-                            className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 rounded-none text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"
+                            className="h-16 px-8 bg-white/5 border border-white/10 text-white/30 hover:bg-slate-500/10 hover:text-slate-500 hover:border-slate-500/20 rounded-none text-[10px] tracking-[0.4em] uppercase transition-all flex items-center gap-4 italic"
                         >
                             Log_Out <LogOut size={14} />
                         </button>
@@ -331,7 +331,7 @@ function StatCard({ label, value, trend, icon }: { label: string, value: string,
 }
 
 function StatusRow({ label, value, status, icon }: { label: string, value: string, status: 'good' | 'warning' | 'error', icon: React.ReactNode }) {
-    const color = status === 'good' ? 'text-white' : status === 'warning' ? 'text-white/40' : 'text-red-500';
+    const color = status === 'good' ? 'text-white' : status === 'warning' ? 'text-white/40' : 'text-slate-500';
     return (
         <div className="flex justify-between items-center py-6 border-b border-white/5 last:border-0 hover:bg-white/[0.01] px-4 rounded-2xl transition-all font-mono italic">
             <div className="flex items-center gap-6">
@@ -339,7 +339,7 @@ function StatusRow({ label, value, status, icon }: { label: string, value: strin
                 <span className="text-white/40 text-[10px] tracking-[0.4em] uppercase">{label}</span>
             </div>
             <div className="flex items-center gap-3">
-                <span className={`h-1.5 w-1.5 rounded-full ${status === 'good' ? 'bg-white shadow-[0_0_8px_white]' : 'bg-red-500 shadow-[0_0_8px_red]'}`} />
+                <span className={`h-1.5 w-1.5 rounded-full ${status === 'good' ? 'bg-white shadow-[0_0_8px_white]' : 'bg-slate-500 shadow-[0_0_8px_red]'}`} />
                 <span className={`text-[10px] tracking-[0.4em] ${color}`}>{value}</span>
             </div>
         </div>

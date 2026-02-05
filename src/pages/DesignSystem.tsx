@@ -54,7 +54,7 @@ export default function DesignSystem() {
                         <div className="text-xs font-mono">
                             <div className="text-white">Deep Slate</div>
                             <div className="text-white/40">#0F172A</div>
-                            <div className="text-emerald-500">Background</div>
+                            <div className="text-slate-500">Background</div>
                         </div>
                     </div>
                     <div className="space-y-2">
@@ -62,18 +62,18 @@ export default function DesignSystem() {
                         <div className="text-xs font-mono">
                             <div className="text-white">Off White</div>
                             <div className="text-white/40">#F8FAFC</div>
-                            <div className="text-emerald-500">Text / Accent</div>
+                            <div className="text-slate-500">Text / Accent</div>
                         </div>
                     </div>
                     <div className="space-y-2">
-                        <div className="w-full h-24 bg-emerald-500 border border-white/10 rounded-lg"></div>
+                        <div className="w-full h-24 bg-slate-500 border border-white/10 rounded-lg"></div>
                         <div className="text-xs font-mono">
                             <div className="text-white">Emerald</div>
                             <div className="text-white/40">Token: Safe</div>
                         </div>
                     </div>
                     <div className="space-y-2">
-                        <div className="w-full h-24 bg-purple-500 border border-white/10 rounded-lg"></div>
+                        <div className="w-full h-24 bg-slate-500 border border-white/10 rounded-lg"></div>
                         <div className="text-xs font-mono">
                             <div className="text-white">Purple</div>
                             <div className="text-white/40">Token: Process</div>
@@ -98,7 +98,7 @@ export default function DesignSystem() {
                     </div>
                     <div className="p-8 border border-white/10 bg-white/5 backdrop-blur-md max-w-md">
                         <h4 className="text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
-                            <Activity size={16} className="text-emerald-500" /> Card Element
+                            <Activity size={16} className="text-slate-500" /> Card Element
                         </h4>
                         <p className="text-sm text-white/60 mb-6">
                             Glassmorphism card with 1px border and backdrop blur. High-end, precise feel.

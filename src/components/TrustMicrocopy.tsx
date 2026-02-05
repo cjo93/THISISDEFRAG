@@ -15,7 +15,7 @@ import { Shield, AlertTriangle, CheckCircle } from 'lucide-react';
 export function InfrastructureStatement() {
     return (
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-white/60 tracking-wide">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
             We are infrastructure, not a personality app.
         </div>
     );
@@ -40,9 +40,9 @@ export function SafetyStandardExplainer({ variant = 'full' }: { variant?: 'full'
     if (variant === 'compact') {
         return (
             <div className="flex items-start gap-3 p-4 bg-white/5 border border-white/10 rounded-lg">
-                <Shield size={18} className="text-orange-500 mt-0.5 flex-shrink-0" />
+                <Shield size={18} className="text-slate-500 mt-0.5 flex-shrink-0" />
                 <p className="text-xs text-white/50 leading-relaxed">
-                    Every output passes <span className="text-orange-400 font-mono">SEDA</span> safety scoring.
+                    Every output passes <span className="text-slate-400 font-mono">SEDA</span> safety scoring.
                     At ≤30, we stop analysis and show grounding protocols only.
                     This override is non-negotiable.
                 </p>
@@ -53,31 +53,31 @@ export function SafetyStandardExplainer({ variant = 'full' }: { variant?: 'full'
     return (
         <div className="p-6 bg-white/[0.02] border border-white/10 rounded-2xl space-y-4">
             <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-orange-500/10">
-                    <Shield size={20} className="text-orange-500" />
+                <div className="p-2 rounded-lg bg-slate-500/10">
+                    <Shield size={20} className="text-slate-500" />
                 </div>
                 <h3 className="text-lg font-light text-white">Safety Standard</h3>
             </div>
 
             <p className="text-white/50 text-sm leading-relaxed">
-                Every DEFRAG output passes <span className="text-orange-400 font-mono">SEDA</span> (Safety-Enhanced Dynamic Assessment) before reaching you.
+                Every DEFRAG output passes <span className="text-slate-400 font-mono">SEDA</span> (Safety-Enhanced Dynamic Assessment) before reaching you.
             </p>
 
             <div className="space-y-2">
                 <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle size={14} className="text-green-500" />
+                    <CheckCircle size={14} className="text-slate-500" />
                     <span className="text-white/60">61–100: Full analysis available</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle size={14} className="text-yellow-500" />
+                    <CheckCircle size={14} className="text-slate-500" />
                     <span className="text-white/60">46–60: Mild constraints applied</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                    <AlertTriangle size={14} className="text-orange-500" />
+                    <AlertTriangle size={14} className="text-slate-500" />
                     <span className="text-white/60">30–45: Heavy constraints + warnings</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
-                    <AlertTriangle size={14} className="text-red-500" />
+                    <AlertTriangle size={14} className="text-slate-500" />
                     <span className="text-white/60">≤30: Grounding protocols only (esoteric content blocked)</span>
                 </div>
             </div>
@@ -121,9 +121,9 @@ export function CostOfError({ audience }: CostOfErrorProps) {
     const data = COST_DATA[audience];
 
     return (
-        <div className="p-4 bg-gradient-to-r from-orange-500/5 to-transparent border-l-2 border-orange-500/50">
+        <div className="p-4 bg-gradient-to-r from-slate-500/5 to-transparent border-l-2 border-slate-500/50">
             <p className="text-white/70 text-sm">
-                The {data.item} costs <span className="text-orange-400 font-bold">{data.cost}</span>.
+                The {data.item} costs <span className="text-slate-400 font-bold">{data.cost}</span>.
             </p>
             <p className="text-white/50 text-xs mt-1">
                 {data.solution} is <span className="text-white/70">{data.price}</span>.

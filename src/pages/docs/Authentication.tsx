@@ -21,15 +21,15 @@ const Authentication: React.FC = () => {
             <section className="mb-12">
                 <h2>Generating Keys</h2>
                 <ol className="list-decimal pl-6 space-y-4 text-white/80">
-                    <li>Log in to the <a href="/dashboard" className="text-cyan-400">Dashboard</a>.</li>
+                    <li>Log in to the <a href="/dashboard" className="text-slate-400">Dashboard</a>.</li>
                     <li>Navigate to the <strong>API Keys</strong> section.</li>
                     <li>Click <strong>Generate New Key</strong>.</li>
                     <li>Copy the key immediately. It will hash securely and never be shown again.</li>
                 </ol>
             </section>
 
-            <section className="mb-12 p-6 bg-red-900/20 border border-red-500/30 rounded-lg">
-                <h3 className="text-red-400 font-bold mb-2">Security Warning</h3>
+            <section className="mb-12 p-6 bg-slate-900/20 border border-slate-500/30 rounded-lg">
+                <h3 className="text-slate-400 font-bold mb-2">Security Warning</h3>
                 <p className="text-white/80 text-sm">Never expose your API keys in client-side code (browsers, mobile apps). Always proxy requests through your own backend server.</p>
             </section>
         </DocLayout>

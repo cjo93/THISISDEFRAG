@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { ArrowRight, Lock, Loader2, Sparkles, AlertTriangle } from 'lucide-react';
 import { inversionEngineInstance, ShadowInversionResult } from '../services/InversionEngine';
 
@@ -47,7 +47,7 @@ export default function Inversion() {
                 {!result ? (
                     <div className="w-full max-w-2xl animate-slide-up">
                         <div className="relative group">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-white/5 to-fuchsia-500/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                            <div className="absolute -inset-1 bg-gradient-to-r from-slate-500/20 via-white/5 to-fuchsia-500/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
                             <div className="relative bg-[#050505] border border-white/10 rounded-2xl p-2">
                                 <textarea
                                     value={inputText}
@@ -77,10 +77,10 @@ export default function Inversion() {
 
                         {/* 1. Identified Pattern (Visible) */}
                         <div className="bg-zinc-900/30 border border-white/10 rounded-3xl p-8 backdrop-blur-xl relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+                            <div className="absolute top-0 left-0 w-1 h-full bg-slate-500"></div>
                             <div className="flex items-start justify-between mb-4">
-                                <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-red-500">Identified_Pattern</h3>
-                                <AlertTriangle size={16} className="text-red-500" />
+                                <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-slate-500">Identified_Pattern</h3>
+                                <AlertTriangle size={16} className="text-slate-500" />
                             </div>
                             <div className="text-4xl font-light text-white mb-2 tracking-tight">
                                 {result.identified_pattern}
@@ -95,7 +95,7 @@ export default function Inversion() {
                             {/* The "Locked" Content Preview */}
                             <div className="bg-[#0A0A0A] border border-white/10 rounded-3xl p-8 blur-sm select-none opacity-50 relative z-0">
                                 <div className="flex items-start justify-between mb-8">
-                                    <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-green-500">Corrective_Frequency</h3>
+                                    <h3 className="text-xs font-bold tracking-[0.3em] uppercase text-slate-500">Corrective_Frequency</h3>
                                 </div>
                                 <div className="text-3xl font-light text-white mb-8 tracking-tight">
                                     {result.corrective_frequency}
@@ -110,7 +110,7 @@ export default function Inversion() {
                             {/* The Paywall Overlay (Stripe Integrated Look) */}
                             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-6">
                                 <div className="bg-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-8 max-w-sm w-full text-center shadow-2xl relative overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-fuchsia-500/10 pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-500/10 to-fuchsia-500/10 pointer-events-none" />
 
                                     <Lock size={32} className="mx-auto text-white mb-6" strokeWidth={1} />
 

@@ -5,7 +5,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { isSignInWithEmailLink, signInWithEmailLink } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 import { ShieldCheck, ShieldAlert, Terminal, Activity } from 'lucide-react';
-import Header from '../components/Header';
+import Header from '../components/layout/Header';
 
 export default function SignInVerify() {
     const navigate = useNavigate();
@@ -107,11 +107,11 @@ export default function SignInVerify() {
 
                         {status === 'error' && (
                             <div className="text-center space-y-12 py-8">
-                                <div className="h-24 w-24 rounded-full bg-red-500/5 border border-red-500/10 flex items-center justify-center mx-auto shadow-2xl">
-                                    <ShieldAlert size={40} strokeWidth={1} className="text-red-500" />
+                                <div className="h-24 w-24 rounded-full bg-slate-500/5 border border-slate-500/10 flex items-center justify-center mx-auto shadow-2xl">
+                                    <ShieldAlert size={40} strokeWidth={1} className="text-slate-500" />
                                 </div>
                                 <div className="space-y-6">
-                                    <h2 className="text-3xl font-light text-red-500 uppercase italic tracking-tighter">Authorization_Failure</h2>
+                                    <h2 className="text-3xl font-light text-slate-500 uppercase italic tracking-tighter">Authorization_Failure</h2>
                                     <p className="text-white/30 text-lg italic pr-4">{message}</p>
                                 </div>
                                 <button

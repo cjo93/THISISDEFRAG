@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { Shield, Scale, Database, Zap, ArrowRight, Mail, Terminal, Activity, Cpu } from 'lucide-react';
 import DevAccessModal from '../components/DevAccessModal';
 
