@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2, Zap, Flame } from 'lucide-react';
 import PulseVisualizer from '../components/echo/PulseVisualizer';
@@ -32,7 +32,7 @@ export default function Echo() {
                 <section className="relative pt-40 pb-32 px-8 overflow-hidden min-h-[80vh] flex flex-col items-center justify-center text-center">
                     <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-                            <span className="w-1 h-1 rounded-full bg-orange-500 animate-pulse"></span>
+                            <span className="w-1 h-1 rounded-full bg-slate-500 animate-pulse"></span>
                             <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">Module_01</span>
                         </div>
                         <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase animate-fade-in">ECHO</h1>
@@ -53,7 +53,7 @@ export default function Echo() {
 
     // APP VIEW (Data Present)
     return (
-        <div className="min-h-screen bg-black text-white font-mono selection:bg-orange-500/30">
+        <div className="min-h-screen bg-black text-white font-mono selection:bg-slate-500/30">
             {/* Nav Bar for App Mode */}
             <div className="fixed top-0 left-0 w-full h-16 border-b border-white/10 bg-black/50 backdrop-blur-md z-50 flex items-center justify-between px-6">
                 <Link to="/dashboard" className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors">
@@ -67,7 +67,7 @@ export default function Echo() {
                 <header className="mb-20">
                     <h1 className="text-6xl font-light text-white tracking-tighter uppercase italic mb-4">ECHO_Output</h1>
                     <p className="text-white/40 text-sm tracking-widest uppercase flex items-center gap-3">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span className="w-2 h-2 bg-slate-500 rounded-full animate-pulse"></span>
                         Target: {userData?.name || 'Unknown_Unit'}
                     </p>
                 </header>
@@ -77,18 +77,18 @@ export default function Echo() {
                     <div className="space-y-12">
 
                         {/* Sun Sign (Drive) */}
-                        <div className="glass-panel rounded-[20px] p-10 relative overflow-hidden group hover:border-orange-500/30 transition-colors duration-500">
+                        <div className="glass-panel rounded-[20px] p-10 relative overflow-hidden group hover:border-slate-500/30 transition-colors duration-500">
                              {/* Background Grid Texture */}
                             <div className="absolute inset-0 opacity-10" style={{
                                 backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
                                 backgroundSize: '20px 20px'
                             }} />
 
-                            <div className="absolute top-8 right-8 text-orange-500/10">
+                            <div className="absolute top-8 right-8 text-slate-500/10">
                                 <Zap size={80} strokeWidth={1} />
                             </div>
 
-                            <h3 className="text-xs text-orange-500 font-bold tracking-[0.4em] uppercase mb-6 relative z-10">Core_Drive // Sun</h3>
+                            <h3 className="text-xs text-slate-500 font-bold tracking-[0.4em] uppercase mb-6 relative z-10">Core_Drive // Sun</h3>
                             <div className="text-5xl font-light text-white mb-4 uppercase relative z-10">{userData?.sun_sign || 'Calculating...'}</div>
                             <p className="text-white/50 text-sm leading-relaxed relative z-10">
                                 The primary engine of your operational identity. This determines how you consume energy and where you direct your focus.
@@ -96,18 +96,18 @@ export default function Echo() {
                         </div>
 
                         {/* Mars Sign (Action) */}
-                        <div className="glass-panel rounded-[20px] p-10 relative overflow-hidden group hover:border-red-500/30 transition-colors duration-500">
+                        <div className="glass-panel rounded-[20px] p-10 relative overflow-hidden group hover:border-slate-500/30 transition-colors duration-500">
                              {/* Background Grid Texture */}
                              <div className="absolute inset-0 opacity-10" style={{
                                 backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
                                 backgroundSize: '20px 20px'
                             }} />
 
-                            <div className="absolute top-8 right-8 text-red-500/10">
+                            <div className="absolute top-8 right-8 text-slate-500/10">
                                 <Flame size={80} strokeWidth={1} />
                             </div>
 
-                            <h3 className="text-xs text-red-500 font-bold tracking-[0.4em] uppercase mb-6 relative z-10">Action_Vector // Mars</h3>
+                            <h3 className="text-xs text-slate-500 font-bold tracking-[0.4em] uppercase mb-6 relative z-10">Action_Vector // Mars</h3>
                             <div className="text-5xl font-light text-white mb-4 uppercase relative z-10">{userData?.mars_sign || 'Calculating...'}</div>
                             <p className="text-white/50 text-sm leading-relaxed relative z-10">
                                 The mechanism of defense and assertion. This defines how you handle conflict and execute tasks.

@@ -7,10 +7,10 @@ const APIEndpoint: React.FC<{
     auth?: string
 }> = ({ method, path, description, auth }) => {
     const methodColors = {
-        GET: 'bg-blue-500/20 text-blue-400',
-        POST: 'bg-green-500/20 text-green-400',
-        PUT: 'bg-orange-500/20 text-orange-400',
-        DELETE: 'bg-red-500/20 text-red-400'
+        GET: 'bg-slate-500/20 text-slate-400',
+        POST: 'bg-slate-500/20 text-slate-400',
+        PUT: 'bg-slate-500/20 text-slate-400',
+        DELETE: 'bg-slate-500/20 text-slate-400'
     };
 
     return (

@@ -1,7 +1,8 @@
-
 import React from 'react';
-import { ArrowRight, Code, Shield, Zap, Lock, Activity, Terminal, ExternalLink, Globe, Cpu, Layers, Box } from 'lucide-react';
+import { Shield, Layers, Box, Terminal, Cpu, Activity, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from '../../components/layout/Header';
+import Footer from '../../components/layout/Footer';
 
 const useIsDevPilot = () => {
     const user = JSON.parse(localStorage.getItem('defrag_user') || '{}');
@@ -10,97 +11,97 @@ const useIsDevPilot = () => {
 
 export default function DeveloperIndex() {
     const isDevPilot = useIsDevPilot();
-    if (isDevPilot) return <FullDevDashboard />;
-    return <DeveloperLanding />;
+    return (
+      <div className="min-h-screen bg-[#0F172A] text-[#F8FAFC] font-sans selection:bg-[#64748B] selection:text-white">
+        <Header />
+        {isDevPilot ? <FullDevDashboard /> : <DeveloperLanding />}
+        <Footer />
+      </div>
+    );
 }
 
-// Public Developer Landing (Refactored)
+// Public Developer Landing
 function DeveloperLanding() {
     return (
-        <div className="min-h-screen bg-black text-white selection:bg-white/10 font-sans">
-
+        <main className="relative z-10 pt-32 pb-20 px-6">
             {/* HERO */}
-            <section className="pt-40 pb-32 px-8 flex flex-col items-center justify-center text-center min-h-[80vh]">
-                <div className="max-w-4xl mx-auto relative z-10">
-                    <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase">
-                        Developer Portal
-                    </h1>
-                    <p className="text-xl sm:text-3xl text-white/50 max-w-2xl mx-auto leading-relaxed font-light mb-16 italic">
-                        Build with deterministic relational data.
-                    </p>
-                    <p className="text-lg text-white/30 max-w-2xl mx-auto leading-relaxed font-light mb-20">
-                        The DEFRAG API allows developers to integrate human-system safety directly into their products.
-                        <br />
-                        Every request is gated. Every output is constrained.
-                        <br /><br />
-                        No hallucination. No drift.
-                    </p>
-
-                    <div className="flex justify-center w-full">
-                        <a href="mailto:api@defrag.app?subject=Request Developer Key" className="h-14 px-10 flex items-center justify-center bg-white text-black text-sm tracking-widest font-bold hover:bg-slate-200 transition-all duration-300 uppercase shadow-lg">
-                            Request Developer Key
-                        </a>
+            <section className="min-h-[70vh] flex items-center justify-center">
+                <div className="max-w-7xl mx-auto grid grid-cols-12 gap-4 w-full">
+                     <div className="col-span-12 md:col-span-8 md:col-start-3 text-center space-y-12">
+                         <div className="flex justify-center mb-8">
+                             <div className="w-px h-24 bg-gradient-to-b from-transparent to-white/20"></div>
+                         </div>
+                        <h1 className="text-6xl md:text-8xl font-serif text-white tracking-tight leading-none">
+                            Developer <br />
+                            <span className="italic text-[#64748B]">Console.</span>
+                        </h1>
+                        <p className="text-lg md:text-xl text-[#94A3B8] font-light max-w-2xl mx-auto leading-relaxed">
+                            Build with deterministic relational data. The DEFRAG API allows developers to integrate human-system safety directly into their products.
+                        </p>
+                        <div className="flex justify-center pt-8">
+                            <a
+                                href="mailto:api@defrag.app?subject=Request Developer Key"
+                                className="group relative inline-flex items-center justify-center px-12 py-5 border border-[#F8FAFC]/20 hover:border-[#F8FAFC] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-all duration-500"
+                            >
+                                <span className="text-sm font-bold tracking-[0.2em] uppercase">Request Key</span>
+                                <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </div>
                     </div>
                 </div>
-                {/* Background Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-white/[0.02] rounded-full blur-[150px] pointer-events-none" />
             </section>
 
             {/* CAPABILITIES */}
-            <section className="py-40 bg-zinc-950 border-t border-white/10 px-8">
+            <section className="py-32 border-t border-white/5">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-24">
-                        <h2 className="text-4xl font-light text-white tracking-wide uppercase">What You Can Build</h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-10">
-                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
-                            <Shield className="text-white/40 mb-6" size={32} strokeWidth={1} />
-                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Safer AI Interfaces</h3>
-                            <p className="text-white/40 leading-relaxed text-sm">
+                    <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                        <div className="bg-[#0F172A] p-12 border border-transparent hover:bg-[#1E293B] transition-all duration-500 group">
+                            <Shield className="text-[#64748B] mb-6 group-hover:text-white transition-colors" size={24} strokeWidth={1} />
+                            <h3 className="text-xl font-serif text-white italic mb-4">Safety Layer</h3>
+                            <p className="text-sm text-[#94A3B8] leading-relaxed">
                                 Embed constraints that prevent AI agents from triggering relational degradation.
                             </p>
                         </div>
-                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
-                            <Layers className="text-white/40 mb-6" size={32} strokeWidth={1} />
-                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Context-Aware Systems</h3>
-                            <p className="text-white/40 leading-relaxed text-sm">
+                        <div className="bg-[#0F172A] p-12 border border-transparent hover:bg-[#1E293B] transition-all duration-500 group">
+                            <Layers className="text-[#64748B] mb-6 group-hover:text-white transition-colors" size={24} strokeWidth={1} />
+                            <h3 className="text-xl font-serif text-white italic mb-4">Context Awareness</h3>
+                            <p className="text-sm text-[#94A3B8] leading-relaxed">
                                 Applications that adjust their behavior based on the user's current relational load.
                             </p>
                         </div>
-                        <div className="p-10 border border-white/5 bg-black hover:border-white/20 transition-all duration-300">
-                            <Box className="text-white/40 mb-6" size={32} strokeWidth={1} />
-                            <h3 className="text-xl font-light text-white mb-4 uppercase tracking-wide">Human-Centric Apps</h3>
-                            <p className="text-white/40 leading-relaxed text-sm">
+                        <div className="bg-[#0F172A] p-12 border border-transparent hover:bg-[#1E293B] transition-all duration-500 group">
+                            <Box className="text-[#64748B] mb-6 group-hover:text-white transition-colors" size={24} strokeWidth={1} />
+                            <h3 className="text-xl font-serif text-white italic mb-4">Human Centric</h3>
+                            <p className="text-sm text-[#94A3B8] leading-relaxed">
                                 Deepen user trust by enforcing mechanical boundaries in social implementations.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
     );
 }
 
-// Monochrome Pilot Dashboard (Preserved but styled)
+// Monochrome Pilot Dashboard
 function FullDevDashboard() {
     return (
-        <div className="bg-black min-h-screen text-white p-8 font-sans">
-            <div className="max-w-7xl mx-auto space-y-24 py-12">
+        <main className="relative z-10 pt-32 pb-20 px-6">
+            <div className="max-w-7xl mx-auto space-y-24">
                 {/* Hero */}
-                <div className="space-y-10">
-                    <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-white/5 text-white/50 text-xs tracking-widest uppercase">
-                        <span className="w-2 h-2 bg-white animate-pulse shadow-glow"></span>
+                <div className="space-y-8 border-b border-white/5 pb-20">
+                    <div className="inline-flex items-center gap-3 px-3 py-1 border border-white/10 bg-white/5 text-[#64748B] text-[10px] tracking-[0.2em] uppercase">
+                        <span className="w-1.5 h-1.5 bg-slate-500/50 rounded-full animate-pulse"></span>
                         Terminal_Active
                     </div>
-                    <h1 className="text-6xl md:text-8xl font-light text-white tracking-tighter leading-none">
-                        L0 <span className="text-white/40 italic">Control.</span>
+                    <h1 className="text-6xl md:text-8xl font-serif text-white tracking-tight leading-none">
+                        L0 <span className="italic text-[#64748B]">Control.</span>
                     </h1>
-                    <div className="flex flex-wrap gap-6 pt-6 mb-12">
-                        <Link to="/docs/getting-started" className="h-14 px-8 flex items-center justify-center bg-white text-black font-bold tracking-widest uppercase hover:bg-slate-200 transition-all shadow-lg text-sm">
+                    <div className="flex flex-wrap gap-6 pt-6">
+                        <Link to="/docs/getting-started" className="h-14 px-8 flex items-center justify-center bg-white text-[#0F172A] font-bold tracking-[0.2em] uppercase hover:bg-[#E2E8F0] transition-all text-xs">
                             Initialize Keys
                         </Link>
-                        <Link to="/docs/api-reference" className="h-14 px-8 flex items-center justify-center bg-transparent text-white border border-white/20 font-bold tracking-widest uppercase hover:bg-white/10 transition-all text-sm">
+                        <Link to="/docs/api-reference" className="h-14 px-8 flex items-center justify-center bg-transparent text-white border border-white/20 font-bold tracking-[0.2em] uppercase hover:border-white transition-all text-xs">
                             Read Specs
                         </Link>
                     </div>
@@ -108,22 +109,22 @@ function FullDevDashboard() {
 
                 {/* Quick Status */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <StatusCard icon={<Terminal size={20} strokeWidth={1.5} />} label="System_Status" value="OPERATIONAL" />
-                    <StatusCard icon={<Cpu size={20} strokeWidth={1.5} />} label="Auth_Layer" value="ENCRYPTED" />
-                    <StatusCard icon={<Activity size={20} strokeWidth={1.5} />} label="Coherence" value="OPTIMAL" />
+                    <StatusCard icon={<Terminal size={20} strokeWidth={1} />} label="System_Status" value="OPERATIONAL" />
+                    <StatusCard icon={<Cpu size={20} strokeWidth={1} />} label="Auth_Layer" value="ENCRYPTED" />
+                    <StatusCard icon={<Activity size={20} strokeWidth={1} />} label="Coherence" value="OPTIMAL" />
                 </div>
             </div>
-        </div>
+        </main>
     );
 }
 
 function StatusCard({ icon, label, value }: { icon: React.ReactNode, label: string, value: string }) {
     return (
-        <div className="p-10 bg-white/[0.02] border border-white/5 flex items-center gap-8 hover:bg-white/[0.04] transition-colors group">
-            <div className="text-white/40 group-hover:text-white transition-colors">{icon}</div>
+        <div className="p-8 border border-white/10 bg-[#0F172A] flex items-center gap-6 hover:border-white/20 transition-colors group">
+            <div className="text-[#64748B] group-hover:text-white transition-colors">{icon}</div>
             <div>
-                <p className="text-[10px] text-white/30 font-mono tracking-widest uppercase mb-1">{label}</p>
-                <p className="font-mono text-xl font-bold tracking-tight text-white">{value}</p>
+                <p className="text-[10px] text-[#64748B] tracking-[0.2em] uppercase mb-2">{label}</p>
+                <p className="font-serif text-xl font-light text-white italic tracking-wide">{value}</p>
             </div>
         </div>
     );

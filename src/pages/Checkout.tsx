@@ -2,8 +2,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics';
 import { ShieldCheck, Lock, CreditCard, ArrowRight, Zap, Info, Terminal, Activity } from 'lucide-react';
 
@@ -179,8 +179,8 @@ export default function Checkout() {
           </div>
 
           {error && (
-            <div className="p-10 rounded-[40px] border border-red-500/10 bg-red-500/5 text-center animate-shake">
-              <p className="text-lg font-light text-red-500/60 italic uppercase tracking-widest">{error}</p>
+            <div className="p-10 rounded-[40px] border border-slate-500/10 bg-slate-500/5 text-center animate-shake">
+              <p className="text-lg font-light text-slate-500/60 italic uppercase tracking-widest">{error}</p>
             </div>
           )}
 

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
+import Header from '../components/layout/Header';
 import { ArrowRight, Mail, Terminal, ShieldCheck } from 'lucide-react';
 
 export default function SignIn() {
@@ -120,8 +120,8 @@ export default function SignIn() {
                 </div>
 
                 {status === 'error' && (
-                  <div className="bg-red-500/5 border border-red-500/10 rounded-3xl px-8 py-6 flex items-center gap-4 text-red-500 text-[10px] tracking-[0.4em] uppercase italic animate-shake">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                  <div className="bg-slate-500/5 border border-slate-500/10 rounded-3xl px-8 py-6 flex items-center gap-4 text-slate-500 text-[10px] tracking-[0.4em] uppercase italic animate-shake">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-500 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
                     {message}
                   </div>
                 )}

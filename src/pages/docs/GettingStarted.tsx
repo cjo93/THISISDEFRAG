@@ -21,7 +21,7 @@ const GettingStarted: React.FC = () => {
             <section className="mb-12">
                 <h2>Installation</h2>
                 <p className="mb-4 text-white/80">Choose your language and install the SDK:</p>
-                <div className="bg-white/5 p-4 rounded-lg font-mono text-sm border border-white/10 text-cyan-400">
+                <div className="bg-white/5 p-4 rounded-lg font-mono text-sm border border-white/10 text-slate-400">
                     npm install @defrag/sdk
                 </div>
             </section>
@@ -30,10 +30,10 @@ const GettingStarted: React.FC = () => {
                 <h2>Your First Request</h2>
                 <p className="mb-4 text-white/80">Authenticate and query the SEDA engine:</p>
                 <div className="bg-white/5 p-4 rounded-lg font-mono text-sm border border-white/10 text-white/80">
-                    <span className="text-purple-400">const</span> defrag = require(<span className="text-green-400">'@defrag/sdk'</span>);<br />
-                    <span className="text-purple-400">const</span> client = <span className="text-purple-400">new</span> defrag.Client(<span className="text-green-400">'YOUR_API_KEY'</span>);<br /><br />
+                    <span className="text-slate-400">const</span> defrag = require(<span className="text-slate-400">'@defrag/sdk'</span>);<br />
+                    <span className="text-slate-400">const</span> client = <span className="text-slate-400">new</span> defrag.Client(<span className="text-slate-400">'YOUR_API_KEY'</span>);<br /><br />
 
-                    <span className="text-purple-400">const</span> result = <span className="text-purple-400">await</span> client.seda.audit({'{\n  "journal_text": "System Check"\n}'});<br />
+                    <span className="text-slate-400">const</span> result = <span className="text-slate-400">await</span> client.seda.audit({'{\n  "journal_text": "System Check"\n}'});<br />
                     console.log(result);
                 </div>
             </section>

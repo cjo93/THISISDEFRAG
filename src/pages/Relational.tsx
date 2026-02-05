@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Loader2, ShieldAlert, Users, Lock, ChevronRight, Activity } from 'lucide-react';
 import PlanetaryView from '../components/orbit/PlanetaryView';
@@ -61,7 +61,7 @@ export default function Relational() {
                 <section className="pt-40 pb-32 px-8 relative min-h-[80vh] flex flex-col justify-center items-center text-center">
                     <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8">
-                            <span className="w-1 h-1 rounded-full bg-purple-500 animate-pulse"></span>
+                            <span className="w-1 h-1 rounded-full bg-slate-500 animate-pulse"></span>
                             <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">Module_02</span>
                         </div>
                         <h1 className="text-6xl sm:text-8xl md:text-9xl font-medium tracking-tight leading-none mb-10 text-white uppercase animate-fade-in">ORBIT</h1>
@@ -82,7 +82,7 @@ export default function Relational() {
 
     // APP VIEW (Data Present)
     return (
-        <div className="min-h-screen bg-black text-white font-mono selection:bg-orange-500/30">
+        <div className="min-h-screen bg-black text-white font-mono selection:bg-slate-500/30">
             {/* Nav Bar */}
             <div className="fixed top-0 left-0 w-full h-16 border-b border-white/10 bg-black/50 backdrop-blur-md z-50 flex items-center justify-between px-6">
                 <Link to="/dashboard" className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors">
@@ -97,7 +97,7 @@ export default function Relational() {
                     <div>
                         <h1 className="text-6xl font-light text-white tracking-tighter uppercase italic mb-4">ORBIT_Field</h1>
                         <p className="text-white/40 text-sm tracking-widest uppercase flex items-center gap-3">
-                             <span className={`w-2 h-2 rounded-full animate-pulse ${auditResult ? 'bg-red-500' : 'bg-green-500'}`} />
+                             <span className={`w-2 h-2 rounded-full animate-pulse ${auditResult ? 'bg-slate-500' : 'bg-slate-500'}`} />
                             Unit_A: {userData?.name || 'Unknown'} // Status: {auditResult ? 'AUDIT_COMPLETE' : 'ACTIVE'}
                         </p>
                     </div>
@@ -121,7 +121,7 @@ export default function Relational() {
                         <PlanetaryView date={userData?.birthDate ? `${userData.birthDate}T${userData.birthTime || '12:00'}:00` : new Date().toISOString()} />
 
                         {auditResult && (
-                            <div className="absolute inset-0 bg-red-900/10 pointer-events-none animate-pulse" />
+                            <div className="absolute inset-0 bg-slate-900/10 pointer-events-none animate-pulse" />
                         )}
 
                         <div className="absolute bottom-8 right-8 text-right pointer-events-none">
@@ -129,9 +129,9 @@ export default function Relational() {
                                 {userData?.birthDate ? `Epoch: ${userData.birthDate}` : 'Live Telemetry'}
                             </div>
                             <div className="flex gap-1 justify-end">
-                                <span className="w-1 h-1 bg-green-500 rounded-full animate-pulse"></span>
-                                <span className={`w-1 h-1 rounded-full animate-pulse delay-75 ${auditResult ? 'bg-red-500' : 'bg-green-500'}`}></span>
-                                <span className={`w-1 h-1 rounded-full animate-pulse delay-150 ${auditResult ? 'bg-red-500' : 'bg-green-500'}`}></span>
+                                <span className="w-1 h-1 bg-slate-500 rounded-full animate-pulse"></span>
+                                <span className={`w-1 h-1 rounded-full animate-pulse delay-75 ${auditResult ? 'bg-slate-500' : 'bg-slate-500'}`}></span>
+                                <span className={`w-1 h-1 rounded-full animate-pulse delay-150 ${auditResult ? 'bg-slate-500' : 'bg-slate-500'}`}></span>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@ export default function Relational() {
 
                         {/* Audit Result Card with HARD IRIDESCENCE BORDER */}
                         <div className={`p-[1px] rounded-[32px] relative overflow-hidden group transition-all duration-1000 ${auditResult
-                            ? 'bg-gradient-to-br from-cyan-500 via-purple-500 to-emerald-500 shadow-[0_0_50px_rgba(168,85,247,0.15)] animate-shimmer'
+                            ? 'bg-gradient-to-br from-slate-500 via-slate-500 to-slate-500 shadow-[0_0_50px_rgba(168,85,247,0.15)] animate-shimmer'
                             : 'bg-white/10'
                             }`}>
                             <div className="bg-black/90 backdrop-blur-2xl rounded-[31px] p-8 h-full relative overflow-hidden flex flex-col">
@@ -157,8 +157,8 @@ export default function Relational() {
                                         {/* Voltage Score */}
                                         <div>
                                             <div className="flex items-center justify-between mb-2">
-                                                <span className="text-[10px] uppercase tracking-widest text-red-500 font-bold animate-pulse">System_Voltage</span>
-                                                <ShieldAlert size={16} className="text-red-500" />
+                                                <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold animate-pulse">System_Voltage</span>
+                                                <ShieldAlert size={16} className="text-slate-500" />
                                             </div>
                                             <div className="text-6xl font-black text-white tracking-tighter mb-2" style={{ textShadow: '0 0 30px rgba(255,0,0,0.5)' }}>
                                                 {auditResult.system_voltage}%
@@ -171,11 +171,11 @@ export default function Relational() {
                                         {/* Findings Preview - Frosted Overlay Effect */}
                                         <div className="space-y-4 border-t border-white/5 pt-6 relative">
                                             <div className="flex items-center gap-3 text-sm text-white/70 blur-[2px] select-none opacity-50">
-                                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                                                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
                                                 <span>{auditResult.fusion_points.length} Zones of Fusion Detected</span>
                                             </div>
                                             <div className="flex items-center gap-3 text-sm text-white/70 blur-[2px] select-none opacity-50">
-                                                <div className="w-1.5 h-1.5 bg-red-500 rounded-full" />
+                                                <div className="w-1.5 h-1.5 bg-slate-500 rounded-full" />
                                                 <span>{auditResult.triangles.length} Active Triangles</span>
                                             </div>
 
@@ -188,7 +188,7 @@ export default function Relational() {
                                         {/* PAYWALL ACTION */}
                                         <div className="bg-gradient-to-b from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 text-center space-y-4 relative overflow-hidden group/btn">
                                             {/* Iridescent shimmer overlay for button area */}
-                                            <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-purple-500/10 pointer-events-none" />
+                                            <div className="absolute inset-0 bg-gradient-to-tr from-slate-500/10 to-slate-500/10 pointer-events-none" />
 
                                             <div className="flex justify-center mb-2">
                                                 <Lock size={24} className="text-white/50" />

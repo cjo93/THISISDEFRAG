@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Loader2, MapPin, Calendar, Clock, User, Terminal } from 'lucide-react';
-import Header from '../components/Header';
+import Header from '../components/layout/Header';
 import { useNavigate } from 'react-router-dom';
 import { getPlanetSign } from '../lib/astronomy';
 import LivingBackground from '../components/visuals/LivingBackground';
@@ -100,7 +100,7 @@ export default function Start() {
 
           {/* Badge */}
           <div className="inline-flex items-center gap-3 px-4 py-2 border border-white/10 bg-black/40 backdrop-blur-md text-white/40 text-[10px] font-mono tracking-[0.4em] uppercase mb-12 rounded-full mx-auto animate-fade-in">
-            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+            <span className="w-1.5 h-1.5 bg-slate-500 rounded-full animate-pulse" />
             System_Initialization
           </div>
 
@@ -135,14 +135,14 @@ export default function Start() {
               {step === 1 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-cyan-500 block font-bold group-focus-within:text-white transition-colors">Identity_Designator</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Identity_Designator</label>
                     <div className="relative flex items-center">
-                      <User className="absolute left-0 text-white/20 transition-colors group-focus-within:text-cyan-500" size={20} />
+                      <User className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-cyan-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-slate-500 outline-none transition-all placeholder:text-white/10 font-mono"
                         placeholder="ENTER_FULL_NAME"
                         autoFocus
                         autoComplete="off"
@@ -152,12 +152,12 @@ export default function Start() {
                   <div className="space-y-2 group">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Comms_Link</label>
                     <div className="relative flex items-center">
-                      <Terminal className="absolute left-0 text-white/20 transition-colors group-focus-within:text-cyan-500" size={20} />
+                      <Terminal className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-cyan-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-slate-500 outline-none transition-all placeholder:text-white/10 font-mono"
                         placeholder="EMAIL@DOMAIN.COM"
                         autoComplete="off"
                       />
@@ -169,28 +169,28 @@ export default function Start() {
               {step === 2 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-purple-500 block font-bold group-focus-within:text-white transition-colors">Temporal_Origin</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Temporal_Origin</label>
                     <div className="relative flex items-center">
-                      <Calendar className="absolute left-0 text-white/20 transition-colors group-focus-within:text-purple-500" size={20} />
+                      <Calendar className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
                         type="date"
                         name="birthDate"
                         value={formData.birthDate}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-purple-500 outline-none transition-all font-mono appearance-none"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-slate-500 outline-none transition-all font-mono appearance-none"
                       />
                     </div>
                   </div>
                   <div className="space-y-2 group">
                     <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Temporal_Precise (Time)</label>
                     <div className="relative flex items-center">
-                      <Clock className="absolute left-0 text-white/20 transition-colors group-focus-within:text-purple-500" size={20} />
+                      <Clock className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
                         type="time"
                         name="birthTime"
                         value={formData.birthTime}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-purple-500 outline-none transition-all font-mono appearance-none"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-slate-500 outline-none transition-all font-mono appearance-none"
                       />
                     </div>
                   </div>
@@ -200,14 +200,14 @@ export default function Start() {
               {step === 3 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-emerald-500 block font-bold group-focus-within:text-white transition-colors">Spatial_Origin</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Spatial_Origin</label>
                     <div className="relative flex items-center">
-                      <MapPin className="absolute left-0 text-white/20 transition-colors group-focus-within:text-emerald-500" size={20} />
+                      <MapPin className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
                         name="birthPlace"
                         value={formData.birthPlace}
                         onChange={handleInputChange}
-                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-emerald-500 outline-none transition-all placeholder:text-white/10 font-mono"
+                        className="w-full bg-transparent border-b border-white/10 py-4 pl-10 text-xl text-white focus:border-slate-500 outline-none transition-all placeholder:text-white/10 font-mono"
                         placeholder="CITY, COUNTRY"
                         autoFocus
                         autoComplete="off"

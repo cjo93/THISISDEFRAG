@@ -110,15 +110,15 @@ export default function Keys() {
 
             <div className="space-y-6">
                 {keys.map(key => (
-                    <div key={key.key_id} className={`p-10 rounded-[48px] border transition-all duration-700 bg-white/[0.01] hover:bg-white/[0.03] ${key.is_active ? 'border-white/5' : 'border-red-900/10 grayscale opacity-40'} flex flex-col sm:flex-row sm:items-center justify-between gap-12 group`}>
+                    <div key={key.key_id} className={`p-10 rounded-[48px] border transition-all duration-700 bg-white/[0.01] hover:bg-white/[0.03] ${key.is_active ? 'border-white/5' : 'border-slate-900/10 grayscale opacity-40'} flex flex-col sm:flex-row sm:items-center justify-between gap-12 group`}>
                         <div className="flex gap-10 items-center">
-                            <div className={`w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center ${key.is_active ? 'text-white/20 bg-white/5' : 'text-red-900/40 bg-red-900/5'}`}>
+                            <div className={`w-12 h-12 rounded-xl border border-white/5 flex items-center justify-center ${key.is_active ? 'text-white/20 bg-white/5' : 'text-slate-900/40 bg-slate-900/5'}`}>
                                 <Key size={20} strokeWidth={1} />
                             </div>
                             <div className="space-y-4">
                                 <div className="flex items-center gap-6">
                                     <div className="font-mono text-white text-xl tracking-tighter">{key.key_hint}</div>
-                                    <span className={`text-[9px] px-3 py-1 rounded-full font-mono tracking-widest uppercase italic border ${key.is_active ? 'bg-white/5 text-white/40 border-white/10' : 'bg-red-500/10 text-red-500 border-red-500/20'}`}>
+                                    <span className={`text-[9px] px-3 py-1 rounded-full font-mono tracking-widest uppercase italic border ${key.is_active ? 'bg-white/5 text-white/40 border-white/10' : 'bg-slate-500/10 text-slate-500 border-slate-500/20'}`}>
                                         {key.is_active ? 'Node_Active' : 'Decommissioned'}
                                     </span>
                                 </div>
@@ -131,7 +131,7 @@ export default function Keys() {
                             {key.is_active && (
                                 <button
                                     onClick={() => revokeKey(key.key_id)}
-                                    className="h-12 px-8 border border-white/5 text-white/10 text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 transition-all duration-700 flex items-center gap-3 uppercase shadow-xl"
+                                    className="h-12 px-8 border border-white/5 text-white/10 text-[10px] font-bold tracking-[0.4em] rounded-full hover:bg-slate-500/10 hover:text-slate-500 hover:border-slate-500/20 transition-all duration-700 flex items-center gap-3 uppercase shadow-xl"
                                 >
                                     <Trash2 size={14} />
                                     Revoke

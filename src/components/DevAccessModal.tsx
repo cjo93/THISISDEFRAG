@@ -28,8 +28,8 @@ export default function DevAccessModal({ isOpen, onClose }: DevAccessModalProps)
                 </button>
 
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
-                    <span className="text-orange-400 text-2xl font-mono">{ }</span>
+                <div className="w-14 h-14 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-center mb-6">
+                    <span className="text-slate-400 text-2xl font-mono">{ }</span>
                 </div>
 
                 {/* Content */}
@@ -47,8 +47,8 @@ export default function DevAccessModal({ isOpen, onClose }: DevAccessModalProps)
                 </div>
 
                 {/* Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-mono tracking-widest uppercase mb-6">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-mono tracking-widest uppercase mb-6">
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-500 animate-pulse" />
                     Private Testing
                 </div>
 
@@ -56,7 +56,7 @@ export default function DevAccessModal({ isOpen, onClose }: DevAccessModalProps)
                 <div className="flex gap-3">
                     <a
                         href="mailto:help@defrag.app?subject=Developer%20API%20Access%20Request"
-                        className="flex-1 h-12 flex items-center justify-center bg-orange-500 text-black font-bold text-sm tracking-widest rounded-lg hover:bg-orange-400 transition uppercase"
+                        className="flex-1 h-12 flex items-center justify-center bg-slate-500 text-black font-bold text-sm tracking-widest rounded-lg hover:bg-slate-400 transition uppercase"
                     >
                         Contact Support
                     </a>
