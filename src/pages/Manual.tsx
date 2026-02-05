@@ -10,11 +10,11 @@ import { trackEvent, AnalyticsEvents, ConversionFunnel } from '../lib/analytics'
 import { Activity, Terminal, ShieldCheck, Zap, AlertCircle, Info, ArrowRight, Radio, Cpu, Share2 } from 'lucide-react';
 
 const LOADING_PHASES = [
-  { message: 'VERIFYING_ACCESS_PROTOCOL' },
-  { message: 'SYNCHRONIZING_PLANETARY_EPHEMERIS' },
-  { message: 'MAPPING_RELATIONAL_GEOMETRY' },
-  { message: 'DECODING_BEHAVIORAL_TOPOLOGY' },
-  { message: 'FINALIZING_SYSTEM_OPERATING_MANUAL' },
+  { message: 'Analyzing connection...' },
+  { message: 'Building your manual...' },
+  { message: 'Analyzing connection...' },
+  { message: 'Building your manual...' },
+  { message: 'Analyzing connection...' },
 ];
 
 export default function Manual() {

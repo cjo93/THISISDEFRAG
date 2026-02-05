@@ -105,7 +105,7 @@ export default function Start() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-medium tracking-tight leading-none mb-12 text-white uppercase animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            Input <span className="text-white/30 italic">Coordinates.</span>
+            The Missing <span className="text-white/30 italic">Manual.</span>
           </h1>
 
           {/* Form Container */}
@@ -135,7 +135,7 @@ export default function Start() {
               {step === 1 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Identity_Designator</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Name</label>
                     <div className="relative flex items-center">
                       <User className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
@@ -150,7 +150,7 @@ export default function Start() {
                     </div>
                   </div>
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Comms_Link</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Email</label>
                     <div className="relative flex items-center">
                       <Terminal className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
@@ -169,7 +169,7 @@ export default function Start() {
               {step === 2 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Temporal_Origin</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Birth Date</label>
                     <div className="relative flex items-center">
                       <Calendar className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
@@ -182,7 +182,7 @@ export default function Start() {
                     </div>
                   </div>
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Temporal_Precise (Time)</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-white/40 block font-bold group-focus-within:text-white transition-colors">Birth Time</label>
                     <div className="relative flex items-center">
                       <Clock className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
@@ -200,7 +200,7 @@ export default function Start() {
               {step === 3 && (
                 <div className="space-y-8 animate-fade-in">
                   <div className="space-y-2 group">
-                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Spatial_Origin</label>
+                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 block font-bold group-focus-within:text-white transition-colors">Location</label>
                     <div className="relative flex items-center">
                       <MapPin className="absolute left-0 text-white/20 transition-colors group-focus-within:text-slate-500" size={20} />
                       <input
@@ -245,7 +245,7 @@ export default function Start() {
                   </>
                 ) : (
                   <>
-                    {step === 3 ? 'Execute_Init' : 'Next_Phase'}
+                    {step === 3 ? 'View Manual' : 'Next'}
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
