@@ -24,7 +24,7 @@ export default function PlatformHub() {
                     <div className="flex justify-center">
                          <Link
                             to="/defrag-manual"
-                            className="group relative inline-flex items-center justify-center px-12 py-5 border border-[#F8FAFC]/20 hover:border-[#F8FAFC] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-all duration-500"
+                            className="group relative inline-flex items-center justify-center text-white px-12 py-5 border border-[#F8FAFC]/20 hover:border-[#F8FAFC] hover:bg-[#F8FAFC] hover:text-[#0F172A] transition-all duration-500"
                         >
                             <span className="text-sm font-bold tracking-[0.2em] uppercase">Unlock Manual</span>
                             <ArrowRight className="ml-4 w-4 h-4 group-hover:translate-x-1 transition-transform" />

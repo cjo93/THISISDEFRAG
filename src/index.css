@@ -124,3 +124,9 @@ button, a {
   .safe-top { padding-top: env(safe-area-inset-top); }
   .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
 }
+
+/* GLOBAL RESET FOR LINKS (Fix for missing Preflight) */
+a {
+  color: inherit;
+  text-decoration: none;
+}
