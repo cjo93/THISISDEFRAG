@@ -32,14 +32,14 @@ const Start = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen p-8 justify-center bg-[#050505]">
+    <div className="flex flex-col min-h-screen p-8 justify-center bg-[#fafaf8]">
 
       {/* Header: Plain English, High Impact */}
       <div className="text-center mb-10">
-        <h1 className="text-4xl font-serif italic text-white mb-4 leading-tight">
+        <h1 className="text-4xl font-serif italic text-black mb-4 leading-tight">
           The Missing Manual.
         </h1>
-        <p className="text-gray-400 text-sm leading-relaxed max-w-[280px] mx-auto">
+        <p className="text-gray-600 text-sm leading-relaxed max-w-[280px] mx-auto">
           Most relationship friction comes from running on different operating systems.
           <br /><br />
           Enter your details to unlock your guide.
@@ -51,33 +51,33 @@ const Start = () => {
 
         {/* Date */}
         <div className="space-y-2">
-          <label className="block text-xs uppercase tracking-widest text-gray-500">Birth Date</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600">Birth Date</label>
           <input
             type="date"
             name="birthDate"
             value={formData.birthDate}
             onChange={handleChange}
             required
-            className="w-full bg-[#111] border border-white/10 p-4 text-white focus:border-white/40 outline-none rounded-sm transition-colors"
+            className="w-full bg-white border border-black/10 p-4 text-black focus:border-black/30 outline-none rounded-sm transition-colors"
           />
         </div>
 
         {/* Time */}
         <div className="space-y-2">
-          <label className="block text-xs uppercase tracking-widest text-gray-500">Birth Time</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600">Birth Time</label>
           <input
             type="time"
             name="birthTime"
             value={formData.birthTime}
             onChange={handleChange}
             required
-            className="w-full bg-[#111] border border-white/10 p-4 text-white focus:border-white/40 outline-none rounded-sm transition-colors"
+            className="w-full bg-white border border-black/10 p-4 text-black focus:border-black/30 outline-none rounded-sm transition-colors"
           />
         </div>
 
         {/* Location */}
         <div className="space-y-2">
-          <label className="block text-xs uppercase tracking-widest text-gray-500">Location</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600">Location</label>
           <input
             type="text"
             name="location"
@@ -85,14 +85,14 @@ const Start = () => {
             onChange={handleChange}
             required
             placeholder="e.g. London, UK"
-            className="w-full bg-[#111] border border-white/10 p-4 text-white focus:border-white/40 outline-none rounded-sm transition-colors placeholder:text-gray-700"
+            className="w-full bg-white border border-black/10 p-4 text-black focus:border-black/30 outline-none rounded-sm transition-colors placeholder:text-gray-400"
           />
         </div>
 
         {/* Action Button: 'Alive' Animation applied */}
         <button
           type="submit"
-          className="btn-alive w-full bg-white text-black py-4 font-bold tracking-widest uppercase hover:bg-gray-200 transition-colors mt-4"
+          className="btn-alive w-full bg-black text-white py-4 font-bold tracking-widest uppercase hover:bg-gray-800 transition-colors mt-4"
         >
           View Manual
         </button>
