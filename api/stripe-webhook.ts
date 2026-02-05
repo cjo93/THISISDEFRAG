@@ -1,7 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { waitUntil } from '@vercel/functions';
 import Stripe from 'stripe';
 import { db } from '../src/lib/firebase';
 import { doc, updateDoc, setDoc } from 'firebase/firestore';
+import { sendEmail } from './_utils/email';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: '2024-12-18.acacia',
@@ -25,12 +27,6 @@ async function buffer(readable: any) {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    // Only allow POST requests
-    if (req.method !== 'POST') {
-        res.setHeader('Allow', 'POST');
-        return res.status(405).end('Method Not Allowed');
-    }
-
     // Add CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST');
@@ -38,6 +34,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
+    }
+
+    // Only allow POST requests
+    if (req.method !== 'POST') {
+        res.setHeader('Allow', 'POST');
+        return res.status(405).end('Method Not Allowed');
     }
 
     try {
@@ -68,14 +70,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         // Handle the event
         switch (event.type) {
             case 'checkout.session.completed': {
-                const session = event.data.object as Stripe.Checkout.Session;
-                console.log('💰 Payment successful:', session.id);
+                const eventSession = event.data.object as Stripe.Checkout.Session;
+                console.log('💰 Payment successful:', eventSession.id);
 
                 // Extract customer info
-                const customerEmail = session.customer_email || session.customer_details?.email;
-                const sessionId = session.id;
-                const customerId = session.customer as string;
-                const paymentIntentId = session.payment_intent as string;
+                const customerEmail = eventSession.customer_email || eventSession.customer_details?.email;
+                const sessionId = eventSession.id;
+                const customerId = eventSession.customer as string;
+                const paymentIntentId = eventSession.payment_intent as string;
 
                 if (!customerEmail) {
                     console.error('❌ No customer email found in session');
@@ -84,6 +86,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
                 console.log('📧 Customer email:', customerEmail);
                 console.log('🎫 Session ID:', sessionId);
+
+                // Retrieve full session to ensure we have metadata
+                let unitA, unitB;
+                try {
+                    const session = await stripe.checkout.sessions.retrieve(sessionId);
+                    unitA = session.metadata?.unitA ? JSON.parse(session.metadata.unitA) : undefined;
+                    unitB = session.metadata?.unitB ? JSON.parse(session.metadata.unitB) : undefined;
+                } catch (err) {
+                    console.error('⚠️ Failed to retrieve full session or parse metadata:', err);
+                }
+
+                const manualUrl = `https://defrag.app/manual?session_id=${sessionId}`;
 
                 // Update user's payment status in Firestore
                 try {
@@ -102,22 +116,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
                     console.log('✅ Updated payment status for:', customerEmail);
 
-                    // Send confirmation email
-                    try {
-                        await fetch(`${process.env.VERCEL_URL || 'http://localhost:3000'}/api/send-email`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                type: 'purchase_confirmation',
-                                to: customerEmail,
-                                sessionId: sessionId,
-                            }),
-                        });
-                        console.log('📧 Confirmation email sent to:', customerEmail);
-                    } catch (emailErr) {
-                        console.error('❌ Failed to send confirmation email:', emailErr);
-                        // Don't fail the webhook if email fails
-                    }
+                    // Send confirmation email (Non-blocking)
+                    waitUntil(
+                        sendEmail({
+                            type: 'purchase_confirmation',
+                            to: customerEmail,
+                            unitA,
+                            unitB,
+                            manualUrl,
+                        })
+                        .then(() => console.log('📧 Confirmation email queued for:', customerEmail))
+                        .catch((emailErr) => console.error('❌ Failed to send confirmation email:', emailErr))
+                    );
 
                 } catch (firestoreErr) {
                     console.error('❌ Failed to update Firestore:', firestoreErr);
