@@ -1,39 +1,28 @@
 import React from 'react';
-import DocLayout from '../../components/docs/DocLayout';
-import CodeSnippet from '../../components/docs/CodeSnippet';
+import DocLayout from '../../components/layout/DocLayout';
 
-const Authentication: React.FC = () => {
-    return (
-        <DocLayout>
-            <h1>Authentication</h1>
-            <p className="text-xl text-white/60 mb-8">Secure your API requests with API Key authentication.</p>
+const DocsAuthentication: React.FC = () => {
+  return (
+    <DocLayout>
+      <h1 className="text-3xl font-bold mb-6">Authentication</h1>
+      <p className="mb-4">
+        Authenticate your requests using the <code className="bg-gray-100 px-1 rounded">Authorization</code> header.
+      </p>
 
-            <section className="mb-12">
-                <h2>Using API Keys</h2>
-                <p className="mb-4 text-white/80">Pass your API key in the <code>Authorization</code> header:</p>
-                <CodeSnippet language="bash">
-                    {`curl https://api.defrag.app/api/v1/seda/audit \\
-  -H "Authorization: Bearer sk_live_your_key_here" \\
-  -d '{"data": "value"}'`}
-                </CodeSnippet>
-            </section>
+      <div className="bg-gray-100 p-4 rounded-md font-mono text-sm mb-6">
+        Authorization: Bearer sk_live_...
+      </div>
 
-            <section className="mb-12">
-                <h2>Generating Keys</h2>
-                <ol className="list-decimal pl-6 space-y-4 text-white/80">
-                    <li>Log in to the <a href="/dashboard" className="text-slate-400">Dashboard</a>.</li>
-                    <li>Navigate to the <strong>API Keys</strong> section.</li>
-                    <li>Click <strong>Generate New Key</strong>.</li>
-                    <li>Copy the key immediately. It will hash securely and never be shown again.</li>
-                </ol>
-            </section>
-
-            <section className="mb-12 p-6 bg-slate-900/20 border border-slate-500/30 rounded-lg">
-                <h3 className="text-slate-400 font-bold mb-2">Security Warning</h3>
-                <p className="text-white/80 text-sm">Never expose your API keys in client-side code (browsers, mobile apps). Always proxy requests through your own backend server.</p>
-            </section>
-        </DocLayout>
-    );
+      <h2 className="text-xl font-bold mb-4">Rate Limiting</h2>
+      <p className="mb-4">
+        API usage is limited based on your plan tier. Headers are returned with every request indicating your current status:
+      </p>
+      <ul className="list-disc pl-6 space-y-2 font-mono text-sm text-gray-700">
+        <li>X-RateLimit-Limit: 1000</li>
+        <li>X-RateLimit-Remaining: 998</li>
+        <li>X-RateLimit-Reset: 1698712345</li>
+      </ul>
+    </DocLayout>
+  );
 };
-
-export default Authentication;
+export default DocsAuthentication;

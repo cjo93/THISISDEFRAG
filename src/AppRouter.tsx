@@ -1,123 +1,127 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthGuard } from './components/auth/AuthGuard';
 
 // Pages
+import PlatformHub from './pages/PlatformHub';
+
+// Products
 import Manuals from './pages/products/Manuals';
-import PlatformHub from './pages/PlatformHub'; // New Main Entry
-import Echo from './pages/Echo';
-import Platform from './pages/Platform';
-import Agents from './pages/Agents';
-import Start from './pages/Start';
-import Analysis from './pages/Analysis';
-import Checkout from './pages/Checkout';
-import Manual from './pages/Manual';
-import About from './pages/About';
-import HowItWorks from './pages/HowItWorks';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-import SignIn from './pages/SignIn';
-import SignInVerify from './pages/SignInVerify';
-// import Learn from './pages/Learn'; // If exists
-import Relational from './pages/Relational'; // If exists
-import Inversion from './pages/Inversion';
+import InversionReport from './pages/products/InversionReport';
 
-// Admin
-import Admin from './pages/Admin';
-import OwnerRoute from './components/OwnerRoute';
-// import ProtectedRoute from './components/ProtectedRoute'; // Using DashboardLayout's internal auth check for new dashboard
+// Relational
+import RelationalIndex from './pages/relational/Index';
 
-// Dashboard (New)
-import DashboardLayout from './pages/dashboard/Layout';
-import Overview from './pages/dashboard/Overview';
-import Keys from './pages/dashboard/Keys';
-import Usage from './pages/dashboard/Usage';
+// Signal
+import SignalIndex from './pages/signal/Index';
 
-// Documentation
+// Dashboard
+import DashboardIndex from './pages/dashboard/index';
+import DashboardKeys from './pages/dashboard/Keys';
+import DashboardUsage from './pages/dashboard/Usage';
+import DashboardBilling from './pages/dashboard/Billing';
+
+// Docs
 import DocsIndex from './pages/docs/Index';
-import DocLayout from './components/docs/DocLayout';
-import GettingStarted from './pages/docs/GettingStarted';
-import APIReference from './pages/docs/APIReference';
-import Authentication from './pages/docs/Authentication';
-import SDKs from './pages/docs/SDKs';
-import CodeExamples from './pages/docs/CodeExamples';
+import DocsGettingStarted from './pages/docs/GettingStarted';
+import DocsAPIReference from './pages/docs/APIReference';
+import DocsAuthentication from './pages/docs/Authentication';
+import DocsSDKs from './pages/docs/SDKs';
+import DocsCodeExamples from './pages/docs/CodeExamples';
+import DocsFAQs from './pages/docs/FAQs';
+import DocsTutorials from './pages/docs/Tutorials';
+import DocsSupport from './pages/docs/Support';
 
-// Developer Portal
-import DeveloperLayout from './pages/developer/Layout';
+// Developer
 import DeveloperIndex from './pages/developer/Index';
 import DeveloperGuides from './pages/developer/Guides';
 import DeveloperResources from './pages/developer/Resources';
-import DeveloperCommunity from './pages/developer/Community';
 import DeveloperRoadmap from './pages/developer/Roadmap';
+import DeveloperCommunity from './pages/developer/Community';
 
-export default function AppRouter() {
+// Company
+import CompanyAbout from './pages/company/About';
+import CompanyBlog from './pages/company/Blog';
+import CompanyCareers from './pages/company/Careers';
+import CompanyContact from './pages/company/Contact';
+import CompanyPress from './pages/company/Press';
+import CompanySecurity from './pages/company/Security';
+
+// Legal
+import LegalTerms from './pages/legal/Terms';
+import LegalPrivacy from './pages/legal/Privacy';
+import LegalClinical from './pages/legal/Clinical';
+import LegalCookiePolicy from './pages/legal/CookiePolicy';
+
+// Auth
+import SignIn from './pages/auth/SignIn';
+import SignUp from './pages/auth/SignUp';
+import Onboarding from './pages/auth/Onboarding';
+import AuthPricing from './pages/auth/Pricing';
+
+export const AppRouter: React.FC = () => {
   return (
-    <Routes>
-      {/* --- MAIN PLATFORM --- */}
-      {/* defrag.app root = Infrastructure Hub (ECHO/ORBIT/SIGNAL/API grid) */}
-      <Route path="/" element={<PlatformHub />} />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PlatformHub />} />
 
-      {/* Product-specific landings */}
-      {/* Product-specific landings */}
-      <Route path="/echo" element={<Echo />} />
-      <Route path="/api" element={<Platform />} />  {/* API-specific page (was at root, now at /api) */}
-      <Route path="/platform" element={<PlatformHub />} />  {/* Legacy support */}
-      <Route path="/agents" element={<Agents />} />
-      <Route path="/start" element={<Start />} />
-      <Route path="/analysis" element={<Analysis />} />
-      <Route path="/relational" element={<Relational />} />
-      <Route path="/inversion" element={<Inversion />} />
+        {/* Products */}
+        <Route path="/products/manuals" element={<Manuals />} />
+        <Route path="/products/inversion" element={<InversionReport />} />
 
-      {/* Product Pages */}
-      <Route path="/products/manuals" element={<Manuals />} /> {/* Original Sales Page */}
-      <Route path="/manual" element={<Navigate to="/defrag-manual" replace />} />
-      <Route path="/defrag-manual" element={<Manual />} /> {/* Legacy path support */}
+        {/* Relational */}
+        <Route path="/relational" element={<RelationalIndex />} />
 
-      {/* --- DASHBOARD --- */}
-      <Route path="/dashboard" element={<DashboardLayout />}>
-        <Route index element={<Overview />} />
-        <Route path="keys" element={<Keys />} />
-        <Route path="usage" element={<Usage />} />
-      </Route>
+        {/* Signal */}
+        <Route path="/signal" element={<SignalIndex />} />
 
-      {/* --- DEVELOPER PORTAL --- */}
-      <Route path="/developer" element={<DeveloperLayout />}>
-        <Route index element={<DeveloperIndex />} />
-        <Route path="guides" element={<DeveloperGuides />} />
-        <Route path="resources" element={<DeveloperResources />} />
-        <Route path="community" element={<DeveloperCommunity />} />
-        <Route path="roadmap" element={<DeveloperRoadmap />} />
-      </Route>
+        {/* Dashboard (Protected Routes) */}
+        <Route path="/dashboard" element={<AuthGuard><DashboardIndex /></AuthGuard>} />
+        <Route path="/dashboard/keys" element={<AuthGuard><DashboardKeys /></AuthGuard>} />
+        <Route path="/dashboard/usage" element={<AuthGuard><DashboardUsage /></AuthGuard>} />
+        <Route path="/dashboard/billing" element={<AuthGuard><DashboardBilling /></AuthGuard>} />
 
-      {/* --- DOCUMENTATION --- */}
-      <Route path="/docs" element={<DocLayout><DocsIndex /></DocLayout>} />
-      <Route path="/docs/getting-started" element={<GettingStarted />} />
-      <Route path="/docs/api-reference" element={<APIReference />} />
-      <Route path="/docs/authentication" element={<Authentication />} />
-      <Route path="/docs/sdks" element={<SDKs />} />
-      <Route path="/docs/code-examples" element={<CodeExamples />} />
+        {/* Docs */}
+        <Route path="/docs" element={<DocsIndex />} />
+        <Route path="/docs/getting-started" element={<DocsGettingStarted />} />
+        <Route path="/docs/api-reference" element={<DocsAPIReference />} />
+        <Route path="/docs/authentication" element={<DocsAuthentication />} />
+        <Route path="/docs/sdks" element={<DocsSDKs />} />
+        <Route path="/docs/code-examples" element={<DocsCodeExamples />} />
+        <Route path="/docs/faqs" element={<DocsFAQs />} />
+        <Route path="/docs/tutorials" element={<DocsTutorials />} />
+        <Route path="/docs/support" element={<DocsSupport />} />
 
-      {/* --- AUTH & UTILS --- */}
-      <Route path="/checkout" element={<Checkout />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signin/verify" element={<SignInVerify />} />
+        {/* Developer */}
+        <Route path="/developer" element={<DeveloperIndex />} />
+        <Route path="/developer/guides" element={<DeveloperGuides />} />
+        <Route path="/developer/resources" element={<DeveloperResources />} />
+        <Route path="/developer/roadmap" element={<DeveloperRoadmap />} />
+        <Route path="/developer/community" element={<DeveloperCommunity />} />
 
-      {/* --- LEGAL & INFO --- */}
-      <Route path="/about" element={<About />} />
-      <Route path="/how-it-works" element={<HowItWorks />} />
-      <Route path="/privacy" element={<Privacy />} />
-      <Route path="/terms" element={<Terms />} />
+        {/* Company */}
+        <Route path="/company/about" element={<CompanyAbout />} />
+        <Route path="/company/blog" element={<CompanyBlog />} />
+        <Route path="/company/careers" element={<CompanyCareers />} />
+        <Route path="/company/contact" element={<CompanyContact />} />
+        <Route path="/company/press" element={<CompanyPress />} />
+        <Route path="/company/security" element={<CompanySecurity />} />
 
-      {/* --- ADMIN --- */}
-      <Route
-        path="/admin"
-        element={
-          <OwnerRoute>
-            <Admin />
-          </OwnerRoute>
-        }
-      />
+        {/* Legal */}
+        <Route path="/legal/terms" element={<LegalTerms />} />
+        <Route path="/legal/privacy" element={<LegalPrivacy />} />
+        <Route path="/legal/clinical" element={<LegalClinical />} />
+        <Route path="/legal/cookie-policy" element={<LegalCookiePolicy />} />
 
-      {/* Fallback */}
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+        {/* Auth */}
+        <Route path="/auth/signin" element={<SignIn />} />
+        <Route path="/auth/signup" element={<SignUp />} />
+        <Route path="/auth/onboarding" element={<Onboarding />} />
+        <Route path="/auth/pricing" element={<AuthPricing />} />
+
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
-}
+};

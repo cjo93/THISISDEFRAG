@@ -1,52 +1,39 @@
 import React from 'react';
-import DocLayout from '../../components/docs/DocLayout';
+import DocLayout from '../../components/layout/DocLayout';
 
-const GettingStarted: React.FC = () => {
-    return (
-        <DocLayout>
-            <h1>Getting Started</h1>
-            <p className="text-xl text-white/60 mb-8">
-                This is a quick-start guide for engineers. It helps you get your first safety check running in under 5 minutes. It does this by walking you through installation, auth, and your first SEDA audit.
-            </p>
+const DocsGettingStarted: React.FC = () => {
+  return (
+    <DocLayout>
+      <h1 className="text-3xl font-bold mb-6">Getting Started</h1>
+      <p className="text-lg mb-4">
+        Welcome to the DEFRAG API. This guide will help you generate your first API key and make a request to the SEDA Engine.
+      </p>
 
-            <section className="mb-12">
-                <h2>Prerequisites</h2>
-                <ul className="list-disc pl-6 space-y-2 text-white/80">
-                    <li>Node.js 14+ or Python 3.8+</li>
-                    <li>DEFRAG account (free signup)</li>
-                    <li>API key from Dashboard</li>
-                </ul>
-            </section>
+      <h2 className="text-xl font-bold mt-8 mb-4">1. Obtain an API Key</h2>
+      <p className="mb-4">
+        Navigate to the <a href="/dashboard/keys" className="text-blue-600 underline">Dashboard</a> and generate a new key.
+        Store this key safely; it represents your identity in the system.
+      </p>
 
-            <section className="mb-12">
-                <h2>Installation</h2>
-                <p className="mb-4 text-white/80">Choose your language and install the SDK:</p>
-                <div className="bg-white/5 p-4 rounded-lg font-mono text-sm border border-white/10 text-slate-400">
-                    npm install @defrag/sdk
-                </div>
-            </section>
+      <h2 className="text-xl font-bold mt-8 mb-4">2. Make your first request</h2>
+      <div className="bg-gray-100 p-4 rounded-md font-mono text-sm overflow-x-auto">
+        <pre>{`curl -X POST https://api.defrag.app/v1/engine/analyze \\
+  -H "Authorization: Bearer sk_live_..." \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "input": {
+      "birthDate": "1990-05-15",
+      "birthTime": "14:30",
+      "location": "New York, NY"
+    }
+  }'`}</pre>
+      </div>
 
-            <section className="mb-12">
-                <h2>Your First Request</h2>
-                <p className="mb-4 text-white/80">Authenticate and query the SEDA engine:</p>
-                <div className="bg-white/5 p-4 rounded-lg font-mono text-sm border border-white/10 text-white/80">
-                    <span className="text-slate-400">const</span> defrag = require(<span className="text-slate-400">'@defrag/sdk'</span>);<br />
-                    <span className="text-slate-400">const</span> client = <span className="text-slate-400">new</span> defrag.Client(<span className="text-slate-400">'YOUR_API_KEY'</span>);<br /><br />
-
-                    <span className="text-slate-400">const</span> result = <span className="text-slate-400">await</span> client.seda.audit({'{\n  "journal_text": "System Check"\n}'});<br />
-                    console.log(result);
-                </div>
-            </section>
-
-            <section>
-                <h2>Next Steps</h2>
-                <div className="flex gap-4 mt-6">
-                    <a href="/docs/api-reference" className="px-6 py-3 bg-white text-black font-bold rounded hover:bg-white/90 transition">API Reference</a>
-                    <a href="/dashboard" className="px-6 py-3 border border-white/20 rounded hover:border-white transition">Get API Key</a>
-                </div>
-            </section>
-        </DocLayout>
-    );
+      <h2 className="text-xl font-bold mt-8 mb-4">3. Understand the Response</h2>
+      <p className="mb-4">
+        The API returns a standardized <code className="bg-gray-100 px-1 rounded">HumanOS</code> JSON object containing telemetry, SEDA scores, and orbital mechanics.
+      </p>
+    </DocLayout>
+  );
 };
-
-export default GettingStarted;
+export default DocsGettingStarted;

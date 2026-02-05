@@ -1,0 +1,18 @@
+/* Platform Theme - NASA Console */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&display=swap');
+
+.theme-platform {
+  --bg-primary: #FFFFFF;
+  --text-primary: #0F172A;
+  --accent: #000000;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.theme-platform body {
+  font-family: 'Inter', sans-serif;
+}
+
+.theme-platform code, .theme-platform pre {
+  font-family: 'JetBrains Mono', monospace;
+}
