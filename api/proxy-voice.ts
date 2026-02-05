@@ -11,6 +11,11 @@ interface RequestBody {
   text: string;
 }
 
+// Simple in-memory cache to prevent redundant expensive API calls
+// This persists across warm lambda invocations
+const CACHE_LIMIT = 50;
+const voiceCache = new Map<string, string>();
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -38,6 +43,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(400).json({ error: 'INVALID_PAYLOAD: Text required' });
     }
 
+    // Check cache
+    if (voiceCache.has(text)) {
+      // console.log('[DEFRAG] TTS Cache Hit'); // Optional debug logging
+      return res.status(200).json({ audio: voiceCache.get(text) });
+    }
+
     const ai = new GoogleGenAI({ apiKey });
 
     const response = await ai.models.generateContent({
@@ -62,6 +73,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (!base64Audio) {
       return res.status(500).json({ error: 'TTS_GENERATION_FAILED' });
     }
+
+    // Cache the result
+    if (voiceCache.size >= CACHE_LIMIT) {
+      const firstKey = voiceCache.keys().next().value;
+      if (firstKey) voiceCache.delete(firstKey);
+    }
+    voiceCache.set(text, base64Audio);
 
     return res.status(200).json({ audio: base64Audio });
 
