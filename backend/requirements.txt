@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+asyncpg
+stripe
+pydantic-settings
+pytest
+httpx
+flatlib
+psycopg2-binary
