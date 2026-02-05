@@ -25,5 +25,7 @@
     },
     "allowImportingTsExtensions": true,
     "noEmit": true
-  }
+  },
+  "include": ["src", "api"],
+  "exclude": ["v1", "node_modules"]
 }

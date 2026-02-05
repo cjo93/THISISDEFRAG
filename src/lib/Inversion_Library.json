@@ -1,0 +1,65 @@
+{
+  "inversion_dictionary": [
+    {
+      "gate": 6,
+      "shadow": "Conflict",
+      "gift": "Diplomacy",
+      "siddhi": "Peace",
+      "aliases": ["fighting", "arguing", "hostility"]
+    },
+    {
+      "gate": 21,
+      "shadow": "Control",
+      "gift": "Authority",
+      "siddhi": "Valor",
+      "aliases": ["domination", "micromanaging", "rigidity"]
+    },
+    {
+      "gate": 31,
+      "shadow": "Arrogance",
+      "gift": "Leadership",
+      "siddhi": "Humility",
+      "aliases": ["superiority", "performing", "posturing"]
+    },
+    {
+      "gate": 32,
+      "shadow": "Failure",
+      "gift": "Preservation",
+      "siddhi": "Veneration",
+      "aliases": ["collapse", "quitting", "clinging to old"]
+    },
+    {
+      "gate": 43,
+      "shadow": "Deafness",
+      "gift": "Insight",
+      "siddhi": "Epiphany",
+      "aliases": ["won't listen", "shutdown", "stonewalling"]
+    },
+    {
+      "gate": 28,
+      "shadow": "Purposelessness",
+      "gift": "Totality",
+      "siddhi": "Immortality",
+      "aliases": ["what's the point", "nihilism", "drifting"]
+    },
+    {
+      "gate": 19,
+      "shadow": "Reaction",
+      "gift": "Responsiveness",
+      "siddhi": "Sacrifice",
+      "aliases": ["overreacting", "hypersensitive", "triggered"]
+    },
+    {
+      "gate": 58,
+      "shadow": "Pressure",
+      "gift": "Drive",
+      "siddhi": "Bliss",
+      "aliases": ["pushed", "under the gun", "constant urgency"]
+    }
+  ],
+  "system_rules": {
+    "tone": "Technical / Diagnostic",
+    "method": "Bowen Family Systems / Gene Key Polarity",
+    "focus": "Structural Realignment"
+  }
+}

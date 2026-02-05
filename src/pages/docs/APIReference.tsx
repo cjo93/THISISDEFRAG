@@ -1,57 +1,56 @@
 import React from 'react';
-import DocLayout from '../../components/docs/DocLayout';
-import APIEndpoint from '../../components/docs/APIEndpoint';
+import DocLayout from '../../components/layout/DocLayout';
 
-const APIReference: React.FC = () => {
-    return (
-        <DocLayout>
-            <h1>API Reference</h1>
-            <p className="text-xl text-white/60 mb-8">Complete reference for all DEFRAG API endpoints.</p>
+const DocsAPIReference: React.FC = () => {
+  return (
+    <DocLayout>
+      <h1 className="text-3xl font-bold mb-6">API Reference</h1>
 
-            <section className="mb-12">
-                <h2 className="mb-6">Dashboard Endpoints</h2>
-                <APIEndpoint
-                    method="GET"
-                    path="/api-v2/dashboard/keys"
-                    description="Retrieve a list of all active and revoked API keys for the authenticated user."
-                    auth="Bearer Token"
-                />
-                <APIEndpoint
-                    method="POST"
-                    path="/api-v2/dashboard/keys/create"
-                    description="Generate a new API key. Returns the raw key only once."
-                    auth="Bearer Token"
-                />
-                <APIEndpoint
-                    method="POST"
-                    path="/api-v2/dashboard/keys/revoke"
-                    description="Immediately invalidate an API key. This action is irreversible."
-                    auth="Bearer Token"
-                />
-                <APIEndpoint
-                    method="GET"
-                    path="/api-v2/dashboard/stats"
-                    description="Get aggregated usage statistics for the user's account."
-                    auth="Bearer Token"
-                />
-            </section>
+      <div className="space-y-12">
+        <section>
+          <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+            <span className="bg-blue-100 text-blue-800 text-sm font-mono px-2 py-1 rounded">POST</span>
+            /v1/engine/analyze
+          </h2>
+          <p className="mb-4 text-gray-600">
+            Full spectrum analysis of a single entity. Generates SEDA scores, Orbital Geometry, and NASA telemetry vectors.
+          </p>
 
-            <section className="mb-12">
-                <h2 className="mb-6">SEDA Engine</h2>
-                <APIEndpoint
-                    method="POST"
-                    path="/api/v1/seda/audit"
-                    description="Submit journal text and birth data for Environmental Pressure analysis."
-                    auth="API Key"
-                />
-            </section>
+          <h3 className="font-bold mb-2 text-sm uppercase text-gray-500">Request Body</h3>
+          <div className="bg-gray-50 p-4 rounded border border-gray-200 font-mono text-xs mb-4">
+{`{
+  "birthDate": "YYYY-MM-DD", // Required
+  "birthTime": "HH:mm",       // Required (24h)
+  "location": "City, Country" // Required
+}`}
+          </div>
 
-            <section className="mb-12">
-                <h2>Rate Limiting</h2>
-                <p className="text-white/80">API requests are limited to 1,000 requests per hour per API key on the Pro plan.</p>
-            </section>
-        </DocLayout>
-    );
+          <h3 className="font-bold mb-2 text-sm uppercase text-gray-500">Response</h3>
+          <div className="bg-gray-50 p-4 rounded border border-gray-200 font-mono text-xs">
+{`{
+  "humanOs": {
+    "seda": {
+      "score": 85,
+      "band": "optimal"
+    },
+    "orbit": { ... },
+    "telemetry": { ... }
+  }
+}`}
+          </div>
+        </section>
+
+        <section>
+            <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+            <span className="bg-blue-100 text-blue-800 text-sm font-mono px-2 py-1 rounded">POST</span>
+            /v1/seda/audit
+          </h2>
+          <p className="mb-4 text-gray-600">
+            Standalone safety audit. checks input text for high-entropy markers and returns a safety score.
+          </p>
+        </section>
+      </div>
+    </DocLayout>
+  );
 };
-
-export default APIReference;
+export default DocsAPIReference;

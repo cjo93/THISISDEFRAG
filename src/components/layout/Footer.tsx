@@ -1,20 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
-    return (
-        <footer className="py-20 border-t border-white/5 bg-[#0F172A] text-white/40 font-sans">
-            <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-                <div className="text-[10px] tracking-[0.2em] uppercase">
-                    © 2024 DEFRAG.APP
-                </div>
-                <div className="flex gap-8 text-[10px] tracking-[0.2em] uppercase">
-                    <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                    <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
-                    <Link to="/about" className="hover:text-white transition-colors">About</Link>
-                    <Link to="/developer" className="hover:text-white transition-colors">API</Link>
-                </div>
-            </div>
-        </footer>
-    );
-}
+const Footer: React.FC = () => {
+  return (
+    <footer className="border-t border-gray-200 p-8 mt-12 bg-gray-50 text-sm text-gray-600">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <h4 className="font-bold mb-4">Platform</h4>
+          <ul className="space-y-2">
+            <li><Link to="/products/manuals">Manuals</Link></li>
+            <li><Link to="/relational">Relational</Link></li>
+            <li><Link to="/signal">Signal</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold mb-4">Developers</h4>
+          <ul className="space-y-2">
+            <li><Link to="/dashboard">Dashboard</Link></li>
+            <li><Link to="/docs">Documentation</Link></li>
+            <li><Link to="/developer">Dev Portal</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold mb-4">Company</h4>
+          <ul className="space-y-2">
+            <li><Link to="/company/about">About</Link></li>
+            <li><Link to="/company/contact">Contact</Link></li>
+            <li><Link to="/company/careers">Careers</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-bold mb-4">Legal</h4>
+          <ul className="space-y-2">
+            <li><Link to="/legal/terms">Terms</Link></li>
+            <li><Link to="/legal/privacy">Privacy</Link></li>
+            <li><Link to="/legal/clinical">Clinical Disclaimer</Link></li>
+          </ul>
+        </div>
+      </div>
+      <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+        © {new Date().getFullYear()} DEFRAG. Systems nominal.
+      </div>
+    </footer>
+  );
+};
+export default Footer;

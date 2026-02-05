@@ -1,0 +1,19 @@
+/* Consumer Theme - Digital Vellum */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Courier+Prime&display=swap');
+
+.theme-consumer {
+  --bg-primary: #0F172A;
+  --text-primary: #F8FAFC;
+  --accent: #E2E8F0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.font-vellum {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+.font-tech {
+  font-family: 'Courier Prime', monospace;
+}

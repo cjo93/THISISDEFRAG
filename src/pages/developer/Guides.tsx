@@ -1,83 +1,69 @@
-
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { BookOpen, Code, Zap, Shield, ArrowRight, ChevronRight } from 'lucide-react';
+import DocLayout from '../../components/layout/DocLayout';
 
-export default function DeveloperGuides() {
-    const guides = [
-        {
-            icon: <Zap size={20} />,
-            title: "Quick Start: Unit Deployment",
-            description: "Initialize your first behavioral node in under 5 minutes. Core API basics.",
-            time: "05m",
-            link: "/docs/getting-started"
-        },
-        {
-            icon: <Shield size={20} />,
-            title: "SEDA Safety Gating",
-            description: "Implement the clinical firewall. Graceful degradation protocols for AI agents.",
-            time: "12m",
-            link: "/docs/authentication"
-        },
-        {
-            icon: <Code size={20} />,
-            title: "Relational Geometry (ORBIT)",
-            description: "Map multi-person systems. Identify friction patterns in complex team structures.",
-            time: "18m",
-            link: "/docs/api-reference"
-        },
-        {
-            icon: <BookOpen size={20} />,
-            title: "NASA JPL Telemetry",
-            description: "Leverage topocentric precision for sub-arcsecond spec calculations.",
-            time: "10m",
-            link: "/docs/sdks"
-        }
-    ];
+const DeveloperGuides: React.FC = () => {
+  const codeSnippet = `async function handleUserMessage(userText) {
+  // 1. Audit user input first
+  const safetyCheck = await fetch('https://api.defrag.app/v1/seda/audit', {
+    method: 'POST',
+    headers: { 'Authorization': \`Bearer \${API_KEY}\` },
+    body: JSON.stringify({ text: userText })
+  }).then(r => r.json());
 
-    return (
-        <div className="space-y-24 animate-fade-in py-12">
-            <div className="space-y-6">
-                <h1 className="text-5xl font-light text-white tracking-tighter leading-tight">Integration_Walkthroughs</h1>
-                <p className="text-xl text-white/30 font-light italic max-w-2xl">Step-by-step protocols for deploying behavioral architecture across high-precision environments.</p>
-            </div>
+  // 2. Check Safety Band
+  if (safetyCheck.band === 'clinical_crisis' || safetyCheck.score < 30) {
+    return {
+      type: 'system_override',
+      content: "I'm detecting high systemic load. Let's pause interpretation and focus on stability.",
+      action: 'grounding_protocol' // Trigger UI Grounding Panel
+    };
+  }
 
-            <div className="grid gap-4">
-                {guides.map((guide, index) => (
-                    <Link
-                        key={index}
-                        to={guide.link}
-                        className="group p-10 bg-white/[0.01] border border-white/5 rounded-[48px] hover:bg-white/[0.03] hover:border-white/10 transition-all duration-700 flex flex-col sm:flex-row sm:items-center gap-10"
-                    >
-                        <div className="w-16 h-16 bg-white/5 text-white/40 rounded-3xl flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-black transition-all duration-700">
-                            {guide.icon}
-                        </div>
-                        <div className="flex-1">
-                            <div className="flex items-center gap-4 mb-3">
-                                <span className="text-[10px] font-mono tracking-[0.4em] text-white/20 uppercase">Protocol_{guide.time}</span>
-                                <div className="h-px w-6 bg-white/5" />
-                            </div>
-                            <h3 className="text-2xl font-light text-white group-hover:text-white/60 transition-colors tracking-tight">
-                                {guide.title}
-                            </h3>
-                            <p className="text-white/20 text-sm font-light mt-3 max-w-md italic">{guide.description}</p>
-                        </div>
-                        <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:text-white group-hover:border-white/20 transition-all">
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </div>
-                    </Link>
-                ))}
-            </div>
+  // 3. If safe, proceed to LLM
+  const response = await callLLM({
+    systemPrompt: "You are a Defrag Agent. Use mechanical, non-mystical language.",
+    userPrompt: userText
+  });
 
-            <div className="p-12 rounded-[48px] bg-zinc-950 border border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-12 group transition-all hover:border-white/10">
-                <div className="space-y-3">
-                    <h3 className="text-2xl font-light text-white tracking-tight">Enterprise Architecture</h3>
-                    <p className="text-white/30 text-base font-light italic">Dedicated coordination for large-scale systemic deployments.</p>
-                </div>
-                <a href="mailto:info@defrag.app" className="h-16 px-12 bg-white text-black text-[10px] font-bold tracking-[0.3em] rounded-full hover:bg-slate-200 transition-all flex items-center justify-center uppercase shadow-xl">
-                    Request Manual Setup
-                </a>
-            </div>
+  return { type: 'chat', content: response };
+}`;
+
+  return (
+    <DocLayout>
+      <h1 className="text-3xl font-bold mb-6">Guides</h1>
+
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-4">Building Safe AI Agents</h2>
+        <p className="mb-4">
+          When integrating Large Language Models (LLMs) with Defrag, you must follow the <strong>SEDA First</strong> protocol.
+        </p>
+
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+          <p className="font-bold text-yellow-800">Safety Rule #1</p>
+          <p className="text-sm text-yellow-800">
+            Never allow an LLM to interpret a user's state without checking their SEDA Band first.
+            If the band is <code className="font-mono">clinical_crisis</code>, the agent must switch to Grounding Mode immediately.
+          </p>
         </div>
-    );
-}
+
+        <h3 className="font-bold mb-2">Integration Pattern</h3>
+        <ol className="list-decimal pl-6 space-y-4 text-gray-700 mb-8">
+            <li><strong>Receive Input:</strong> User sends text/query to your agent.</li>
+            <li><strong>Audit:</strong> Send input to <code className="bg-gray-100 px-1 font-mono">/v1/seda/audit</code>.</li>
+            <li><strong>Check Band:</strong>
+                <ul className="list-disc pl-6 mt-2 text-sm">
+                    <li>If <code className="font-mono">optimal / strain</code>: Proceed with standard agent logic.</li>
+                    <li>If <code className="font-mono">friction / crisis</code>: Override prompt with Grounding Protocol.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3 className="font-bold mb-4">Example: Safe Chatbot Wrapper (Node.js)</h3>
+        <div className="bg-gray-900 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+          <pre>{codeSnippet}</pre>
+        </div>
+      </section>
+    </DocLayout>
+  );
+};
+export default DeveloperGuides;

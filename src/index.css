@@ -1,71 +1,73 @@
+@import './consumer-theme.css';
+@import './platform-theme.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Fluid Typography: Scales smoothly between mobile (14px) and desktop (18px) */
-  --font-body: clamp(14px, 1.2vw, 18px);
-  --font-header: clamp(24px, 3vw, 36px);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-  /* The Container: Locks the app width to look like a dedicated device */
-  --app-max-width: 500px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
 body {
-  background-color: #050505; /* Deep Void */
-  color: #e5e5e5;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: var(--font-body);
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
   margin: 0;
-  overflow-x: hidden;
-}
-
-#root {
-  width: 100%;
-  max-width: var(--app-max-width);
+  min-width: 320px;
   min-height: 100vh;
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: #0a0a0a;
-  position: relative;
 }
 
-/* --- ANIMATIONS --- */
-
-/* 1. Blinking Cursor (The 'Alive' Text) */
-.cursor-blink::after {
-  content: '▋';
-  margin-left: 4px;
-  animation: blink 1.2s step-end infinite;
-  color: #10b981; /* Emerald Green */
-  opacity: 0.8;
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* 2. Scanline Pulse (For Buttons) */
-.btn-alive {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-alive::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-  animation: scan 3s infinite;
-}
-
-@keyframes scan {
-  0% { left: -100%; }
-  20% { left: 100%; }
-  100% { left: 100%; }
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
 }
